@@ -1,5 +1,19 @@
 <template>
   <div id="home">
+    <a-card>
+      <a-statistic
+        title="Feedback"
+        :value="14.38"
+        :precision="2"
+        suffix="%"
+        :value-style="{ color: '#3f8600' }"
+        style="margin-right: 50px"
+      >
+        <template v-slot:prefix>
+          <Arrow-up-outlined />
+        </template>
+      </a-statistic>
+    </a-card>
     <div style="padding: 10px">
       <a-row :gutter="[15, 15]">
         <a-col :span="6">

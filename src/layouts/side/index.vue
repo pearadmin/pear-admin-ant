@@ -10,13 +10,13 @@
       <a-menu-item key="1">
         <router-link to="/home" @click="clickMenuItem('1', '首页', '/home')">
           <PieChartOutlined />
-          <span>首页</span>
+          <span>工作空间</span>
         </router-link>
       </a-menu-item>
       <a-menu-item key="3">
         <router-link to="/table" @click="clickMenuItem('3', '表格', '/table')">
           <DesktopOutlined />
-          <span>表格</span>
+          <span>基础表格</span>
         </router-link>
       </a-menu-item>
       <a-sub-menu key="4">

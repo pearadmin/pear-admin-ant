@@ -8,17 +8,13 @@
         class="trigger"
         @click="trigger()"
       />
-      <menu-fold-outlined
-        v-else
-        class="trigger"
-        @click="trigger()"
-      />
-      <ReloadOutlined class="refresh" />
+      <menu-fold-outlined v-else class="trigger" @click="trigger()" />
+      <ReloadOutlined class="refresh"  @click="refresh()"/>
     </div>
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
       <ExpandOutlined class="expand" />
-      <SettingOutlined class="setting"  @click="setting()"/>
+      <SettingOutlined class="setting" @click="setting()" />
     </div>
   </div>
 </template>
@@ -30,7 +26,7 @@ import {
   MenuUnfoldOutlined,
   SettingOutlined,
   ExpandOutlined,
-  ReloadOutlined
+  ReloadOutlined,
 } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -38,18 +34,21 @@ export default {
     MenuUnfoldOutlined,
     SettingOutlined,
     ExpandOutlined,
-    ReloadOutlined
+    ReloadOutlined,
   },
-  methods:{
-    trigger:function(){
+  methods: {
+    trigger: function () {
       // 更改当前状态
       store.commit("updateCollasped");
     },
-    setting:function(){
+    setting: function () {
       // 抽屉是否显示
       store.commit("updateVisible");
-    }
-  }
+    },
+    refresh: function () {
+      this.$router.go(0);
+    },
+  },
 };
 </script>
 <style scoped>
@@ -60,7 +59,7 @@ export default {
 #header .refresh,
 #header .trigger,
 #header .setting {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 64px;
   padding: 0 15px;
   cursor: pointer;

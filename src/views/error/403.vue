@@ -1,6 +1,6 @@
 <template>
   <div id="403">
-    <a-card :bordered="false" style="margin: 15px">
+    <a-card :bordered="false" style="margin: 10px">
       <a-result
         status="403"
         title="403"

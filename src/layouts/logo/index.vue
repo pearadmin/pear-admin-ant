@@ -1,6 +1,8 @@
 <template>
   <div class="logo">
-    <span v-if="!collapsed"><img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/></span>
+    <span v-if="!collapsed">
+      <img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/>
+    </span>
     <span v-else><img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/></span>
   </div>
 </template>
@@ -21,10 +23,9 @@ export default {
 .logo {
   height: 65px;
   font-size: 22px;
-  color: #1890ff;
   padding: 10px;
-  font-weight: 700;
   text-align: center;
+  color:white;
   border-bottom: 1px solid #101117;
   background: #191a23;
 }

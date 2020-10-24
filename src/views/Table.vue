@@ -1,6 +1,20 @@
 <template>
 <div>
-<div style="padding:10px;">
+  <a-card>
+      <a-statistic
+        title="Feedback"
+        :value="14.38"
+        :precision="2"
+        suffix="%"
+        :value-style="{ color: '#3f8600' }"
+        style="margin-right: 50px"
+      >
+        <template v-slot:prefix>
+          <Arrow-up-outlined />
+        </template>
+      </a-statistic>
+    </a-card>
+<div style="padding:15px;">
     <a-table :columns="columns" :data-source="data">
       <template v-slot:name="{ text }">
         <a>{{ text }}</a>
