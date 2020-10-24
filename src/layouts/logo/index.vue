@@ -1,18 +1,14 @@
 <template>
   <div class="logo">
-    <span v-if="!collapsed">Pear Admin</span>
-    <i v-else><PieChartOutlined></PieChartOutlined></i>
+    <span v-if="!collapsed"><img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/></span>
+    <span v-else><img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/></span>
   </div>
 </template>
 <script>
 import { computed } from "vue";
 import store from "@/store";
 // 图 标 引 入
-import { PieChartOutlined } from "@ant-design/icons-vue";
 export default {
-  components: {
-    PieChartOutlined,
-  },
   setup() {
     const collapsed = computed(() => store.state.collapsed);
     return {
@@ -23,11 +19,17 @@ export default {
 </script>
 <style scoped>
 .logo {
-  height: 36px;
+  height: 65px;
   font-size: 22px;
   color: #1890ff;
-  margin: 16px;
+  padding: 10px;
   font-weight: 700;
   text-align: center;
+  border-bottom: 1px solid #101117;
+  background: #191a23;
+}
+.logo  img{
+  height: 50px;
+  width: 50px;
 }
 </style>

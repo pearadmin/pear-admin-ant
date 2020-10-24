@@ -12,7 +12,8 @@
         :key="pane.key"
         :tab="pane.title"
         :closable="pane.closable"
-      ></a-tab-pane>
+      >
+      </a-tab-pane>
     </a-tabs>
   </div>
 </template>
@@ -71,12 +72,29 @@ export default {
 };
 </script>
 <style>
-#tab {
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
 #tab .ant-tabs-bar {
   margin: 0px !important;
+  border: none;
+  margin-top: 6px!important;
+  margin-bottom: 6px!important;
+}
+#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+  border-radius: 0px;
+  border: none;
+  margin-right: 3px;
+  margin-left: 3px;
+  height: 34px!important;
+  line-height: 34px!important;
+  border-radius: 2px;
+  background-color: white!important;
+}
+#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:first-child {
+  margin-left: 6px;
+}
+#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:last-child {
+  margin-right: 6px;
+}
+#tab .ant-tabs-nav-container{
+  height: 34px;
 }
 </style>

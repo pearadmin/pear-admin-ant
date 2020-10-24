@@ -71,14 +71,17 @@ body,
 html {
   height: 100%;
 }
-
 #basic-layout {
   height: 100%;
 }
-
 #basic-layout .ant-layout-header {
   padding-left: 10px !important;
   padding-right: 10px !important;
   background-color: white;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
+
+#basic-layout .ant-layout-sider{
+  box-shadow: 2px 0 6px rgba(0,21,41,.35);
 }
 </style>

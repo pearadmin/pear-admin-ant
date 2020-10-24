@@ -1,6 +1,6 @@
 <template>
 <div>
-<div style="padding:20px;">
+<div style="padding:10px;">
     <a-table :columns="columns" :data-source="data">
       <template v-slot:name="{ text }">
         <a>{{ text }}</a>

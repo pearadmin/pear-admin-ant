@@ -86,3 +86,26 @@ export default {
   },
 };
 </script>
+<style>
+.ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
+  height: 48px;
+  line-height: 48px;
+}
+.ant-menu-vertical > .ant-menu-item, .ant-menu-vertical-left > .ant-menu-item, .ant-menu-vertical-right > .ant-menu-item, .ant-menu-inline > .ant-menu-item, .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
+   height: 48px!important;
+   line-height: 48px!important;
+}
+.ant-layout-sider{
+  background:#191a23!important;
+}
+.ant-menu-dark, .ant-menu-dark{
+  background:#191a23!important;
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub{
+  background-color:#101117!important;
+}
+.ant-menu-vertical .ant-menu-item, .ant-menu-vertical-left .ant-menu-item, .ant-menu-vertical-right .ant-menu-item, .ant-menu-inline .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title, .ant-menu-vertical-left .ant-menu-submenu-title, .ant-menu-vertical-right .ant-menu-submenu-title, .ant-menu-inline .ant-menu-submenu-title{
+  margin-top: 4px!important;
+  margin-bottom: 4px!important;
+}
+</style>

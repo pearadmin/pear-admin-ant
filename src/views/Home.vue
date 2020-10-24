@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <div style="padding: 20px">
+    <div style="padding: 10px">
       <a-row :gutter="[15, 15]">
         <a-col :span="6">
           <a-card title="今日访问">
@@ -35,7 +35,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-         <a-card title="今日下载">
+          <a-card title="今日下载">
             <a-statistic
               title="Feedback"
               :value="15.38"
@@ -51,7 +51,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-           <a-card title="本周下载">
+          <a-card title="本周下载">
             <a-statistic
               title="Idle"
               :value="15.2"
@@ -67,76 +67,15 @@
           </a-card>
         </a-col>
         <a-col :span="18">
-          <a-card title="Card Title">
-            <a-card-grid style="width: 25%; text-align: center">
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
-            <a-card-grid
-              style="width: 25%; text-align: center"
-              :hoverable="false"
-            >
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
-            <a-card-grid style="width: 25%; text-align: center">
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
-            <a-card-grid style="width: 25%; text-align: center">
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
-            <a-card-grid style="width: 25%; text-align: center">
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
-            <a-card-grid style="width: 25%; text-align: center">
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
-            <a-card-grid style="width: 25%; text-align: center">
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
-            <a-card-grid style="width: 25%; text-align: center">
-              Content
-              <br />
-              <br />
-              Content
-            </a-card-grid>
+          <a-card>
+            <a-tabs default-active-key="1">
+              <a-tab-pane key="1" tab="Tab 1"> Tab 1 </a-tab-pane>
+              <a-tab-pane key="3" tab="Tab 3"> Tab 3 </a-tab-pane>
+            </a-tabs>
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card title="Card title" :bordered="false">
-            Content
-            <br />
-            <br />
-            Content
-            <br />
-            <br />
-            Content
-            <br />
-            <br />
-            Content
-            <br />
-            <br />
-            Content
-          </a-card>
+          <a-card> </a-card>
         </a-col>
       </a-row>
     </div>

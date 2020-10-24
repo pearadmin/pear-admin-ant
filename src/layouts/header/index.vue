@@ -13,6 +13,7 @@
         class="trigger"
         @click="trigger()"
       />
+      <ReloadOutlined class="refresh" />
     </div>
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
@@ -28,14 +29,16 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   SettingOutlined,
-  ExpandOutlined
+  ExpandOutlined,
+  ReloadOutlined
 } from "@ant-design/icons-vue";
 export default {
   components: {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     SettingOutlined,
-    ExpandOutlined
+    ExpandOutlined,
+    ReloadOutlined
   },
   methods:{
     trigger:function(){
@@ -54,16 +57,18 @@ export default {
   background-color: white;
 }
 #header .expand,
+#header .refresh,
 #header .trigger,
 #header .setting {
   font-size: 18px;
   line-height: 64px;
-  padding: 0 24px;
+  padding: 0 15px;
   cursor: pointer;
   transition: color 0.3s;
 }
 #header .expand:hover,
 #header .setting:hover,
+#header .refresh:hover,
 #header .trigger:hover {
   color: #1890ff;
 }

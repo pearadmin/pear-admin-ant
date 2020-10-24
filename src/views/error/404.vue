@@ -1,6 +1,6 @@
 <template>
 <di id="404">
-  <a-card :bordered="false" style="margin: 10px">
+  <a-card :bordered="false" style="margin:15px">
     <a-result status="404" title="404" sub-title="Sorry, the page you visited does not exist.">
     <template #extra>
       <a-button type="primary">

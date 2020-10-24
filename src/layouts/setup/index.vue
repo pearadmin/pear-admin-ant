@@ -4,7 +4,7 @@
     placement="right"
     :closable="false"
     v-model:visible="visible"
-    width="350"
+    width="320"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
   >
