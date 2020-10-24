@@ -8,7 +8,7 @@ export default createStore({
         side: true,
         tab: true,
         panes: [
-            { title: "首页", key: "1", path:"/home", closable: false }
+            { title: "首页", key: "1", path: "/home", closable: false }
         ],
         activeKey: "1",
         selectKey: ["1"]
@@ -31,7 +31,7 @@ export default createStore({
             state.tab = !state.tab;
         },
         // 修改菜单模式
-        updateSide(state){
+        updateSide(state) {
             state.side = !state.side;
         },
         // 新增选项卡操作
@@ -71,7 +71,7 @@ export default createStore({
 
             // 如果存在长度,并且删除的是当前选中的数组
             if (panes.length && activeKey === targetKey) {
-               
+
                 if (lastIndex >= 0) {
                     activeKey = panes[lastIndex].key;
                 } else {
@@ -83,10 +83,16 @@ export default createStore({
             state.activeKey = activeKey;
             state.selectKey[0] = activeKey;
         },
-        selectTab(state, key) {
-            state.activeKey = key;
+        closeAllTab(state) {
         },
-        selectKey(state,key){
+        closeOtherTab(state) {
+        },
+        closeCurrentTab(state) {   
+        },
+        selectTab(state, key) {
+            state.activeKey = key; this.$message.info("This is a normal message");
+        },
+        selectKey(state, key) {
             state.selectKey[0] = key;
         }
     }

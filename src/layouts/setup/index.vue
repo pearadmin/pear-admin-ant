@@ -1,6 +1,6 @@
 <template>
   <a-drawer
-    title="Setup"
+    title="设置"
     placement="right"
     :closable="false"
     v-model:visible="visible"
@@ -8,13 +8,13 @@
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
   >
-    <a-switch v-model:checked="logo" @change="onChangeLogo" />  ----  图标
-    <br/>
-    <br/>
-    <a-switch v-model:checked="tab" @change="onChangeTab" />  ----  内容
-    <br/>
-    <br/>
-    <a-switch v-model:checked="side" @change="onChangeSide" />  ----  菜单
+    <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
+    <br />
+    <br />
+    <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 内容
+    <br />
+    <br />
+    <a-switch v-model:checked="side" @change="onChangeSide" /> ---- 菜单
   </a-drawer>
 </template>
 <script>
@@ -25,7 +25,7 @@ export default {
     const visible = computed(() => store.state.visible);
     const logo = computed(() => store.state.logo);
     const side = computed(() => store.state.side);
-    const tab = computed(()=> store.state.tab);
+    const tab = computed(() => store.state.tab);
 
     function onChangeVisible() {
       store.commit("updateVisible");
@@ -48,7 +48,7 @@ export default {
       onChangeSide,
       logo,
       side,
-      tab
+      tab,
     };
   },
 };

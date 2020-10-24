@@ -27,6 +27,12 @@ const routes = [
     },{
       path: '/error/500',
       component: () => import('@/views/error/500.vue'),
+    },{
+      path: '/result/success',
+      component: () => import('@/views/result/success.vue'),
+    },{
+      path: '/result/failure',
+      component: () => import('@/views/result/failure.vue'),
     }]
   }
 ]

@@ -6,6 +6,7 @@
       type="editable-card"
       @edit="onEdit"
       @change="callback"
+      class="tab"
     >
       <a-tab-pane
         v-for="pane in panes"
@@ -15,12 +16,38 @@
       >
       </a-tab-pane>
     </a-tabs>
+    <a-dropdown class="tab-tool">
+      <a-dropdown :placement="placement">
+        <a-button>
+          <template v-slot:icon>
+            <DownOutlined />
+          </template>
+        </a-button>
+        <template v-slot:overlay>
+          <a-menu>
+            <a-menu-item>
+              <a @click="closeAll()">关 闭 所 有</a>
+            </a-menu-item>
+            <a-menu-item>
+              <a @click="closeOther()">关 闭 其 他</a>
+            </a-menu-item>
+            <a-menu-item>
+              <a @click="closeCurrent()">关 闭 当 前</a>
+            </a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
+    </a-dropdown>
   </div>
 </template>
 <script>
 import { computed } from "vue";
 import store from "@/store";
+import { DownOutlined } from "@ant-design/icons-vue";
 export default {
+  components: {
+    DownOutlined,
+  },
   methods: {
     // 选项卡切换回调
     callback(key) {
@@ -41,6 +68,15 @@ export default {
     onEdit(targetKey, action) {
       this[action](targetKey);
     },
+    closeAll() {
+      this.$message.info("关闭全部");
+    },
+    closeOther() {
+      this.$message.info("关闭其他");
+    },
+    closeCurrent() {
+      this.$message.info("关闭当前");
+    },
     // 选项卡删除回调
     remove(targetKey) {
       // 删除选项卡, 并选中尾部的选项卡
@@ -54,7 +90,6 @@ export default {
           router = pane.path;
         }
       });
-
       // 推送当前选项卡的路径到路由
       this.$router.push(router);
     },
@@ -72,21 +107,31 @@ export default {
 };
 </script>
 <style>
+#tab .tab {
+  width: calc(100% - 40px);
+  display: inline-block;
+}
+#tab .tab-tool {
+  float: right;
+  top: 6px;
+  right: 6px;
+  border: none;
+}
 #tab .ant-tabs-bar {
   margin: 0px !important;
   border: none;
-  margin-top: 6px!important;
-  margin-bottom: 6px!important;
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
 }
 #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
   border-radius: 0px;
   border: none;
   margin-right: 3px;
   margin-left: 3px;
-  height: 34px!important;
-  line-height: 34px!important;
+  height: 34px !important;
+  line-height: 34px !important;
   border-radius: 2px;
-  background-color: white!important;
+  background-color: white !important;
 }
 #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:first-child {
   margin-left: 6px;
@@ -94,7 +139,7 @@ export default {
 #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:last-child {
   margin-right: 6px;
 }
-#tab .ant-tabs-nav-container{
+#tab .ant-tabs-nav-container {
   height: 34px;
 }
 </style>

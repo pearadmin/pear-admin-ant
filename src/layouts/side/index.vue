@@ -19,6 +19,27 @@
           <span>基础表格</span>
         </router-link>
       </a-menu-item>
+      <a-sub-menu key="3">
+        <template v-slot:title>
+          <span><MailOutlined /><span>结果页面</span></span>
+        </template>
+        <a-menu-item key="31">
+          <router-link
+            to='/result/success'
+            @click="clickMenuItem('31', '成功', '/result/success')"
+          >
+            成功
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="32">
+          <router-link
+            to='/result/failure'
+            @click="clickMenuItem('32', '失败', '/result/failure')"
+          >
+            失败
+          </router-link></a-menu-item
+        >
+      </a-sub-menu>
       <a-sub-menu key="4">
         <template v-slot:title>
           <span><MailOutlined /><span>错误页面</span></span>
