@@ -1,6 +1,3 @@
-基于 Vue3 与 Ant Design 2 的后台基础开发框架
-
-项目示例
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214245_00adb66f_4835367.png "ant1.png")
 
