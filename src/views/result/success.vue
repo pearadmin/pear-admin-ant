@@ -1,11 +1,14 @@
 <template>
   <div>
-    <a-card :bordered="false" style="margin: 10px">
+    <a-card
+      :bordered="false"
+      style="margin-bottom: 10px; margin-right: 10px; margin-left: 10px"
+    >
       <a-result
         status="success"
         title="Successfully Purchased Cloud Server ECS!"
         sub-title="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
-      ><div class="desc">
+        ><div class="desc">
           <p style="font-size: 16px">
             <strong>The content you submitted has the following error:</strong>
           </p>

@@ -12,7 +12,8 @@ export default createStore({
         ],
         activeKey: "1",
         selectKey: ["1"],
-        openKey: ['1']
+        openKey: ['1'],
+        muiltOpen: true
     },
     mutations: {
         // 修改当前的左侧菜单缩进状态
@@ -36,7 +37,12 @@ export default createStore({
             state.side = !state.side;
         },
         updateOpenKey(state,openKey){
-            state.openKey = openKey;
+
+            if(!state.muiltOpen){
+                state.openKey = openKey;
+            }else{
+                state.openKey = openKey;
+            }
         }
         ,
         // 新增选项卡操作

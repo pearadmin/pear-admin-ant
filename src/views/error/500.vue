@@ -1,6 +1,6 @@
 <template>
   <div id="500">
-    <a-card :bordered="false" style="margin: 10px">
+    <a-card :bordered="false" style="margin-bottom: 10px;margin-right:10px;margin-left:10px;">
       <a-result
         status="500"
         title="500"
