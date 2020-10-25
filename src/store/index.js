@@ -13,7 +13,7 @@ export default createStore({
         activeKey: "1",
         selectKey: ["1"],
         openKey: ['1'],
-        muiltOpen: true
+        muiltOpen: false
     },
     mutations: {
         // 修改当前的左侧菜单缩进状态
@@ -37,14 +37,12 @@ export default createStore({
             state.side = !state.side;
         },
         updateOpenKey(state,openKey){
-
             if(!state.muiltOpen){
-                state.openKey = openKey;
+                state.openKey[0] = openKey[1];
             }else{
                 state.openKey = openKey;
             }
-        }
-        ,
+        },
         // 新增选项卡操作
         addTab(state, value) {
             // 新增标识, 用于判断当前的选项卡是否已经添加
@@ -104,7 +102,7 @@ export default createStore({
             state.panes;
         },
         selectTab(state, key) {
-            state.activeKey = key; this.$message.info("This is a normal message");
+            state.activeKey = key;
         },
         selectKey(state, key) {
             state.selectKey[0] = key;
