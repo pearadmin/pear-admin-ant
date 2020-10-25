@@ -2,10 +2,10 @@
   <div class="logo">
     <!-- 侧边展开时的LOGO -->
     <span v-if="!collapsed">
-      <img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/>
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
     </span>
     <!-- 侧边隐藏时的LOGO -->
-    <span v-else><img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/></span>
+    <span v-else><img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/></span>
   </div>
 </template>
 <script>
@@ -32,7 +32,7 @@ export default {
   background: #191a23;
 }
 .logo  img{
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 </style>

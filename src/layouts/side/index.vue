@@ -40,6 +40,13 @@
           >
             商品列表
           </router-link></a-menu-item
+        ><a-menu-item key="24">
+          <router-link
+            to="/list/newsList"
+            @click="clickMenuItem('24', '图文列表', '/list/newsList')"
+          >
+            图文列表
+          </router-link></a-menu-item
         >
       </a-sub-menu>
       <a-sub-menu key="3">
