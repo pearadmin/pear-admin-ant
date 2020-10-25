@@ -45,6 +45,9 @@ const routes = [
     },{
       path: '/list/newsList',
       component: () => import('@/views/list/newsList.vue'),
+    },{
+      path: '/list/tableList',
+      component: () => import('@/views/list/tableList.vue'),
     }]
   }
 ]

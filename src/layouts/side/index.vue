@@ -47,6 +47,13 @@
           >
             图文列表
           </router-link></a-menu-item
+        ><a-menu-item key="25">
+          <router-link
+            to="/list/tableList"
+            @click="clickMenuItem('25', '查询表格', '/list/tableList')"
+          >
+            查询表格
+          </router-link></a-menu-item
         >
       </a-sub-menu>
       <a-sub-menu key="3">
