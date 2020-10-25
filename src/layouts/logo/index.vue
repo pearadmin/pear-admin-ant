@@ -1,8 +1,10 @@
 <template>
   <div class="logo">
+    <!-- 侧边展开时的LOGO -->
     <span v-if="!collapsed">
       <img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/>
     </span>
+    <!-- 侧边隐藏时的LOGO -->
     <span v-else><img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/></span>
   </div>
 </template>

@@ -16,27 +16,25 @@
       >
       </a-tab-pane>
     </a-tabs>
-    <a-dropdown class="tab-tool">
-      <a-dropdown :placement="placement">
-        <a-button>
-          <template v-slot:icon>
-            <DownOutlined />
-          </template>
-        </a-button>
-        <template v-slot:overlay>
-          <a-menu>
-            <a-menu-item>
-              <a @click="closeAll()">关 闭 所 有</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a @click="closeOther()">关 闭 其 他</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a @click="closeCurrent()">关 闭 当 前</a>
-            </a-menu-item>
-          </a-menu>
+    <a-dropdown class="tab-tool" :placement="placement">
+      <a-button>
+        <template v-slot:icon>
+          <DownOutlined />
         </template>
-      </a-dropdown>
+      </a-button>
+      <template v-slot:overlay>
+        <a-menu>
+          <a-menu-item>
+            <a @click="closeAll()">关 闭 所 有</a>
+          </a-menu-item>
+          <a-menu-item>
+            <a @click="closeOther()">关 闭 其 他</a>
+          </a-menu-item>
+          <a-menu-item>
+            <a @click="closeCurrent()">关 闭 当 前</a>
+          </a-menu-item>
+        </a-menu>
+      </template>
     </a-dropdown>
   </div>
 </template>

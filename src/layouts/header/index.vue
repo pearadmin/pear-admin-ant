@@ -9,7 +9,7 @@
         @click="trigger()"
       />
       <menu-fold-outlined v-else class="trigger" @click="trigger()" />
-      <ReloadOutlined class="refresh"  @click="refresh()"/>
+      <ReloadOutlined class="refresh" @click="refresh()" />
     </div>
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">

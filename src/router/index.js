@@ -33,6 +33,15 @@ const routes = [
     },{
       path: '/result/failure',
       component: () => import('@/views/result/failure.vue'),
+    },{
+      path: '/list/baseList',
+      component: () => import('@/views/list/baseList.vue'),
+    },{
+      path: '/list/cardList',
+      component: () => import('@/views/list/cardList.vue'),
+    },{
+      path: '/list/goodList',
+      component: () => import('@/views/list/goodList.vue'),
     }]
   }
 ]
