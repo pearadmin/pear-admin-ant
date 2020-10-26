@@ -16,9 +16,6 @@ const routes = [
       meta: {name:"主页",icon:"图标"},
       component: () => import('@/views/Home.vue'),
     },{
-      path: '/table',
-      component: () => import('@/views/Table.vue'),
-    },{
       path: '/error/403',
       component: () => import('@/views/error/403.vue'),
     },{
