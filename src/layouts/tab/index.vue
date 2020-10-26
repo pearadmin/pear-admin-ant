@@ -39,9 +39,9 @@
   </div>
 </template>
 <script>
-import { computed, ref } from "vue"
-import { useStore } from "vuex"
-import { DownOutlined } from "@ant-design/icons-vue"
+import { computed, ref } from "vue";
+import { useStore } from "vuex";
+import { DownOutlined } from "@ant-design/icons-vue";
 export default {
   components: {
     DownOutlined,
@@ -58,8 +58,8 @@ export default {
       // 选项卡切换,推送 Path 到当前的路由页面
       this.$router.push(router);
       // 更改当前选中的选项卡 与 菜单项
-			this.selectTab(key);
-			this.selectKey(key);
+      this.selectTab(key);
+      this.selectKey(key);
     },
     // 选项卡新增 删除时所触发的事件
     onEdit(targetKey, action) {
@@ -77,7 +77,7 @@ export default {
     // 选项卡删除回调
     remove(targetKey) {
       // 删除选项卡, 并选中尾部的选项卡
-			this.removeTab(targetKey);
+      this.removeTab(targetKey);
       // 获取当前选中选项卡
       var router = "";
       this.panes.forEach((pane) => {
@@ -90,19 +90,19 @@ export default {
     },
   },
   setup() {
-		const { getters, commit } = useStore();
+    const { getters, commit } = useStore();
 
     // 获取 vuex 中的暂存数据
     const panes = computed(() => getters.panes);
     const activeKey = computed(() => getters.activeKey);
 
     return {
-			placement: ref('bottomRight'),
+      placement: ref("bottomRight"),
       panes,
       activeKey,
-			selectTab: key => commit("layout/selectTab", key),
-			selectKey: key => commit("layout/selectKey", key),
-			removeTab: key => commit("layout/removeTab", key),
+      selectTab: (key) => commit("layout/selectTab", key),
+      selectKey: (key) => commit("layout/selectKey", key),
+      removeTab: (key) => commit("layout/removeTab", key),
     };
   },
 };

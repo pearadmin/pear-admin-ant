@@ -32,7 +32,7 @@ export default {
   border-bottom: 1px solid #101117;
   background: #191a23;
 }
-.logo  img{
+.logo img{
   height: 40px;
   width: 40px;
 }
