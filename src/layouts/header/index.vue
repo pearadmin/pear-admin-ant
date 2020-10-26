@@ -5,17 +5,21 @@
     <div class="prev-menu">
       <menu-unfold-outlined
         v-if="collapsed"
-        class="trigger"
+        class="trigger menu-item"
         @click="trigger()"
       />
-      <menu-fold-outlined v-else class="trigger" @click="trigger()" />
-      <ReloadOutlined class="refresh" @click="refresh()" />
+      <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
+      <ReloadOutlined class="refresh menu-item" @click="refresh()" />
     </div>
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
-      <ExpandOutlined v-if="!fullscreen" class="expand" @click="full(1)" />
-      <CompressOutlined v-else class="expand" @click="full(2)" />
-      <SettingOutlined class="setting" @click="setting()" />
+      <ExpandOutlined
+        v-if="!fullscreen"
+        class="expand menu-item"
+        @click="full(1)"
+      />
+      <CompressOutlined v-else class="expand menu-item" @click="full(2)" />
+      <SettingOutlined class="setting menu-item" @click="setting()" />
     </div>
   </div>
 </template>
@@ -99,10 +103,16 @@ export default {
   background-color: white;
 }
 
-#header .expand,
-#header .refresh,
-#header .trigger,
-#header .setting {
+#header .next-menu {
+  float: right;
+}
+
+#header .prev-menu {
+  display: inline-block;
+}
+
+#header .prev-menu .menu-item,
+#header .next-menu .menu-item {
   font-size: 17px;
   line-height: 64px;
   padding: 0 15px;
@@ -110,18 +120,8 @@ export default {
   transition: color 0.3s;
 }
 
-#header .expand:hover,
-#header .setting:hover,
-#header .refresh:hover,
-#header .trigger:hover {
+#header .prev-menu .menu-item:hover,
+#header .next-menu .menu-item:hover {
   color: #1890ff;
-}
-
-#header .next-menu {
-  float: right;
-}
-
-#header .prev-menu {
-  display: inline-block;
 }
 </style>
