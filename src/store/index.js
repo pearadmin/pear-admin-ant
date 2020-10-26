@@ -13,7 +13,8 @@ export default createStore({
         activeKey: "1",
         selectKey: ["1"],
         openKey: ['1'],
-        muiltOpen: false
+        muiltOpen: false,
+        routerActive: true
     },
     mutations: {
         // 修改当前的左侧菜单缩进状态
@@ -106,6 +107,9 @@ export default createStore({
         },
         selectKey(state, key) {
             state.selectKey[0] = key;
+        },
+        updateRouterActive(state){
+            state.routerActive = !state.routerActive;
         }
     }
 })

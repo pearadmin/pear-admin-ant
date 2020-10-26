@@ -1,19 +1,5 @@
 <template>
   <div id="home">
-    <a-card>
-      <a-statistic
-        title="Feedback"
-        :value="14.38"
-        :precision="2"
-        suffix="%"
-        :value-style="{ color: '#3f8600' }"
-        style="margin-right: 50px"
-      >
-        <template v-slot:prefix>
-          <Arrow-up-outlined />
-        </template>
-      </a-statistic>
-    </a-card>
     <div style="padding: 10px">
       <a-row :gutter="[15, 15]">
         <a-col :span="6">
@@ -81,15 +67,32 @@
           </a-card>
         </a-col>
         <a-col :span="18">
-          <a-card>
-            <a-tabs default-active-key="1">
-              <a-tab-pane key="1" tab="Tab 1"> Tab 1 </a-tab-pane>
-              <a-tab-pane key="3" tab="Tab 3"> Tab 3 </a-tab-pane>
-            </a-tabs>
+          <a-card title="Card Title">
+            <a-card-grid style="width: 33.33%; text-align: center">
+              Content
+            </a-card-grid>
+            <a-card-grid style="width: 33.33%; text-align: center">
+              Content
+            </a-card-grid>
+            <a-card-grid style="width: 33.33%; text-align: center">
+              Content
+            </a-card-grid>
+            <a-card-grid style="width: 33.33%; text-align: center">
+              Content
+            </a-card-grid>
+            <a-card-grid style="width: 33.33%; text-align: center">
+              Content
+            </a-card-grid>
+            <a-card-grid style="width: 33.33%; text-align: center">
+              Content
+            </a-card-grid>
           </a-card>
         </a-col>
         <a-col :span="6">
           <a-card> </a-card>
+        </a-col>
+         <a-col :span="24">
+          <a-card title="动态"> </a-card>
         </a-col>
       </a-row>
     </div>

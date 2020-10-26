@@ -46,7 +46,11 @@ export default {
       store.commit("updateVisible");
     },
     refresh: function () {
-      this.$router.go(0);
+      // 路由刷新
+      store.commit("updateRouterActive");
+      this.$nextTick(function(){
+        store.commit("updateRouterActive");
+      })
     },
   },
 };
