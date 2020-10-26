@@ -1,15 +1,3 @@
-## Pear Admin Ant
-
-## 项目下载
-```
-git clone https://gitee.com/Jmysy/pear-admin-ant.git
-```
-
-## 项目跳转
-```
-cd pear-admin-ant
-```
-
 ## 项目安装
 ```
 npm install
