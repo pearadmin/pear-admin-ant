@@ -1,4 +1,14 @@
-Ant design Pro 的 Vue3 实现
+## Pear Admin Ant
+
+## 开发计划
+
+
+
+## 贡献人员
+
+
+
+## 示例截图
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214245_00adb66f_4835367.png "ant1.png")
 
@@ -18,25 +28,28 @@ Ant design Pro 的 Vue3 实现
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214354_d3c1d47d_4835367.png "ant9.png")
 
-## Project setup
+
+## 项目下载
+```
+git clone https://gitee.com/Jmysy/pear-admin-ant.git
+```
+
+## 项目跳转
+```
+cd pear-admin-ant
+```
+
+## 项目安装
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 项目运行
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 编译项目
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
