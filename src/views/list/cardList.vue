@@ -32,7 +32,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-           <a-card hoverable>
+          <a-card hoverable>
             <template v-slot:cover>
               <img
                 alt="example"
@@ -57,7 +57,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-           <a-card hoverable>
+          <a-card hoverable>
             <template v-slot:cover>
               <img
                 alt="example"
@@ -132,7 +132,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-           <a-card hoverable>
+          <a-card hoverable>
             <template v-slot:cover>
               <img
                 alt="example"
@@ -157,7 +157,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-           <a-card hoverable>
+          <a-card hoverable>
             <template v-slot:cover>
               <img
                 alt="example"
@@ -211,7 +211,11 @@
   </div>
 </template>
 <script>
-import { SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
+import {
+  SettingOutlined,
+  EditOutlined,
+  EllipsisOutlined,
+} from "@ant-design/icons-vue";
 export default {
   components: {
     SettingOutlined,

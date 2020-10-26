@@ -14,7 +14,8 @@ export default createStore({
         selectKey: ["1"],
         openKey: ['1'],
         muiltOpen: false,
-        routerActive: true
+        routerActive: true,
+        fullscreen: false
     },
     mutations: {
         // 修改当前的左侧菜单缩进状态
@@ -32,6 +33,9 @@ export default createStore({
         // 是否开启选项卡模式
         updateTab(state) {
             state.tab = !state.tab;
+        },
+        updateFullscreen(state){
+            state.fullscreen = !state.fullscreen;
         },
         // 修改菜单模式
         updateSide(state) {
