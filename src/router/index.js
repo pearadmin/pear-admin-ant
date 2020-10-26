@@ -40,9 +40,6 @@ const routes = [
       path: '/list/cardList',
       component: () => import('@/views/list/cardList.vue'),
     },{
-      path: '/list/goodList',
-      component: () => import('@/views/list/goodList.vue'),
-    },{
       path: '/list/newsList',
       component: () => import('@/views/list/newsList.vue'),
     },{

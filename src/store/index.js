@@ -2,9 +2,13 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
+        // 菜单栏状态
         collapsed: false,
+        // 设置按钮是否展示
         visible: false,
+        // 是否显示图标
         logo: true,
+        // 布局方式
         side: true,
         tab: true,
         panes: [

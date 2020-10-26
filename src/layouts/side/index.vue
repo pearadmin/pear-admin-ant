@@ -33,14 +33,7 @@
             卡片列表
           </router-link></a-menu-item
         >
-        <a-menu-item key="23">
-          <router-link
-            to="/list/goodList"
-            @click="clickMenuItem('23', '商品列表', '/list/goodList')"
-          >
-            商品列表
-          </router-link></a-menu-item
-        ><a-menu-item key="24">
+        <a-menu-item key="24">
           <router-link
             to="/list/newsList"
             @click="clickMenuItem('24', '图文列表', '/list/newsList')"
