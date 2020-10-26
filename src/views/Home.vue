@@ -67,32 +67,122 @@
           </a-card>
         </a-col>
         <a-col :span="18">
-          <a-card title="Card Title">
+          <a-card>
             <a-card-grid style="width: 33.33%; text-align: center">
-              Content
+              <a-card-meta
+                title="Pear Admin"
+                description="This is the description,This is the description"
+              >
+                <template v-slot:avatar>
+                  <a-avatar
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                </template>
+              </a-card-meta>
             </a-card-grid>
             <a-card-grid style="width: 33.33%; text-align: center">
-              Content
+              <a-card-meta
+                title="Pear Admin"
+                description="This is the description,This is the description"
+              >
+                <template v-slot:avatar>
+                  <a-avatar
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                </template>
+              </a-card-meta>
             </a-card-grid>
             <a-card-grid style="width: 33.33%; text-align: center">
-              Content
+              <a-card-meta
+                title="Pear Admin"
+                description="This is the description,This is the description"
+              >
+                <template v-slot:avatar>
+                  <a-avatar
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                </template>
+              </a-card-meta>
             </a-card-grid>
             <a-card-grid style="width: 33.33%; text-align: center">
-              Content
+              <a-card-meta
+                title="Pear Admin"
+                description="This is the description,This is the description"
+              >
+                <template v-slot:avatar>
+                  <a-avatar
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                </template>
+              </a-card-meta>
             </a-card-grid>
             <a-card-grid style="width: 33.33%; text-align: center">
-              Content
+              <a-card-meta
+                title="Pear Admin"
+                description="This is the description,This is the description"
+              >
+                <template v-slot:avatar>
+                  <a-avatar
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                </template>
+              </a-card-meta>
             </a-card-grid>
             <a-card-grid style="width: 33.33%; text-align: center">
-              Content
+              <a-card-meta
+                title="Pear Admin"
+                description="This is the description,This is the description"
+              >
+                <template v-slot:avatar>
+                  <a-avatar
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                </template>
+              </a-card-meta>
             </a-card-grid>
+          </a-card>
+          <a-card title="动态" style="margin-top:15px;">
+            <a-list item-layout="horizontal" :data-source="data">
+              <template v-slot:renderItem="{ item }">
+                <a-list-item>
+                  <a-list-item-meta
+                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                  >
+                    <template v-slot:title>
+                      <a href="https://www.antdv.com/">{{ item.title }}</a>
+                    </template>
+                    <template v-slot:avatar>
+                      <a-avatar
+                        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                      />
+                    </template>
+                  </a-list-item-meta>
+                </a-list-item>
+              </template>
+            </a-list>
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card> </a-card>
-        </a-col>
-         <a-col :span="24">
-          <a-card title="动态"> </a-card>
+          <a-card>
+              <a-list item-layout="horizontal" :data-source="data">
+              <template v-slot:renderItem="{ item }">
+                <a-list-item>
+                  <a-list-item-meta
+                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                  >
+                    <template v-slot:title>
+                      <a href="https://www.antdv.com/">{{ item.title }}</a>
+                    </template>
+                    <template v-slot:avatar>
+                      <a-avatar
+                        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                      />
+                    </template>
+                  </a-list-item-meta>
+                </a-list-item>
+              </template>
+            </a-list>
+          </a-card>
         </a-col>
       </a-row>
     </div>
@@ -100,10 +190,29 @@
 </template>
 <script>
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
+const data = [
+  {
+    title: "Ant Design Title 1",
+  },
+  {
+    title: "Ant Design Title 2",
+  },
+  {
+    title: "Ant Design Title 3",
+  },
+  {
+    title: "Ant Design Title 4",
+  },
+];
 export default {
   components: {
     ArrowUpOutlined,
     ArrowDownOutlined,
+  },
+  data() {
+    return {
+      data,
+    };
   },
 };
 </script>

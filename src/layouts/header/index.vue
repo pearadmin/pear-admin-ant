@@ -50,7 +50,8 @@ export default {
       store.commit("updateRouterActive");
       this.$nextTick(function(){
         store.commit("updateRouterActive");
-      })
+      });
+      this.$message.info('刷新成功');
     },
   },
 };
