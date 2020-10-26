@@ -39,9 +39,9 @@
   </div>
 </template>
 <script>
-import { computed } from "vue";
-import store from "@/store";
-import { DownOutlined } from "@ant-design/icons-vue";
+import { computed, ref } from "vue"
+import { useStore } from "vuex"
+import { DownOutlined } from "@ant-design/icons-vue"
 export default {
   components: {
     DownOutlined,
@@ -49,9 +49,8 @@ export default {
   methods: {
     // 选项卡切换回调
     callback(key) {
-      var panes = computed(() => store.state.panes);
       var router = "";
-      panes.value.forEach((pane) => {
+      this.panes.forEach((pane) => {
         if (pane.key === key) {
           router = pane.path;
         }
@@ -59,8 +58,8 @@ export default {
       // 选项卡切换,推送 Path 到当前的路由页面
       this.$router.push(router);
       // 更改当前选中的选项卡 与 菜单项
-      store.commit("selectTab", key);
-      store.commit("selectKey", key);
+			this.selectTab(key);
+			this.selectKey(key);
     },
     // 选项卡新增 删除时所触发的事件
     onEdit(targetKey, action) {
@@ -78,13 +77,11 @@ export default {
     // 选项卡删除回调
     remove(targetKey) {
       // 删除选项卡, 并选中尾部的选项卡
-      store.commit("removeTab", targetKey);
+			this.removeTab(targetKey);
       // 获取当前选中选项卡
-      const activeKey = computed(() => store.state.activeKey);
-      var panes = computed(() => store.state.panes);
       var router = "";
-      panes.value.forEach((pane) => {
-        if (pane.key === activeKey.value) {
+      this.panes.forEach((pane) => {
+        if (pane.key === this.activeKey) {
           router = pane.path;
         }
       });
@@ -93,13 +90,19 @@ export default {
     },
   },
   setup() {
+		const { getters, commit } = useStore();
+
     // 获取 vuex 中的暂存数据
-    const panes = computed(() => store.state.panes);
-    const activeKey = computed(() => store.state.activeKey);
+    const panes = computed(() => getters.panes);
+    const activeKey = computed(() => getters.activeKey);
 
     return {
+			placement: ref('bottomRight'),
       panes,
       activeKey,
+			selectTab: key => commit("layout/selectTab", key),
+			selectKey: key => commit("layout/selectKey", key),
+			removeTab: key => commit("layout/removeTab", key),
     };
   },
 };

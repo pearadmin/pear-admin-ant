@@ -9,12 +9,13 @@
   </div>
 </template>
 <script>
-import { computed } from "vue";
-import store from "@/store";
+import { computed } from "vue"
+import { useStore } from "vuex"
 // 图 标 引 入
 export default {
   setup() {
-    const collapsed = computed(() => store.state.collapsed);
+		const { getters } = useStore();
+    const collapsed = computed(() => getters.sideCollapsed);
     return {
       collapsed,
     };
