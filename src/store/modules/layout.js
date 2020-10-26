@@ -35,11 +35,11 @@ const state = {
 
 const mutations = {
 	// 修改当前的左侧菜单显示状态
-	TOGGLE_SIDEBAR_VISIBLE(state){
+	TOGGLE_SIDEBAR_VISIBLE(state) {
 		state.sidebar.visible = !state.sidebar.visible;
 	},
 	// 修改当前的左侧菜单缩进状态
-	TOGGLE_SIDEBAR(state){
+	TOGGLE_SIDEBAR(state) {
 		localStorage.setItem('sidebarStatus', state.sidebar.opened)
 		state.sidebar.opened = !state.sidebar.opened;
 	},
@@ -55,9 +55,11 @@ const mutations = {
 	updateTab(state) {
 		state.tab = !state.tab;
 	},
+	// 修改全屏打开
 	updateFullscreen(state) {
-			state.fullscreen = !state.fullscreen;
+		state.fullscreen = !state.fullscreen;
 	},
+	// 修改菜单打开项
 	updateOpenKey(state, openKey) {
 		if (!state.muiltOpen) {
 			state.openKey[0] = openKey[1];

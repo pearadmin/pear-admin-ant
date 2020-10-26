@@ -18,7 +18,7 @@
       </a-layout-header>
 			<!-- 中心区域 -->
       <a-layout-content>
-				<!-- tab页面 -->
+				<!-- 选项卡页面 -->
         <Tab v-if="tab"></Tab>
 				<!-- main区域 -->
         <Content></Content>

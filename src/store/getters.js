@@ -9,5 +9,6 @@ const getters = {
 	openKey: state => state.layout.openKey,
 	activeKey: state => state.layout.activeKey,
 	panes: state => state.layout.panes,
+	fullscreen: state => state.layout.fullscreen
 };
 export default getters;

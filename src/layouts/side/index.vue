@@ -49,7 +49,7 @@
           </router-link></a-menu-item
         >
       </a-sub-menu>
-       <a-sub-menu key="5">
+      <a-sub-menu key="5">
         <template v-slot:title>
           <span><MailOutlined /><span>表单页面</span></span>
         </template>
@@ -124,78 +124,80 @@
   </div>
 </template>
 <script>
-	import { computed } from "vue"
-	import { useStore } from "vuex"
-	// 图 标 引 入
-	import { PieChartOutlined, MailOutlined } from "@ant-design/icons-vue";
+import { computed } from "vue";
+import { useStore } from "vuex";
+// 图 标 引 入
+import { PieChartOutlined, MailOutlined } from "@ant-design/icons-vue";
 
-	export default {
-		components: {
-			MailOutlined,
-			PieChartOutlined,
-		},
-		setup() {
-			const { getters, commit } = useStore();
-			// 菜 单 单 击 触 发 函 数
-			function clickMenuItem(key, name, path) {
-				// 新 增 顶 部 选 项 卡 操 作
-				commit("layout/addTab", { key: key, title: name, path: path });
-				// 设 置 当 前 菜 单 选 中
-				commit("layout/selectKey", key);
-			}
-			const openChange = function(openKeys){
-				commit("layout/updateOpenKey", openKeys);
-			}
+export default {
+  components: {
+    MailOutlined,
+    PieChartOutlined,
+  },
+  setup() {
+    const { getters, commit } = useStore();
+    // 菜 单 单 击 触 发 函 数
+    const clickMenuItem = function (key, name, path) {
+      // 新 增 顶 部 选 项 卡 操 作
+      commit("layout/addTab", { key: key, title: name, path: path });
+      // 设 置 当 前 菜 单 选 中
+      commit("layout/selectKey", key);
+    };
+    // 菜 单 打 开 回 调 函 数
+    const openChange = function (openKeys) {
+      // 修 改 当 前 打 开 菜 单
+      commit("layout/updateOpenKey", openKeys);
+    };
 
-			// 响 应 式 菜 单 选 中
-			const selectKey = computed(() => getters.selectKey);
-			const openKey = computed(() => getters.openKey);
+    // 响 应 式 菜 单 选 中
+    const selectKey = computed(() => getters.selectKey);
+    const openKey = computed(() => getters.openKey);
 
-			return {
-				clickMenuItem,
-				selectKey,
-				openChange,
-				openKey
-			};
-		},
-	};
+    return {
+      clickMenuItem,
+      selectKey,
+      openChange,
+      openKey,
+    };
+  },
+};
 </script>
 <style>
-	.ant-menu-sub.ant-menu-inline > .ant-menu-item,
-	.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-		height: 48px;
-		line-height: 48px;
-	}
-	.ant-menu-vertical > .ant-menu-item,
-	.ant-menu-vertical-left > .ant-menu-item,
-	.ant-menu-vertical-right > .ant-menu-item,
-	.ant-menu-inline > .ant-menu-item,
-	.ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title,
-	.ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title,
-	.ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title,
-	.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-		height: 48px !important;
-		line-height: 48px !important;
-	}
-	.ant-layout-sider {
-		background: #191a23 !important;
-	}
-	.ant-menu-dark,
-	.ant-menu-dark {
-		background: #191a23 !important;
-	}
-	.ant-menu-dark .ant-menu-inline.ant-menu-sub {
-		background-color: #101117 !important;
-	}
-	.ant-menu-vertical .ant-menu-item,
-	.ant-menu-vertical-left .ant-menu-item,
-	.ant-menu-vertical-right .ant-menu-item,
-	.ant-menu-inline .ant-menu-item,
-	.ant-menu-vertical .ant-menu-submenu-title,
-	.ant-menu-vertical-left .ant-menu-submenu-title,
-	.ant-menu-vertical-right .ant-menu-submenu-title,
-	.ant-menu-inline .ant-menu-submenu-title {
-		margin-top: 4px !important;
-		margin-bottom: 4px !important;
-	}
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: 48px;
+  line-height: 48px;
+}
+.ant-menu-vertical > .ant-menu-item,
+.ant-menu-vertical-left > .ant-menu-item,
+.ant-menu-vertical-right > .ant-menu-item,
+.ant-menu-inline > .ant-menu-item,
+.ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title,
+.ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title,
+.ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title,
+.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: 48px !important;
+  line-height: 48px !important;
+}
+.ant-layout-sider {
+  background: #191a23 !important;
+}
+.ant-menu-dark,
+.ant-menu-dark {
+  background: #191a23 !important;
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background-color: #101117 !important;
+}
+.ant-menu-vertical .ant-menu-item,
+.ant-menu-vertical-left .ant-menu-item,
+.ant-menu-vertical-right .ant-menu-item,
+.ant-menu-inline .ant-menu-item,
+.ant-menu-vertical .ant-menu-submenu-title,
+.ant-menu-vertical-left .ant-menu-submenu-title,
+.ant-menu-vertical-right .ant-menu-submenu-title,
+.ant-menu-inline .ant-menu-submenu-title {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
 </style>
