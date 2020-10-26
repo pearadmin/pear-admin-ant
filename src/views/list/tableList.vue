@@ -56,6 +56,11 @@ const columns = [
     title: "Sex",
   },
   {
+    dataIndex: "createTime",
+    key: "createTime",
+    title: "CreateTime",
+  },
+  {
     title: "Age",
     dataIndex: "age",
     key: "age",
@@ -84,7 +89,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
@@ -92,7 +98,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
@@ -100,7 +107,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
@@ -108,7 +116,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
@@ -116,7 +125,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
@@ -124,7 +134,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
@@ -132,7 +143,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
@@ -140,7 +152,8 @@ const data = [
     name: "Joe Black",
     sex: "boy",
     age: 32,
-    address: "Sidney No. 1 Lake Park",
+    createTime: "2020-02-09 00:00:00",
+    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
 ];
