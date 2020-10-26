@@ -71,7 +71,7 @@
             <a-card-grid style="width: 33.33%; text-align: center">
               <a-card-meta
                 title="Pear Admin"
-                description="This is the description,This is the description"
+                description="慢慢来是一种诚意"
               >
                 <template v-slot:avatar>
                   <a-avatar
@@ -83,7 +83,7 @@
             <a-card-grid style="width: 33.33%; text-align: center">
               <a-card-meta
                 title="Pear Admin"
-                description="This is the description,This is the description"
+                description="慢慢来是一种诚意"
               >
                 <template v-slot:avatar>
                   <a-avatar
@@ -95,7 +95,7 @@
             <a-card-grid style="width: 33.33%; text-align: center">
               <a-card-meta
                 title="Pear Admin"
-                description="This is the description,This is the description"
+                description="慢慢来是一种诚意"
               >
                 <template v-slot:avatar>
                   <a-avatar
@@ -107,7 +107,7 @@
             <a-card-grid style="width: 33.33%; text-align: center">
               <a-card-meta
                 title="Pear Admin"
-                description="This is the description,This is the description"
+                description="凛冬将至"
               >
                 <template v-slot:avatar>
                   <a-avatar
@@ -119,7 +119,7 @@
             <a-card-grid style="width: 33.33%; text-align: center">
               <a-card-meta
                 title="Pear Admin"
-                description="This is the description,This is the description"
+                description="凛冬将至"
               >
                 <template v-slot:avatar>
                   <a-avatar
@@ -131,7 +131,7 @@
             <a-card-grid style="width: 33.33%; text-align: center">
               <a-card-meta
                 title="Pear Admin"
-                description="This is the description,This is the description"
+                description="凛冬将至"
               >
                 <template v-slot:avatar>
                   <a-avatar
