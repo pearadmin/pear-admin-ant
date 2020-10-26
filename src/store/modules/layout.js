@@ -1,12 +1,10 @@
-import Cookies from "js-cookie";
-
 const state = {
 	//左侧菜单
 	sidebar: {
 		//显示状态
 		visible: true,
 		//收缩状态
-		opened: !Cookies.get("sidebarStatus"),
+		opened: !JSON.parse(localStorage.getItem("sidebarStatus")),
 	},
 	//设置面板
 	setting: {
@@ -42,7 +40,7 @@ const mutations = {
 	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state){
-		Cookies.set("sidebarStatus", state.sidebar.opened);
+		localStorage.setItem('sidebarStatus', state.sidebar.opened)
 		state.sidebar.opened = !state.sidebar.opened;
 	},
 	// 设置面板是否打开
