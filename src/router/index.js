@@ -42,6 +42,15 @@ const routes = [
     },{
       path: '/list/tableList',
       component: () => import('@/views/list/tableList.vue'),
+    },{
+      path: '/form/baseForm',
+      component: () => import('@/views/form/baseForm.vue'),
+    },{
+      path: '/form/highForm',
+      component: () => import('@/views/form/highForm.vue'),
+    },{
+      path: '/form/stepForm',
+      component: () => import('@/views/form/stepForm.vue'),
     }]
   }
 ]

@@ -49,6 +49,27 @@
           </router-link></a-menu-item
         >
       </a-sub-menu>
+       <a-sub-menu key="5">
+        <template v-slot:title>
+          <span><MailOutlined /><span>表单页面</span></span>
+        </template>
+        <a-menu-item key="51">
+          <router-link
+            to="/form/baseForm"
+            @click="clickMenuItem('51', '基础表单', '/form/baseForm')"
+          >
+            基础表单
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="52">
+          <router-link
+            to="/form/highForm"
+            @click="clickMenuItem('52', '高级表单', '/form/highForm')"
+          >
+            高级表单
+          </router-link></a-menu-item
+        >
+      </a-sub-menu>
       <a-sub-menu key="3">
         <template v-slot:title>
           <span><MailOutlined /><span>结果页面</span></span>
