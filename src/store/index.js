@@ -10,15 +10,23 @@ export default createStore({
         logo: true,
         // 布局方式
         side: true,
+        // 是否显示选项卡
         tab: true,
+        // 选项卡内容存储
         panes: [
             { title: "首页", key: "1", path: "/home", closable: false }
         ],
+        // 当前激活选项卡
         activeKey: "1",
+        // 当前选中菜单
         selectKey: ["1"],
+        // 当前打开菜单
         openKey: ['1'],
+        // 手风琴配置
         muiltOpen: false,
+        // 路由刷新辅助变量
         routerActive: true,
+        // 浏览器全屏
         fullscreen: false
     },
     mutations: {
@@ -38,17 +46,17 @@ export default createStore({
         updateTab(state) {
             state.tab = !state.tab;
         },
-        updateFullscreen(state){
+        updateFullscreen(state) {
             state.fullscreen = !state.fullscreen;
         },
         // 修改菜单模式
         updateSide(state) {
             state.side = !state.side;
         },
-        updateOpenKey(state,openKey){
-            if(!state.muiltOpen){
+        updateOpenKey(state, openKey) {
+            if (!state.muiltOpen) {
                 state.openKey[0] = openKey[1];
-            }else{
+            } else {
                 state.openKey = openKey;
             }
         },
@@ -107,7 +115,7 @@ export default createStore({
         closeOtherTab(state) {
             state.panes;
         },
-        closeCurrentTab(state) {   
+        closeCurrentTab(state) {
             state.panes;
         },
         selectTab(state, key) {
@@ -116,7 +124,7 @@ export default createStore({
         selectKey(state, key) {
             state.selectKey[0] = key;
         },
-        updateRouterActive(state){
+        updateRouterActive(state) {
             state.routerActive = !state.routerActive;
         }
     }
