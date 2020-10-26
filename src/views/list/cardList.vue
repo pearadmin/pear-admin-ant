@@ -210,3 +210,13 @@
     </a-card>
   </div>
 </template>
+<script>
+import { SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons-vue';
+export default {
+  components: {
+    SettingOutlined,
+    EditOutlined,
+    EllipsisOutlined,
+  },
+};
+</script>

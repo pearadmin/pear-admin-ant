@@ -141,7 +141,7 @@
               </a-card-meta>
             </a-card-grid>
           </a-card>
-          <a-card title="动态" style="margin-top:15px;">
+          <a-card title="动态" style="margin-top: 15px">
             <a-list item-layout="horizontal" :data-source="data">
               <template v-slot:renderItem="{ item }">
                 <a-list-item>
@@ -164,7 +164,7 @@
         </a-col>
         <a-col :span="6">
           <a-card>
-              <a-list item-layout="horizontal" :data-source="data">
+            <a-list item-layout="horizontal" :data-source="data">
               <template v-slot:renderItem="{ item }">
                 <a-list-item>
                   <a-list-item-meta

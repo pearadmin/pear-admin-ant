@@ -1,6 +1,7 @@
 <template>
   <a-layout id="basic-layout">
-    <a-layout-sider v-if="side"
+    <a-layout-sider
+      v-if="side"
       width="250"
       v-model:collapsed="collapsed"
       :trigger="null"
@@ -52,21 +53,20 @@ export default {
     const count = computed(() => store.state.count);
     const collapsed = computed(() => store.state.collapsed);
     const logo = computed(() => store.state.logo);
-    const tab = computed(()=> store.state.tab);
-    const side = computed(()=>store.state.side);
+    const tab = computed(() => store.state.tab);
+    const side = computed(() => store.state.side);
 
     return {
       count,
       collapsed,
       logo,
       side,
-      tab
+      tab,
     };
   },
 };
 </script>
 <style scoped>
-
 body,
 html {
   height: 100%;
@@ -78,11 +78,11 @@ html {
   padding-left: 10px !important;
   padding-right: 10px !important;
   background-color: white;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
-#basic-layout .ant-layout-sider{
-  box-shadow: 2px 0 6px rgba(0,21,41,.35);
+#basic-layout .ant-layout-sider {
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   z-index: 999;
 }
 </style>
