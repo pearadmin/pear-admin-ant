@@ -30,7 +30,9 @@ const state = {
 	// 路由刷新辅助变量
 	routerActive: true,
 	// 浏览器全屏
-	fullscreen: false
+	fullscreen: false,
+	// 宽度
+	sideWitch: 250
 }
 
 const mutations = {

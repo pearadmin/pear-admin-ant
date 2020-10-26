@@ -9,6 +9,7 @@ const getters = {
 	openKey: state => state.layout.openKey,
 	activeKey: state => state.layout.activeKey,
 	panes: state => state.layout.panes,
-	fullscreen: state => state.layout.fullscreen
+	fullscreen: state => state.layout.fullscreen,
+	sideWitch: state => state.layout.sideWitch
 };
 export default getters;
