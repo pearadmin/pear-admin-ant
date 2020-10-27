@@ -1,5 +1,5 @@
 <template>
-  <div class="logo">
+  <div class="logo" :class="[theme]">
     <!-- 侧边展开时的LOGO -->
     <span v-if="!collapsed">
       <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
@@ -16,8 +16,10 @@ export default {
   setup() {
 		const { getters } = useStore();
     const collapsed = computed(() => getters.sideCollapsed);
+    const theme = computed(()=>getters.theme);
     return {
       collapsed,
+      theme
     };
   },
 };
@@ -35,5 +37,12 @@ export default {
 .logo img{
   height: 40px;
   width: 40px;
+}
+.dark{
+  background-color:  #191a23!important;
+}
+.light{
+    border-bottom: 1px solid whitesmoke;
+  background-color: white!important;
 }
 </style>

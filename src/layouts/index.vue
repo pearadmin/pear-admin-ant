@@ -7,6 +7,7 @@
       v-model:collapsed="collapsed"
       :trigger="null"
       collapsible
+      :class="[theme]"
     >
       <Logo v-if="logo"></Logo>
       <Side></Side>
@@ -56,6 +57,7 @@ export default {
     const count = computed(() => getters.count);
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
+    const theme = computed(() => getters.theme);
 
     const sideWitch = computed(() => getters.sideWitch);
 
@@ -64,6 +66,7 @@ export default {
       collapsed,
       sideWitch,
       count,
+      theme,
       logo,
       tab,
     };
@@ -88,5 +91,11 @@ html {
 #basic-layout .ant-layout-sider {
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   z-index: 999;
+}
+.dark{
+  background-color: #191a23!important;
+}
+.light{
+  background-color: white!important;
 }
 </style>

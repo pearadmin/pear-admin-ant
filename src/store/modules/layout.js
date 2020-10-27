@@ -32,7 +32,11 @@ const state = {
 	// 浏览器全屏
 	fullscreen: false,
 	// 宽度
-	sideWitch: 250
+	sideWitch: 250,
+	// 菜单模式
+	menuModel: 'inline',
+	// 
+	theme: 'dark'
 }
 
 const mutations = {
@@ -52,6 +56,14 @@ const mutations = {
 	// 是否显示LOGO
 	TOGGLE_LOGO(state) {
 		state.logo = !state.logo;
+	},
+	// 切换主题
+	TOGGLE_THEME(state) {
+		if(state.theme=="dark"){
+			state.theme = "light";
+		}else{
+			state.theme ="dark";
+		}
 	},
 	// 是否开启选项卡模式
 	updateTab(state) {

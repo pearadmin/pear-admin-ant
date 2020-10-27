@@ -7,6 +7,9 @@
 		<br />
 		<br />
 		<a-switch v-model:checked="side" @change="onChangeSide" /> ---- 菜单
+		<br />
+		<br />
+		<a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
 	</a-drawer>
 </template>
 <script>
@@ -19,15 +22,18 @@
 			const logo = computed(() => getters.logo);
 			const side = computed(() => getters.sideVisible);
 			const tab = computed(() => getters.tab);
+			const theme = computed(()=> getters.theme =="dark");
 			return {
 				visible,
 				logo,
 				side,
 				tab,
+				theme,
 				onChangeVisible: () => commit("layout/TOGGLE_SETTING"),
 				onChangeLogo: () => commit("layout/TOGGLE_LOGO"),
 				onChangeTab: () => commit("layout/updateTab"),
 				onChangeSide: () => commit("layout/TOGGLE_SIDEBAR_VISIBLE"),
+				onChangeTheme: () => commit("layout/TOGGLE_THEME"),
 				afterVisibleChange: () => {},
 			};
 		},
