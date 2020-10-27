@@ -25,7 +25,7 @@
     </a>
 </p>
 <div align="center">
-  <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1028/000904_3cd48868_4835367.png" />
+  <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1028/001252_3d381589_4835367.png" />
 </div>
 <br>
 ## 项目安装
@@ -44,6 +44,8 @@ npm run build
 ```
 
 ## 示例截图
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1028/001252_3d381589_4835367.png "演示地址.png")
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1028/000904_3cd48868_4835367.png "预览界面.png")
 
