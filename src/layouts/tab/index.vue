@@ -66,13 +66,13 @@ export default {
       this[action](targetKey);
     },
     closeAll() {
-      this.$message.info("关闭全部");
+      this.closeAllTab();
     },
     closeOther() {
-      this.$message.info("关闭其他");
+      this.closeOtherTab();
     },
     closeCurrent() {
-      this.$message.info("关闭当前");
+      this.closeCurrentTab();
     },
     // 选项卡删除回调
     remove(targetKey) {
@@ -103,6 +103,9 @@ export default {
       selectTab: (key) => commit("layout/selectTab", key),
       selectKey: (key) => commit("layout/selectKey", key),
       removeTab: (key) => commit("layout/removeTab", key),
+      closeAllTab: () => commit("layout/closeAllTab"),
+      closeOtherTab: () => commit("layout/closeOtherTab"),
+      closeCurrentTab: () => commit("layout/closeCurrentTab")
     };
   },
 };

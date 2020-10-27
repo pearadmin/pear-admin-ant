@@ -119,13 +119,28 @@ const mutations = {
 		state.selectKey[0] = activeKey;
 	},
 	closeAllTab(state) {
-		state.panes;
+		// 处理之前
+		const panes = state.panes.filter((pane) => pane.closable === false);
+		// 设置重新选中获取当前数组中的最后一个
+		const length = panes.length;
+		const key = panes[length - 1].key;
+		state.panes = panes;
+		state.activeKey = key;
+		state.selectKey[0] = key;
 	},
 	closeOtherTab(state) {
-		state.panes;
+		const panes = state.panes.filter((pane) => pane.closable === false || pane.key === state.activeKey);
+		// 设置重新选中获取当前数组中的最后一个
+		state.panes = panes;
 	},
 	closeCurrentTab(state) {
-		state.panes;
+		const panes = state.panes.filter((pane) => pane.key !== state.activeKey);
+		// 设置重新选中获取当前数组中的最后一个
+		const length = panes.length;
+		const key = panes[length - 1].key;
+		state.panes = panes;
+		state.activeKey = key;
+		state.selectKey[0] = key;
 	},
 	selectTab(state, key) {
 		state.activeKey = key;
