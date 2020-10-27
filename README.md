@@ -24,7 +24,10 @@
         <img src="https://img.shields.io/badge/Ant Design Vue-2.0.0.beta+-green.svg" alt="Ant Design Vue Version">
     </a>
 </p>
-
+<div align="center">
+  <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1028/000904_3cd48868_4835367.png" />
+</div>
+<br>
 ## 项目安装
 ```
 npm install
