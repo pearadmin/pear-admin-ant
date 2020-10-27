@@ -50,17 +50,13 @@ export default {
   },
   setup() {
     const { getters } = useStore();
-
     const sideVisible = computed(() => getters.sideVisible);
     const collapsed = computed(() => getters.sideCollapsed);
-
     const count = computed(() => getters.count);
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme);
-
     const sideWitch = computed(() => getters.sideWitch);
-
     return {
       sideVisible,
       collapsed,
@@ -92,10 +88,10 @@ html {
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   z-index: 999;
 }
-.dark{
-  background-color: #191a23!important;
+.dark {
+  background-color: #191a23 !important;
 }
-.light{
-  background-color: white!important;
+.light {
+  background-color: white !important;
 }
 </style>
