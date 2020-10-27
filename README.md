@@ -42,6 +42,8 @@ npm run build
 
 ## 示例截图
 
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1028/000904_3cd48868_4835367.png "预览界面.png")
+
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214245_00adb66f_4835367.png "ant1.png")
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214254_4677557c_4835367.png "ant2.png")
