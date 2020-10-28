@@ -161,7 +161,7 @@ export default {
       openChange,
       menuModel,
       theme,
-      openKey,
+      openKey
     };
   },
 };

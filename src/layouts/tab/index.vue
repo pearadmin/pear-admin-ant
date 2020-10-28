@@ -105,7 +105,7 @@ export default {
       removeTab: (key) => commit("layout/removeTab", key),
       closeAllTab: () => commit("layout/closeAllTab"),
       closeOtherTab: () => commit("layout/closeOtherTab"),
-      closeCurrentTab: () => commit("layout/closeCurrentTab")
+      closeCurrentTab: () => commit("layout/closeCurrentTab"),
     };
   },
 };

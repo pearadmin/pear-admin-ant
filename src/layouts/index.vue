@@ -9,7 +9,9 @@
       collapsible
       :class="[theme]"
     >
+      <!-- 顶部图标 -->
       <Logo v-if="logo"></Logo>
+      <!-- 垂直菜单 -->
       <Side></Side>
     </a-layout-sider>
     <!-- 右边区域 -->
