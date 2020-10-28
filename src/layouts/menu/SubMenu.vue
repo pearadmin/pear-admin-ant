@@ -15,7 +15,7 @@
         :base-path="resolvePath(child.path)"
       /> -->
       <a-menu-item v-for="(child) in item.children" :key="child.name">
-        <router-link :to="child.path" @click="clickMenuItem(child.name, child.meta.title, child.path)">
+        <router-link :to="resolvePath(child.path)" @click="clickMenuItem(child.name, child.meta.title, child.path)">
           <PieChartOutlined />
           <span>{{ child.meta.title }}</span>
         </router-link>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+  import path from 'path'
   import { useStore } from "vuex";
   import { PieChartOutlined, MailOutlined } from "@ant-design/icons-vue";
   export default {
@@ -54,6 +55,7 @@
       const { commit } = useStore();
       // 菜 单 单 击 触 发 函 数
       const clickMenuItem = function(key, title, path) {
+        console.log(key, title, path);
         // 新 增 顶 部 选 项 卡 操 作
         commit("layout/addTab", { key, title, path });
         // 设 置 当 前 菜 单 选 中
@@ -65,9 +67,9 @@
           return routePath
         }
         //这里需要处理一下
-        return props.basePath + '/' + routePath;
+        // return props.basePath + '/' + routePath;
+        return path.resolve(props.basePath, routePath)
       }
-
       return {
         clickMenuItem,
         resolvePath,
