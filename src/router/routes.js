@@ -33,6 +33,11 @@ export default [
         name: 'base-form',
         meta: { key: '19', title: '基础表单', icon: 'DatabaseOutlined' },
         component: () => import('@/views/form/baseForm.vue'),
+      },{
+        path: '/highForm',
+        name: 'high-form',
+        meta: { key: '20', title: '基础表单', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/form/highForm.vue'),
       }
     ]
   },
