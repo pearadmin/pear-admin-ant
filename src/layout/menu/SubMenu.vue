@@ -1,6 +1,6 @@
 <template>
   <template v-if="!item.hidden">
-    <!-- 包含了子元素的 -->
+    <!-- if item.children is not null 渲染 a-sub-menu -->
     <a-sub-menu
       :key="item.meta.key"
       v-if="item.children && item.children.length > 0"
@@ -8,10 +8,10 @@
       <template v-slot:title>
         <span>
           <MenuIcon />
-          <span>{{ item.meta.title }}{{ item.meta.key }}</span>
+          <span>{{ item.meta.title }}</span>
         </span>
       </template>
-      <!-- 没找到为什么递归有问题 -->
+      <!-- 递归 item.children -->
       <sub-menu
         v-for="child in item.children"
         :key="child.meta.key"
@@ -19,7 +19,7 @@
         :base-path="resolvePath(child.path)"
       />
     </a-sub-menu>
-    <!-- 直接显示item -->
+    <!-- if item.chilren is null 渲染 a-menu-item -->
     <a-menu-item v-bind="$attrs" :key="item.meta.key" v-else>
       <router-link
         :to="resolvePath(item.path, true)"
@@ -32,7 +32,7 @@
         "
       >
         <MenuIcon />
-        <span>{{ item.meta.title }}{{ item.meta.key }}</span>
+        <span>{{ item.meta.title }}</span>
       </router-link>
     </a-menu-item>
   </template>
