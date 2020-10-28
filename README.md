@@ -30,10 +30,10 @@
 
 ### 开源地址
 
-Gitee 地址: [前往下载](https://gitee.com/Jmysy/pear-admin-ant)
+Gitee 开源地址: [前往下载](https://gitee.com/Jmysy/pear-admin-ant)
 
 
-Github 地址: [前往下载](https://github.com/Jmysy/Pear-Admin-Ant)
+Github 开源地址: [前往下载](https://github.com/Jmysy/Pear-Admin-Ant)
 
 ### 项目安装
 ```
