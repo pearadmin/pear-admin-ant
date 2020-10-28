@@ -1,3 +1,5 @@
+const defaultHomeKey = 'home';
+
 const state = {
 	//左侧菜单
 	sidebar: {
@@ -17,14 +19,14 @@ const state = {
 	tab: true,
 	// 选项卡内容存储
 	panes: [
-		{ title: "首页", key: "1", path: "/home", closable: false }
+		{ title: "首页", key: defaultHomeKey, path: "/home", closable: false }
 	],
 	// 当前激活选项卡
-	activeKey: "1",
+	activeKey: defaultHomeKey,
 	// 当前选中菜单
-	selectKey: ["1"],
+	selectKey: [defaultHomeKey],
 	// 当前打开菜单
-	openKey: ['1'],
+	openKey: [defaultHomeKey],
 	// 手风琴配置
 	muiltOpen: false,
 	// 路由刷新辅助变量
@@ -35,7 +37,7 @@ const state = {
 	sideWitch: 250,
 	// 菜单模式
 	menuModel: 'inline',
-	// 
+	//
 	theme: 'dark'
 }
 
