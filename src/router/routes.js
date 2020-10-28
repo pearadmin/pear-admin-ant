@@ -25,6 +25,24 @@ export default [
         name: 'home-index',
         meta: { title: '首页', icon: 'eee' },
         component: () => import('@/views/Home.vue'),
+      },{
+        path: 'daw',
+        name: 'home-error',
+        meta: { title: '错误页面', icon: 'eee' },
+        children: [
+          {
+            path: 'index',
+            name: 'home-index',
+            meta: { title: '首页', icon: 'eee' },
+            component: () => import('@/views/Home.vue'),
+          },
+          {
+            path: 'index',
+            name: 'home-index',
+            meta: { title: '首页', icon: 'eee' },
+            component: () => import('@/views/Home.vue'),
+          }
+        ],
       }
     ]
   },
