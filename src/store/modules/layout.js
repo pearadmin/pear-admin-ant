@@ -19,7 +19,7 @@ const state = {
 	tab: true,
 	// 选项卡内容存储
 	panes: [
-		{ title: "首页", key: defaultHomeKey, path: "/home", closable: false }
+		{ title: "首页", key: defaultHomeKey, path: "/home/index", closable: false }
 	],
 	// 当前激活选项卡
 	activeKey: defaultHomeKey,
