@@ -28,7 +28,7 @@ const state = {
 	// 当前打开菜单
 	openKey: [1],
 	// 手风琴配置
-	muiltOpen: false,
+	muiltOpen: true,
 	// 路由刷新辅助变量
 	routerActive: true,
 	// 浏览器全屏
