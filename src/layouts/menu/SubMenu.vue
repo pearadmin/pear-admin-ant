@@ -55,7 +55,7 @@
       const { commit } = useStore();
       // 菜 单 单 击 触 发 函 数
       const clickMenuItem = function(key, title, path) {
-        console.log(key, title, path);
+        path = resolvePath(path)
         // 新 增 顶 部 选 项 卡 操 作
         commit("layout/addTab", { key, title, path });
         // 设 置 当 前 菜 单 选 中
