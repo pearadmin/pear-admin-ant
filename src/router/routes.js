@@ -18,8 +18,21 @@ export default [
       {
         path: 'index',
         name: 'home-index',
-        meta: { key: 'home', title: '控制台', icon: 'DashboardOutlined' },
+        meta: { key: 'home', title: '控制面板', icon: 'DashboardOutlined' },
         component: () => import('@/views/Home.vue'),
+      }
+    ]
+  },{
+    path: '/form',
+    name: 'form',
+    component: Layout,
+    meta: { key: '18', title: '表单页面', icon: 'UnorderedListOutlined' },
+    children: [
+      {
+        path: '/baseForm',
+        name: 'base-form',
+        meta: { key: '19', title: '基础表单', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/form/baseForm.vue'),
       }
     ]
   },
@@ -55,18 +68,19 @@ export default [
     ]
   },{
     path: '/result',
-    name: 'result',
+    name: 'result-menu',
     meta: { key: '15', title: '结果页面', icon: 'UnorderedListOutlined' },
-    redirect: "/list/baseList",
+    redirect: "/result/success",
+    component: Layout,
     children: [
       {
-        path: '/success',
-        name: 'success',
+        path: 'success',
+        name: 'result-success',
         meta: { key: '17', title: '成功', icon: 'DatabaseOutlined' },
         component: () => import('@/views/result/success.vue'),
       },{
-        path: '/failure',
-        name: 'failure',
+        path: 'failure',
+        name: 'result-failure',
         meta: { key: '16', title: '失败', icon: 'DatabaseOutlined' },
         component: () => import('@/views/result/failure.vue'),
       }
