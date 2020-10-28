@@ -39,7 +39,7 @@ export default [
     children: [
       {
         path: 'baseList',
-        name: 'home-index',
+        name: 'list-base',
         meta: { title: '基础列表', icon: 'eee' },
         component: () => import('@/views/list/baseList.vue'),
       }
