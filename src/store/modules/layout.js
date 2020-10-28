@@ -24,9 +24,9 @@ const state = {
 	// 当前激活选项卡
 	activeKey: defaultHomeKey,
 	// 当前选中菜单
-	selectKey: [defaultHomeKey],
+	selectKey: ['home'],
 	// 当前打开菜单
-	openKey: [defaultHomeKey],
+	openKey: [1],
 	// 手风琴配置
 	muiltOpen: false,
 	// 路由刷新辅助变量
@@ -37,7 +37,7 @@ const state = {
 	sideWitch: 250,
 	// 菜单模式
 	menuModel: 'inline',
-	//
+	// 布局主题
 	theme: 'dark'
 }
 
