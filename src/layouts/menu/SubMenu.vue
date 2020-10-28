@@ -77,9 +77,3 @@
     },
   }
 </script>
-
-<style lang="scss">
-  .pear-sub-menu {
-
-  }
-</style>
