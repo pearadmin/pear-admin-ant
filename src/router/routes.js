@@ -12,7 +12,7 @@ export default [
   {
     path: '/home',
     name: 'home',
-    meta: { key: '1', title: '首页', icon: 'HomeOutlined' },
+    meta: { key: '1', title: '工作空间', icon: 'HomeOutlined' },
     component: Layout,
     children: [
       {
@@ -20,24 +20,6 @@ export default [
         name: 'home-index',
         meta: { key: 'home', title: '控制台', icon: 'DashboardOutlined' },
         component: () => import('@/views/Home.vue'),
-      }, {
-        path: 'daw',
-        name: 'home-error',
-        meta: { key: '3', title: '错误页面', icon: 'eee' },
-        children: [
-          {
-            path: 'index1',
-            name: 'home-index2',
-            meta: { key: '4', title: '首页', icon: 'eee' },
-            component: () => import('@/views/Home.vue'),
-          },
-          {
-            path: 'index2',
-            name: 'home-index3',
-            meta: { key: '5', title: '首页', icon: 'eee' },
-            component: () => import('@/views/Home.vue'),
-          }
-        ],
       }
     ]
   },
@@ -51,9 +33,66 @@ export default [
     children: [
       {
         path: 'baseList',
-        name: 'list-base',
+        name: 'base-list',
         meta: { key: '7', title: '基础列表', icon: 'DatabaseOutlined' },
         component: () => import('@/views/list/baseList.vue'),
+      },{
+        path: 'cardList',
+        name: 'card-list',
+        meta: { key: '12', title: '卡片列表', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/list/cardList.vue'),
+      },{
+        path: 'newsList',
+        name: 'news-list',
+        meta: { key: '13', title: '图文列表', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/list/newsList.vue'),
+      },{
+        path: 'tableList',
+        name: 'table-list',
+        meta: { key: '14', title: '查询表格', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/list/tableList.vue'),
+      }
+    ]
+  },{
+    path: '/result',
+    name: 'result',
+    meta: { key: '15', title: '结果页面', icon: 'UnorderedListOutlined' },
+    redirect: "/list/baseList",
+    children: [
+      {
+        path: '/success',
+        name: 'success',
+        meta: { key: '17', title: '成功', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/result/success.vue'),
+      },{
+        path: '/failure',
+        name: 'failure',
+        meta: { key: '16', title: '失败', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/result/failure.vue'),
+      }
+    ]
+  },{
+    path: '/error',
+    name: 'error',
+    meta: { key: '8', title: '错误页面', icon: 'UnorderedListOutlined' },
+    component: Layout,
+    redirect: "/list/baseList",
+    children: [
+      {
+        path: '/403',
+        name: '403',
+        meta: { key: '9', title: '403', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/error/403.vue'),
+      },{
+        path: '/404',
+        name: '404',
+        meta: { key: '10', title: '404', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/error/404.vue'),
+      },{
+        path: '/500',
+        name: '500',
+        meta: { key: '11', title: '500', icon: 'DatabaseOutlined' },
+        component: () => import('@/views/error/500.vue'),
       }
     ]
   },
