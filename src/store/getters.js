@@ -12,6 +12,8 @@ const getters = {
 	fullscreen: state => state.layout.fullscreen,
 	sideWitch: state => state.layout.sideWitch,
 	menuModel: state => state.layout.menuModel,
-	theme: state => state.layout.theme
+	theme: state => state.layout.theme,
+	language: state => state.layout.language,
+	languages: state => state.layout.languages
 };
 export default getters;
