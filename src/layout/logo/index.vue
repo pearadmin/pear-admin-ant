@@ -4,7 +4,7 @@
     <span v-if="!collapsed">
       <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
     </span>
-    <!-- if collapsed show image logo -->
+    <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-else><img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/></span>
   </div>
 </template>

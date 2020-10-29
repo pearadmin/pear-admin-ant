@@ -1,5 +1,6 @@
 <template>
 	<a-drawer title="设置" placement="right" :closable="false" v-model:visible="visible" width="320" :after-visible-change="afterVisibleChange" @close="onChangeVisible()">
+		<br />
 		<a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
 		<br />
 		<br />
