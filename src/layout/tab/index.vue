@@ -91,11 +91,8 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
-
-    // 获取 vuex 中的暂存数据
     const panes = computed(() => getters.panes);
     const activeKey = computed(() => getters.activeKey);
-
     return {
       placement: ref("bottomRight"),
       panes,

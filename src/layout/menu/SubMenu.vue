@@ -75,9 +75,7 @@ export default {
       // return props.basePath + '/' + routePath;
       return path.resolve(props.basePath, routePath);
     };
-
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
-
     return {
       clickMenuItem,
       resolvePath,

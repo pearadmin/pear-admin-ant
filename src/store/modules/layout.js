@@ -78,7 +78,7 @@ const mutations = {
 	// 修改菜单打开项
 	updateOpenKey(state, openKey) {
 		if (!state.muiltOpen) {
-			state.openKey[0] = openKey[1];
+			state.openKey[0] = openKey[0];
 		} else {
 			state.openKey = openKey;
 		}

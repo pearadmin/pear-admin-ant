@@ -42,7 +42,7 @@ export default {
     SettingOutlined,
     ExpandOutlined,
     CompressOutlined,
-    ReloadOutlined
+    ReloadOutlined,
   },
   methods: {
     full: function (num) {
@@ -81,8 +81,7 @@ export default {
     const { getters, commit } = useStore();
     const collapsed = computed(() => getters.sideCollapsed);
     const fullscreen = computed(() => getters.fullscreen);
-    const menuModel = computed(()=> getters.menuModel);
-
+    const menuModel = computed(() => getters.menuModel);
     return {
       collapsed,
       fullscreen,
@@ -96,7 +95,7 @@ export default {
         context.$message.info("刷新成功");
       },
       updateFullscreen: () => commit("layout/updateFullscreen"),
-      menuModel
+      menuModel,
     };
   },
 };

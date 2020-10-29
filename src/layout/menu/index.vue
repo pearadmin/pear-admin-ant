@@ -8,7 +8,8 @@
       @openChange="openChange"
     >
       <sub-menu
-        v-for="(route, index) in routes" :key="index"
+        v-for="(route, index) in routes"
+        :key="index"
         :item="route"
         :base-path="route.path"
       />
@@ -16,41 +17,35 @@
   </div>
 </template>
 <script>
-  import { computed, getCurrentInstance , ref} from "vue";
-  import { useStore } from "vuex";
-  import SubMenu from './SubMenu.vue'
+import { computed, getCurrentInstance } from "vue";
+import { useStore } from "vuex";
+import SubMenu from "./SubMenu.vue";
 
-  export default {
-    components: {
-      SubMenu,
-    },
-    setup() {
-      const { getters, commit } = useStore();
-
-      const { ctx } = getCurrentInstance()
-      const routes = computed(()=> ctx.$root.$router.options.routes);
-
-      // 响 应 式 菜 单 选 中
-      const selectKey = ref(getters.selectKey);
-      const openKey = ref(getters.openKey);
-      const menuModel = ref(getters.menuModel);
-      const theme = computed(()=> getters.theme);
-
-      // 菜单打开响应时间
-      const openChange = function(openKeys){
-        commit("layout/updateOpenKey", openKeys)
-      }
-
-      return {
-        routes,
-        selectKey,
-        openKey,
-        menuModel,
-        theme,
-        openChange,
-      };
-    },
-  };
+export default {
+  components: {
+    SubMenu,
+  },
+  setup() {
+    const { getters, commit } = useStore();
+    const { ctx } = getCurrentInstance();
+    const routes = computed(() => ctx.$root.$router.options.routes);
+    const selectKey = computed(() => getters.selectKey);
+    const openKey = computed(() => getters.openKey);
+    const menuModel = computed(() => getters.menuModel);
+    const theme = computed(() => getters.theme);
+    const openChange = function (openKeys) {
+      commit("layout/updateOpenKey", openKeys);
+    };
+    return {
+      routes,
+      selectKey,
+      openKey,
+      menuModel,
+      theme,
+      openChange,
+    };
+  },
+};
 </script>
 <style>
 .ant-menu-sub.ant-menu-inline > .ant-menu-item,
