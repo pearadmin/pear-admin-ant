@@ -80,11 +80,7 @@ export default {
    
     // 监听, 当前选项卡切换时, 切换相关路由
     watch(activeKey,(targetKey)=>{
-        panes.value.forEach((item)=>{
-          if(item.key === targetKey){
-              ctx.$root.$router.push(item.path);
-          }
-        })
+        ctx.$root.$router.push(panes.value.find(item => item.key === targetKey));
     })
 
     return {
