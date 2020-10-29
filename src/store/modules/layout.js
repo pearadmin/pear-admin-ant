@@ -38,7 +38,10 @@ const state = {
 	// 菜单模式
 	menuModel: 'inline',
 	// 布局主题
-	theme: 'dark'
+	theme: 'dark',
+  //国际化语言
+  language: '',
+  languages: [],
 }
 
 const mutations = {
@@ -164,7 +167,13 @@ const mutations = {
 	},
 	updateRouterActive(state) {
 		state.routerActive = !state.routerActive;
-	}
+	},
+  setLanguage(state, language){
+    state.language = language
+  },
+  setLanguages(state, languages){
+    state.languages = languages
+  }
 }
 
 const actions = {
