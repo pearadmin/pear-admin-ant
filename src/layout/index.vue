@@ -12,7 +12,7 @@
       <!-- 顶部图标 -->
       <Logo v-if="logo"></Logo>
       <!-- 垂直菜单 -->
-      <Side></Side>
+      <Menu></Menu>
     </a-layout-sider>
     <!-- 右边区域 -->
     <a-layout>
@@ -35,7 +35,7 @@
 <script>
 import { computed } from "vue";
 import { useStore } from "vuex";
-import Side from "./side/index.vue";
+import Menu from "./menu/index.vue";
 import Content from "./content/index.vue";
 import Header from "./header/index.vue";
 import Logo from "./logo/index.vue";
@@ -43,7 +43,7 @@ import Tab from "./tab/index.vue";
 import Setup from "./setup/index.vue";
 export default {
   components: {
-    Side,
+    Menu,
     Content,
     Header,
     Logo,
