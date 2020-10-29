@@ -3,22 +3,26 @@
   <div id="header">
     <!-- 左侧菜单功能项 -->
     <div class="prev-menu">
+      <!-- 左侧缩进功能键 -->
       <menu-unfold-outlined
         v-if="collapsed"
         class="trigger menu-item"
         @click="trigger()"
       />
       <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
-      <ReloadOutlined class="refresh menu-item" @click="refresh()" />
+      <!-- 当前页面的路由刷新 -->
+      <ReloadOutlined class="refresh menu-item" />
     </div>
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
+      <!-- 当前页面最大化 -->
       <ExpandOutlined
         v-if="!fullscreen"
         class="expand menu-item"
         @click="full(1)"
       />
       <CompressOutlined v-else class="expand menu-item" @click="full(2)" />
+      <!-- 主题设置隐显键 -->
       <SettingOutlined class="setting menu-item" @click="setting()" />
     </div>
   </div>
@@ -26,7 +30,7 @@
 <script>
 import { computed } from "vue";
 import { useStore } from "vuex";
-/** 图标引入 */
+/** 图标集 */
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -71,13 +75,12 @@ export default {
           } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
           }
-          // 修改值
           break;
       }
       this.updateFullscreen();
     },
   },
-  setup(props, context) {
+  setup() {
     const { getters, commit } = useStore();
     const collapsed = computed(() => getters.sideCollapsed);
     const fullscreen = computed(() => getters.fullscreen);
@@ -87,13 +90,6 @@ export default {
       fullscreen,
       trigger: () => commit("layout/TOGGLE_SIDEBAR"),
       setting: () => commit("layout/TOGGLE_SETTING"),
-      refresh: () => {
-        commit("layout/updateRouterActive");
-        setTimeout(function () {
-          commit("layout/updateRouterActive");
-        }, 1);
-        context.$message.info("刷新成功");
-      },
       updateFullscreen: () => commit("layout/updateFullscreen"),
       menuModel,
     };

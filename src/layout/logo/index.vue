@@ -1,10 +1,10 @@
 <template>
   <div class="logo" :class="[theme]">
-    <!-- 侧边展开时的LOGO -->
+    <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-if="!collapsed">
       <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
     </span>
-    <!-- 侧边隐藏时的LOGO -->
+    <!-- if collapsed show image logo -->
     <span v-else><img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/></span>
   </div>
 </template>
