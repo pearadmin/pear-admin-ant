@@ -7,7 +7,7 @@
     >
       <template v-slot:title>
         <span>
-          <MenuIcon />
+          <MenuIcon/>
           <span>{{ item.meta.title }}</span>
         </span>
       </template>

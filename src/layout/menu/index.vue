@@ -48,6 +48,7 @@ export default {
 };
 </script>
 <style>
+
 .ant-menu-sub.ant-menu-inline > .ant-menu-item,
 .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
   height: 48px;
@@ -85,4 +86,5 @@ export default {
   margin-top: 4px !important;
   margin-bottom: 4px !important;
 }
+
 </style>

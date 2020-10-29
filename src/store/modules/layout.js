@@ -1,14 +1,15 @@
 const defaultHomeKey = 'home';
 
 const state = {
-	//左侧菜单
+
+	// 左侧菜单
 	sidebar: {
 		//显示状态
 		visible: true,
 		//收缩状态
 		opened: !JSON.parse(localStorage.getItem("sidebarStatus")),
 	},
-	//设置面板
+	// 设置面板
 	setting: {
 		//显示状态
 		opened: false,
@@ -28,7 +29,7 @@ const state = {
 	// 当前打开菜单
 	openKey: [1],
 	// 手风琴配置
-	muiltOpen: true,
+	muiltOpen: false,
 	// 路由刷新辅助变量
 	routerActive: true,
 	// 浏览器全屏
@@ -39,9 +40,9 @@ const state = {
 	menuModel: 'inline',
 	// 布局主题
 	theme: 'dark',
-  //国际化语言
-  language: '',
-  languages: [],
+	// 国 际 化 语 言 配 置
+	language: '',
+	languages: [],
 }
 
 const mutations = {
@@ -64,10 +65,10 @@ const mutations = {
 	},
 	// 切换主题
 	TOGGLE_THEME(state) {
-		if(state.theme=="dark"){
+		if (state.theme == "dark") {
 			state.theme = "light";
-		}else{
-			state.theme ="dark";
+		} else {
+			state.theme = "dark";
 		}
 	},
 	// 是否开启选项卡模式
@@ -81,7 +82,10 @@ const mutations = {
 	// 修改菜单打开项
 	updateOpenKey(state, openKey) {
 		if (!state.muiltOpen) {
-			state.openKey[0] = openKey[0];
+
+			
+
+			state.openKey = openKey;
 		} else {
 			state.openKey = openKey;
 		}
@@ -106,28 +110,22 @@ const mutations = {
 	},
 	// 删除选项卡实现
 	removeTab(state, targetKey) {
-
 		// 获取当前选中的选项卡
 		let activeKey = state.activeKey;
 		let lastIndex;
-
 		// 获取当前删除的索引
 		state.panes.forEach((pane, i) => {
 			if (pane.key === targetKey) {
 				lastIndex = i - 1;
 			}
 		});
-
 		// 过滤删除后的数组
 		const panes = state.panes.filter((pane) => pane.key !== targetKey);
-
 		// 如果存在长度,并且删除的是当前选中的数组
 		if (panes.length && activeKey === targetKey) {
-
 			if (lastIndex >= 0) {
 				activeKey = panes[lastIndex].key;
 			} else {
-
 				activeKey = panes[0].key;
 			}
 		}
@@ -168,12 +166,12 @@ const mutations = {
 	updateRouterActive(state) {
 		state.routerActive = !state.routerActive;
 	},
-  setLanguage(state, language){
-    state.language = language
-  },
-  setLanguages(state, languages){
-    state.languages = languages
-  }
+	setLanguage(state, language) {
+		state.language = language
+	},
+	setLanguages(state, languages) {
+		state.languages = languages
+	}
 }
 
 const actions = {
