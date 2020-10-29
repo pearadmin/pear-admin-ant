@@ -1,7 +1,6 @@
 const defaultHomeKey = 'home';
 
 const state = {
-
 	// 左侧菜单
 	sidebar: {
 		//显示状态
@@ -43,6 +42,7 @@ const state = {
 	// 国 际 化 语 言 配 置
 	language: '',
 	languages: [],
+	rootSubmenuKeys: ['sub1', 'sub2', 'sub4']
 }
 
 const mutations = {
@@ -82,10 +82,7 @@ const mutations = {
 	// 修改菜单打开项
 	updateOpenKey(state, openKey) {
 		if (!state.muiltOpen) {
-
-			
-
-			state.openKey = openKey;
+			state.openKey[0] = openKey[1];
 		} else {
 			state.openKey = openKey;
 		}
@@ -94,7 +91,6 @@ const mutations = {
 	addTab(state, value) {
 		// 新增标识, 用于判断当前的选项卡是否已经添加
 		var flag = false;
-
 		// 遍历当前的选项卡中是否已存在新增的 Key
 		state.panes.forEach((pane) => {
 			if (pane.key === value.key) {
