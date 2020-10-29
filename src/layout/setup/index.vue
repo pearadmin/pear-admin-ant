@@ -4,7 +4,7 @@
     placement="right"
     :closable="false"
     :visible="visible"
-    width="420"
+     width="420"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
   >

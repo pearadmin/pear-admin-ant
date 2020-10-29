@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import { computed, ref } from "vue";
+import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 export default {
@@ -49,14 +49,6 @@ export default {
   methods: {
     // 选项卡切换回调
     callback(key) {
-      var router = "";
-      this.panes.forEach((pane) => {
-        if (pane.key === key) {
-          router = pane.path;
-        }
-      });
-      // 选项卡切换,推送 Path 到当前的路由页面
-      this.$router.push(router);
       // 更改当前选中的选项卡 与 菜单项
       this.selectTab(key);
       this.selectKey(key);
@@ -78,21 +70,23 @@ export default {
     remove(targetKey) {
       // 删除选项卡, 并选中尾部的选项卡
       this.removeTab(targetKey);
-      // 获取当前选中选项卡
-      var router = "";
-      this.panes.forEach((pane) => {
-        if (pane.key === this.activeKey) {
-          router = pane.path;
-        }
-      });
-      // 推送当前选项卡的路径到路由
-      this.$router.push(router);
     },
   },
   setup() {
     const { getters, commit } = useStore();
     const panes = computed(() => getters.panes);
     const activeKey = computed(() => getters.activeKey);
+    const { ctx } = getCurrentInstance();
+   
+    // 监听, 当前选项卡切换时, 切换相关路由
+    watch(activeKey,(targetKey)=>{
+        panes.value.forEach((item)=>{
+          if(item.key === targetKey){
+              ctx.$root.$router.push(item.path);
+          }
+        })
+    })
+
     return {
       placement: ref("bottomRight"),
       panes,
