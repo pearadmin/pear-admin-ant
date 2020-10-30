@@ -72,8 +72,6 @@ export default {
       if (single) {
         return props.basePath;
       }
-      //这里需要处理一下
-      // return props.basePath + '/' + routePath;
       return path.resolve(props.basePath, routePath);
     };
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};

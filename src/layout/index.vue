@@ -6,7 +6,7 @@
       :width="sideWitch"
       :collapsed="collapsed"
       :trigger="null"
-      collapsible
+       collapsible
       :class="[theme]"
     >
       <!-- 顶部图标 -->
@@ -56,7 +56,6 @@ export default {
     const layout = computed(() => getters.layout);
     const collapsed = computed(() => getters.collapsed);
 
-    const sideVisible = computed(() => getters.sideVisible);
     const count = computed(() => getters.count);
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
@@ -64,7 +63,6 @@ export default {
     const sideWitch = computed(() => getters.sideWitch);
     return {
       layout,
-      sideVisible,
       collapsed,
       sideWitch,
       count,

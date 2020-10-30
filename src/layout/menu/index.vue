@@ -1,8 +1,8 @@
 <template>
   <div id="menu">
     <a-menu
-      v-model:openKeys="openKey"
-      v-model:selectedKeys="selectKey"
+      :openKeys="openKey"
+      :selectedKeys="selectKey"
       :mode="menuModel"
       :theme="theme"
       @openChange="openChange"

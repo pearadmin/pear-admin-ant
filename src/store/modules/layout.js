@@ -22,13 +22,6 @@ const state = {
 	 * */
 	collapsed: false,
 
-	// 左侧菜单
-	sidebar: {
-		//显示状态
-		visible: true,
-		//收缩状态
-		opened: !JSON.parse(localStorage.getItem("sidebarStatus")),
-	},
 	// 设置面板
 	setting: {
 		//显示状态
@@ -70,7 +63,6 @@ const mutations = {
 	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {
-
 		if(state.collapsed){
 			// 要展开
 			state.openKey = JSON.parse(localStorage.getItem("openKeys"));

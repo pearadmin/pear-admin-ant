@@ -14,9 +14,6 @@
     <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 内容
     <br />
     <br />
-    <a-switch v-model:checked="side" @change="onChangeSide" /> ---- 菜单
-    <br />
-    <br />
     <a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
     <br />
     <br />
@@ -47,7 +44,6 @@ export default {
     const { getters, commit } = useStore();
     const visible = computed(() => getters.settingVisible);
     const logo = computed(() => getters.logo);
-    const side = computed(() => getters.sideVisible);
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme == "dark");
     const lan = ref(getters.language);
@@ -57,7 +53,6 @@ export default {
     return {
       visible,
       logo,
-      side,
       tab,
       theme,
       lan,

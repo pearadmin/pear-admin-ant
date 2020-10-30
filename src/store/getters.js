@@ -4,7 +4,6 @@ const getters = {
 	menuModel: state => state.layout.layout == "headMenu"?"horizontal":"inline",
 	collapsed: state => state.layout.collapsed,
 
-	sideVisible: state => state.layout.sidebar.visible,
 	settingVisible: state => state.layout.setting.opened,
 	logo: state => state.layout.logo,
 	tab: state => state.layout.tab,
