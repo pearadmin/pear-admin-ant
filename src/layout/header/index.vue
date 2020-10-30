@@ -1,16 +1,17 @@
 <template>
   <!-- 框架顶部菜单区域 -->
-  <div id="header">
+  <div id="header" :class="[theme == 'dark' && layout == 'headMenu', 'light']">
     <!-- 左侧菜单功能项 -->
-    <div class="prev-menu">
+    <div class="prev-menu" v-if="layout === 'sideMenu'">
       <!-- 左侧缩进功能键 -->
       <menu-unfold-outlined
         v-if="collapsed"
         class="trigger menu-item"
         @click="trigger()"
       />
+      <!-- 左侧缩进功能键盘 -->
       <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
-      <!-- 当前页面的路由刷新 -->
+      <!-- 刷新当前页面路由 -->
       <ReloadOutlined class="refresh menu-item" />
     </div>
     <!-- 右侧菜单功能项 -->
@@ -82,10 +83,13 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
+    const layout = computed(() => getters.layout);
+
     const collapsed = computed(() => getters.sideCollapsed);
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     return {
+      layout,
       collapsed,
       fullscreen,
       trigger: () => commit("layout/TOGGLE_SIDEBAR"),
@@ -98,6 +102,8 @@ export default {
 </script>
 <style scoped>
 #header {
+  padding-left: 10px;
+  padding-right: 10px;
   background-color: white;
 }
 
@@ -112,7 +118,6 @@ export default {
 #header .prev-menu .menu-item,
 #header .next-menu .menu-item {
   font-size: 17px;
-  line-height: 64px;
   padding: 0 15px;
   cursor: pointer;
   transition: color 0.3s;
@@ -120,6 +125,6 @@ export default {
 
 #header .prev-menu .menu-item:hover,
 #header .next-menu .menu-item:hover {
-  color: #1890ff;
+  color: #2d8cf0;
 }
 </style>

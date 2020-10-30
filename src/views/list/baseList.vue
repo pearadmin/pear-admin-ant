@@ -4,13 +4,32 @@
       <h2>基础列表</h2>
       <p>标准的列表，包含增删改查等基础操作.</p>
     </a-card>
-    <a-card style="margin: 10px">
-      <a-list
-        class="demo-loadmore-list"
-        :loading="loading"
-        item-layout="horizontal"
-        :data-source="data"
-      >
+    <a-card style="margin: 15px; text-align: center">
+      <a-row>
+        <a-col :span="8">
+          <a-statistic
+            title="Feedback"
+            :value="1128"
+            style="margin-right: 50px"
+          >
+          </a-statistic>
+        </a-col>
+        <a-col :span="8">
+          <a-statistic title="Unmerged" :value="93" class="demo-class">
+            <template #suffix>
+              <span> / 100</span>
+            </template>
+          </a-statistic>
+        </a-col>
+        <a-col :span="8">
+          <a-statistic title="Teacher" :value="5433" class="demo-class">
+    
+          </a-statistic>
+        </a-col>
+      </a-row>
+    </a-card>
+    <a-card style="margin: 15px">
+      <a-list :loading="loading" item-layout="horizontal" :data-source="data">
         <template v-slot:loadMore>
           <div
             v-if="showLoadingMore"
@@ -51,9 +70,10 @@
   </div>
 </template>
 <script>
-import reqwest from 'reqwest';
+import reqwest from "reqwest";
 
-const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
+const fakeDataUrl =
+  "https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo";
 
 export default {
   data() {
@@ -65,7 +85,7 @@ export default {
     };
   },
   mounted() {
-    this.getData(res => {
+    this.getData((res) => {
       this.loading = false;
       this.data = res.results;
     });
@@ -74,21 +94,21 @@ export default {
     getData(callback) {
       reqwest({
         url: fakeDataUrl,
-        type: 'json',
-        method: 'get',
-        contentType: 'application/json',
-        success: res => {
+        type: "json",
+        method: "get",
+        contentType: "application/json",
+        success: (res) => {
           callback(res);
         },
       });
     },
     onLoadMore() {
       this.loadingMore = true;
-      this.getData(res => {
+      this.getData((res) => {
         this.data = this.data.concat(res.results);
         this.loadingMore = false;
         this.$nextTick(() => {
-          window.dispatchEvent(new Event('resize'));
+          window.dispatchEvent(new Event("resize"));
         });
       });
     },

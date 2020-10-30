@@ -1,4 +1,8 @@
 const getters = {
+	layout: state => state.layout.layout,
+	theme: state => state.layout.theme,
+	menuModel: state => state.layout.layout == "headMenu"?"horizontal":"inline",
+
 	sideVisible: state => state.layout.sidebar.visible,
 	sideCollapsed: state => state.layout.sidebar.opened,
 	settingVisible: state => state.layout.setting.opened,
@@ -11,8 +15,6 @@ const getters = {
 	panes: state => state.layout.panes,
 	fullscreen: state => state.layout.fullscreen,
 	sideWitch: state => state.layout.sideWitch,
-	menuModel: state => state.layout.menuModel,
-	theme: state => state.layout.theme,
 	language: state => state.layout.language,
 	languages: state => state.layout.languages
 };

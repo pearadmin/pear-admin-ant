@@ -48,7 +48,6 @@ export default {
 };
 </script>
 <style>
-
 .ant-menu-sub.ant-menu-inline > .ant-menu-item,
 .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
   height: 48px;
@@ -68,6 +67,10 @@ export default {
 .ant-layout-sider {
   background: #191a23 !important;
 }
+.ant-menu.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: #2d8cf0 !important;
+}
 .ant-menu-dark,
 .ant-menu-dark {
   background: #191a23 !important;
@@ -86,5 +89,4 @@ export default {
   margin-top: 4px !important;
   margin-bottom: 4px !important;
 }
-
 </style>

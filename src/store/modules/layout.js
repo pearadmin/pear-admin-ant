@@ -1,6 +1,20 @@
 const defaultHomeKey = 'home';
 
 const state = {
+	/**
+	 * 布局方式（整体界面的排版方式）
+	 * headMenu -- 头部菜单
+	 * sideMenu -- 顶部菜单
+	 * */
+	layout: "sideMenu",
+
+	/**
+	 * 系统主题（整体色调）
+	 * light -- 白色主题 
+	 * dark -- 暗色主题
+	 */
+	theme: "dark",
+
 	// 左侧菜单
 	sidebar: {
 		//显示状态
@@ -35,10 +49,7 @@ const state = {
 	fullscreen: false,
 	// 宽度
 	sideWitch: 250,
-	// 菜单模式
-	menuModel: 'inline',
-	// 布局主题
-	theme: 'dark',
+
 	// 国 际 化 语 言 配 置
 	language: '',
 	languages: [],

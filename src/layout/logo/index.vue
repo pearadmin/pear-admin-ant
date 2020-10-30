@@ -2,10 +2,10 @@
   <div class="logo" :class="[theme]">
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-if="!collapsed">
-      <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+      <img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/>
     </span>
     <!-- 根据侧边收缩状态决定隐显内容 -->
-    <span v-else><img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/></span>
+    <span v-else><img src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"/></span>
   </div>
 </template>
 <script>
@@ -28,15 +28,15 @@ export default {
 .logo {
   height: 65px;
   font-size: 22px;
-  padding: 10px;
   text-align: center;
+  padding: 3px;
   color:white;
   border-bottom: 1px solid #101117;
   background: #191a23;
 }
 .logo img{
-  height: 40px;
-  width: 40px;
+  height: 59px;
+  width: 59px;
 }
 .dark{
   background-color:  #191a23!important;
