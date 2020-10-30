@@ -2,9 +2,9 @@ const getters = {
 	layout: state => state.layout.layout,
 	theme: state => state.layout.theme,
 	menuModel: state => state.layout.layout == "headMenu"?"horizontal":"inline",
+	collapsed: state => state.layout.collapsed,
 
 	sideVisible: state => state.layout.sidebar.visible,
-	sideCollapsed: state => state.layout.sidebar.opened,
 	settingVisible: state => state.layout.setting.opened,
 	logo: state => state.layout.logo,
 	tab: state => state.layout.tab,

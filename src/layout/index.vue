@@ -1,12 +1,12 @@
 <template>
-  <a-layout id="basic-layout">
+  <a-layout id="layout">
     <!-- 侧边栏 -->
     <a-layout-sider
       v-if="layout === 'sideMenu'"
       :width="sideWitch"
-      v-model:collapsed="collapsed"
+      :collapsed="collapsed"
       :trigger="null"
-       collapsible
+      collapsible
       :class="[theme]"
     >
       <!-- 顶部图标 -->
@@ -54,10 +54,9 @@ export default {
     const { getters } = useStore();
 
     const layout = computed(() => getters.layout);
-
+    const collapsed = computed(() => getters.collapsed);
 
     const sideVisible = computed(() => getters.sideVisible);
-    const collapsed = computed(() => getters.sideCollapsed);
     const count = computed(() => getters.count);
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
@@ -65,7 +64,6 @@ export default {
     const sideWitch = computed(() => getters.sideWitch);
     return {
       layout,
-
       sideVisible,
       collapsed,
       sideWitch,
@@ -83,28 +81,28 @@ html {
   height: 100%;
 }
 
-#basic-layout {
+#layout {
   height: 100%;
 }
 
-#basic-layout .ant-layout-header {
-  padding-left:0px;
-  padding-right:0px;
+#layout .ant-layout-header {
+  padding-left: 0px;
+  padding-right: 0px;
   background-color: white;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
-#basic-layout .ant-layout-sider {
+#layout .ant-layout-sider {
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   z-index: 999;
 }
 
-.dark{
-  background-color:  #191a23!important;
+.dark {
+  background-color: #191a23 !important;
 }
 
-.light{
-    border-bottom: 1px solid whitesmoke;
-  background-color: white!important;
+.light {
+  border-bottom: 1px solid whitesmoke;
+  background-color: white !important;
 }
 </style>

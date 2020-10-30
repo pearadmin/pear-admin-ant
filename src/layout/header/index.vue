@@ -85,7 +85,7 @@ export default {
     const { getters, commit } = useStore();
     const layout = computed(() => getters.layout);
 
-    const collapsed = computed(() => getters.sideCollapsed);
+    const collapsed = computed(() => getters.collapsed);
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     return {
@@ -106,15 +106,12 @@ export default {
   padding-right: 10px;
   background-color: white;
 }
-
 #header .next-menu {
   float: right;
 }
-
 #header .prev-menu {
   display: inline-block;
 }
-
 #header .prev-menu .menu-item,
 #header .next-menu .menu-item {
   font-size: 17px;
@@ -122,7 +119,6 @@ export default {
   cursor: pointer;
   transition: color 0.3s;
 }
-
 #header .prev-menu .menu-item:hover,
 #header .next-menu .menu-item:hover {
   color: #2d8cf0;

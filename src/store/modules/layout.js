@@ -15,6 +15,13 @@ const state = {
 	 */
 	theme: "dark",
 
+	/**
+	 * 侧边状态
+	 * true  --  隐藏
+	 * false --  展开
+	 * */
+	collapsed: false,
+
 	// 左侧菜单
 	sidebar: {
 		//显示状态
@@ -63,8 +70,16 @@ const mutations = {
 	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {
-		localStorage.setItem('sidebarStatus', state.sidebar.opened)
-		state.sidebar.opened = !state.sidebar.opened;
+
+		if(state.collapsed){
+			// 要展开
+			state.openKey = JSON.parse(localStorage.getItem("openKeys"));
+		}else{
+			// 要隐藏
+			localStorage.setItem("openKeys",JSON.stringify(state.openKey));
+			state.openKey = [];
+		}
+		state.collapsed= !state.collapsed;
 	},
 	// 设置面板是否打开
 	TOGGLE_SETTING(state) {
@@ -76,11 +91,7 @@ const mutations = {
 	},
 	// 切换主题
 	TOGGLE_THEME(state) {
-		if (state.theme == "dark") {
-			state.theme = "light";
-		} else {
-			state.theme = "dark";
-		}
+		state.theme = state.theme == 'dark'?'light':'dark';
 	},
 	// 是否开启选项卡模式
 	updateTab(state) {
