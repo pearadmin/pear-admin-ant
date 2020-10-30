@@ -18,8 +18,13 @@ export default [
       {
         path: 'index',
         name: 'home-index',
-        meta: { key: 'home', title: '控制面板', icon: 'DashboardOutlined' },
+        meta: { key: '31', title: '控制面板', icon: 'DashboardOutlined' },
         component: () => import('@/views/Home.vue'),
+      },{
+        path: 'workspace',
+        name: 'home-workspace',
+        meta: { key: '30', title: '工作空间', icon: 'DashboardOutlined' },
+        component: () => import('@/views/dashboard/workspace.vue'),
       }
     ]
   },{

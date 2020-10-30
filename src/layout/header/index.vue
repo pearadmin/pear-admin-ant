@@ -23,6 +23,8 @@
         @click="full(1)"
       />
       <CompressOutlined v-else class="expand menu-item" @click="full(2)" />
+
+      <GlobalOutlined class="language menu-item" />
       <!-- 主题设置隐显键 -->
       <SettingOutlined class="setting menu-item" @click="setting()" />
     </div>
@@ -39,6 +41,7 @@ import {
   ExpandOutlined,
   CompressOutlined,
   ReloadOutlined,
+  GlobalOutlined,
 } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -48,6 +51,7 @@ export default {
     ExpandOutlined,
     CompressOutlined,
     ReloadOutlined,
+    GlobalOutlined,
   },
   methods: {
     full: function (num) {
