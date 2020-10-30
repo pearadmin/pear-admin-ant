@@ -33,6 +33,7 @@
   </a-layout>
 </template>
 <script>
+import "./index.scss";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import Menu from "./menu/index.vue";
@@ -56,7 +57,6 @@ export default {
     const layout = computed(() => getters.layout);
     const collapsed = computed(() => getters.collapsed);
 
-    const count = computed(() => getters.count);
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme);
@@ -65,7 +65,6 @@ export default {
       layout,
       collapsed,
       sideWitch,
-      count,
       theme,
       logo,
       tab,
@@ -73,34 +72,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-body,
-html {
-  height: 100%;
-}
-
-#layout {
-  height: 100%;
-}
-
-#layout .ant-layout-header {
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: white;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-}
-
-#layout .ant-layout-sider {
-  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
-  z-index: 999;
-}
-
-.dark {
-  background-color: #191a23 !important;
-}
-
-.light {
-  border-bottom: 1px solid whitesmoke;
-  background-color: white !important;
-}
-</style>

@@ -9,6 +9,7 @@
   </div>
 </template>
 <script>
+import "./index.scss";
 import { computed } from "vue"
 import { useStore } from "vuex"
 // 图 标 引 入
@@ -24,25 +25,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.logo {
-  height: 65px;
-  font-size: 22px;
-  text-align: center;
-  padding: 3px;
-  color:white;
-  border-bottom: 1px solid #101117;
-  background: #191a23;
-}
-.logo img{
-  height: 59px;
-  width: 59px;
-}
-.dark{
-  background-color:  #191a23!important;
-}
-.light{
-    border-bottom: 1px solid whitesmoke;
-  background-color: white!important;
-}
-</style>

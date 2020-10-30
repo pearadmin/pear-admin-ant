@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import "./index.scss";
 import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";

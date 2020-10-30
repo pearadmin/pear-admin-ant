@@ -37,6 +37,7 @@
   </a-drawer>
 </template>
 <script>
+import "./index.scss";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 export default {
@@ -70,5 +71,3 @@ export default {
   },
 };
 </script>
-<style>
-</style>

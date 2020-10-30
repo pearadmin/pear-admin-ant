@@ -1,0 +1,22 @@
+ #header {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+  }
+  #header .next-menu {
+    float: right;
+  }
+  #header .prev-menu {
+    display: inline-block;
+  }
+  #header .prev-menu .menu-item,
+  #header .next-menu .menu-item {
+    font-size: 17px;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  #header .prev-menu .menu-item:hover,
+  #header .next-menu .menu-item:hover {
+    color: #2d8cf0;
+  }
