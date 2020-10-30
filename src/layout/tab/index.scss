@@ -14,6 +14,9 @@
     margin-top: 6px !important;
     margin-bottom: 6px !important;
   }
+  .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active{
+    color:#2d8cf0 !important
+  }
   #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
     border-radius: 0px;
     border: none;
@@ -21,7 +24,8 @@
     margin-left: 3px;
     height: 34px !important;
     line-height: 34px !important;
-    border-radius: 2px;
+    border-radius: 3px;
+    color: #808695;
     background-color: white !important;
   }
   #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:first-child {

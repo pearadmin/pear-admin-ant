@@ -7,7 +7,8 @@
     >
       <template v-slot:title>
         <span>
-          <MenuIcon />
+          <MenuIcon v-if="level === 1" />
+          <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <span>{{ item.meta.title }}</span>
         </span>
       </template>
@@ -16,6 +17,7 @@
         v-for="child in item.children"
         :key="child.meta.key"
         :item="child"
+        :level="level + 1"
         :base-path="resolvePath(child.path)"
       />
     </a-sub-menu>
@@ -31,7 +33,8 @@
           )
         "
       >
-        <MenuIcon />
+        <MenuIcon v-if="level === 1" />
+        <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span>{{ item.meta.title }}</span>
       </router-link>
     </a-menu-item>
@@ -53,14 +56,18 @@ export default {
       type: String,
       default: "",
     },
+    level: {
+      type: Number,
+      required: true,
+    },
   },
   setup(props) {
     const { commit } = useStore();
-    // 菜 单 单 击 触 发 函 数
+
     const clickMenuItem = function (key, title, path) {
-      // 新 增 顶 部 选 项 卡 操 作
+      // add panes item
       commit("layout/addTab", { key, title, path });
-      // 设 置 当 前 菜 单 选 中
+      // set menu select
       commit("layout/selectKey", key);
     };
 
@@ -73,7 +80,9 @@ export default {
       }
       return path.resolve(props.basePath, routePath);
     };
+
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
+
     return {
       clickMenuItem,
       resolvePath,

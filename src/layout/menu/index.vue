@@ -12,6 +12,7 @@
         :key="index"
         :item="route"
         :base-path="route.path"
+        level = 0
       />
     </a-menu>
   </div>

@@ -5,7 +5,7 @@ export default [
   //默认访问路由
   {
     path: '/',
-    redirect: "/list",
+    redirect: "/home/index",
     hidden: true,
   },
   //首页
@@ -18,7 +18,7 @@ export default [
       {
         path: 'index',
         name: 'home-index',
-        meta: { key: '31', title: '控制面板', icon: 'DashboardOutlined' },
+        meta: { key: 'home', title: '控制台', icon: 'DashboardOutlined' },
         component: () => import('@/views/Home.vue'),
       },{
         path: 'workspace',
