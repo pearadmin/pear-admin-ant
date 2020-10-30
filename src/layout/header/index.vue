@@ -88,6 +88,7 @@ export default {
     const collapsed = computed(() => getters.collapsed);
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
+
     return {
       layout,
       collapsed,

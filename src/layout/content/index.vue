@@ -4,7 +4,6 @@
 		<router-view v-if="routerActive"></router-view>
 	</div>
 </template>
-
 <script>
 	import { computed } from 'vue';
 	import { useStore } from "vuex";

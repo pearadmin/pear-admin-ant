@@ -34,6 +34,7 @@ export default {
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const openChange = function (openKeys) {
+      console.log(openKeys);
       commit("layout/updateOpenKey", openKeys);
     };
     return {

@@ -7,7 +7,7 @@
     >
       <template v-slot:title>
         <span>
-          <MenuIcon/>
+          <MenuIcon />
           <span>{{ item.meta.title }}</span>
         </span>
       </template>
@@ -55,7 +55,6 @@ export default {
     },
   },
   setup(props) {
-
     const { commit } = useStore();
     // 菜 单 单 击 触 发 函 数
     const clickMenuItem = function (key, title, path) {
