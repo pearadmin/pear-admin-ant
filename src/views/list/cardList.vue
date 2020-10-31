@@ -1,10 +1,11 @@
 <template>
   <div>
-    <a-card>
-      <h2>基础列表</h2>
-      <p>标准的列表，包含增删改查等基础操作.</p>
-    </a-card>
-    <a-card style="margin: 10px">
+    <page-header
+      title="基础列表"
+      describe="标准的列表，包含增删改查等基础操作."
+    ></page-header>
+    <page-layout>
+        <a-card>
       <a-row :gutter="[15, 15]">
         <a-col :span="6">
           <a-card hoverable>
@@ -208,6 +209,7 @@
         </a-col>
       </a-row>
     </a-card>
+    </page-layout>
   </div>
 </template>
 <script>
