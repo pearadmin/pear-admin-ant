@@ -31,7 +31,6 @@
   </div>
 </template>
 <script>
-import "./index.scss";
 import { computed } from "vue";
 import { useStore } from "vuex";
 /** 图标集 */

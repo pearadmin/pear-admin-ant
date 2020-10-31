@@ -33,7 +33,6 @@
   </a-layout>
 </template>
 <script>
-import "./index.scss";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import Menu from "./menu/index.vue";

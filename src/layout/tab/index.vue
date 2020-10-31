@@ -39,7 +39,6 @@
   </div>
 </template>
 <script>
-import "./index.scss";
 import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
@@ -100,40 +99,3 @@ export default {
   },
 };
 </script>
-<style>
-#tab .tab {
-  width: calc(100% - 40px);
-  display: inline-block;
-}
-#tab .tab-tool {
-  float: right;
-  top: 6px;
-  right: 6px;
-  border: none;
-}
-#tab .ant-tabs-bar {
-  margin: 0px !important;
-  border: none;
-  margin-top: 6px !important;
-  margin-bottom: 6px !important;
-}
-#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
-  border-radius: 0px;
-  border: none;
-  margin-right: 3px;
-  margin-left: 3px;
-  height: 34px !important;
-  line-height: 34px !important;
-  border-radius: 2px;
-  background-color: white !important;
-}
-#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:first-child {
-  margin-left: 6px;
-}
-#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:last-child {
-  margin-right: 6px;
-}
-#tab .ant-tabs-nav-container {
-  height: 34px;
-}
-</style>

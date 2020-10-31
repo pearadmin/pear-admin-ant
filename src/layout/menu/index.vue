@@ -18,7 +18,6 @@
   </div>
 </template>
 <script>
-import "./index.scss";
 import { computed, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
 import SubMenu from "./SubMenu.vue";
