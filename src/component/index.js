@@ -1,18 +1,17 @@
-import { App } from "vue";
 import PageHeader from "./pageHeader";
 import PageLayout from "./pageLayout";
-'./pageHeader/index.js';
+import CardBase from "./cardBase";
 
 const components = [
-    PageHeader,PageLayout
-  ];
+    PageHeader, PageLayout, CardBase
+];
 
-  const install = function (Vue) {
+const install = function (Vue) {
     if (install.installed) return
     components.map(component => Vue.component(component.name, component))
 }
 
-export default{ 
+export default {
     install,
-    PageHeader,PageLayout
+    PageHeader, PageLayout, CardBase
 }
