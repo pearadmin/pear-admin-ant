@@ -18,7 +18,7 @@ export default [
       {
         path: 'console',
         name: 'dashboard-console',
-        meta: { key: 'home', title: '分析页', icon: 'DashboardOutlined' },
+        meta: { key: 'home', title: '分析页', icon: 'DashboardOutlined', fixed: true },
         component: () => import('@/view/dashboard/console.vue'),
       },{
         path: 'workspace',

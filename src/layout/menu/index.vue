@@ -8,8 +8,8 @@
       @openChange="openChange"
     >
       <sub-menu
-        v-for="(route, index) in routes"
-        :key="route.meta && route.meta.key || index / -1"
+        v-for="route in routes"
+        :key="route.path"
         :item="route"
         :base-path="route.path"
         :level="0"
@@ -38,21 +38,14 @@ export default {
 
     const selectKey = ref([]);
     const openKey = ref([]);
-    watch(computed(() => getters.selectKey), n => selectKey.value = n, { deep: true });
+    watch(computed(() => getters.activeKey), n => selectKey.value = [ n ]);
     watch(computed(() => getters.openKey), n => openKey.value = n, { deep: true });
 
     //切换路由的时候切换菜单
     const route = computed(() => ctx.$root.$route);
     const dynamicMenu = to => {
-      const key = to.meta.key;
-      const title = to.meta.title;
-      const path = to.path;
-      // 新 增 顶 部 选 项 卡 操 作
-      commit("layout/addTab", { key, title, path });
-      // 设 置 当 前 菜 单 选 中
-      commit("layout/selectKey", key);
       // 修改打开的菜单
-      const parentKey = to.matched.find(r => r.meta && r.meta.key).meta.key;
+      const parentKey = to.matched.find(r => r.path).path;
       commit('layout/updateOpenKey', { openKeys: [ parentKey ], isNew: true })
     }
     dynamicMenu(route.value);

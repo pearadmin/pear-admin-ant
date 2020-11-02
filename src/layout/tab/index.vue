@@ -10,7 +10,7 @@
     >
       <a-tab-pane
         v-for="pane in panes"
-        :key="pane.key"
+        :key="pane.path"
         :tab="pane.title"
         :closable="pane.closable"
       >
@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import _path from "path";
 import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
@@ -51,7 +52,6 @@ export default {
     callback(key) {
       // 更改当前选中的选项卡 与 菜单项
       this.selectTab(key);
-      this.selectKey(key);
     },
     // 选项卡新增 删除时所触发的事件
     onEdit(targetKey, action) {
@@ -76,16 +76,41 @@ export default {
     const { getters, commit } = useStore();
     const { ctx } = getCurrentInstance();
 
-    const storePanes = computed(() => getters.panes);
-    const panes = ref(storePanes.value);
-    watch(storePanes, n => panes.value = n, { deep: true })
+    const panes = ref(initPanes);
+    watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
+
+    const initPanes =[];
+    const findFixedPane = (list, prefix, panes) => {
+      panes.forEach(pane => {
+        const { path, meta, hidden, children } = pane;
+        if(children && children.length > 0){
+          findFixedPane(list, _path.resolve(prefix, path), children);
+        }else{
+            if(!hidden && meta && meta.fixed){
+              list.push({ title: meta.title, path: _path.resolve(prefix, path), closable: false })
+            }
+        }
+      })
+    }
+    findFixedPane(initPanes, '', ctx.$root.$router.options.routes)
+    commit('layout/initPanes', initPanes);
+    
+    //切换路由的时候切换选项卡
+    const route = computed(() => ctx.$root.$route);
+    const dynamicMenu = to => {
+      const title = to.meta.title;
+      const path = to.path;
+      commit("layout/addTab", { title, path });
+    }
+    dynamicMenu(route.value);
+    watch(route, dynamicMenu)
 
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
     watch(storeKey, targetKey => {
       activeKey.value = targetKey
       ctx.$root.$router.push(
-        panes.value.find((item) => item.key === targetKey)
+        panes.value.find((item) => item.path === targetKey)
       );
     })
 
@@ -94,7 +119,6 @@ export default {
       panes,
       activeKey,
       selectTab: (key) => commit("layout/selectTab", key),
-      selectKey: (key) => commit("layout/selectKey", key),
       removeTab: (key) => commit("layout/removeTab", key),
       closeAllTab: () => commit("layout/closeAllTab"),
       closeOtherTab: () => commit("layout/closeOtherTab"),

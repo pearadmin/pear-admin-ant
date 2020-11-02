@@ -1,7 +1,7 @@
 <template>
   <template v-if="!item.hidden">
     <!-- if item.children is not null 渲染 a-sub-menu -->
-    <a-sub-menu :key="item.meta.key" v-if="item.children && item.children.length > 0">
+    <a-sub-menu :key="item.path" v-if="item.children && item.children.length > 0">
       <template v-slot:title>
         <span>
           <MenuIcon v-if="level === 0" />
@@ -12,14 +12,14 @@
       <!-- 递归 item.children -->
       <sub-menu
         v-for="child in item.children"
-        :key="child.meta.key"
+        :key="resolvePath(child.path)"
         :item="child"
         :level="level + 1"
         :base-path="resolvePath(child.path)"
       />
     </a-sub-menu>
     <!-- if item.chilren is null 渲染 a-menu-item -->
-    <a-menu-item v-bind="$attrs" :key="item.meta.key" v-else>
+    <a-menu-item v-bind="$attrs" :key="resolvePath(item.path, true)" v-else>
       <router-link :to="resolvePath(item.path, true)" >
         <MenuIcon v-if="level === 0" />
         <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>

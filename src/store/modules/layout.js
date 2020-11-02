@@ -30,13 +30,9 @@ const state = {
 	// 是否显示选项卡
 	tab: true,
 	// 选项卡内容存储
-	panes: [
-		{ title: "首页", key: 'home', path: "/dashboard/console", closable: false }
-	],
+	panes: [],
 	// 当前激活选项卡
 	activeKey: '',
-	// 当前选中菜单
-	selectKey: [],
 	// 当前打开菜单
 	openKey: [],
 	// 手风琴配置
@@ -114,12 +110,12 @@ const mutations = {
 	// 新增选项卡操作
 	addTab(state, value) {
 		// 遍历当前的选项卡中是否已存在新增的 Key
-    if(state.panes.findIndex(pane => pane.key === value.key) === -1){
+    if(state.panes.findIndex(pane => pane.path === value.path) === -1){
       // 如果不存在新增选项卡
       state.panes.push(value)
     }
 		// 选中新增 或 已存在的选项卡
-		state.activeKey = value.key;
+		state.activeKey = value.path;
 	},
 	// 删除选项卡实现
 	removeTab(state, targetKey) {
@@ -144,7 +140,6 @@ const mutations = {
 		}
 		state.panes = panes;
 		state.activeKey = activeKey;
-		state.selectKey[0] = activeKey;
 	},
 	closeAllTab(state) {
 		// 处理之前
@@ -154,7 +149,6 @@ const mutations = {
 		const key = panes[length - 1].key;
 		state.panes = panes;
 		state.activeKey = key;
-		state.selectKey[0] = key;
 	},
 	closeOtherTab(state) {
 		const panes = state.panes.filter((pane) => pane.closable === false || pane.key === state.activeKey);
@@ -168,13 +162,12 @@ const mutations = {
 		const key = panes[length - 1].key;
 		state.panes = panes;
 		state.activeKey = key;
-		state.selectKey[0] = key;
 	},
+  initPanes(state, panes){
+    state.panes = panes;
+  },
 	selectTab(state, key) {
 		state.activeKey = key;
-	},
-	selectKey(state, key) {
-		state.selectKey[0] = key;
 	},
 	updateRouterActive(state) {
 		state.routerActive = !state.routerActive;
