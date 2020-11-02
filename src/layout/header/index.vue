@@ -12,7 +12,7 @@
       <!-- 左侧缩进功能键盘 -->
       <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
       <!-- 刷新当前页面路由 -->
-      <ReloadOutlined class="refresh menu-item" />
+      <ReloadOutlined class="refresh menu-item" @click="refresh" />
     </div>
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import { computed } from "vue";
+import { computed, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
 /** 图标集 */
 import {
@@ -93,7 +93,20 @@ export default {
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
-    
+
+    const { ctx } = getCurrentInstance();
+    const refresh = () => {
+      const $route = ctx.$root.$route;
+      ctx.$root.$router.replace({
+        path: $route.path,
+        params: $route.params,
+        query: {
+          ...$route.query,
+          _: Date.now()
+        },
+      })
+    }
+
     return {
       layout,
       collapsed,
@@ -102,7 +115,8 @@ export default {
       setting: () => commit("layout/TOGGLE_SETTING"),
       updateFullscreen: () => commit("layout/updateFullscreen"),
       menuModel,
-      theme
+      theme,
+      refresh
     };
   },
 };
