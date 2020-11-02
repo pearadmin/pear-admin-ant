@@ -36,7 +36,7 @@ const state = {
 	// 当前打开菜单
 	openKey: [],
 	// 手风琴配置
-	muiltOpen: false,
+	muiltOpen: true,
 	// 路由刷新辅助变量
 	routerActive: true,
 	// 浏览器全屏
@@ -57,15 +57,15 @@ const mutations = {
 	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {
-		if(state.collapsed){
+		if (state.collapsed) {
 			// 要展开
 			state.openKey = JSON.parse(localStorage.getItem("openKeys"));
-		}else{
+		} else {
 			// 要隐藏
-			localStorage.setItem("openKeys",JSON.stringify(state.openKey));
+			localStorage.setItem("openKeys", JSON.stringify(state.openKey));
 			state.openKey = [];
 		}
-		state.collapsed= !state.collapsed;
+		state.collapsed = !state.collapsed;
 	},
 	// 设置面板是否打开
 	TOGGLE_SETTING(state) {
@@ -77,7 +77,7 @@ const mutations = {
 	},
 	// 切换主题
 	TOGGLE_THEME(state) {
-    state.theme = state.theme === 'dark' ? 'light' : 'dark'
+		state.theme = state.theme === 'dark' ? 'light' : 'dark'
 	},
 	// 是否开启选项卡模式
 	updateTab(state) {
@@ -89,31 +89,31 @@ const mutations = {
 	},
 	// 修改菜单打开项
 	updateOpenKey(state, { openKeys, isNew = false }) {
-  //   //手风琴模式, 只保留当前打开的节点, TODO: 多级需要判断父节点的数据
-    let { openKey } = state;
+		//   //手风琴模式, 只保留当前打开的节点, TODO: 多级需要判断父节点的数据
+		let { openKey } = state;
 		if (state.muiltOpen) {
-      openKey = [ openKeys[0] ];
-		} else{
-      if(isNew){
-        openKeys.forEach(newOpenKey => {
-          //当前打开的节点不在其中
-          if(openKey.findIndex(key => key === newOpenKey) == -1) {
-            openKey.push(newOpenKey);
-          }
-        })
-      }else{
-         openKey = openKeys;
-      }
-    }
-    state.openKey = openKey;
+			openKey = [openKeys[openKeys.length-1]];
+		} else {
+			if (isNew) {
+				openKeys.forEach(newOpenKey => {
+					//当前打开的节点不在其中
+					if (openKey.findIndex(key => key === newOpenKey) == -1) {
+						openKey.push(newOpenKey);
+					}
+				})
+			} else {
+				openKey = openKeys;
+			}
+		}
+		state.openKey = openKey;
 	},
 	// 新增选项卡操作
 	addTab(state, value) {
 		// 遍历当前的选项卡中是否已存在新增的 Key
-    if(state.panes.findIndex(pane => pane.path === value.path) === -1){
-      // 如果不存在新增选项卡
-      state.panes.push(value)
-    }
+		if (state.panes.findIndex(pane => pane.path === value.path) === -1) {
+			// 如果不存在新增选项卡
+			state.panes.push(value)
+		}
 		// 选中新增 或 已存在的选项卡
 		state.activeKey = value.path;
 	},
@@ -163,9 +163,9 @@ const mutations = {
 		state.panes = panes;
 		state.activeKey = key;
 	},
-  initPanes(state, panes){
-    state.panes = panes;
-  },
+	initPanes(state, panes) {
+		state.panes = panes;
+	},
 	selectTab(state, key) {
 		state.activeKey = key;
 	},
