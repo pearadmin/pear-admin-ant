@@ -1,7 +1,8 @@
 <template>
   <div id="403">
-    <a-card :bordered="false" style="margin-bottom: 10px;margin-right:10px;margin-left:10px;">
-      <a-result
+    <page-layout>
+      <a-card>
+ <a-result
         status="403"
         title="403"
         sub-title="Sorry, you are not authorized to access this page."
@@ -10,6 +11,7 @@
           <a-button type="primary"> Back Home </a-button>
         </template>
       </a-result>
-    </a-card>
+      </a-card>
+    </page-layout>
   </div>
 </template>

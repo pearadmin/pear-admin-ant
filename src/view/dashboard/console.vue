@@ -1,0 +1,407 @@
+<template>
+  <div id="home">
+    <page-layout>
+      <a-row :gutter="[15, 15]">
+        <a-col :span="6">
+          <a-card title="访问量">
+            <a-statistic :value="1325.23" :precision="2"> </a-statistic>
+            <a-progress style="margin-top: 15px" :percent="30" size="small" />
+          </a-card>
+        </a-col>
+        <a-col :span="6">
+          <a-card title="销售额">
+            <a-statistic :value="5961.18" :precision="2"> </a-statistic>
+            <a-progress
+              style="margin-top: 15px"
+              :percent="50"
+              size="small"
+              status="active"
+            />
+          </a-card>
+        </a-col>
+        <a-col :span="6">
+          <a-card title="订单量">
+            <a-statistic :value="2994.0" :precision="2"> </a-statistic>
+            <a-progress style="margin-top: 15px" :percent="30" size="small" />
+          </a-card>
+        </a-col>
+        <a-col :span="6">
+          <a-card title="用户数">
+            <a-statistic :value="7531.13" :precision="2"> </a-statistic>
+            <a-progress
+              style="margin-top: 15px"
+              :percent="50"
+              size="small"
+              status="active"
+            />
+          </a-card>
+        </a-col>
+        <a-col span="3">
+          <card-base color="rgb(105, 192, 255)" icon="BuildFilled" title="用户">
+          </card-base>
+        </a-col>
+        <a-col span="3">
+          <card-base color="rgb(149, 222, 100)" icon="CloudFilled" title="首页">
+          </card-base>
+        </a-col>
+        <a-col span="3">
+          <card-base
+            color="rgb(255, 156, 110)"
+            icon="CustomerServiceFilled"
+            title="访问"
+          >
+          </card-base>
+        </a-col>
+        <a-col span="3">
+          <card-base color="rgb(179, 127, 235)" icon="MailFilled" title="邮件">
+          </card-base>
+        </a-col>
+        <a-col span="3">
+          <card-base
+            color="rgb(255, 214, 102)"
+            icon="NotificationFilled"
+            title="消息"
+          >
+          </card-base>
+        </a-col>
+        <a-col span="3">
+          <card-base color="rgb(92, 219, 211)" icon="SignalFilled" title="统计">
+          </card-base>
+        </a-col>
+        <a-col span="3">
+          <card-base
+            color="rgb(255, 133, 192)"
+            icon="TrophyFilled"
+            title="排名"
+          >
+          </card-base>
+        </a-col>
+        <a-col span="3">
+          <card-base color="rgb(255, 192, 105)" icon="BellFilled" title="通知">
+          </card-base>
+        </a-col>
+        <a-col :span="24">
+          <a-card>
+            <a-tabs>
+              <a-tab-pane key="1" tab="销量">
+                <a-row>
+                  <a-col :span="17">
+                    <div
+                      id="echartContainer"
+                      style="width: 85%; height: 320px"
+                    ></div>
+                  </a-col>
+                  <a-col :span="7">
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><div>1</div></a-col>
+                      <a-col span="18">高新区1号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>2</span></a-col>
+                      <a-col span="18">高新区2号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>3</span></a-col>
+                      <a-col span="18">高新区3号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>4</span></a-col>
+                      <a-col span="18">高新区4号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>5</span></a-col>
+                      <a-col span="18">高新区5号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>6</span></a-col>
+                      <a-col span="18">高新区6号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>7</span></a-col>
+                      <a-col span="18">高新区7号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                  </a-col>
+                </a-row>
+              </a-tab-pane>
+              <a-tab-pane key="2" tab="排行" force-render> </a-tab-pane>
+            </a-tabs>
+          </a-card>
+        </a-col>
+        <a-col :span="12">
+          <a-card title="线上热门搜索">
+            <a-row :gutter="10">
+              <a-col :span="12">
+                <a-card>
+                  <a-statistic
+                    title="Feedback"
+                    :value="11.28"
+                    :precision="2"
+                    suffix="%"
+                    :value-style="{ color: '#3f8600' }"
+                    style="margin-right: 50px"
+                  >
+                    <template v-slot:prefix>
+                      <arrow-up-outlined />
+                    </template>
+                  </a-statistic>
+                </a-card>
+              </a-col>
+              <a-col :span="12">
+                <a-card>
+                  <a-statistic
+                    title="Idle"
+                    :value="9.3"
+                    :precision="2"
+                    suffix="%"
+                    class="demo-class"
+                    :value-style="{ color: '#cf1322' }"
+                  >
+                    <template v-slot:prefix>
+                      <arrow-down-outlined />
+                    </template>
+                  </a-statistic>
+                </a-card>
+              </a-col>
+              <a-col span="24">
+                <a-table
+                  :columns="columns"
+                  :data-source="datas"
+                  style="margin-top: 10px"
+                />
+              </a-col>
+            </a-row>
+          </a-card>
+        </a-col>
+        <a-col :span="12">
+          <a-card title="销售类别占比">
+            <a-row :gutter="10">
+              <a-col :span="12">
+                <a-card>
+                  <a-statistic
+                    title="Feedback"
+                    :value="11.28"
+                    :precision="2"
+                    suffix="%"
+                    :value-style="{ color: '#3f8600' }"
+                    style="margin-right: 50px"
+                  >
+                    <template v-slot:prefix>
+                      <arrow-up-outlined />
+                    </template>
+                  </a-statistic>
+                </a-card>
+              </a-col>
+              <a-col :span="12">
+                <a-card>
+                  <a-statistic
+                    title="Idle"
+                    :value="9.3"
+                    :precision="2"
+                    suffix="%"
+                    class="demo-class"
+                    :value-style="{ color: '#cf1322' }"
+                  >
+                    <template v-slot:prefix>
+                      <arrow-down-outlined />
+                    </template>
+                  </a-statistic>
+                </a-card>
+              </a-col>
+              <a-col span="24">
+                   <a-table
+                  :columns="columns"
+                  :data-source="datas"
+                  style="margin-top: 10px"
+                />
+              </a-col>
+            </a-row>
+          </a-card>
+        </a-col>
+      </a-row>
+    </page-layout>
+  </div>
+</template>
+<script>
+var echarts = require("echarts");
+import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
+export default {
+  components: {
+    ArrowUpOutlined,
+    ArrowDownOutlined,
+  },
+  setup() {
+    const data = [
+      {
+        title: "Ant Design Title 1",
+      },
+      {
+        title: "Ant Design Title 2",
+      },
+      {
+        title: "Ant Design Title 3",
+      },
+      {
+        title: "Ant Design Title 4",
+      },
+    ];
+
+    const columns = [
+      { title: "排名", dataIndex: "key", key: "key" },
+      { title: "门店", dataIndex: "name", key: "name" },
+      { title: "销量", dataIndex: "age", key: "age" },
+      { title: "地址", dataIndex: "address", key: "address" },
+    ];
+
+    const datas = [
+      {
+        key: 1,
+        name: "Bai Liang",
+        age: 1332334.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
+      },
+      {
+        key: 2,
+        name: "Bai Liang",
+        age: 3543241.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
+      },
+      {
+        key: 3,
+        name: "Bai Liang",
+        age: 4745244.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
+      },
+      {
+        key: 4,
+        name: "Bai Liang",
+        age: 3235244.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
+      }
+    ];
+    return {
+      data,
+      columns,
+      datas,
+    };
+  },
+  mounted() {
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById("echartContainer"));
+    var option = {
+      backgroundColor: "#fff",
+      title: {
+        top: 10,
+        left: 15,
+        textStyle: {
+          color: "#35598d",
+          fontSize: 16,
+          fontWeight: "normal",
+        },
+      },
+      tooltip: {
+        trigger: "axis",
+        formatter: "{b}：{c}",
+      },
+      grid: {
+        left: "5%",
+        right: "6%",
+        bottom: "3%",
+        top: "20%",
+        containLabel: true,
+      },
+      xAxis: {
+        type: "category",
+        data: [
+          "策略1",
+          "策略2",
+          "策略3",
+          "策略4",
+          "策略5",
+          "策略6",
+          "策略7",
+          "策略8",
+          "策略9",
+        ],
+        axisLabel: {
+          //坐标轴字体颜色
+          textStyle: {
+            color: "#9eaaba",
+          },
+        },
+        axisLine: {
+          lineStyle: {
+            color: "#e5e5e5",
+          },
+        },
+        axisTick: {
+          //y轴刻度线
+          show: false,
+        },
+        splitLine: {
+          //网格
+          show: false,
+        },
+      },
+      yAxis: {
+        type: "value",
+        axisLabel: {
+          //坐标轴字体颜色
+          textStyle: {
+            color: "#9eaaba",
+          },
+        },
+        axisLine: {
+          show: false,
+        },
+        axisTick: {
+          //y轴刻度线
+          show: false,
+        },
+        splitLine: {
+          //网格
+          show: true,
+          lineStyle: {
+            color: "#dadde4",
+            type: "dashed", //坐标网线类型
+          },
+        },
+      },
+      series: {
+        name: "",
+        type: "bar",
+        barWidth: "40%", //柱子宽度
+        itemStyle: {
+          //柱子颜色
+          normal: {
+            borderWidth: 2,
+            borderColor: "#008dff",
+            color: "#008dff",
+          },
+        },
+        data: [320, 332, 301, 334, 390, 330, 320, 230, 156],
+      },
+    };
+    myChart.setOption(option);
+
+    window.addEventListener("resize", () => {
+      myChart.resize();
+    });
+    window.onresize = () => {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => {}, 300);
+    };
+  },
+};
+</script>
+<style scoped>
+.ant-divider-horizontal {
+  margin: 15px, 0px;
+}
+</style>

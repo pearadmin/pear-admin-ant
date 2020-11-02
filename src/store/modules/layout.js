@@ -31,7 +31,7 @@ const state = {
 	tab: true,
 	// 选项卡内容存储
 	panes: [
-		{ title: "首页", key: 'home-index', path: "/home/index", closable: false }
+		{ title: "首页", key: 'home', path: "/dashboard/console", closable: false }
 	],
 	// 当前激活选项卡
 	activeKey: '',
@@ -113,18 +113,11 @@ const mutations = {
 	},
 	// 新增选项卡操作
 	addTab(state, value) {
-		// 新增标识, 用于判断当前的选项卡是否已经添加
-		var flag = false;
 		// 遍历当前的选项卡中是否已存在新增的 Key
-		state.panes.forEach((pane) => {
-			if (pane.key === value.key) {
-				flag = true;
-			}
-		})
-		// 如果不存在新增选项卡
-		if (!flag) {
-			state.panes.push(value);
-		}
+    if(state.panes.findIndex(pane => pane.key === value.key) === -1){
+      // 如果不存在新增选项卡
+      state.panes.push(value)
+    }
 		// 选中新增 或 已存在的选项卡
 		state.activeKey = value.key;
 	},

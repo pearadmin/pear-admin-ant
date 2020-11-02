@@ -4,5 +4,8 @@ import Antd from 'ant-design-vue';
 import router from './router'
 import store from './store'
 import 'ant-design-vue/dist/antd.css';
+import './assets/css/layout.scss';
+import components from './component';
 
-createApp(App).use(Antd).use(store).use(router).mount('#app')
+
+createApp(App).use(Antd).use(store).use(components).use(router).mount('#app')

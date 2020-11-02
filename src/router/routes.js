@@ -5,21 +5,26 @@ export default [
   //默认访问路由
   {
     path: '/',
-    redirect: "/list",
+    redirect: "/dashboard/console",
     hidden: true,
   },
   //首页
   {
-    path: '/home',
-    name: 'home',
+    path: '/dashboard',
+    name: 'dashboard',
     meta: { key: '1', title: '工作空间', icon: 'HomeOutlined' },
     component: Layout,
     children: [
       {
-        path: 'index',
-        name: 'home-index',
-        meta: { key: 'home', title: '控制面板', icon: 'DashboardOutlined' },
-        component: () => import('@/views/Home.vue'),
+        path: 'console',
+        name: 'dashboard-console',
+        meta: { key: 'home', title: '分析页', icon: 'DashboardOutlined' },
+        component: () => import('@/view/dashboard/console.vue'),
+      },{
+        path: 'workspace',
+        name: 'dashboard-workspace',
+        meta: { key: '30', title: '工作台', icon: 'DashboardOutlined' },
+        component: () => import('@/view/dashboard/workspace.vue'),
       }
     ]
   },{
@@ -29,15 +34,15 @@ export default [
     meta: { key: '18', title: '表单页面', icon: 'UnorderedListOutlined' },
     children: [
       {
-        path: '/baseForm',
+        path: 'baseForm',
         name: 'base-form',
         meta: { key: '19', title: '基础表单', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/form/baseForm.vue')
+        component: () => import('@/view/form/baseForm.vue')
       },{
-        path: '/highForm',
+        path: 'highForm',
         name: 'high-form',
         meta: { key: '20', title: '高级表单', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/form/highForm.vue')
+        component: () => import('@/view/form/highForm.vue')
       }
     ]
   },
@@ -53,22 +58,22 @@ export default [
         path: 'baseList',
         name: 'base-list',
         meta: { key: '7', title: '基础列表', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/list/baseList.vue'),
+        component: () => import('@/view/list/baseList.vue'),
       },{
         path: 'cardList',
         name: 'card-list',
         meta: { key: '12', title: '卡片列表', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/list/cardList.vue'),
+        component: () => import('@/view/list/cardList.vue'),
       },{
         path: 'newsList',
         name: 'news-list',
         meta: { key: '13', title: '图文列表', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/list/newsList.vue'),
+        component: () => import('@/view/list/newsList.vue'),
       },{
         path: 'tableList',
         name: 'table-list',
         meta: { key: '14', title: '查询表格', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/list/tableList.vue'),
+        component: () => import('@/view/list/tableList.vue'),
       }
     ]
   },{
@@ -82,12 +87,12 @@ export default [
         path: 'success',
         name: 'result-success',
         meta: { key: '17', title: '成功', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/result/success.vue'),
+        component: () => import('@/view/result/success.vue'),
       },{
         path: 'failure',
         name: 'result-failure',
         meta: { key: '16', title: '失败', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/result/failure.vue'),
+        component: () => import('@/view/result/failure.vue'),
       }
     ]
   },{
@@ -101,17 +106,17 @@ export default [
         path: '/403',
         name: '403',
         meta: { key: '9', title: '403', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/error/403.vue'),
+        component: () => import('@/view/error/403.vue'),
       },{
         path: '/404',
         name: '404',
         meta: { key: '10', title: '404', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/error/404.vue'),
+        component: () => import('@/view/error/404.vue'),
       },{
         path: '/500',
         name: '500',
         meta: { key: '11', title: '500', icon: 'DatabaseOutlined' },
-        component: () => import('@/views/error/500.vue'),
+        component: () => import('@/view/error/500.vue'),
       }
     ]
   },

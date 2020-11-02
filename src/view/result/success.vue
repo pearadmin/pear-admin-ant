@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <a-card
-      :bordered="false"
-      style="margin-bottom: 10px; margin-right: 10px; margin-left: 10px"
-    >
+  <div id="success">
+     <page-layout>
+      <a-card>
       <a-result
         status="success"
         title="Successfully Purchased Cloud Server ECS!"
@@ -27,7 +25,9 @@
           <a-button key="buy"> Buy Again </a-button>
         </template>
       </a-result>
-    </a-card>
+      </a-card>
+    </page-layout>
+  
   </div>
 </template>
 <script>

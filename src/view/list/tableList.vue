@@ -1,45 +1,44 @@
 <template>
   <div>
-    <a-card>
-      <h2>查询表格</h2>
-      <p>表格查询的复杂示例</p>
-    </a-card>
-    <a-card style="margin: 10px">
-      <a-table :columns="columns" :data-source="data">
-        <template v-slot:name="{ text }">
-          <a>{{ text }}</a>
-        </template>
-        <template v-slot:customTitle>
-          <span><smile-outlined /> Name</span>
-        </template>
-        <template v-slot:tags="{ text: tags }">
-          <span>
-            <a-tag
-              v-for="tag in tags"
-              :key="tag"
-              :color="
-                tag === 'loser'
-                  ? 'volcano'
-                  : tag.length > 5
-                  ? 'geekblue'
-                  : 'green'
-              "
-            >
-              {{ tag.toUpperCase() }}
-            </a-tag>
-          </span>
-        </template>
-        <template v-slot:action="{ record }">
-          <span>
-            <a>Invite 一 {{ record.name }}</a>
-            <a-divider type="vertical" />
-            <a>Delete</a>
-            <a-divider type="vertical" />
-            <a class="ant-dropdown-link"> More actions <down-outlined /> </a>
-          </span>
-        </template>
-      </a-table>
-    </a-card>
+    <page-header title="查询表格" describe="表格查询的复杂示例"></page-header>
+    <page-layout>
+      <a-card>
+        <a-table :columns="columns" :data-source="data">
+          <template v-slot:name="{ text }">
+            <a>{{ text }}</a>
+          </template>
+          <template v-slot:customTitle>
+            <span><smile-outlined /> Name</span>
+          </template>
+          <template v-slot:tags="{ text: tags }">
+            <span>
+              <a-tag
+                v-for="tag in tags"
+                :key="tag"
+                :color="
+                  tag === 'loser'
+                    ? 'volcano'
+                    : tag.length > 5
+                    ? 'geekblue'
+                    : 'green'
+                "
+              >
+                {{ tag.toUpperCase() }}
+              </a-tag>
+            </span>
+          </template>
+          <template v-slot:action="{ record }">
+            <span>
+              <a>Invite 一 {{ record.name }}</a>
+              <a-divider type="vertical" />
+              <a>Delete</a>
+              <a-divider type="vertical" />
+              <a class="ant-dropdown-link"> More actions <down-outlined /> </a>
+            </span>
+          </template>
+        </a-table>
+      </a-card>
+    </page-layout>
   </div>
 </template>
 <script>

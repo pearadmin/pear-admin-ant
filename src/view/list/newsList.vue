@@ -1,10 +1,11 @@
 <template>
   <div>
-    <a-card>
-      <h2>图文列表</h2>
-      <p>以卡片的形式展现商品或图片信息</p>
-    </a-card>
-    <a-card style="margin: 10px">
+    <page-header
+      title="图文列表"
+      describe="以卡片的形式展现商品或图片信息"
+    ></page-header>
+    <page-layout>
+       <a-card>
       <a-list
         item-layout="vertical"
         size="large"
@@ -40,6 +41,7 @@
         </template>
       </a-list>
     </a-card>
+    </page-layout>
   </div>
 </template>
 <script>

@@ -74,16 +74,20 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
-    const panes = computed(() => getters.panes);
-    const activeKey = computed(() => getters.activeKey);
     const { ctx } = getCurrentInstance();
 
-    // 监听选项卡切换, 切换相关路由
-    watch(activeKey, (targetKey) => {
+    const storePanes = computed(() => getters.panes);
+    const panes = ref(storePanes.value);
+    watch(storePanes, n => panes.value = n, { deep: true })
+
+    const storeKey = computed(() => getters.activeKey);
+    const activeKey = ref(storeKey.value);
+    watch(storeKey, targetKey => {
+      activeKey.value = targetKey
       ctx.$root.$router.push(
         panes.value.find((item) => item.key === targetKey)
       );
-    });
+    })
 
     return {
       placement: ref("bottomRight"),
@@ -99,40 +103,3 @@ export default {
   },
 };
 </script>
-<style>
-#tab .tab {
-  width: calc(100% - 40px);
-  display: inline-block;
-}
-#tab .tab-tool {
-  float: right;
-  top: 6px;
-  right: 6px;
-  border: none;
-}
-#tab .ant-tabs-bar {
-  margin: 0px !important;
-  border: none;
-  margin-top: 6px !important;
-  margin-bottom: 6px !important;
-}
-#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
-  border-radius: 0px;
-  border: none;
-  margin-right: 3px;
-  margin-left: 3px;
-  height: 34px !important;
-  line-height: 34px !important;
-  border-radius: 2px;
-  background-color: white !important;
-}
-#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:first-child {
-  margin-left: 6px;
-}
-#tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:last-child {
-  margin-right: 6px;
-}
-#tab .ant-tabs-nav-container {
-  height: 34px;
-}
-</style>

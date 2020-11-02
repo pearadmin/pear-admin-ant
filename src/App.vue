@@ -4,7 +4,7 @@
   </a-config-provider>
 </template>
 
-<script>
+<script >
   import { computed, watch, ref, reactive } from 'vue'
   import { useStore } from 'vuex'
   import zhcn from 'ant-design-vue/es/locale/zh_CN';//简体中文

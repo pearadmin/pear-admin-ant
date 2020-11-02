@@ -4,36 +4,29 @@
     placement="right"
     :closable="false"
     :visible="visible"
-     width="420"
+    width="360"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
   >
-    <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
-    <br />
-    <br />
-    <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 内容
-    <br />
-    <br />
-    <a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
-    <br />
-    <br />
-    <a-radio-group
-      :options="lans"
-      v-model:value="lan"
-      @change="changeLanguage"
-    />
-    ---- 国际化
-    <br />
-    <br />
-    <div
-      :style="{
-        width: '300px',
-        border: '1px solid #d9d9d9',
-        borderRadius: '4px',
-      }"
-    >
-      <a-calendar :fullscreen="false" />
+    <div>
+      <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
+      <br />
+      <br />
+      <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 内容
+      <br />
+      <br />
+      <a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
+      <br />
+      <br />
+      <a-radio-group
+        :options="lans"
+        v-model:value="lan"
+        @change="changeLanguage"
+      />
     </div>
+
+    <br />
+    <br />
   </a-drawer>
 </template>
 <script>
@@ -70,5 +63,3 @@ export default {
   },
 };
 </script>
-<style>
-</style>

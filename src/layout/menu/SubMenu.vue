@@ -1,13 +1,11 @@
 <template>
   <template v-if="!item.hidden">
     <!-- if item.children is not null 渲染 a-sub-menu -->
-    <a-sub-menu
-      :key="item.meta.key"
-      v-if="item.children && item.children.length > 0"
-    >
+    <a-sub-menu :key="item.meta.key" v-if="item.children && item.children.length > 0">
       <template v-slot:title>
         <span>
-          <MenuIcon />
+          <MenuIcon v-if="level === 0" />
+          <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           <span>{{ item.meta.title }}</span>
         </span>
       </template>
@@ -16,18 +14,18 @@
         v-for="child in item.children"
         :key="child.meta.key"
         :item="child"
+        :level="level + 1"
         :base-path="resolvePath(child.path)"
       />
     </a-sub-menu>
     <!-- if item.chilren is null 渲染 a-menu-item -->
-    <template v-else>
-      <a-menu-item v-bind="$attrs" :key="item.name">
-        <router-link :to="resolvePath(item.path, true)" >
-          <MenuIcon />
-          <span>{{ item.meta.title }}</span>
-        </router-link>
-      </a-menu-item>
-    </template>
+    <a-menu-item v-bind="$attrs" :key="item.meta.key" v-else>
+      <router-link :to="resolvePath(item.path, true)" >
+        <MenuIcon v-if="level === 0" />
+        <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>{{ item.meta.title }}</span>
+      </router-link>
+    </a-menu-item>
   </template>
 </template>
 
@@ -46,6 +44,10 @@ export default {
       type: String,
       default: "",
     },
+    level: {
+      type: Number,
+      required: true,
+    },
   },
   setup(props) {
     const { commit } = useStore();
@@ -59,7 +61,9 @@ export default {
       }
       return path.resolve(props.basePath, routePath);
     };
+
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
+
     return {
       resolvePath,
       MenuIcon,
