@@ -8,6 +8,11 @@ export default [
     redirect: "/dashboard/console",
     hidden: true,
   },
+  {
+    path: '/login',
+    component: () => import('@/view/account/login.vue'),
+    hidden: true,
+  },
   //首页
   {
     path: '/dashboard',
