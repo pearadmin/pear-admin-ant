@@ -113,49 +113,40 @@ const mutations = {
 	},
 	// 删除选项卡实现
 	removeTab(state, targetKey) {
-		// 获取当前选中的选项卡
-		let activeKey = state.activeKey;
-		let lastIndex;
-		// 获取当前删除的索引
-		state.panes.forEach((pane, i) => {
-			if (pane.key === targetKey) {
-				lastIndex = i - 1;
-			}
-		});
-		// 过滤删除后的数组
-		const panes = state.panes.filter((pane) => pane.key !== targetKey);
-		// 如果存在长度,并且删除的是当前选中的数组
-		if (panes.length && activeKey === targetKey) {
-			if (lastIndex >= 0) {
-				activeKey = panes[lastIndex].key;
-			} else {
-				activeKey = panes[0].key;
-			}
-		}
-		state.panes = panes;
-		state.activeKey = activeKey;
+		//当前激活的选项卡, 选项卡列表
+		let { activeKey, panes } = state;
+
+    //从选项卡列表移除当前选项卡
+    let index = panes.findIndex(pane => pane.path === targetKey);
+    panes.splice(index, 1);
+    state.panes = panes;
+
+    //更换已经选中的菜单
+    if(activeKey === targetKey){
+      let lastPane = panes[panes. length - 1];
+      state.activeKey = lastPane ? lastPane.path : '';
+    }
 	},
-	closeAllTab(state) {
-		// 处理之前
-		const panes = state.panes.filter((pane) => pane.closable === false);
-		// 设置重新选中获取当前数组中的最后一个
-		const length = panes.length;
-		const key = panes[length - 1].key;
-		state.panes = panes;
-		state.activeKey = key;
+  //keepKeys, 需要保留的keys
+	closeAllTab(state, keepKeys = []) {
+    //当前激活的选项卡, 选项卡列表
+    let { activeKey, panes } = state;
+    
+    //保留不能关闭的选项卡
+    panes = panes.filter((pane) => pane.closable === false || keepKeys.includes(pane.path))
+    state.panes = panes;
+    
+    //检查当前选中的是否被关闭
+    if(panes.findIndex(pane => pane.path === activeKey) === -1){
+      let lastPane = panes[panes. length - 1];
+      state.activeKey = lastPane ? lastPane.path : '';
+    }
 	},
 	closeOtherTab(state) {
-		const panes = state.panes.filter((pane) => pane.closable === false || pane.key === state.activeKey);
-		// 设置重新选中获取当前数组中的最后一个
-		state.panes = panes;
+		mutations.closeAllTab(state, [ state.activeKey ]);
 	},
 	closeCurrentTab(state) {
-		const panes = state.panes.filter((pane) => pane.key !== state.activeKey);
-		// 设置重新选中获取当前数组中的最后一个
-		const length = panes.length;
-		const key = panes[length - 1].key;
-		state.panes = panes;
-		state.activeKey = key;
+		mutations.removeTab(state, state.activeKey);
 	},
 	initPanes(state, panes) {
 		state.panes = panes;
