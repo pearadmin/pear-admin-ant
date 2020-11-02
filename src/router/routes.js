@@ -59,6 +59,11 @@ export default [
         name: 'high-form',
         meta: { key: '20', title: '高级表单', icon: 'DatabaseOutlined' },
         component: () => import('@/view/form/highForm.vue')
+      },{
+        path: 'stepForm',
+        name: 'step-form',
+        meta: { key: '20', title: '分步表单', icon: 'DatabaseOutlined' },
+        component: () => import('@/view/form/stepForm.vue')
       }
     ]
   },
