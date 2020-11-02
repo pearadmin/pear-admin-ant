@@ -38,15 +38,21 @@ export default {
 
     const selectKey = ref([]);
     const openKey = ref([]);
+    const storeOpenKey = computed(() => getters.openKey);
     watch(computed(() => getters.activeKey), n => selectKey.value = [ n ]);
-    watch(computed(() => getters.openKey), n => openKey.value = n, { deep: true });
+    watch(storeOpenKey, n => openKey.value = n, { deep: true });
 
     //切换路由的时候切换菜单
     const route = computed(() => ctx.$root.$route);
     const dynamicMenu = to => {
-      // 修改打开的菜单
-      const parentKey = to.matched.find(r => r.path).path;
-      commit('layout/updateOpenKey', { openKeys: [ parentKey ], isNew: true })
+      // 当前路由匹配的数组
+      let { matched } = to;
+      //需要打开的菜单keys
+      let needOpenKeys = matched.slice(0, matched.length - 1).map(m => m.path);
+      //store中已经打开的数据
+      let openKeys = [ ...storeOpenKey.value ];
+      needOpenKeys.forEach(nk => !openKeys.includes(nk) && openKeys.push(nk))
+      commit('layout/updateOpenKey', { openKeys })
     }
     dynamicMenu(route.value);
     watch(route, dynamicMenu)

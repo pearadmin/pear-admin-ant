@@ -88,24 +88,18 @@ const mutations = {
 		state.fullscreen = !state.fullscreen;
 	},
 	// 修改菜单打开项
-	updateOpenKey(state, { openKeys, isNew = false }) {
-		//   //手风琴模式, 只保留当前打开的节点, TODO: 多级需要判断父节点的数据
-		let { openKey } = state;
-		if (state.muiltOpen) {
-			openKey = [openKeys[openKeys.length-1]];
-		} else {
-			if (isNew) {
-				openKeys.forEach(newOpenKey => {
-					//当前打开的节点不在其中
-					if (openKey.findIndex(key => key === newOpenKey) == -1) {
-						openKey.push(newOpenKey);
-					}
-				})
-			} else {
-				openKey = openKeys;
-			}
-		}
-		state.openKey = openKey;
+	updateOpenKey(state, { openKeys }) {
+    //手风琴模式, 只保留当前打开的节点
+    let length = openKeys.length;
+		if (length > 0 && state.muiltOpen) {
+      //除了最后打开的节点, 其他的节点可能包含父节点
+      let otherKeys = openKeys.slice(0, length - 1);
+      //最后一次打开的节点
+      let lastKey = openKeys[length - 1];
+      state.openKey = [ ...otherKeys.filter(ok => lastKey.startsWith(ok)), lastKey ];
+		} else{
+      state.openKey = openKeys;
+    }
 	},
 	// 新增选项卡操作
 	addTab(state, value) {

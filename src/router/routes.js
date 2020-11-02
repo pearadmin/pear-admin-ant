@@ -20,11 +20,27 @@ export default [
         name: 'dashboard-console',
         meta: { key: 'home', title: '分析页', icon: 'DashboardOutlined', fixed: true },
         component: () => import('@/view/dashboard/console.vue'),
+        children: [
+          {
+            path: 'console',
+            name: 'dashboard-console1',
+            meta: { key: 'home', title: '分析页', icon: 'DashboardOutlined', fixed: true },
+            component: () => import('@/view/dashboard/console.vue'),
+          }
+        ]
       },{
         path: 'workspace',
         name: 'dashboard-workspace',
         meta: { key: '30', title: '工作台', icon: 'DashboardOutlined' },
         component: () => import('@/view/dashboard/workspace.vue'),
+        children: [
+          {
+            path: 'workspace',
+            name: 'dashboard-workspace1',
+            meta: { key: '30', title: '工作台', icon: 'DashboardOutlined' },
+            component: () => import('@/view/dashboard/workspace.vue'),
+          }
+        ]
       }
     ]
   },{
