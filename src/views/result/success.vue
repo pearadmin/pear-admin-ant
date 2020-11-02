@@ -13,12 +13,12 @@
             <strong>The content you submitted has the following error:</strong>
           </p>
           <p>
-            <close-circle-outlined :style="{ color: 'red' }" /> Your account has
+            <CloseCircleOutlined :style="{ color: 'red' }" /> Your account has
             been frozen
             <a>Thaw immediately &gt;</a>
           </p>
           <p>
-            <close-circle-outlined :style="{ color: 'red' }" /> Your account is
+            <CloseCircleOutlined :style="{ color: 'red' }" /> Your account is
             not yet eligible to apply <a>Apply Unlock &gt;</a>
           </p>
         </div>
@@ -30,3 +30,13 @@
     </a-card>
   </div>
 </template>
+<script>
+  import { CloseCircleOutlined } from '@ant-design/icons-vue'
+  export default {
+    setup(){
+      return {
+        CloseCircleOutlined
+      }
+    }
+  }
+</script>

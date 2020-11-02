@@ -1,5 +1,3 @@
-const defaultHomeKey = 'home';
-
 const state = {
 	/**
 	 * 布局方式（整体界面的排版方式）
@@ -10,7 +8,7 @@ const state = {
 
 	/**
 	 * 系统主题（整体色调）
-	 * light -- 白色主题 
+	 * light -- 白色主题
 	 * dark -- 暗色主题
 	 */
 	theme: "dark",
@@ -33,14 +31,14 @@ const state = {
 	tab: true,
 	// 选项卡内容存储
 	panes: [
-		{ title: "首页", key: defaultHomeKey, path: "/home/index", closable: false }
+		{ title: "首页", key: 'home-index', path: "/home/index", closable: false }
 	],
 	// 当前激活选项卡
-	activeKey: defaultHomeKey,
+	activeKey: '',
 	// 当前选中菜单
-	selectKey: ['home'],
+	selectKey: [],
 	// 当前打开菜单
-	openKey: [1],
+	openKey: [],
 	// 手风琴配置
 	muiltOpen: false,
 	// 路由刷新辅助变量
@@ -83,7 +81,7 @@ const mutations = {
 	},
 	// 切换主题
 	TOGGLE_THEME(state) {
-		state.theme = state.theme == 'dark'?'light':'dark';
+    state.theme = state.theme === 'dark' ? 'light' : 'dark'
 	},
 	// 是否开启选项卡模式
 	updateTab(state) {
@@ -94,12 +92,24 @@ const mutations = {
 		state.fullscreen = !state.fullscreen;
 	},
 	// 修改菜单打开项
-	updateOpenKey(state, openKey) {
-		if (!state.muiltOpen) {
-			state.openKey[0] = openKey[1];
-		} else {
-			state.openKey = openKey;
-		}
+	updateOpenKey(state, { openKeys, isNew = false }) {
+  //   //手风琴模式, 只保留当前打开的节点, TODO: 多级需要判断父节点的数据
+    let { openKey } = state;
+		if (state.muiltOpen) {
+      openKey = [ openKeys[0] ];
+		} else{
+      if(isNew){
+        openKeys.forEach(newOpenKey => {
+          //当前打开的节点不在其中
+          if(openKey.findIndex(key => key === newOpenKey) == -1) {
+            openKey.push(newOpenKey);
+          }
+        })
+      }else{
+         openKey = openKeys;
+      }
+    }
+    state.openKey = openKey;
 	},
 	// 新增选项卡操作
 	addTab(state, value) {

@@ -88,7 +88,8 @@ export default {
     const collapsed = computed(() => getters.collapsed);
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
-
+    const theme = computed(() => getters.theme);
+    
     return {
       layout,
       collapsed,
@@ -97,6 +98,7 @@ export default {
       setting: () => commit("layout/TOGGLE_SETTING"),
       updateFullscreen: () => commit("layout/updateFullscreen"),
       menuModel,
+      theme
     };
   },
 };

@@ -1,15 +1,15 @@
 <template>
   <div id="menu">
     <a-menu
-      :openKeys="openKey"
-      :selectedKeys="selectKey"
+      v-model:openKeys="openKey"
+      v-model:selectedKeys="selectKey"
       :mode="menuModel"
       :theme="theme"
       @openChange="openChange"
     >
       <sub-menu
         v-for="(route, index) in routes"
-        :key="index"
+        :key="route.meta && route.meta.key || index / -1"
         :item="route"
         :base-path="route.path"
       />
@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import { computed, getCurrentInstance } from "vue";
+import { computed, watch, ref, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
 import SubMenu from "./SubMenu.vue";
 
@@ -29,14 +29,34 @@ export default {
     const { getters, commit } = useStore();
     const { ctx } = getCurrentInstance();
     const routes = computed(() => ctx.$root.$router.options.routes);
-    const selectKey = computed(() => getters.selectKey);
-    const openKey = computed(() => getters.openKey);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const openChange = function (openKeys) {
-      console.log(openKeys);
-      commit("layout/updateOpenKey", openKeys);
+      commit("layout/updateOpenKey", { openKeys });
     };
+
+    const selectKey = ref([]);
+    const openKey = ref([]);
+    watch(computed(() => getters.selectKey), n => selectKey.value = n, { deep: true });
+    watch(computed(() => getters.openKey), n => openKey.value = n, { deep: true });
+
+    //切换路由的时候切换菜单
+    const route = computed(() => ctx.$root.$route);
+    const dynamicMenu = to => {
+      const key = to.meta.key;
+      const title = to.meta.title;
+      const path = to.path;
+      // 新 增 顶 部 选 项 卡 操 作
+      commit("layout/addTab", { key, title, path });
+      // 设 置 当 前 菜 单 选 中
+      commit("layout/selectKey", key);
+      // 修改打开的菜单
+      const parentKey = to.matched.find(r => r.meta && r.meta.key).meta.key;
+      commit('layout/updateOpenKey', { openKeys: [ parentKey ], isNew: true })
+    }
+    dynamicMenu(route.value);
+    watch(route, dynamicMenu)
+
     return {
       routes,
       selectKey,

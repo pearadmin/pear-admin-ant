@@ -20,21 +20,14 @@
       />
     </a-sub-menu>
     <!-- if item.chilren is null 渲染 a-menu-item -->
-    <a-menu-item v-bind="$attrs" :key="item.meta.key" v-else>
-      <router-link
-        :to="resolvePath(item.path, true)"
-        @click="
-          clickMenuItem(
-            item.meta.key,
-            item.meta.title,
-            resolvePath(item.path, true)
-          )
-        "
-      >
-        <MenuIcon />
-        <span>{{ item.meta.title }}</span>
-      </router-link>
-    </a-menu-item>
+    <template v-else>
+      <a-menu-item v-bind="$attrs" :key="item.name">
+        <router-link :to="resolvePath(item.path, true)" >
+          <MenuIcon />
+          <span>{{ item.meta.title }}</span>
+        </router-link>
+      </a-menu-item>
+    </template>
   </template>
 </template>
 
@@ -56,13 +49,6 @@ export default {
   },
   setup(props) {
     const { commit } = useStore();
-    // 菜 单 单 击 触 发 函 数
-    const clickMenuItem = function (key, title, path) {
-      // 新 增 顶 部 选 项 卡 操 作
-      commit("layout/addTab", { key, title, path });
-      // 设 置 当 前 菜 单 选 中
-      commit("layout/selectKey", key);
-    };
 
     const resolvePath = (routePath, single) => {
       if (/^(https?:|mailto:|tel:)/.test(routePath)) {
@@ -75,7 +61,6 @@ export default {
     };
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
     return {
-      clickMenuItem,
       resolvePath,
       MenuIcon,
     };
