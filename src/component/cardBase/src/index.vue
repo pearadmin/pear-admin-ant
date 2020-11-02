@@ -36,6 +36,10 @@ export default {
 };
 </script>
 <style>
+.card-base .ant-card-body{
+  padding: 10px;
+}
+
 .card-base-icon {
   text-align: center;
   font-size: 32px;

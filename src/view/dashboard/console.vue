@@ -3,36 +3,14 @@
     <page-layout>
       <a-row :gutter="[15, 15]">
         <a-col :span="6">
-          <a-card>
-            <a-statistic
-              title="Feedback"
-              :value="11.28"
-              :precision="2"
-              suffix="%"
-              :value-style="{ color: '#3f8600' }"
-              style="margin-right: 50px"
-            >
-              <template v-slot:prefix>
-                <arrow-up-outlined />
-              </template>
-            </a-statistic>
+          <a-card title="访问量">
+            <a-statistic :value="1325.23" :precision="2"> </a-statistic>
             <a-progress style="margin-top: 15px" :percent="30" size="small" />
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card>
-            <a-statistic
-              title="Feedback"
-              :value="11.28"
-              :precision="2"
-              suffix="%"
-              :value-style="{ color: '#3f8600' }"
-              style="margin-right: 50px"
-            >
-              <template v-slot:prefix>
-                <arrow-up-outlined />
-              </template>
-            </a-statistic>
+          <a-card title="销售额">
+            <a-statistic :value="5961.18" :precision="2"> </a-statistic>
             <a-progress
               style="margin-top: 15px"
               :percent="50"
@@ -42,36 +20,14 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card>
-            <a-statistic
-              title="Feedback"
-              :value="11.28"
-              :precision="2"
-              suffix="%"
-              :value-style="{ color: '#3f8600' }"
-              style="margin-right: 50px"
-            >
-              <template v-slot:prefix>
-                <arrow-up-outlined />
-              </template>
-            </a-statistic>
+          <a-card title="订单量">
+            <a-statistic :value="2994.0" :precision="2"> </a-statistic>
             <a-progress style="margin-top: 15px" :percent="30" size="small" />
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card>
-            <a-statistic
-              title="Feedback"
-              :value="11.28"
-              :precision="2"
-              suffix="%"
-              :value-style="{ color: '#3f8600' }"
-              style="margin-right: 50px"
-            >
-              <template v-slot:prefix>
-                <arrow-up-outlined />
-              </template>
-            </a-statistic>
+          <a-card title="用户数">
+            <a-statistic :value="7531.13" :precision="2"> </a-statistic>
             <a-progress
               style="margin-top: 15px"
               :percent="50"
@@ -126,23 +82,56 @@
         </a-col>
         <a-col :span="24">
           <a-card>
-            <a-row>
-              <a-col :span="24">
-                <a-tabs>
-                  <a-tab-pane key="1" tab="销量">
-                    <a-row>
-                      <a-col span="24">
-                        <div
-                          id="echartContainer"
-                          style="width: 100%; height: 300px"
-                        ></div>
-                      </a-col>
+            <a-tabs>
+              <a-tab-pane key="1" tab="销量">
+                <a-row>
+                  <a-col :span="17">
+                    <div
+                      id="echartContainer"
+                      style="width: 85%; height: 320px"
+                    ></div>
+                  </a-col>
+                  <a-col :span="7">
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><div>1</div></a-col>
+                      <a-col span="18">高新区1号店</a-col>
+                      <a-col span="4">3423.32</a-col>
                     </a-row>
-                  </a-tab-pane>
-                  <a-tab-pane key="2" tab="排行" force-render> </a-tab-pane>
-                </a-tabs>
-              </a-col>
-            </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>2</span></a-col>
+                      <a-col span="18">高新区2号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>3</span></a-col>
+                      <a-col span="18">高新区3号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>4</span></a-col>
+                      <a-col span="18">高新区4号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>5</span></a-col>
+                      <a-col span="18">高新区5号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>6</span></a-col>
+                      <a-col span="18">高新区6号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                    <a-row style="margin: 22px">
+                      <a-col span="2"><span>7</span></a-col>
+                      <a-col span="18">高新区7号店</a-col>
+                      <a-col span="4">3423.32</a-col>
+                    </a-row>
+                  </a-col>
+                </a-row>
+              </a-tab-pane>
+              <a-tab-pane key="2" tab="排行" force-render> </a-tab-pane>
+            </a-tabs>
           </a-card>
         </a-col>
         <a-col :span="12">
@@ -180,44 +169,58 @@
                   </a-statistic>
                 </a-card>
               </a-col>
+              <a-col span="24">
+                <a-table
+                  :columns="columns"
+                  :data-source="datas"
+                  style="margin-top: 10px"
+                />
+              </a-col>
             </a-row>
           </a-card>
         </a-col>
         <a-col :span="12">
           <a-card title="销售类别占比">
-            <a-row>
-                <a-col :span="12">
-              <a-card>
-                <a-statistic
-                  title="Feedback"
-                  :value="11.28"
-                  :precision="2"
-                  suffix="%"
-                  :value-style="{ color: '#3f8600' }"
-                  style="margin-right: 50px"
-                >
-                  <template v-slot:prefix>
-                    <arrow-up-outlined />
-                  </template>
-                </a-statistic>
-              </a-card>
-            </a-col>
-            <a-col :span="12">
-              <a-card>
-                <a-statistic
-                  title="Idle"
-                  :value="9.3"
-                  :precision="2"
-                  suffix="%"
-                  class="demo-class"
-                  :value-style="{ color: '#cf1322' }"
-                >
-                  <template v-slot:prefix>
-                    <arrow-down-outlined />
-                  </template>
-                </a-statistic>
-              </a-card>
-            </a-col>
+            <a-row gutter="10">
+              <a-col :span="12">
+                <a-card>
+                  <a-statistic
+                    title="Feedback"
+                    :value="11.28"
+                    :precision="2"
+                    suffix="%"
+                    :value-style="{ color: '#3f8600' }"
+                    style="margin-right: 50px"
+                  >
+                    <template v-slot:prefix>
+                      <arrow-up-outlined />
+                    </template>
+                  </a-statistic>
+                </a-card>
+              </a-col>
+              <a-col :span="12">
+                <a-card>
+                  <a-statistic
+                    title="Idle"
+                    :value="9.3"
+                    :precision="2"
+                    suffix="%"
+                    class="demo-class"
+                    :value-style="{ color: '#cf1322' }"
+                  >
+                    <template v-slot:prefix>
+                      <arrow-down-outlined />
+                    </template>
+                  </a-statistic>
+                </a-card>
+              </a-col>
+              <a-col span="24">
+                   <a-table
+                  :columns="columns"
+                  :data-source="datas"
+                  style="margin-top: 10px"
+                />
+              </a-col>
             </a-row>
           </a-card>
         </a-col>
@@ -250,42 +253,37 @@ export default {
     ];
 
     const columns = [
-      { title: "Name", dataIndex: "name", key: "name" },
-      { title: "Age", dataIndex: "age", key: "age" },
-      { title: "Address", dataIndex: "address", key: "address" },
-      {
-        title: "Action",
-        dataIndex: "",
-        key: "x",
-        slots: { customRender: "action" },
-      },
+      { title: "排名", dataIndex: "key", key: "key" },
+      { title: "门店", dataIndex: "name", key: "name" },
+      { title: "销量", dataIndex: "age", key: "age" },
+      { title: "地址", dataIndex: "address", key: "address" },
     ];
 
     const datas = [
       {
         key: 1,
-        name: "John Brown",
-        age: 32,
-        address: "New York No. 1 Lake Park",
-        description:
-          "My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.",
+        name: "Bai Liang",
+        age: 1332334.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
       },
       {
         key: 2,
-        name: "Jim Green",
-        age: 42,
-        address: "London No. 1 Lake Park",
-        description:
-          "My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.",
+        name: "Bai Liang",
+        age: 3543241.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
       },
       {
         key: 3,
-        name: "Joe Black",
-        age: 32,
-        address: "Sidney No. 1 Lake Park",
-        description:
-          "My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.",
+        name: "Bai Liang",
+        age: 4745244.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
       },
+      {
+        key: 4,
+        name: "Bai Liang",
+        age: 3235244.0,
+        address: "Today me living in Sidney No. 1 Lake Park.",
+      }
     ];
     return {
       data,
@@ -391,14 +389,14 @@ export default {
       },
     };
     myChart.setOption(option);
-    window.onresize = function () {
+
+    window.addEventListener("resize", () => {
       myChart.resize();
+    });
+    window.onresize = () => {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => {}, 300);
     };
-    setTimeout(function () {
-      window.onresize = function () {
-        myChart.resize();
-      };
-    }, 200);
   },
 };
 </script>
