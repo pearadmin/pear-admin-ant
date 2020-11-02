@@ -6,10 +6,10 @@
 
 .fade-enter-from {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateY(30px);
 }
 
 .fade-leave-to {
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateY(-30px);
 }
