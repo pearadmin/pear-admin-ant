@@ -23,7 +23,7 @@
       <!-- 中心区域 -->
       <a-layout-content>
         <!-- 选项卡页面 -->
-        <Tab v-if="tab"></Tab>
+        <Tab v-if="tab" ></Tab>
         <!-- main区域 -->
         <Content></Content>
         <!-- 设置页面 -->

@@ -1,5 +1,5 @@
 // 可以根据路由模式的不同，后面俩可以只引用一个
-import { createRouter,  createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import routes from './routes.js'
 
 import NProgress from "nprogress";
