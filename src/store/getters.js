@@ -1,9 +1,8 @@
 const getters = {
 	layout: state => state.layout.layout,
 	theme: state => state.layout.theme,
-	menuModel: state => state.layout.layout == "headMenu"?"horizontal":"inline",
+	menuModel: state => state.layout.layout == "layout-head"?"horizontal":"inline",
 	collapsed: state => state.layout.collapsed,
-
 	settingVisible: state => state.layout.setting.opened,
 	logo: state => state.layout.logo,
 	tab: state => state.layout.tab,

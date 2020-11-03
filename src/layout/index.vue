@@ -1,13 +1,13 @@
 <template>
-  <a-layout id="layout">
+  <a-layout id="layout" :class="[theme,layout]">
     <!-- 侧边栏 -->
     <a-layout-sider
-      v-if="layout === 'sideMenu'"
+      v-if="layout === 'layout-side'"
       :width="sideWitch"
       :collapsed="collapsed"
       :trigger="null"
       collapsible
-      :class="[theme]"
+      :class="[theme,layout]"
     >
       <!-- 顶部图标 -->
       <Logo v-if="logo"></Logo>
@@ -67,11 +67,11 @@ export default {
     const fixedSide = computed(() => getters.fixedSide);
 
     return {
-      layout,
       collapsed,
       fixedHeader,
       fixedSide,
       sideWitch,
+      layout,
       theme,
       logo,
       tab,

@@ -1,8 +1,8 @@
 <template>
   <!-- 框架顶部菜单区域 -->
-  <div id="header" :class="[theme == 'dark' && layout == 'headMenu', 'light']">
+  <div id="header">
     <!-- 左侧菜单功能项 -->
-    <div class="prev-menu" v-if="layout === 'sideMenu'">
+    <div class="prev-menu" v-if="layout === 'layout-side'">
       <!-- 左侧缩进功能键 -->
       <menu-unfold-outlined
         v-if="collapsed"
@@ -13,6 +13,12 @@
       <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
       <!-- 刷新当前页面路由 -->
       <ReloadOutlined class="refresh menu-item" @click="refresh" />
+    </div>
+    <div v-if="layout == 'layout-head'" class="head-logo">
+      <Logo></Logo>
+    </div>
+    <div v-if="layout == 'layout-head'" class="head-menu">
+      <Menu></Menu>
     </div>
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
@@ -33,6 +39,8 @@
 <script>
 import { computed, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
+import Menu from "../menu/index.vue";
+import Logo from "../logo/index.vue";
 /** 图标集 */
 import {
   MenuFoldOutlined,
@@ -52,6 +60,8 @@ export default {
     CompressOutlined,
     ReloadOutlined,
     GlobalOutlined,
+    Menu,
+    Logo,
   },
   methods: {
     full: function (num) {
@@ -102,10 +112,10 @@ export default {
         params: $route.params,
         query: {
           ...$route.query,
-          _: Date.now()
+          _: Date.now(),
         },
-      })
-    }
+      });
+    };
 
     return {
       layout,
@@ -116,7 +126,7 @@ export default {
       updateFullscreen: () => commit("layout/updateFullscreen"),
       menuModel,
       theme,
-      refresh
+      refresh,
     };
   },
 };

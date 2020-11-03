@@ -2,22 +2,72 @@
 #layout {
   height: 100%;
 }
+
+#layout.layout-head.theme-light{
+  #logo{
+    height: 64px;
+    border-bottom: 1px solid whitesmoke;
+    background:white;
+  }
+  #header{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+#layout.layout-head.theme-dark{
+  #logo{
+    height: 64px;
+    border-bottom: 1px solid #101117;
+    background: #191a23;
+  }
+  #header{
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color:#191a23;
+    color: white;
+  }
+  .ant-layout-header{
+    background-color:#191a23;
+  }
+}
+
+#layout.theme-dark.layout-side{
+  #logo{
+    height: 64px;
+    border-bottom: 1px solid #101117;
+    background: #191a23;
+  }
+  #header{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+#layout.theme-light.layout-side{
+  #logo{
+    height: 64px;
+    border-bottom: 1px solid whitesmoke;
+    background:white;
+  }
+  .ant-layout-sider{
+    background-color: white!important;
+  }
+  #header{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
 #layout .ant-layout-header {
   padding-left: 0px;
   padding-right: 0px;
-  background-color: white;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 #layout .ant-layout-sider {
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   z-index: 999;
-}
-#layout .dark {
-  background-color: #191a23 !important;
-}
-#layout .light {
-  border-bottom: 1px solid whitesmoke;
-  background-color: white !important;
 }
 
 // 菜单样式
@@ -66,41 +116,41 @@
   background-color: #191a23 !important;
 }
 
+
 // 图标样式
-.logo {
-    height: 65px;
-    font-size: 22px;
-    text-align: center;
-    padding: 3px;
-    color:white;
-    border-bottom: 1px solid #101117;
-    background: #191a23;
+#logo {
+   text-align: center;
   }
-  .logo img{
+  #logo img{
     height: 59px;
     width: 59px;
   }
-  .dark{
-    background-color:  #191a23!important;
-  }
-  .light{
-      border-bottom: 1px solid whitesmoke;
-    background-color: white!important;
-  }
 
   // 顶部样式
-
   #header {
-    padding-left: 10px;
-    padding-right: 10px;
     background-color: white;
   }
   #header .next-menu {
     float: right;
   }
-  #header .prev-menu {
+  #header .prev-menu{
     display: inline-block;
   }
+  
+  #header .head-logo{
+    width:250px;
+    height: 64px;
+    display: inline-block;
+  } 
+
+  #header .head-menu{
+    .ant-menu{
+      height: 64px;
+      line-height: 64px;
+    }
+    display: inline-block;
+  }
+
   #header .prev-menu .menu-item,
   #header .next-menu .menu-item {
     font-size: 17px;
@@ -131,7 +181,7 @@
     margin-top: 6px !important;
     margin-bottom: 6px !important;
   }
-  .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active{
+  #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active{
     color:#2d8cf0 !important
   }
   #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {

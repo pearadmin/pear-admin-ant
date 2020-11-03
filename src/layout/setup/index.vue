@@ -9,6 +9,9 @@
     @close="onChangeVisible()"
   >
     <div>
+      <a-switch v-model:checked="layout" @change="onChangeLayout" /> ---- 布局
+      <br />
+      <br />
       <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
       <br />
       <br />
@@ -19,11 +22,11 @@
       <br />
       <br />
       <a-switch v-model:checked="fixedHeader" @change="onChangeFixedHeader" />
-      ---- 固定头部
+      ---- 头部
       <br />
       <br />
       <a-switch v-model:checked="fixedSide" @change="onChangeFixedSide" />
-      ---- 固定侧边
+      ---- 侧边
       <br />
       <br />
       <a-radio-group
@@ -31,8 +34,12 @@
         v-model:value="lan"
         @change="changeLanguage"
       />
+      <br />
+      <br />
+      <a-button type="primary"> 复制配置 </a-button>
+      &nbsp;&nbsp;
+      <a-button>重置配置</a-button>
     </div>
-
     <br />
     <br />
   </a-drawer>
@@ -46,14 +53,12 @@ export default {
     const visible = computed(() => getters.settingVisible);
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
-    const theme = computed(() => getters.theme == "dark");
+    const theme = computed(() => getters.theme == "theme-dark");
     const lan = ref(getters.language);
-    const lans = computed(() =>
-      getters.languages.map((lan) => ({ label: lan, value: lan }))
-    );
-
+    const lans = computed(() =>getters.languages.map((lan) => ({ label: lan, value: lan })));
     const fixedSide = computed(() => getters.fixedSide);
     const fixedHeader = computed(() => getters.fixedHeader);
+    const layout = computed(()=> getters.layout === 'layout-side');
 
     return {
       fixedSide,
@@ -61,6 +66,7 @@ export default {
       visible,
       logo,
       tab,
+      layout,
       theme,
       lan,
       lans,
@@ -71,6 +77,7 @@ export default {
       onChangeTheme: () => commit("layout/TOGGLE_THEME"),
       onChangeFixedSide: () => commit("layout/TOGGLE_FIXEDSIDE"),
       onChangeFixedHeader: () => commit("layout/TOGGLE_FIXEDHEADER"),
+      onChangeLayout: () => commit("layout/TOGGLE_LAYOUT"),
       afterVisibleChange: () => {},
       changeLanguage: (e) => {
         commit("layout/setLanguage", e.target.value);

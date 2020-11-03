@@ -1,5 +1,5 @@
 <template>
-  <div class="logo" :class="[theme]">
+  <div id="logo" :class="[theme]">
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-if="!collapsed">
       <img

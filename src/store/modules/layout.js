@@ -4,14 +4,14 @@ const state = {
 	 * headMenu -- 头部菜单
 	 * sideMenu -- 顶部菜单
 	 * */
-	layout: "sideMenu",
+	layout: "layout-side",
 
 	/**
 	 * 系统主题（整体色调）
 	 * light -- 白色主题
 	 * dark -- 暗色主题
 	 */
-	theme: "dark",
+	theme: "theme-dark",
 
 	/**
 	 * 侧边状态
@@ -62,11 +62,14 @@ const mutations = {
 		state.sidebar.visible = !state.sidebar.visible;
 	},
 	// 固定侧边
-	TOGGLE_FIXEDSIDE(state){
+	TOGGLE_FIXEDSIDE(state) {
 		state.fixedSide = !state.fixedSide;
 	},
-	TOGGLE_FIXEDHEADER(state){
+	TOGGLE_FIXEDHEADER(state) {
 		state.fixedHeader = !state.fixedHeader;
+	},
+	TOGGLE_LAYOUT(state) {
+		state.layout = state.layout == 'layout-head' ? 'layout-side' : 'layout-head';
 	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {
@@ -92,7 +95,7 @@ const mutations = {
 	},
 	// 切换主题
 	TOGGLE_THEME(state) {
-		state.theme = state.theme === 'dark' ? 'light' : 'dark'
+		state.theme = state.theme === 'theme-dark' ? 'theme-light' : 'theme-dark'
 	},
 	// 是否开启选项卡模式
 	updateTab(state) {
