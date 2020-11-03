@@ -11,7 +11,7 @@
           <a-input placeholder="Username" v-model:value="modelRef.name" />
         </a-form-item>
         <a-form-item v-bind="validateInfos['sub.name']">
-          <a-input placeholder="Password"  v-model:value="modelRef.sub.name" />
+          <a-input placeholder="Password" v-model:value="modelRef.sub.name" />
         </a-form-item>
         <a-form-item>
           <a-checkbox :checked="true" @change="onChange">
