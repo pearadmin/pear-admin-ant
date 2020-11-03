@@ -31,7 +31,7 @@ export default [
     path: '/form',
     name: 'form',
     component: Layout,
-    meta: { key: '18', title: '表单页面', icon: 'UnorderedListOutlined' },
+    meta: { key: '18', title: '表单页面', icon: 'FormOutlined' },
     children: [
       {
         path: 'baseForm',
@@ -84,7 +84,7 @@ export default [
   }, {
     path: '/result',
     name: 'result-menu',
-    meta: { key: '15', title: '结果页面', icon: 'UnorderedListOutlined' },
+    meta: { key: '15', title: '结果页面', icon: 'TagOutlined' },
     redirect: "/result/success",
     component: Layout,
     children: [
@@ -103,7 +103,7 @@ export default [
   }, {
     path: '/error',
     name: 'error',
-    meta: { key: '8', title: '错误页面', icon: 'UnorderedListOutlined' },
+    meta: { key: '8', title: '错误页面', icon: 'StopOutlined' },
     component: Layout,
     redirect: "/list/baseList",
     children: [

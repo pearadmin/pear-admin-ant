@@ -1,8 +1,8 @@
 <template>
   <div>
     <page-header
-      title="高级表单"
-      describe="表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。表单域标签也可支持响应式."
+      title="分步表单"
+      describe="将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成."
     ></page-header>
     <page-layout>
       <a-card>
@@ -18,17 +18,17 @@
             type="primary"
             @click="next"
           >
-            Next
+            下一步
           </a-button>
           <a-button
             v-if="current == steps.length - 1"
             type="primary"
             @click="$message.success('Processing complete!')"
           >
-            Done
+            完成
           </a-button>
           <a-button v-if="current > 0" style="margin-left: 8px" @click="prev">
-            Previous
+            上一步
           </a-button>
         </div>
       </a-card>
