@@ -92,6 +92,7 @@ export default {
     min-height: 20px;
     padding-top: 150px;
     .ant-input {
+      border-radius: 4px;
       height: 45px;
       line-height: 45px;
     }

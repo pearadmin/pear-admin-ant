@@ -6,7 +6,7 @@
       :width="sideWitch"
       :collapsed="collapsed"
       :trigger="null"
-       collapsible
+      collapsible
       :class="[theme]"
     >
       <!-- 顶部图标 -->
@@ -23,7 +23,7 @@
       <!-- 中心区域 -->
       <a-layout-content>
         <!-- 选项卡页面 -->
-        <Tab v-if="tab" ></Tab>
+        <Tab v-if="tab"></Tab>
         <!-- main区域 -->
         <Content></Content>
         <!-- 设置页面 -->
@@ -33,7 +33,7 @@
   </a-layout>
 </template>
 <script>
-import { computed } from "vue";
+import { computed, watch, ref } from "vue";
 import { useStore } from "vuex";
 import Menu from "./menu/index.vue";
 import Content from "./content/index.vue";
@@ -60,9 +60,17 @@ export default {
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme);
     const sideWitch = computed(() => getters.sideWitch);
+
+    // 固定 header
+    const fixedHeader = computed(() => getters.fixedHeader);
+    // 固定 side
+    const fixedSide = computed(() => getters.fixedSide);
+
     return {
       layout,
       collapsed,
+      fixedHeader,
+      fixedSide,
       sideWitch,
       theme,
       logo,

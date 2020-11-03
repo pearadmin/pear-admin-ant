@@ -18,6 +18,14 @@
       <a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
       <br />
       <br />
+      <a-switch v-model:checked="fixedHeader" @change="onChangeFixedHeader" />
+      ---- 固定头部
+      <br />
+      <br />
+      <a-switch v-model:checked="fixedSide" @change="onChangeFixedSide" />
+      ---- 固定侧边
+      <br />
+      <br />
       <a-radio-group
         :options="lans"
         v-model:value="lan"
@@ -43,7 +51,13 @@ export default {
     const lans = computed(() =>
       getters.languages.map((lan) => ({ label: lan, value: lan }))
     );
+
+    const fixedSide = computed(() => getters.fixedSide);
+    const fixedHeader = computed(() => getters.fixedHeader);
+
     return {
+      fixedSide,
+      fixedHeader,
       visible,
       logo,
       tab,
@@ -55,6 +69,8 @@ export default {
       onChangeTab: () => commit("layout/updateTab"),
       onChangeSide: () => commit("layout/TOGGLE_SIDEBAR_VISIBLE"),
       onChangeTheme: () => commit("layout/TOGGLE_THEME"),
+      onChangeFixedSide: () => commit("layout/TOGGLE_FIXEDSIDE"),
+      onChangeFixedHeader: () => commit("layout/TOGGLE_FIXEDHEADER"),
       afterVisibleChange: () => {},
       changeLanguage: (e) => {
         commit("layout/setLanguage", e.target.value);

@@ -47,7 +47,13 @@ const state = {
 	// 国 际 化 语 言 配 置
 	language: '',
 	languages: [],
-	rootSubmenuKeys: ['sub1', 'sub2', 'sub4']
+	rootSubmenuKeys: ['sub1', 'sub2', 'sub4'],
+
+	fixedHeader: true,
+
+	fixedSide: true
+
+
 }
 
 const mutations = {
@@ -55,13 +61,22 @@ const mutations = {
 	TOGGLE_SIDEBAR_VISIBLE(state) {
 		state.sidebar.visible = !state.sidebar.visible;
 	},
+	// 固定侧边
+	TOGGLE_FIXEDSIDE(state){
+		state.fixedSide = !state.fixedSide;
+	},
+	TOGGLE_FIXEDHEADER(state){
+		state.fixedHeader = !state.fixedHeader;
+	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {
 		if (state.collapsed) {
 			// 要展开
+			state.sideWitch = 250;
 			state.openKey = JSON.parse(localStorage.getItem("openKeys"));
 		} else {
 			// 要隐藏
+			state.sideWitch = 80;
 			localStorage.setItem("openKeys", JSON.stringify(state.openKey));
 			state.openKey = [];
 		}
@@ -89,17 +104,17 @@ const mutations = {
 	},
 	// 修改菜单打开项
 	updateOpenKey(state, { openKeys }) {
-    //手风琴模式, 只保留当前打开的节点
-    let length = openKeys.length;
+		//手风琴模式, 只保留当前打开的节点
+		let length = openKeys.length;
 		if (length > 0 && state.muiltOpen) {
-      //除了最后打开的节点, 其他的节点可能包含父节点
-      let otherKeys = openKeys.slice(0, length - 1);
-      //最后一次打开的节点
-      let lastKey = openKeys[length - 1];
-      state.openKey = [ ...otherKeys.filter(ok => lastKey.startsWith(ok)), lastKey ];
-		} else{
-      state.openKey = openKeys;
-    }
+			//除了最后打开的节点, 其他的节点可能包含父节点
+			let otherKeys = openKeys.slice(0, length - 1);
+			//最后一次打开的节点
+			let lastKey = openKeys[length - 1];
+			state.openKey = [...otherKeys.filter(ok => lastKey.startsWith(ok)), lastKey];
+		} else {
+			state.openKey = openKeys;
+		}
 	},
 	// 新增选项卡操作
 	addTab(state, value) {
@@ -116,34 +131,34 @@ const mutations = {
 		//当前激活的选项卡, 选项卡列表
 		let { activeKey, panes } = state;
 
-    //从选项卡列表移除当前选项卡
-    let index = panes.findIndex(pane => pane.path === targetKey);
-    panes.splice(index, 1);
-    state.panes = panes;
+		//从选项卡列表移除当前选项卡
+		let index = panes.findIndex(pane => pane.path === targetKey);
+		panes.splice(index, 1);
+		state.panes = panes;
 
-    //更换已经选中的菜单
-    if(activeKey === targetKey){
-      let lastPane = panes[panes. length - 1];
-      state.activeKey = lastPane ? lastPane.path : '';
-    }
+		//更换已经选中的菜单
+		if (activeKey === targetKey) {
+			let lastPane = panes[panes.length - 1];
+			state.activeKey = lastPane ? lastPane.path : '';
+		}
 	},
-  //keepKeys, 需要保留的keys
+	//keepKeys, 需要保留的keys
 	closeAllTab(state, keepKeys = []) {
-    //当前激活的选项卡, 选项卡列表
-    let { activeKey, panes } = state;
-    
-    //保留不能关闭的选项卡
-    panes = panes.filter((pane) => pane.closable === false || keepKeys.includes(pane.path))
-    state.panes = panes;
-    
-    //检查当前选中的是否被关闭
-    if(panes.findIndex(pane => pane.path === activeKey) === -1){
-      let lastPane = panes[panes. length - 1];
-      state.activeKey = lastPane ? lastPane.path : '';
-    }
+		//当前激活的选项卡, 选项卡列表
+		let { activeKey, panes } = state;
+
+		//保留不能关闭的选项卡
+		panes = panes.filter((pane) => pane.closable === false || keepKeys.includes(pane.path))
+		state.panes = panes;
+
+		//检查当前选中的是否被关闭
+		if (panes.findIndex(pane => pane.path === activeKey) === -1) {
+			let lastPane = panes[panes.length - 1];
+			state.activeKey = lastPane ? lastPane.path : '';
+		}
 	},
 	closeOtherTab(state) {
-		mutations.closeAllTab(state, [ state.activeKey ]);
+		mutations.closeAllTab(state, [state.activeKey]);
 	},
 	closeCurrentTab(state) {
 		mutations.removeTab(state, state.activeKey);
