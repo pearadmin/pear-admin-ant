@@ -29,6 +29,7 @@
   }
   .ant-layout-header{
     background-color:#191a23;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   }
 }
 
@@ -58,8 +59,6 @@
     padding-right: 15px;
   }
 }
-
-
 #layout .ant-layout-header {
   padding-left: 0px;
   padding-right: 0px;
@@ -115,9 +114,15 @@
 .ant-menu-dark, .ant-menu-dark .ant-menu-sub{
   background-color: #191a23 !important;
 }
+.ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu{
+  border-bottom: none;
+  top: 0px;
+}
+.ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu:hover{
+  border-bottom: none;
+  top: 0px;
+}
 
-
-// 图标样式
 #logo {
    text-align: center;
   }
@@ -125,7 +130,6 @@
     height: 59px;
     width: 59px;
   }
-
   // 顶部样式
   #header {
     background-color: white;
@@ -136,13 +140,11 @@
   #header .prev-menu{
     display: inline-block;
   }
-  
   #header .head-logo{
     width:250px;
     height: 64px;
     display: inline-block;
   } 
-
   #header .head-menu{
     .ant-menu{
       height: 64px;
@@ -150,7 +152,6 @@
     }
     display: inline-block;
   }
-
   #header .prev-menu .menu-item,
   #header .next-menu .menu-item {
     font-size: 17px;
@@ -162,9 +163,7 @@
   #header .next-menu .menu-item:hover {
     color: #2d8cf0;
   }
-
   //多选项卡
-
   #tab .tab {
     width: calc(100% - 40px);
     display: inline-block;
@@ -204,4 +203,3 @@
   #tab .ant-tabs-nav-container {
     height: 34px;
   }
-
