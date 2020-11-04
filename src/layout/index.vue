@@ -7,7 +7,6 @@
       :collapsed="collapsed"
       :trigger="null"
       collapsible
-      :class="[theme,layout]"
     >
       <!-- 顶部图标 -->
       <Logo v-if="logo"></Logo>
