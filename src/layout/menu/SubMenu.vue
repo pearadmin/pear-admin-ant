@@ -60,9 +60,6 @@ export default {
         return props.basePath;
       }
       // 当处于 comp 模式下拼接相关路由
-      
-
-
       return path.resolve(props.basePath, routePath);
     };
 

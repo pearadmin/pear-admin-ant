@@ -28,7 +28,7 @@ export default [
       }
     ]
   }, {
-    path: '/form',
+    path: 'form',
     name: 'form',
     component: Layout,
     meta: { key: '18', title: '表单页面', icon: 'FormOutlined' },
@@ -108,18 +108,18 @@ export default [
     redirect: "/list/baseList",
     children: [
       {
-        path: '/403',
-        name: '403',
+        path: '403',
+        name: 'error-403',
         meta: { key: '9', title: '403', icon: 'DatabaseOutlined' },
         component: () => import('@/view/error/403.vue'),
       }, {
-        path: '/404',
-        name: '404',
+        path: '404',
+        name: 'error-404',
         meta: { key: '10', title: '404', icon: 'DatabaseOutlined' },
         component: () => import('@/view/error/404.vue'),
       }, {
-        path: '/500',
-        name: '500',
+        path: '500',
+        name: 'error-500',
         meta: { key: '11', title: '500', icon: 'DatabaseOutlined' },
         component: () => import('@/view/error/500.vue'),
       }
