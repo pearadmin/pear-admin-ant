@@ -1,4 +1,3 @@
-// 基础布局
 #layout {
   height: 100%;
 }
@@ -10,7 +9,7 @@
   }
   #header{
     padding-left: 0px;
-    padding-right: 0px;
+    padding-right: 15px;
   }
 }
 #layout.layout-head.theme-dark{
@@ -21,7 +20,7 @@
   }
   #header{
     padding-left: 0px;
-    padding-right: 0px;
+    padding-right: 15px;
     background-color:#191a23;
     color: white;
   }
@@ -53,6 +52,51 @@
   #header{
     padding-left: 15px;
     padding-right: 15px;
+  }
+}
+#layout.theme-dark.layout-comp{
+  #logo{
+    height: 64px;
+    border-bottom: 1px solid #101117;
+    background: #191a23;
+  }
+  #header{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .ant-layout-header{
+    .comp-menu{
+      display: inline-block;
+      height: 64px;
+      line-height: 64px;
+      padding-left: 30px;
+      .menu-item{
+        height: 64px;
+        line-height: 64px;
+        display: inline-block;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 14.5px;
+      }
+      .is-active{
+        border-bottom: 3px solid #2d8cf0;
+      }
+    }
+    background-color: white!important;
+  }
+}
+#layout.theme-light.layout-comp{
+  #logo{
+    height: 64px;
+    border-bottom: 1px solid whitesmoke;
+    background:white;
+  }
+  #header{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .ant-layout-sider{
+    background-color: white!important;
   }
 }
 #layout .ant-layout-header {

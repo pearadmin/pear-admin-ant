@@ -2,7 +2,7 @@
   <a-layout id="layout" :class="[theme,layout]">
     <!-- 侧边栏 -->
     <a-layout-sider
-      v-if="layout === 'layout-side'"
+      v-if="layout != 'layout-head'"
       :width="sideWitch"
       :collapsed="collapsed"
       :trigger="null"

@@ -2,7 +2,7 @@
   <!-- 框架顶部菜单区域 -->
   <div id="header">
     <!-- 左侧菜单功能项 -->
-    <div class="prev-menu" v-if="layout === 'layout-side'">
+    <div class="prev-menu" v-if="layout !== 'layout-head'">
       <!-- 左侧缩进功能键 -->
       <menu-unfold-outlined
         v-if="collapsed"
@@ -20,6 +20,20 @@
     <div v-if="layout == 'layout-head'" class="head-menu">
       <Menu></Menu>
     </div>
+    <div v-if="layout == 'layout-comp'" class="comp-menu">
+      <template :key="index" v-for="(route, index) in routes">
+        <div
+          @click="changeMenu(index)"
+          class="menu-item"
+          :class="[active === index ? 'is-active' : '']"
+          v-if="!route.hidden"
+        >
+          {{ route.meta.title }}
+        </div>
+      </template>
+    </div>
+
+    <!-- 实现综合布局方式, 该布局方式与上方菜单的区别,只遍历一级 -->
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
       <!-- 当前页面最大化 -->
@@ -37,7 +51,7 @@
   </div>
 </template>
 <script>
-import { computed, getCurrentInstance } from "vue";
+import { computed, getCurrentInstance, ref } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
@@ -98,13 +112,20 @@ export default {
   setup() {
     const { getters, commit } = useStore();
     const layout = computed(() => getters.layout);
-
+    var active = computed(()=> getters.activeMenu);
     const collapsed = computed(() => getters.collapsed);
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
-
     const { ctx } = getCurrentInstance();
+    const routes = computed(() => ctx.$root.$router.options.routes);
+
+    const changeMenu = function (key) {
+      active.value = key;
+      // 更新路由
+      commit("layout/UPDATE_ACTIVE_MENU",key);
+    };
+
     const refresh = () => {
       const $route = ctx.$root.$route;
       ctx.$root.$router.replace({
@@ -127,6 +148,9 @@ export default {
       menuModel,
       theme,
       refresh,
+      routes,
+      active,
+      changeMenu,
     };
   },
 };

@@ -8,7 +8,7 @@
       @openChange="openChange"
     >
       <sub-menu
-        v-for="route in routes"
+        v-for="route in menu"
         :key="route.path"
         :item="route"
         :base-path="route.path"
@@ -29,12 +29,23 @@ export default {
   setup() {
     const { getters, commit } = useStore();
     const { ctx } = getCurrentInstance();
-    const routes = computed(() => ctx.$root.$router.options.routes);
+    const layout = computed(()=> getters.layout);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const openChange = function (openKeys) {
       commit("layout/updateOpenKey", { openKeys });
     };
+
+    // 根据条件初始化路由,当非 cnmp 布局模式下初始化全部路由
+    var menu = computed(() => ctx.$root.$router.options.routes);
+    var activeMenu;
+
+    if(layout.value === 'layout-comp'){
+         // 初始化局部路由
+         activeMenu = computed(()=> getters.activeMenu);
+         commit("layout/UPDATE_ROUTES",menu.value[activeMenu.value].children);
+         menu = computed(()=> getters.routes);
+    }
 
     const selectKey = ref([]);
     const openKey = ref([]);
@@ -56,14 +67,17 @@ export default {
     }
     dynamicMenu(route.value);
     watch(route, dynamicMenu)
+    watch(activeMenu,function(index){
+      commit("layout/UPDATE_ROUTES",computed(() => ctx.$root.$router.options.routes).value[index].children);
+    })
 
     return {
-      routes,
       selectKey,
       openKey,
       menuModel,
       theme,
       openChange,
+      menu
     };
   },
 };

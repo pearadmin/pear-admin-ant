@@ -4,7 +4,7 @@ const state = {
 	 * headMenu -- 头部菜单
 	 * sideMenu -- 顶部菜单
 	 * */
-	layout: "layout-side",
+	layout: "layout-comp",
 
 	/**
 	 * 系统主题（整体色调）
@@ -44,16 +44,16 @@ const state = {
 	// 宽度
 	sideWitch: 250,
 
+	routes:[],
+
 	// 国 际 化 语 言 配 置
 	language: '',
 	languages: [],
 	rootSubmenuKeys: ['sub1', 'sub2', 'sub4'],
 
 	fixedHeader: true,
-
-	fixedSide: true
-
-
+	fixedSide: true,
+	activeMenu: 2
 }
 
 const mutations = {
@@ -70,6 +70,12 @@ const mutations = {
 	},
 	TOGGLE_LAYOUT(state) {
 		state.layout = state.layout == 'layout-head' ? 'layout-side' : 'layout-head';
+	},
+	UPDATE_ROUTES(state,routes){
+		state.routes = routes;
+	},
+	UPDATE_ACTIVE_MENU(state,index){
+		state.activeMenu = index;
 	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {
