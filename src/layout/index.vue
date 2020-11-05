@@ -32,14 +32,16 @@
   </a-layout>
 </template>
 <script>
-import { computed, watch, ref } from "vue";
+import { computed, watch, ref, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
+import eventHub from './event.js'
 import Menu from "./menu/index.vue";
 import Content from "./content/index.vue";
 import Header from "./header/index.vue";
 import Logo from "./logo/index.vue";
 import Tab from "./tab/index.vue";
 import Setup from "./setup/index.vue";
+
 export default {
   components: {
     Menu,
@@ -48,6 +50,11 @@ export default {
     Logo,
     Tab,
     Setup,
+  },
+  mounted() {
+    eventHub.emit('pa-routers', this.$router.options.routes)
+    eventHub.emit('pa-router', this.$route)
+    
   },
   setup() {
     const { getters } = useStore();
@@ -64,6 +71,10 @@ export default {
     const fixedHeader = computed(() => getters.fixedHeader);
     // 固定 side
     const fixedSide = computed(() => getters.fixedSide);
+
+    const { ctx } = getCurrentInstance();
+    const $route = computed(() => ctx.$root.$route);
+    watch($route, to => eventHub.emit('pa-router', to))
 
     return {
       collapsed,

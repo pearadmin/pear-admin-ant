@@ -4,7 +4,7 @@ const state = {
 	 * headMenu -- 头部菜单
 	 * sideMenu -- 顶部菜单
 	 * */
-	layout: "layout-comp",
+	layout: "layout-head",
 
 	/**
 	 * 系统主题（整体色调）

@@ -22,14 +22,16 @@
     </div>
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
-        <div
-          @click="changeMenu(index)"
-          class="menu-item"
-          :class="[active === index ? 'is-active' : '']"
+        <router-link
           v-if="!route.hidden"
+          :to="toPath(route)"
+          class="menu-item"
+          :class="[active === route.path ? 'is-active' : '']"
         >
-          {{ route.meta.title }}
-        </div>
+          <!-- <MenuIcon v-if="level === 0" /> -->
+          <!-- <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+          <span>{{ route.meta.title }}</span>
+        </router-link>
       </template>
     </div>
 
@@ -53,8 +55,10 @@
 <script>
 import { computed, getCurrentInstance, ref } from "vue";
 import { useStore } from "vuex";
+import eventHub from '../event.js'
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
+import _path from "path";
 /** 图标集 */
 import {
   MenuFoldOutlined,
@@ -112,23 +116,26 @@ export default {
   setup() {
     const { getters, commit } = useStore();
     const layout = computed(() => getters.layout);
-    var active = computed(()=> getters.activeMenu);
     const collapsed = computed(() => getters.collapsed);
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const { ctx } = getCurrentInstance();
-    const routes = computed(() => ctx.$root.$router.options.routes);
 
-    const changeMenu = function (key) {
-      active.value = key;
-      // 更新路由
-      commit("layout/UPDATE_ACTIVE_MENU",key);
-    };
+    const { $router } = ctx.$root;
+    const routes = ref([]);
+    const active = ref('');
+    let $route;
+    eventHub.on('pa-router', to => {
+      active.value = to.matched[0].path
+      $route = to;
+    })
+    eventHub.on('pa-routers', rs => {
+      routes.value = rs;
+    })
 
     const refresh = () => {
-      const $route = ctx.$root.$route;
-      ctx.$root.$router.replace({
+      $router.replace({
         path: $route.path,
         params: $route.params,
         query: {
@@ -137,6 +144,18 @@ export default {
         },
       });
     };
+
+    const toPath = route => {
+      let { redirect, children, path } = route;
+      if(redirect){
+        return redirect;
+      }
+      while(children && children[0]){
+        path = _path.resolve(path, children[0].path);
+        children = children[0].children;
+      }
+      return path;
+    }
 
     return {
       layout,
@@ -150,7 +169,7 @@ export default {
       refresh,
       routes,
       active,
-      changeMenu,
+      toPath,
     };
   },
 };
