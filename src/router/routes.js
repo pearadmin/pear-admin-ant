@@ -28,7 +28,7 @@ export default [
       }
     ]
   }, {
-    path: 'form',
+    path: '/form',
     name: 'form',
     component: Layout,
     meta: { key: '18', title: '表单页面', icon: 'FormOutlined' },
