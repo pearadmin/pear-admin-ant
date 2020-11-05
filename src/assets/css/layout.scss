@@ -47,6 +47,7 @@
     background:white;
   }
   .ant-layout-sider{
+    box-shadow: 2px 0 8px 0 rgba(29,35,41,.05)!important;
     background-color: white!important;
   }
   #header{
@@ -95,7 +96,28 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+  .ant-layout-header{
+    .comp-menu{
+      display: inline-block;
+      height: 64px;
+      line-height: 64px;
+      padding-left: 30px;
+      .menu-item{
+        height: 64px;
+        line-height: 64px;
+        display: inline-block;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 14.5px;
+      }
+      .is-active{
+        border-bottom: 3px solid #2d8cf0;
+      }
+    }
+    background-color: white!important;
+  }
   .ant-layout-sider{
+    box-shadow: 2px 0 8px 0 rgba(29,35,41,.05)!important;
     background-color: white!important;
   }
 }
