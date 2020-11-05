@@ -3,7 +3,7 @@
 <br/>
 
   <h1 align="center">
-    Pear Admin Ant
+    Pear Admin Ant (0.0.3.beta)
   </h1>
   <h4 align="center">
     开 箱 即 用 的 Vue 3.0 前 端 开 发 框 架
@@ -27,6 +27,16 @@
 <div align="center">
   <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1104/172456_91ab3275_4835367.png" />
 </div>
+
+### 开发任务
+
+1. 顶部布局
+2. 侧边布局
+3. 联动布局
+4. 多选项卡
+5. 权限处理
+6. 登录逻辑
+7. 主题配置
 
 ### 开源地址
 
