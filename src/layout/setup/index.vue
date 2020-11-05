@@ -266,52 +266,6 @@
                   ></span></div
               ></a>
             </li>
-            <li
-              @click="updateTheme('theme-light')"
-              :class="[theme === 'theme-light' ? 'layui-this' : '']"
-            >
-              <a href="javascript:;" class="clearfix full-opacity-hover"
-                ><div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 12px;
-                      background: white;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 12px;
-                      background: white;
-                    "
-                  ></span>
-                </div>
-                <div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 34px;
-                      background: white;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 34px;
-                      background: #f4f5f7;
-                    "
-                  ></span></div
-              ></a>
-            </li>
           </ul>
         </div>
       </div>

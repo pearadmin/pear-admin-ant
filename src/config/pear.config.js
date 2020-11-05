@@ -7,5 +7,11 @@
  */
 export default {
 
+    // 默认布局
+    layout:"",
+
+    // 默认主题
+    theme:""
+
 }
   
