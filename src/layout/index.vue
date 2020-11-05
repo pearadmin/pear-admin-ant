@@ -1,5 +1,5 @@
 <template>
-  <a-layout id="layout" :class="[theme,layout]">
+  <a-layout id="layout" :class="[theme, layout]">
     <!-- 侧边栏 -->
     <a-layout-sider
       v-if="layout != 'layout-head'"
@@ -34,7 +34,7 @@
 <script>
 import { computed, watch, ref, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
-import eventHub from './event.js'
+import eventHub from "./event.js";
 import Menu from "./menu/index.vue";
 import Content from "./content/index.vue";
 import Header from "./header/index.vue";
@@ -52,9 +52,8 @@ export default {
     Setup,
   },
   mounted() {
-    eventHub.emit('pa-routers', this.$router.options.routes)
-    eventHub.emit('pa-router', this.$route)
-    
+    eventHub.emit("pa-routers", this.$router.options.routes);
+    eventHub.emit("pa-router", this.$route);
   },
   setup() {
     const { getters } = useStore();
@@ -74,7 +73,7 @@ export default {
 
     const { ctx } = getCurrentInstance();
     const $route = computed(() => ctx.$root.$route);
-    watch($route, to => eventHub.emit('pa-router', to))
+    watch($route, (to) => eventHub.emit("pa-router", to));
 
     return {
       collapsed,
