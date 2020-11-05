@@ -53,7 +53,8 @@ const state = {
 
 	fixedHeader: true,
 	fixedSide: true,
-	activeMenu: 2
+	activeMenu: 2,
+	basePath: ''
 }
 
 const mutations = {
@@ -76,6 +77,9 @@ const mutations = {
 	},
 	UPDATE_ACTIVE_MENU(state,index){
 		state.activeMenu = index;
+	},
+	UPDATE_BASE_PATH(state,path){
+		state.basePath = path;
 	},
 	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {

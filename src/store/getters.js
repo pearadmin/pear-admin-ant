@@ -17,6 +17,7 @@ const getters = {
 	fixedHeader: state => state.layout.fixedHeader,
 	fixedSide: state => state.layout.fixedSide,
 	routes: state => state.layout.routes,
-	activeMenu: state => state.layout.activeMenu
+	activeMenu: state => state.layout.activeMenu,
+	basePath: state => state.layout.basePath
 };
 export default getters;

@@ -31,7 +31,7 @@
 
 <script>
 import path from "path";
-import { useStore } from "vuex";
+import { useStore,getter } from "vuex";
 import * as Icons from "@ant-design/icons-vue";
 export default {
   name: "SubMenu",
@@ -59,6 +59,10 @@ export default {
       if (single) {
         return props.basePath;
       }
+      // 当处于 comp 模式下拼接相关路由
+      
+
+
       return path.resolve(props.basePath, routePath);
     };
 

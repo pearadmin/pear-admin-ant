@@ -11,7 +11,7 @@
         v-for="route in menu"
         :key="route.path"
         :item="route"
-        :base-path="route.path"
+        :base-path="activePath + route.path"
         :level="0"
       />
     </a-menu>
@@ -39,11 +39,14 @@ export default {
     // 根据条件初始化路由,当非 cnmp 布局模式下初始化全部路由
     var menu = computed(() => ctx.$root.$router.options.routes);
     var activeMenu;
+    var activePath = computed(() => getters.basePath);
+
 
     if(layout.value === 'layout-comp'){
          // 初始化局部路由
          activeMenu = computed(()=> getters.activeMenu);
          commit("layout/UPDATE_ROUTES",menu.value[activeMenu.value].children);
+         commit("layout/UPDATE_BASE_PATH",menu.value[activeMenu.value].path+"/")
          menu = computed(()=> getters.routes);
     }
 
@@ -69,6 +72,7 @@ export default {
     watch(route, dynamicMenu)
     watch(activeMenu,function(index){
       commit("layout/UPDATE_ROUTES",computed(() => ctx.$root.$router.options.routes).value[index].children);
+      commit("layout/UPDATE_BASE_PATH",computed(() => ctx.$root.$router.options.routes).value[index].path+"/");
     })
 
     return {
@@ -77,7 +81,8 @@ export default {
       menuModel,
       theme,
       openChange,
-      menu
+      menu,
+      activePath
     };
   },
 };
