@@ -4,31 +4,287 @@
     placement="right"
     :closable="false"
     :visible="visible"
-    width="360"
+    width="380"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
   >
     <div>
-      <a-switch v-model:checked="layout" @change="onChangeLayout" /> ---- 布局
-      <br />
-      <br />
-      <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
-      <br />
-      <br />
-      <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 内容
-      <br />
-      <br />
-      <a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
-      <br />
-      <br />
-      <a-switch v-model:checked="fixedHeader" @change="onChangeFixedHeader" />
-      ---- 头部
-      <br />
-      <br />
-      <a-switch v-model:checked="fixedSide" @change="onChangeFixedSide" />
-      ---- 侧边
-      <br />
-      <br />
+      <div class="pearone-color">
+        <div class="color-title">整体风格</div>
+        <div class="color-content">
+          <ul>
+            <li @click="updateTheme('theme-dark')" :class="[theme==='theme-dark'?'layui-this':'']">
+              <a
+                href="javascript:;"
+                data-skin="skin-blue"
+                style=""
+                class="clearfix full-opacity-hover"
+                ><div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 12px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 12px;
+                      background: white;
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 34px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 34px;
+                      background: #f4f5f7;
+                    "
+                  ></span></div
+              ></a>
+            </li>
+            <li  @click="updateTheme('theme-light')" :class="[theme==='theme-light'?'layui-this':'']">
+              <a
+                href="javascript:;"
+                class="clearfix full-opacity-hover"
+                ><div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 12px;
+                      background: white;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 12px;
+                      background: white;
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 34px;
+                      background: white;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 34px;
+                      background: #f4f5f7;
+                    "
+                  ></span></div
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pearone-color">
+        <div class="color-title">布局方式</div>
+        <div class="color-content">
+          <ul>
+            <li  @click="updateLayout('layout-side')" :class="[layout==='layout-side'?'layui-this':'']">
+              <a
+                href="javascript:;"
+                data-skin="skin-blue"
+                style=""
+                class="clearfix full-opacity-hover"
+                ><div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 12px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 12px;
+                      background: white;
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 34px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 34px;
+                      background: #f4f5f7;
+                    "
+                  ></span></div
+              ></a>
+            </li>
+            <li @click="updateLayout('layout-head')" :class="[layout==='layout-head'?'layui-this':'']">
+              <a
+                href="javascript:;"
+                data-skin="skin-blue"
+                style=""
+                class="clearfix full-opacity-hover"
+                ><div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 12px;
+                      background: white;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 12px;
+                      background: white;
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 34px;
+                      background: white;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 34px;
+                      background: #f4f5f7;
+                    "
+                  ></span></div
+              ></a>
+            </li>
+            <li @click="updateLayout('layout-comp')" :class="[layout==='layout-comp'?'layui-this':'']">
+              <a
+                href="javascript:;"
+                data-skin="skin-blue"
+                style=""
+                class="clearfix full-opacity-hover"
+                ><div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 12px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 12px;
+                      background: white;
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 34px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 34px;
+                      background: #f4f5f7;
+                    "
+                  ></span></div
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pearone-color">
+        <div class="color-title">更多设置</div>
+        <div class="color-content">
+          <a-switch v-model:checked="layout" @change="onChangeLayout" /> ----
+          布局
+          <br />
+          <br />
+          <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
+          <br />
+          <br />
+          <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 内容
+          <br />
+          <br />
+          <a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
+          <br />
+          <br />
+          <a-switch
+            v-model:checked="fixedHeader"
+            @change="onChangeFixedHeader"
+          />
+          ---- 头部
+          <br />
+          <br />
+          <a-switch v-model:checked="fixedSide" @change="onChangeFixedSide" />
+          ---- 侧边
+          <br />
+          <br />
+        </div>
+      </div>
       <a-radio-group
         :options="lans"
         v-model:value="lan"
@@ -53,14 +309,28 @@ export default {
     const visible = computed(() => getters.settingVisible);
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
-    const theme = computed(() => getters.theme == "theme-dark");
+    const theme = computed(() => getters.theme);
     const lan = ref(getters.language);
-    const lans = computed(() =>getters.languages.map((lan) => ({ label: lan, value: lan })));
+    const lans = computed(() =>
+      getters.languages.map((lan) => ({ label: lan, value: lan }))
+    );
     const fixedSide = computed(() => getters.fixedSide);
     const fixedHeader = computed(() => getters.fixedHeader);
-    const layout = computed(()=> getters.layout === 'layout-side');
+    const layout = computed(() => getters.layout);
+
+    // 新代码
+    const updateLayout = function(layout){
+      commit("layout/UPDATE_LAYOUT",layout);
+    }
+    const updateTheme = function(theme){
+      commit("layout/UPDATE_THEME",theme);
+    }
 
     return {
+      // 新代码
+      updateLayout,
+      updateTheme,
+
       fixedSide,
       fixedHeader,
       visible,

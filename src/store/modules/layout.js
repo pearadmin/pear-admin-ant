@@ -69,8 +69,11 @@ const mutations = {
 	TOGGLE_FIXEDHEADER(state) {
 		state.fixedHeader = !state.fixedHeader;
 	},
-	TOGGLE_LAYOUT(state) {
-		state.layout = state.layout == 'layout-head' ? 'layout-side' : 'layout-head';
+	UPDATE_LAYOUT(state,layout) {
+		state.layout = layout;
+	},
+	UPDATE_THEME(state,theme) {
+		state.theme = theme;
 	},
 	UPDATE_ROUTES(state,routes){
 		state.routes = routes;
