@@ -1,6 +1,5 @@
 <template>
   <a-drawer
-    title="设置"
     placement="right"
     :closable="false"
     :visible="visible"
