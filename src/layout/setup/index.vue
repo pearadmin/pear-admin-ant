@@ -353,28 +353,21 @@
         <div class="color-title">更多设置</div>
         <div class="color-content">
           <br />
-          <a-switch v-model:checked="layout" @change="onChangeLayout" /> ----
-          布局
+          <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 侧边图标
           <br />
           <br />
-          <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 图标
-          <br />
-          <br />
-          <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 内容
-          <br />
-          <br />
-          <a-switch v-model:checked="theme" @change="onChangeTheme" /> ---- 主题
+          <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 多选项卡
           <br />
           <br />
           <a-switch
             v-model:checked="fixedHeader"
             @change="onChangeFixedHeader"
           />
-          ---- 头部
+          ---- 固定头部
           <br />
           <br />
           <a-switch v-model:checked="fixedSide" @change="onChangeFixedSide" />
-          ---- 侧边
+          ---- 固定侧边
           <br />
           <br />
         </div>
