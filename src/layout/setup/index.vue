@@ -370,9 +370,7 @@
           ---- 固定侧边
           <br />
           <br />
-        </div>
-      </div>
-      <a-radio-group
+          <a-radio-group
         :options="lans"
         v-model:value="lan"
         @change="changeLanguage"
@@ -382,6 +380,8 @@
       <a-button type="primary"> 复制配置 </a-button>
       &nbsp;&nbsp;
       <a-button>重置配置</a-button>
+        </div>
+      </div>
     </div>
     <br />
     <br />
