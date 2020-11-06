@@ -3,7 +3,7 @@
     placement="right"
     :closable="false"
     :visible="visible"
-    width="350"
+    width="370"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
   >
@@ -104,6 +104,56 @@
                       float: left;
                       height: 34px;
                       background: #f4f5f7;
+                    "
+                  ></span></div
+              ></a>
+            </li>
+             <li
+              @click="updateTheme('theme-night')"
+              :class="[theme === 'theme-night' ? 'layui-this' : '']"
+            >
+              <a
+                href="javascript:;"
+                data-skin="skin-blue"
+                style=""
+                class="clearfix full-opacity-hover"
+                ><div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 12px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 12px;
+                      background: #28333e;
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <span
+                    style="
+                      display: block;
+                      width: 20%;
+                      float: left;
+                      height: 34px;
+                      background: #28333e;
+                    "
+                  ></span
+                  ><span
+                    style="
+                      display: block;
+                      width: 80%;
+                      float: left;
+                      height: 34px;
+                      background: #28333e;
                     "
                   ></span></div
               ></a>
@@ -240,7 +290,7 @@
                       width: 80%;
                       float: left;
                       height: 12px;
-                      background: white;
+                      background: #28333e;
                     "
                   ></span>
                 </div>

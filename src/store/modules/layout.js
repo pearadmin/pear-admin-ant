@@ -4,7 +4,7 @@ const state = {
 	 * headMenu -- 头部菜单
 	 * sideMenu -- 顶部菜单
 	 * */
-	layout: "layout-comp",
+	layout: "layout-side",
 
 	/**
 	 * 系统主题（整体色调）
@@ -47,7 +47,7 @@ const state = {
 	routes:[],
 
 	// 国 际 化 语 言 配 置
-	language: '',
+	language: 'zhcn',
 	languages: [],
 	rootSubmenuKeys: ['sub1', 'sub2', 'sub4'],
 

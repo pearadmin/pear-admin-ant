@@ -7,5 +7,10 @@ import 'ant-design-vue/dist/antd.css';
 import './assets/css/index.scss';
 import components from './component';
 
+const app = createApp(App);
 
-createApp(App).use(Antd).use(store).use(components).use(router).mount('#app')
+app.use(Antd);
+app.use(store);
+app.use(components);
+app.use(router);
+app.mount('#app');
