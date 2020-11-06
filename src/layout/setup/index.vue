@@ -225,22 +225,13 @@
                 style=""
                 class="clearfix full-opacity-hover"
                 ><div>
-                  <span
+                 <span
                     style="
                       display: block;
-                      width: 20%;
+                      width: 100%;
                       float: left;
                       height: 12px;
-                      background: white;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 12px;
-                      background: white;
+                      background: #28333e;
                     "
                   ></span>
                 </div>
@@ -248,16 +239,7 @@
                   <span
                     style="
                       display: block;
-                      width: 20%;
-                      float: left;
-                      height: 34px;
-                      background: white;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
+                      width: 100%;
                       float: left;
                       height: 34px;
                       background: #f4f5f7;
