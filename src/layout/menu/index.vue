@@ -20,7 +20,6 @@
 <script>
 import { computed, watch, ref, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
-import eventHub from '../event.js'
 import SubMenu from "./SubMenu.vue";
 
 export default {
@@ -37,13 +36,27 @@ export default {
     };
 
     // 根据条件初始化路由,当非 cnmp 布局模式下初始化全部路由
-    let $route, $routes;
+    const { $router } = ctx.$root
+    const $routes = $router.options.routes;
+    const $route = computed(() => ctx.$root.$route);
 
-    const selectKey = ref([]);
-    const openKey = ref([]);
+    //vuex中的布局模式
+    const layout = computed(() => getters.layout);
+    //vuex中记录的菜单
     const storeOpenKey = computed(() => getters.openKey);
-    eventHub.on('pa-router', to => {
-      $route = to;
+    //vuex中记录的激活的菜单
+    const activeKey = computed(() => getters.activeKey);
+    //记录当前选中的菜单
+    const selectKey = ref([ activeKey.value ]);
+    //记录打开的菜单
+    const openKey =ref([ ...storeOpenKey.value ]);
+    //不同的布局, 涉及到的菜单可能会不同
+    const menu = ref([]);
+    //不同的布局, 菜单的前缀path需要修改
+    const rootPath = ref('');
+
+    //路由变化的时候处理方法
+    const dynamicRoute = to => {
       // 当前路由匹配的数组
       let { matched } = to;
       //需要打开的菜单keys
@@ -51,32 +64,33 @@ export default {
       //store中已经打开的数据
       let openKeys = [ ...storeOpenKey.value ];
       needOpenKeys.forEach(nk => !openKeys.includes(nk) && openKeys.push(nk))
-      commit('layout/updateOpenKey', { openKeys })
       changeLayout(layout.value)
-    })
-
-    const layout = computed(() => getters.layout);
-    watch(layout, n => changeLayout(n))
-
-    const menu = ref([]);
-    eventHub.on('pa-routers', rs => {
-      $routes = rs;
-    })
-
-    const rootPath = ref('');
+      commit('layout/updateOpenKey', { openKeys })
+    }
+    //布局变化的处理方法
     const changeLayout = model => {
       if(model === 'layout-comp'){
-        let topPath = $route.matched[0].path;
+        let topPath = $route.value.matched[0].path;
         menu.value = $routes.find(r => r.path === topPath).children;
         rootPath.value = topPath + '/';
       }else{
         menu.value = $routes;
         rootPath.value = '';
+        //如果是顶部布局, 这里的选中效果需要新增父节点, open效果直接取消
+        if(model === 'layout-head'){
+          //???
+        }
       }
     }
 
-    watch(computed(() => getters.activeKey), n => selectKey.value = [ n ]);
+    //监听变化
+    watch(layout, n => changeLayout(n))
+    watch($route, dynamicRoute);
+    watch(activeKey, n => selectKey.value = [ n ]);
     watch(storeOpenKey, n => openKey.value = n, { deep: true });
+
+    //初始化路由
+    dynamicRoute($route.value);
 
     return {
       selectKey,

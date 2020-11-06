@@ -24,7 +24,6 @@
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
         <router-link
-          v-if="!route.hidden"
           :to="toPath(route)"
           class="menu-item"
           :class="[active === route.path ? 'is-active' : '']"
@@ -50,9 +49,8 @@
   </div>
 </template>
 <script>
-import { computed, getCurrentInstance, ref } from "vue";
+import { computed, watch, getCurrentInstance, ref } from "vue";
 import { useStore } from "vuex";
-import eventHub from '../event.js'
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
 import _path from "path";
@@ -118,30 +116,12 @@ export default {
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const { ctx } = getCurrentInstance();
+    
+    const $route = computed(() => ctx.$root.$route);
+    const active = ref($route.value.matched[0].path);
+    watch($route, to => active.value = to.matched[0].path)
 
-    const { $router } = ctx.$root;
-    const routes = ref([]);
-    const active = ref('');
-    let $route;
-    eventHub.on('pa-router', to => {
-      active.value = to.matched[0].path
-      $route = to;
-    })
-    eventHub.on('pa-routers', rs => {
-      routes.value = rs;
-    })
-
-    const refresh = () => {
-      $router.replace({
-        path: $route.path,
-        params: $route.params,
-        query: {
-          ...$route.query,
-          _: Date.now(),
-        },
-      });
-    };
-
+    //计算点击跳转的最终路由
     const toPath = route => {
       let { redirect, children, path } = route;
       if(redirect){
@@ -153,6 +133,21 @@ export default {
       }
       return path;
     }
+
+    const { $router } = ctx.$root
+    const routes = ref($router.options.routes.filter(r => !r.hidden));
+    //实现当前路由刷新
+    const refresh = () => {
+      let _route = $route.value;
+      $router.replace({
+        path: _route.path,
+        params: _route.params,
+        query: {
+          ..._route.query,
+          _: Date.now(),
+        },
+      });
+    };
 
     return {
       layout,
