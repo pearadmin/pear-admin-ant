@@ -20,6 +20,7 @@
     <div v-if="layout == 'layout-head'" class="head-menu">
       <Menu></Menu>
     </div>
+    <!-- 实现综合布局方式 -->
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
         <router-link
@@ -28,14 +29,10 @@
           class="menu-item"
           :class="[active === route.path ? 'is-active' : '']"
         >
-          <!-- <MenuIcon v-if="level === 0" /> -->
-          <!-- <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
           <span>{{ route.meta.title }}</span>
         </router-link>
       </template>
     </div>
-
-    <!-- 实现综合布局方式, 该布局方式与上方菜单的区别,只遍历一级 -->
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
       <!-- 当前页面最大化 -->
