@@ -5,7 +5,7 @@ export default [
   //默认访问路由
   {
     path: '/',
-    redirect: "/dashboard/console/console",
+    redirect: "/dashboard/console",
     hidden: true,
   },
   {
@@ -25,20 +25,6 @@ export default [
         name: 'dashboard-console',
         meta: { key: 'home', title: '分析页', icon: 'DashboardOutlined', fixed: true },
         component: () => import('@/view/dashboard/console.vue'),
-        children: [
-          {
-            path: 'console',
-            name: 'dashboard-console2',
-            meta: { key: 'home', title: '分析页', icon: 'DashboardOutlined', fixed: true },
-            component: () => import('@/view/dashboard/console.vue')
-          },
-          {
-            path: 'console2',
-            name: 'dashboard-console3',
-            meta: { key: 'home', title: '分析页2', icon: 'DashboardOutlined', fixed: true },
-            component: () => import('@/view/dashboard/console.vue')
-          }
-        ]
       }
     ]
   }, {
