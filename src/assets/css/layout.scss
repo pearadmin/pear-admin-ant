@@ -133,6 +133,59 @@
     background-color: white!important;
   }
 }
+#layout.theme-night{
+  #logo{
+    height: 64px;
+    border-bottom: 1px solid #101117;
+    background: #191a23;
+  }
+  #header{
+    .comp-menu{
+      display: inline-block;
+      height: 64px;
+      line-height: 64px;
+      padding-left: 30px;
+      .menu-item{
+        color: white;
+        height: 64px;
+        line-height: 64px;
+        display: inline-block;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 14.5px;
+      }
+      .is-active{
+        border-top: 3px solid #2d8cf0 !important;
+      }
+    }
+    background: #191a23!important;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+  }
+  .ant-layout-sider{
+    background: #191a23!important;
+  }
+  .ant-layout-content{
+    background: black!important;
+    .ant-card{
+      border: solid 1px #191a23!important;
+      background: #191a23!important;
+      color: white!important;
+    }
+    .ant-statistic-title{
+      color: white!important;
+    }
+    .ant-tabs-tab{
+      color: white;
+      background-color: #191a23!important;
+    }
+  }
+  .ant-drawer-content{
+    background-color: #191a23!important;
+  }
+}
+
 #layout .ant-layout-header {
   padding-left: 0px;
   padding-right: 0px;
@@ -258,7 +311,7 @@
     height: 34px !important;
     line-height: 34px !important;
     color: #808695;
-    background-color: white !important;
+    background-color: white;
   }
   
   #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:first-child {

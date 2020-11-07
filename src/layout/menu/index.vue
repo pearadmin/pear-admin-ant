@@ -4,7 +4,7 @@
       v-model:openKeys="openKey"
       v-model:selectedKeys="selectKey"
       :mode="menuModel"
-      :theme="theme =='theme-dark'?'dark':'light'"
+      :theme="theme === 'theme-dark' || theme === 'theme-night'?'dark':'light'"
       @openChange="openChange"
     >
       <sub-menu
