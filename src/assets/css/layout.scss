@@ -173,6 +173,11 @@
       background: #191a23!important;
       color: white!important;
     }
+    .tab-tool{
+      border: solid 1px #191a23!important;
+      background: #191a23!important;
+      color: white!important;
+    }
     .ant-statistic-title{
       color: white!important;
     }
@@ -344,7 +349,8 @@
 	background-color: #f2f2f2;
 	cursor: pointer;
 	font-size: 12px;
-	color: #666;
+  color: #666;
+  border-radius: 4px;
 }
 .pearone-color .color-content li.layui-this:after,
 .pearone-color .color-content li:hover:after {

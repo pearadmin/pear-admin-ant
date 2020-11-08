@@ -25,7 +25,6 @@ export default {
   font-weight: 500;
 }
 .page-header-describe {
-  background-color: white;
   font-size: 14px;
 }
 </style>
