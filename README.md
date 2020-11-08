@@ -25,7 +25,7 @@
     </a>
 </p>
 <div align="center">
-  <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1104/172456_91ab3275_4835367.png" />
+  <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1108/150814_80561bf8_4835367.png" />
 </div>
 
 ### 开发任务
@@ -37,6 +37,7 @@
 5. 权限处理
 6. 登录逻辑
 7. 主题配置
+8. 夜间模式
 
 ### 开源地址
 
