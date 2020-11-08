@@ -47,7 +47,9 @@ Github 开源地址: [前往下载](https://github.com/Jmysy/Pear-Admin-Ant)
 
 ### 主题模式
 
-|   |   |   |
+| 默认主题  | 白色主题  |  夜间主题  |
+|---|---|---|
+| ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150340_f168fc5d_4835367.png "黑色主题.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150351_953099c2_4835367.png "白色主题.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150406_27a29e34_4835367.png "夜间主题.png")  |
 |---|---|---|
 
 
