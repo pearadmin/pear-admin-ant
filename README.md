@@ -52,6 +52,13 @@ Github 开源地址: [前往下载](https://github.com/Jmysy/Pear-Admin-Ant)
 | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150340_f168fc5d_4835367.png "黑色主题.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150351_953099c2_4835367.png "白色主题.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150406_27a29e34_4835367.png "夜间主题.png")  |
 |---|---|---|
 
+### 布局方式
+
+| 侧边布局  | 顶部布局 |  联动布局  |
+|---|---|---|
+| ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150535_ad4ad37a_4835367.png "黑色主题.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150548_2d6381ee_4835367.png "顶部布局.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150557_bc164bfc_4835367.png "联动布局.png")  |
+|---|---|---|
+
 
 
 ### 项目安装
