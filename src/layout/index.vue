@@ -7,11 +7,14 @@
       :collapsed="collapsed"
       :trigger="null"
       collapsible
+      :class="fixedSide ? 'fixed-side':''"
     >
-      <!-- 顶部图标 -->
-      <Logo v-if="logo"></Logo>
-      <!-- 垂直菜单 -->
-      <Menu></Menu>
+      <div>
+        <!-- 顶部图标 -->
+        <Logo v-if="logo"></Logo>
+        <!-- 垂直菜单 -->
+        <Menu></Menu>
+      </div>
     </a-layout-sider>
     <!-- 右边区域 -->
     <a-layout>
@@ -20,7 +23,7 @@
         <Header></Header>
       </a-layout-header>
       <!-- 中心区域 -->
-      <a-layout-content>
+      <a-layout-content :style="{ 'overflow': fixedHeader ? 'auto':'' }">
         <!-- 选项卡页面 -->
         <Tab v-if="tab"></Tab>
         <!-- main区域 -->

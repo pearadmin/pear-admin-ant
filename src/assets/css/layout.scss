@@ -90,7 +90,7 @@
       }
     }
     background-color: white!important;
-    
+
   }
   .ant-layout-sider{
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
@@ -195,6 +195,7 @@
   padding-left: 0px;
   padding-right: 0px;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  z-index: 100;//这里控制了顶部的层级, 暂时设置为100
 }
 // 菜单样式
 .ant-menu-sub.ant-menu-inline > .ant-menu-item,
@@ -215,6 +216,20 @@
 }
 .ant-layout-sider {
   background: #191a23 !important;
+  &.fixed-side{
+    height: 100vh;
+    position: relative;
+    overflow: hidden !important;
+    &>.ant-layout-sider-children>div{
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: -17px;
+      bottom: 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+  }
 }
 .ant-menu.ant-menu-dark .ant-menu-item-selected,
 .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
@@ -270,7 +285,7 @@
     width:250px;
     height: 64px;
     display: inline-block;
-  } 
+  }
   #header .head-menu{
     .ant-menu{
       height: 64px;
@@ -318,7 +333,7 @@
     color: #808695;
     background-color: white;
   }
-  
+
   #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab:first-child {
     margin-left: 6px;
   }

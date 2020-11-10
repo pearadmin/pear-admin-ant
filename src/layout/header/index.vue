@@ -1,25 +1,31 @@
 <template>
   <!-- 框架顶部菜单区域 -->
   <div id="header">
-    <!-- 左侧菜单功能项 -->
-    <div class="prev-menu" v-if="layout !== 'layout-head'">
-      <!-- 左侧缩进功能键 -->
-      <menu-unfold-outlined
-        v-if="collapsed"
-        class="trigger menu-item"
-        @click="trigger()"
-      />
-      <!-- 左侧缩进功能键盘 -->
-      <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
-      <!-- 刷新当前页面路由 -->
-      <ReloadOutlined class="refresh menu-item" @click="refresh" />
-    </div>
-    <div v-if="layout == 'layout-head'" class="head-logo">
-      <Logo></Logo>
-    </div>
-    <div v-if="layout == 'layout-head'" class="head-menu">
-      <Menu></Menu>
-    </div>
+    
+    <template v-if="layout !== 'layout-head'">
+      <!-- 左侧菜单功能项 -->
+      <div class="prev-menu">
+        <!-- 左侧缩进功能键 -->
+        <menu-unfold-outlined
+          v-if="collapsed"
+          class="trigger menu-item"
+          @click="trigger()"
+        />
+        <!-- 左侧缩进功能键盘 -->
+        <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
+        <!-- 刷新当前页面路由 -->
+        <ReloadOutlined class="refresh menu-item" @click="refresh" />
+      </div>
+    </template>
+    <template v-else>
+      <div class="head-logo">
+        <Logo></Logo>
+      </div>
+      <div class="head-menu">
+        <Menu></Menu>
+      </div>
+    </template>
+    
     <!-- 实现综合布局方式 -->
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
@@ -32,6 +38,7 @@
         </router-link>
       </template>
     </div>
+    
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
       <!-- 当前页面最大化 -->
