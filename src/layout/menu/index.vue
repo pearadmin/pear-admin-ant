@@ -65,7 +65,11 @@ export default {
       let openKeys = [ ...storeOpenKey.value ];
       needOpenKeys.forEach(nk => !openKeys.includes(nk) && openKeys.push(nk))
       changeLayout(layout.value)
-      commit('layout/updateOpenKey', { openKeys })
+      if(layout.value!=='layout-head'){
+        commit('layout/updateOpenKey', { openKeys });
+      }else{
+        commit('layout/clearOpenKey');
+      }
     }
     //布局变化的处理方法
     const changeLayout = model => {
@@ -76,10 +80,6 @@ export default {
       }else{
         menu.value = $routes;
         rootPath.value = '';
-        //如果是顶部布局, 这里的选中效果需要新增父节点, open效果直接取消
-        if(model === 'layout-head'){
-          //???
-        }
       }
     }
 

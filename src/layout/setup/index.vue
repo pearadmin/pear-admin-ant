@@ -390,16 +390,15 @@ export default {
 
     // 新代码
     const updateLayout = function (layout) {
+      var menu = new Array();
       commit("layout/UPDATE_LAYOUT", layout);
     };
     const updateTheme = function (theme) {
       commit("layout/UPDATE_THEME", theme);
     };
-
     const updateColor = function (color) {
       message.info("选中颜色 ：" + color);
     };
-
     return {
       // 新代码
       updateLayout,
@@ -418,7 +417,6 @@ export default {
       onChangeVisible: () => commit("layout/TOGGLE_SETTING"),
       onChangeLogo: () => commit("layout/TOGGLE_LOGO"),
       onChangeTab: () => commit("layout/updateTab"),
-      onChangeSide: () => commit("layout/TOGGLE_SIDEBAR_VISIBLE"),
       onChangeTheme: () => commit("layout/TOGGLE_THEME"),
       onChangeFixedSide: () => commit("layout/TOGGLE_FIXEDSIDE"),
       onChangeFixedHeader: () => commit("layout/TOGGLE_FIXEDHEADER"),

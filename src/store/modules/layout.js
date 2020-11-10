@@ -1,34 +1,72 @@
+import config from "../../config/pear.config"
+
 const state = {
 	/**
 	 * 布局方式（整体界面的排版方式）
-	 * headMenu -- 头部菜单
-	 * sideMenu -- 顶部菜单
+	 * layout-side -- 侧边布局
+	 * layout-head -- 顶部菜单
+	 * layout-comp 联动布局
 	 * */
-	layout: "layout-side",
+	layout: config.layout == null ?"layout-side":localStorage.getItem("layout") == null?config.layout:localStorage.getItem("layout"),
 
 	/**
 	 * 系统主题（整体色调）
 	 * light -- 白色主题
 	 * dark -- 暗色主题
+	 * night -- 夜间主题
 	 */
-	theme: "theme-dark",
+	theme: config.theme == null?"theme-dark":localStorage.getItem("theme") == null?config.theme:localStorage.getItem("theme"),
 
 	/**
 	 * 侧边状态
 	 * true  --  隐藏
 	 * false --  展开
 	 * */
-	collapsed: false,
+	collapsed: config.collapsed == null?false:localStorage.getItem("collapsed") == null?config.collapsed:localStorage.getItem("collapsed"),
 
-	// 设置面板
+	/**
+	 * 菜单头部 
+	 * true  --  隐藏
+	 * false --  展开
+	 * */
+	logo: config.logo == null?true:localStorage.getItem("logo") == null?config.logo:localStorage.getItem("logo"),
+	
+	/**
+	 * 是否开启多标签页 
+	 * true  --  隐藏
+	 * false --  展开
+	 * */
+	tab: config.tab == null?true:localStorage.getItem("tab") == null?config.tab:localStorage.getItem("tab"),
+
+	/**
+	 * 侧边菜单栏宽度
+	 * 单位:px
+	 * */
+	sideWitch: config.sideWidth == null?250:config.sideWidth,
+
+	/**
+	 * 固定头部 
+	 * true
+	 * false
+	 */
+	fixedHeader: config.fixedHeader == null?true:localStorage.getItem("fixedHeader") == null?config.fixedHeader:localStorage.getItem("fixedHeader"),
+
+	/**
+	 * 固定侧边
+	 * true
+	 * false 
+	 */
+	fixedSide: config.fixedSide == null?true:localStorage.getItem("fixedSide") == null?config.fixedSide:localStorage.getItem("fixedSide"),
+
+	/**
+	 * 主题面板状态
+	 * true
+	 * false 
+	 */
 	setting: {
-		//显示状态
 		opened: false,
 	},
-	// 是否显示图标
-	logo: true,
-	// 是否显示选项卡
-	tab: true,
+
 	// 选项卡内容存储
 	panes: [],
 	// 当前激活选项卡
@@ -41,28 +79,16 @@ const state = {
 	routerActive: true,
 	// 浏览器全屏
 	fullscreen: false,
-	// 宽度
-	sideWitch: 250,
-
+	// 路由列表
 	routes:[],
-
 	// 国 际 化 语 言 配 置
 	language: 'zhcn',
-	languages: [],
-	rootSubmenuKeys: ['sub1', 'sub2', 'sub4'],
-
-	fixedHeader: true,
-	fixedSide: true,
-	activeMenu: 2,
-	basePath: ''
+	// 语 言 包
+	languages: []
 }
 
 const mutations = {
-	// 修改当前的左侧菜单显示状态
-	TOGGLE_SIDEBAR_VISIBLE(state) {
-		state.sidebar.visible = !state.sidebar.visible;
-	},
-	// 固定侧边
+
 	TOGGLE_FIXEDSIDE(state) {
 		state.fixedSide = !state.fixedSide;
 	},
@@ -78,13 +104,6 @@ const mutations = {
 	UPDATE_ROUTES(state,routes){
 		state.routes = routes;
 	},
-	UPDATE_ACTIVE_MENU(state,index){
-		state.activeMenu = index;
-	},
-	UPDATE_BASE_PATH(state,path){
-		state.basePath = path;
-	},
-	// 修改当前的左侧菜单缩进状态
 	TOGGLE_SIDEBAR(state) {
 		if (state.collapsed) {
 			// 要展开
@@ -105,10 +124,6 @@ const mutations = {
 	// 是否显示LOGO
 	TOGGLE_LOGO(state) {
 		state.logo = !state.logo;
-	},
-	// 切换主题
-	TOGGLE_THEME(state) {
-		state.theme = state.theme === 'theme-dark' ? 'theme-light' : 'theme-dark'
 	},
 	// 是否开启选项卡模式
 	updateTab(state) {
@@ -131,6 +146,9 @@ const mutations = {
 		} else {
 			state.openKey = openKeys;
 		}
+	},
+	clearOpenKey(state){
+		state.openKey = [];
 	},
 	// 新增选项卡操作
 	addTab(state, value) {
@@ -197,6 +215,7 @@ const mutations = {
 }
 
 const actions = {
+
 	ToggleSideBarVisible: ({ commit }) => {
 		commit("TOGGLE_SIDEBAR_VISIBLE");
 	},
@@ -209,6 +228,7 @@ const actions = {
 	ToggleLogo: ({ commit }) => {
 		commit("TOGGLE_LOGO");
 	},
+
 }
 
 export default {

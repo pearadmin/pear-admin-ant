@@ -16,8 +16,6 @@ const getters = {
 	languages: state => state.layout.languages,
 	fixedHeader: state => state.layout.fixedHeader,
 	fixedSide: state => state.layout.fixedSide,
-	routes: state => state.layout.routes,
-	activeMenu: state => state.layout.activeMenu,
-	basePath: state => state.layout.basePath
+	routes: state => state.layout.routes
 };
 export default getters;
