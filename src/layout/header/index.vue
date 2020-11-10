@@ -111,7 +111,7 @@
         </template>
       </a-dropdown>
       <!-- 主题设置隐显键 -->
-      <SettingOutlined class="setting menu-item" @click="setting()" />
+      <MoreOutlined class="setting menu-item" @click="setting()" />
     </div>
   </div>
 </template>
@@ -125,7 +125,7 @@ import _path from "path";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  SettingOutlined,
+  MoreOutlined,
   ExpandOutlined,
   CompressOutlined,
   ReloadOutlined,
@@ -136,7 +136,7 @@ export default {
   components: {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    SettingOutlined,
+    MoreOutlined,
     ExpandOutlined,
     CompressOutlined,
     ReloadOutlined,
