@@ -1,7 +1,6 @@
 <template>
   <!-- 框架顶部菜单区域 -->
   <div id="header">
-    
     <template v-if="layout !== 'layout-head'">
       <!-- 左侧菜单功能项 -->
       <div class="prev-menu">
@@ -12,7 +11,11 @@
           @click="trigger()"
         />
         <!-- 左侧缩进功能键盘 -->
-        <menu-fold-outlined v-else class="trigger menu-item" @click="trigger()" />
+        <menu-fold-outlined
+          v-else
+          class="trigger menu-item"
+          @click="trigger()"
+        />
         <!-- 刷新当前页面路由 -->
         <ReloadOutlined class="refresh menu-item" @click="refresh" />
       </div>
@@ -25,7 +28,7 @@
         <Menu></Menu>
       </div>
     </template>
-    
+
     <!-- 实现综合布局方式 -->
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
@@ -38,7 +41,7 @@
         </router-link>
       </template>
     </div>
-    
+
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
       <!-- 当前页面最大化 -->
@@ -48,8 +51,65 @@
         @click="full(1)"
       />
       <CompressOutlined v-else class="expand menu-item" @click="full(2)" />
+
+      <a-dropdown v-model:visible="visible" class="menu-item">
+        <BellOutlined />
+        <template #overlay>
+          <a-menu>
+            <a-menu-item key="0">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://www.alipay.com/"
+                >1st menu item</a
+              >
+            </a-menu-item>
+            <a-menu-item key="1">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://www.taobao.com/"
+                >2nd menu item</a
+              >
+            </a-menu-item>
+            <a-menu-divider />
+            <a-menu-item key="3" disabled>
+              3rd menu item（disabled）
+            </a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
       <!-- 国际化切换 -->
       <GlobalOutlined class="language menu-item" />
+        <a-dropdown class="avatar-item">
+        <a-avatar
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        ></a-avatar>
+        <template #overlay>
+          <a-menu>
+            <a-menu-item key="0">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://www.alipay.com/"
+                >1st menu item</a
+              >
+            </a-menu-item>
+            <a-menu-item key="1">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://www.taobao.com/"
+                >2nd menu item</a
+              >
+            </a-menu-item>
+            <a-menu-divider />
+            <a-menu-item key="3" disabled>
+              3rd menu item（disabled）
+            </a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
       <!-- 主题设置隐显键 -->
       <SettingOutlined class="setting menu-item" @click="setting()" />
     </div>
@@ -70,6 +130,7 @@ import {
   CompressOutlined,
   ReloadOutlined,
   GlobalOutlined,
+  BellOutlined,
 } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -82,6 +143,7 @@ export default {
     GlobalOutlined,
     Menu,
     Logo,
+    BellOutlined,
   },
   methods: {
     full: function (num) {
@@ -123,26 +185,26 @@ export default {
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const { ctx } = getCurrentInstance();
-    
+
     const $route = computed(() => ctx.$root.$route);
     const active = ref($route.value.matched[0].path);
-    watch($route, to => active.value = to.matched[0].path)
+    watch($route, (to) => (active.value = to.matched[0].path));
 
     //计算点击跳转的最终路由
-    const toPath = route => {
+    const toPath = (route) => {
       let { redirect, children, path } = route;
-      if(redirect){
+      if (redirect) {
         return redirect;
       }
-      while(children && children[0]){
+      while (children && children[0]) {
         path = _path.resolve(path, children[0].path);
         children = children[0].children;
       }
       return path;
-    }
+    };
 
-    const { $router } = ctx.$root
-    const routes = ref($router.options.routes.filter(r => !r.hidden));
+    const { $router } = ctx.$root;
+    const routes = ref($router.options.routes.filter((r) => !r.hidden));
     //实现当前路由刷新
     const refresh = () => {
       let _route = $route.value;

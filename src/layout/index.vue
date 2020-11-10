@@ -23,11 +23,11 @@
         <Header></Header>
       </a-layout-header>
       <!-- 中心区域 -->
-      <a-layout-content :style="{ 'overflow': fixedHeader ? 'auto':'' }">
+      <a-layout-content :class="[fixedHeader?'fixedHeader':'',tab?'muiltTab':'']">
         <!-- 选项卡页面 -->
         <Tab v-if="tab"></Tab>
         <!-- main区域 -->
-        <Content></Content>
+        <Content :style="{ 'overflow': fixedHeader ? 'auto':'' }"></Content>
         <!-- 设置页面 -->
         <Setup></Setup>
       </a-layout-content>

@@ -59,7 +59,10 @@ export default {
 
     /**
      * 参数: 是否固定顶部
+     * true
+     * false
      */
     fixedHeader: true
+
 }
   
