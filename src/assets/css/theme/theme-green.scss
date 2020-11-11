@@ -55,7 +55,10 @@
 .theme-green .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
     background-color:  #5FB878!important;
 }
-
 .theme-green.theme-light.layout-comp .ant-layout-header .comp-menu .menu-item{
     color: #5FB878!important;
+}
+.theme-green .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
+    color: white!important;
+    background-color: #5FB878!important;
 }
