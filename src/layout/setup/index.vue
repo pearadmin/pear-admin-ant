@@ -19,8 +19,7 @@
             >
               <a
                 href="javascript:;"
-                data-skin="skin-blue"
-                style=""
+                style="border-radius:4px;"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -30,6 +29,7 @@
                       float: left;
                       height: 12px;
                       background: #28333e;
+                      border-top-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -39,6 +39,7 @@
                       float: left;
                       height: 12px;
                       background: white;
+                      border-top-right-radius: 4px;
                     "
                   ></span>
                 </div>
@@ -50,6 +51,7 @@
                       float: left;
                       height: 34px;
                       background: #28333e;
+                      border-bottom-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -59,6 +61,7 @@
                       float: left;
                       height: 34px;
                       background: #f4f5f7;
+                      border-bottom-right-radius: 4px;
                     "
                   ></span></div
               ></a>
@@ -67,7 +70,7 @@
               @click="updateTheme('theme-light')"
               :class="[theme === 'theme-light' ? 'layui-this' : '']"
             >
-              <a href="javascript:;" class="clearfix full-opacity-hover"
+              <a href="javascript:;" class="clearfix full-opacity-hover" style="border-radius:4px;"
                 ><div>
                   <span
                     style="
@@ -75,6 +78,7 @@
                       width: 20%;
                       float: left;
                       height: 12px;
+                      border-top-left-radius: 4px;
                       background: white;
                     "
                   ></span
@@ -84,6 +88,7 @@
                       width: 80%;
                       float: left;
                       height: 12px;
+                      border-top-right-radius: 4px;
                       background: white;
                     "
                   ></span>
@@ -95,6 +100,7 @@
                       width: 20%;
                       float: left;
                       height: 34px;
+                      border-bottom-left-radius: 4px;
                       background: white;
                     "
                   ></span
@@ -105,6 +111,7 @@
                       float: left;
                       height: 34px;
                       background: #f4f5f7;
+                      border-bottom-right-radius: 4px;
                     "
                   ></span></div
               ></a>
@@ -116,7 +123,7 @@
               <a
                 href="javascript:;"
                 data-skin="skin-blue"
-                style=""
+                style="border-radius:4px;"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -126,6 +133,7 @@
                       float: left;
                       height: 12px;
                       background: #28333e;
+                      border-top-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -135,6 +143,7 @@
                       float: left;
                       height: 12px;
                       background: #28333e;
+                      border-top-right-radius: 4px;
                     "
                   ></span>
                 </div>
@@ -146,6 +155,7 @@
                       float: left;
                       height: 34px;
                       background: #28333e;
+                      border-bottom-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -155,6 +165,7 @@
                       float: left;
                       height: 34px;
                       background: #28333e;
+                      border-bottom-right-radius: 4px;
                     "
                   ></span></div
               ></a>
@@ -173,7 +184,7 @@
               <a
                 href="javascript:;"
                 data-skin="skin-blue"
-                style=""
+                style="border-radius:4px;"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -183,6 +194,7 @@
                       float: left;
                       height: 12px;
                       background: #28333e;
+                      border-top-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -192,6 +204,7 @@
                       float: left;
                       height: 12px;
                       background: white;
+                      border-top-right-radius: 4px;
                     "
                   ></span>
                 </div>
@@ -203,6 +216,7 @@
                       float: left;
                       height: 34px;
                       background: #28333e;
+                      border-bottom-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -212,6 +226,7 @@
                       float: left;
                       height: 34px;
                       background: #f4f5f7;
+                      border-bottom-right-radius: 4px;
                     "
                   ></span></div
               ></a>
@@ -222,8 +237,7 @@
             >
               <a
                 href="javascript:;"
-                data-skin="skin-blue"
-                style=""
+                style="border-radius:4px;"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -233,6 +247,8 @@
                       float: left;
                       height: 12px;
                       background: #28333e;
+                      border-top-left-radius: 4px;
+                      border-top-right-radius: 4px;
                     "
                   ></span>
                 </div>
@@ -244,6 +260,8 @@
                       float: left;
                       height: 34px;
                       background: #f4f5f7;
+                      border-bottom-left-radius: 4px;
+                      border-bottom-right-radius: 4px;
                     "
                   ></span></div
               ></a>
@@ -255,7 +273,7 @@
               <a
                 href="javascript:;"
                 data-skin="skin-blue"
-                style=""
+                style="border-radius:4px;"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -265,6 +283,7 @@
                       float: left;
                       height: 12px;
                       background: #28333e;
+                      border-top-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -274,6 +293,7 @@
                       float: left;
                       height: 12px;
                       background: #28333e;
+                      border-top-right-radius: 4px;
                     "
                   ></span>
                 </div>
@@ -285,6 +305,7 @@
                       float: left;
                       height: 34px;
                       background: #28333e;
+                      border-bottom-left-radius: 4px;
                     "
                   ></span
                   ><span
@@ -294,6 +315,7 @@
                       float: left;
                       height: 34px;
                       background: #f4f5f7;
+                      border-bottom-right-radius: 4px;
                     "
                   ></span></div
               ></a>
@@ -305,16 +327,6 @@
         <div class="select-color-title">主题配色</div>
         <div class="select-color-content">
           <span
-            class="select-color-item"
-            @click="updateColor('theme-red')"
-            style="background-color: #ff5722"
-            ><CheckOutlined v-if="color === 'theme-red'" /></span
-          ><span
-            class="select-color-item layui-icon layui-icon-ok"
-            @click="updateColor('theme-green')"
-            style="background-color: #5fb878"
-            ><CheckOutlined v-if="color === 'theme-green'" /></span
-          ><span
             class="select-color-item"
             @click="updateColor('theme-blue')"
             style="background-color: #1e9fff"
@@ -336,6 +348,18 @@
             style="background-color: darkgray"
             ><CheckOutlined v-if="color === 'theme-gray'"
           /></span>
+          <span
+            class="select-color-item"
+            @click="updateColor('theme-red')"
+            style="background-color: #ff5722"
+            ><CheckOutlined v-if="color === 'theme-red'" /></span
+          >
+          <span
+            class="select-color-item layui-icon layui-icon-ok"
+            @click="updateColor('theme-green')"
+            style="background-color: #5fb878"
+            ><CheckOutlined v-if="color === 'theme-green'" /></span
+          >
         </div>
       </div>
       <br />

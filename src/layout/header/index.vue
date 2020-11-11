@@ -6,13 +6,9 @@
       <div class="prev-menu">
         <!-- 左侧缩进功能键 -->
         <div class="menu-item" @click="trigger()">
-          <AlignLeftOutlined
-            v-if="collapsed"
-          />
+          <AlignLeftOutlined v-if="collapsed" />
           <!-- 左侧缩进功能键盘 -->
-          <AlignRightOutlined
-            v-else
-          />
+          <AlignRightOutlined v-else />
         </div>
         <div class="menu-item" @click="refresh">
           <!-- 刷新当前页面路由 -->
@@ -48,7 +44,7 @@
         <!-- 当前页面最大化 -->
         <ExpandOutlined />
       </div>
-       <div class="menu-item" v-else @click="full(2)">
+      <div class="menu-item" v-else @click="full(2)">
         <!-- 当前页面最大化 -->
         <CompressOutlined />
       </div>
@@ -89,7 +85,7 @@
       <a-dropdown class="avatar-item">
         <a-avatar
           src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
-        ></a-avatar>Asern
+        ></a-avatar>
         <template #overlay>
           <a-menu>
             <a-menu-item key="0">
@@ -136,7 +132,7 @@ import {
   CompressOutlined,
   ReloadOutlined,
   GlobalOutlined,
-  BellOutlined
+  BellOutlined,
 } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -149,7 +145,7 @@ export default {
     GlobalOutlined,
     Menu,
     Logo,
-    BellOutlined
+    BellOutlined,
   },
   methods: {
     full: function (num) {
@@ -236,7 +232,7 @@ export default {
       refresh,
       routes,
       active,
-      toPath
+      toPath,
     };
   },
 };
