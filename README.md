@@ -60,6 +60,13 @@ Github 开源地址: [前往下载](https://github.com/Jmysy/Pear-Admin-Ant)
 | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150535_ad4ad37a_4835367.png "黑色主题.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150548_2d6381ee_4835367.png "顶部布局.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150557_bc164bfc_4835367.png "联动布局.png")  |
 |---|---|---|
 
+### 主题配色
+
+| 黄色主题  | 绿色主题 |  蓝色主题  |
+|---|---|---|
+| ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005917_e2433885_4835367.png "黄色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png "绿色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005952_3c465c30_4835367.png "蓝色.png") |
+|---|---|---|
+
 
 ### 项目安装
 ```
