@@ -62,7 +62,7 @@ Github 开源地址: [前往下载](https://github.com/Jmysy/Pear-Admin-Ant)
 
 ### 主题配色
 
-| 黄色  | 绿色 |  蓝色  |
+| 黄色主题  | 绿色主题 |  蓝色主题  |
 |---|---|---|
 | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005917_e2433885_4835367.png "黄色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png "绿色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005952_3c465c30_4835367.png "蓝色.png") |
 |---|---|---|
