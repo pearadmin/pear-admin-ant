@@ -3,7 +3,7 @@
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-if="!collapsed">
       <img
-        src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"
+        src="https://file.iviewui.com/admin-pro-dist/img/logo-dark.ab519d9f.png"
       />
     </span>
     <!-- 根据侧边收缩状态决定隐显内容 -->
@@ -20,7 +20,7 @@ import { useStore } from "vuex";
 export default {
   setup() {
     const { getters } = useStore();
-    const collapsed = computed(() => getters.sideCollapsed);
+    const collapsed = computed(() => getters.collapsed);
     const theme = computed(() => getters.theme);
     return {
       collapsed,

@@ -1,0 +1,42 @@
+/** 菜单选中色 */
+.theme-blue .ant-menu.ant-menu-dark .ant-menu-item-selected,
+.theme-blue .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    background-color: #2d8cf0 !important;
+}
+/** 选项卡选中色 */
+.theme-blue #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active::before{
+    background-color:#2d8cf0 !important
+}
+/** 主题选中颜色 */
+.theme-blue .pearone-color .color-content li.layui-this:after,
+.theme-blue .pearone-color .color-content li:hover:after {
+    border: #1890ff 2.3px solid;
+}
+/** 进度条颜色 */
+.theme-blue .ant-progress-success-bg,.theme-blue .ant-progress-bg{
+    background-color:  #1890ff!important;
+}
+/** 开关选中色 */
+.theme-blue .ant-switch-checked{
+    background-color:  #1890ff!important;
+}
+/** 主题按钮色 */
+.theme-blue .ant-btn-primary{
+    background-color:  #1890ff!important;
+    border: 1px solid #1890ff!important;
+}
+/** 选项卡主题色 */
+.theme-blue .ant-tabs-nav .ant-tabs-tab-active,
+.theme-blue .ant-tabs-nav:hover{
+    color: #1890ff!important;
+}
+.theme-blue .ant-tabs-ink-bar{
+    background-color:   #1890ff!important;
+}
+/** 单选按钮 */
+.theme-blue  .ant-radio-inner::after{
+    background-color:  #1890ff!important;
+}
+.theme-blue  .ant-radio-checked .ant-radio-inner{
+    border-color: #1890ff!important;
+}

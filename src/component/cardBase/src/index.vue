@@ -1,6 +1,6 @@
 <template>
-  <a-card class="card-base">
-    <div :style="{color:color}" class="card-base-icon">
+  <a-card hoverable class="card-base">
+    <div :style="{ color: color }" class="card-base-icon">
       <MenuIcon></MenuIcon>
     </div>
     <div class="card-base-title">
@@ -36,7 +36,11 @@ export default {
 };
 </script>
 <style>
-.card-base .ant-card-body{
+.card-base {
+  border-radius: 4px;
+}
+
+.card-base .ant-card-body {
   padding: 10px;
 }
 

@@ -1,39 +1,71 @@
 <template>
   <div id="home">
     <page-layout>
-      <a-row :gutter="[15, 15]">
+      <a-row :gutter="[10, 10]">
         <a-col :span="6">
-          <a-card title="访问量">
-            <a-statistic :value="1325.23" :precision="2"> </a-statistic>
-            <a-progress style="margin-top: 15px" :percent="30" size="small" />
+          <a-card>
+            <p-count
+              startVal="5500"
+              endVal="6334.32"
+              decimals="2"
+              speed="300"
+            />
+            <a-progress style="margin-top: 16px" :percent="30" size="small" />
+            <a-divider />
+            <div class="card-left">访问量</div>
+            <div class="card-right">68 万</div>
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card title="销售额">
-            <a-statistic :value="5961.18" :precision="2"> </a-statistic>
+          <a-card>
+            <p-count
+              startVal="4500"
+              endVal="5303.10"
+              decimals="2"
+              speed="300"
+            />
             <a-progress
-              style="margin-top: 15px"
+              style="margin-top: 16px"
               :percent="50"
               size="small"
               status="active"
             />
+            <a-divider />
+            <div class="card-left">销售量</div>
+            <div class="card-right">23 万</div>
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card title="订单量">
-            <a-statistic :value="2994.0" :precision="2"> </a-statistic>
-            <a-progress style="margin-top: 15px" :percent="30" size="small" />
+          <a-card>
+            <p-count
+              startVal="6500"
+              endVal="7600.00"
+              decimals="2"
+              speed="300"
+            />
+            <a-progress style="margin-top: 16px" :percent="30" size="small" />
+            <a-divider />
+            <div class="card-left">转化率</div>
+            <div class="card-right">60 %</div>
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card title="用户数">
-            <a-statistic :value="7531.13" :precision="2"> </a-statistic>
+          <a-card>
+            <p-count
+              startVal="4000"
+              endVal="4500.00"
+              decimals="2"
+              speed="300"
+            />
             <a-progress
-              style="margin-top: 15px"
+              style="margin-top: 16px"
               :percent="50"
               size="small"
               status="active"
             />
+            <a-divider />
+            <div class="card-left">用户量</div>
+            <div class="card-right">578 人</div>
           </a-card>
         </a-col>
         <a-col span="3">
@@ -215,7 +247,7 @@
                 </a-card>
               </a-col>
               <a-col span="24">
-                   <a-table
+                <a-table
                   :columns="columns"
                   :data-source="datas"
                   style="margin-top: 10px"
@@ -283,7 +315,7 @@ export default {
         name: "Bai Liang",
         age: 3235244.0,
         address: "Today me living in Sidney No. 1 Lake Park.",
-      }
+      },
     ];
     return {
       data,
@@ -402,6 +434,12 @@ export default {
 </script>
 <style scoped>
 .ant-divider-horizontal {
-  margin: 15px, 0px;
+  margin-bottom: 10px !important;
+}
+.card-left {
+  display: inline;
+}
+.card-right {
+  float: right;
 }
 </style>

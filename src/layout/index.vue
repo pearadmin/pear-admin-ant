@@ -1,5 +1,5 @@
 <template>
-  <a-layout id="layout" :class="[theme, layout]">
+  <a-layout id="layout" :class="[theme, layout,color]">
     <!-- 侧边栏 -->
     <a-layout-sider
       v-if="layout != 'layout-head'"
@@ -63,6 +63,7 @@ export default {
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme);
     const sideWitch = computed(() => getters.sideWitch);
+    const color = computed(() => getters.color);
 
     // 固定 header
     const fixedHeader = computed(() => getters.fixedHeader);
@@ -76,6 +77,7 @@ export default {
       sideWitch,
       layout,
       theme,
+      color,
       logo,
       tab,
     };

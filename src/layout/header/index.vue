@@ -5,19 +5,19 @@
       <!-- 左侧菜单功能项 -->
       <div class="prev-menu">
         <!-- 左侧缩进功能键 -->
-        <menu-unfold-outlined
-          v-if="collapsed"
-          class="trigger menu-item"
-          @click="trigger()"
-        />
-        <!-- 左侧缩进功能键盘 -->
-        <menu-fold-outlined
-          v-else
-          class="trigger menu-item"
-          @click="trigger()"
-        />
-        <!-- 刷新当前页面路由 -->
-        <ReloadOutlined class="refresh menu-item" @click="refresh" />
+        <div class="menu-item" @click="trigger()">
+          <AlignLeftOutlined
+            v-if="collapsed"
+          />
+          <!-- 左侧缩进功能键盘 -->
+          <AlignRightOutlined
+            v-else
+          />
+        </div>
+        <div class="menu-item" @click="refresh">
+          <!-- 刷新当前页面路由 -->
+          <ReloadOutlined />
+        </div>
       </div>
     </template>
     <template v-else>
@@ -44,47 +44,52 @@
 
     <!-- 右侧菜单功能项 -->
     <div class="next-menu">
-      <!-- 当前页面最大化 -->
-      <ExpandOutlined
-        v-if="!fullscreen"
-        class="expand menu-item"
-        @click="full(1)"
-      />
-      <CompressOutlined v-else class="expand menu-item" @click="full(2)" />
+      <div class="menu-item" v-if="!fullscreen" @click="full(1)">
+        <!-- 当前页面最大化 -->
+        <ExpandOutlined />
+      </div>
+       <div class="menu-item" v-else @click="full(2)">
+        <!-- 当前页面最大化 -->
+        <CompressOutlined />
+      </div>
+      <div class="menu-item">
+        <a-dropdown v-model:visible="visible">
+          <BellOutlined />
+          <template #overlay>
+            <a-menu>
+              <a-menu-item key="0">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="http://www.alipay.com/"
+                  >1st menu item</a
+                >
+              </a-menu-item>
+              <a-menu-item key="1">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="http://www.taobao.com/"
+                  >2nd menu item</a
+                >
+              </a-menu-item>
+              <a-menu-divider />
+              <a-menu-item key="3" disabled>
+                3rd menu item（disabled）
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
+      </div>
 
-      <a-dropdown v-model:visible="visible" class="menu-item">
-        <BellOutlined />
-        <template #overlay>
-          <a-menu>
-            <a-menu-item key="0">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="http://www.alipay.com/"
-                >1st menu item</a
-              >
-            </a-menu-item>
-            <a-menu-item key="1">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="http://www.taobao.com/"
-                >2nd menu item</a
-              >
-            </a-menu-item>
-            <a-menu-divider />
-            <a-menu-item key="3" disabled>
-              3rd menu item（disabled）
-            </a-menu-item>
-          </a-menu>
-        </template>
-      </a-dropdown>
-      <!-- 国际化切换 -->
-      <GlobalOutlined class="language menu-item" />
-        <a-dropdown class="avatar-item">
+      <div class="menu-item">
+        <!-- 国际化切换 -->
+        <GlobalOutlined />
+      </div>
+      <a-dropdown class="avatar-item">
         <a-avatar
-          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        ></a-avatar>
+          src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
+        ></a-avatar>Asern
         <template #overlay>
           <a-menu>
             <a-menu-item key="0">
@@ -110,8 +115,10 @@
           </a-menu>
         </template>
       </a-dropdown>
-      <!-- 主题设置隐显键 -->
-      <MoreOutlined class="setting menu-item" @click="setting()" />
+      <div class="menu-item" @click="setting()">
+        <!-- 主题设置隐显键 -->
+        <MoreOutlined />
+      </div>
     </div>
   </div>
 </template>
@@ -123,19 +130,19 @@ import Logo from "../logo/index.vue";
 import _path from "path";
 /** 图标集 */
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
+  AlignLeftOutlined,
+  AlignRightOutlined,
   MoreOutlined,
   ExpandOutlined,
   CompressOutlined,
   ReloadOutlined,
   GlobalOutlined,
-  BellOutlined,
+  BellOutlined
 } from "@ant-design/icons-vue";
 export default {
   components: {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
+    AlignLeftOutlined,
+    AlignRightOutlined,
     MoreOutlined,
     ExpandOutlined,
     CompressOutlined,
@@ -143,7 +150,7 @@ export default {
     GlobalOutlined,
     Menu,
     Logo,
-    BellOutlined,
+    BellOutlined
   },
   methods: {
     full: function (num) {
@@ -230,7 +237,7 @@ export default {
       refresh,
       routes,
       active,
-      toPath,
+      toPath
     };
   },
 };

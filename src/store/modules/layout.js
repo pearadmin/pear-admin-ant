@@ -17,6 +17,14 @@ const state = {
 	 */
 	theme: config.theme == null?"theme-dark":localStorage.getItem("theme") == null?config.theme:localStorage.getItem("theme"),
 
+
+	/**
+	 * 主题颜色(主题颜色)
+	 * blue
+	 * green 
+	 */
+	color: "theme-blue",
+
 	/**
 	 * 侧边状态
 	 * true  --  隐藏
@@ -100,6 +108,9 @@ const mutations = {
 	},
 	UPDATE_THEME(state,theme) {
 		state.theme = theme;
+	},
+	UPDATE_COLOR(state,color){
+		state.color = color;
 	},
 	UPDATE_ROUTES(state,routes){
 		state.routes = routes;
@@ -214,26 +225,8 @@ const mutations = {
 	}
 }
 
-const actions = {
-
-	ToggleSideBarVisible: ({ commit }) => {
-		commit("TOGGLE_SIDEBAR_VISIBLE");
-	},
-	ToggleSideBar: ({ commit }) => {
-		commit("TOGGLE_SIDEBAR");
-	},
-	ToggleSetting: ({ commit }) => {
-		commit("TOGGLE_SETTING");
-	},
-	ToggleLogo: ({ commit }) => {
-		commit("TOGGLE_LOGO");
-	},
-
-}
-
 export default {
 	namespaced: true,
 	state,
-	mutations,
-	actions,
+	mutations
 };

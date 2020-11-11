@@ -6,9 +6,10 @@
     width="370"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
+    :class="[color]"
   >
     <div>
-      <div class="pearone-color">
+      <div class="pearone-color" >
         <div class="color-title">整体风格</div>
         <div class="color-content">
           <ul>
@@ -305,29 +306,34 @@
         <div class="select-color-content">
           <span
             class="select-color-item"
-            @click="updateColor('#ff5722')"
+            @click="updateColor('theme-red')"
             style="background-color: #ff5722"
-          ></span
+          ><CheckOutlined v-if="color==='theme-red'" /></span
           ><span
             class="select-color-item layui-icon layui-icon-ok"
-            @click="updateColor('#5fb878')"
+            @click="updateColor('theme-green')"
             style="background-color: #5fb878"
-          ></span
+          ><CheckOutlined v-if="color==='theme-green'" /></span
           ><span
             class="select-color-item"
-            @click="updateColor('#1e9fff')"
+            @click="updateColor('theme-blue')"
             style="background-color: #1e9fff"
-          ></span
+          ><CheckOutlined v-if="color==='theme-blue'" /></span
           ><span
             class="select-color-item"
-            @click="updateColor('#ffb800')"
+            @click="updateColor('theme-yellow')"
             style="background-color: #ffb800"
-          ></span
+          ><CheckOutlined v-if="color==='theme-yellow'" /></span
           ><span
             class="select-color-item"
-            @click="updateColor('darkgray')"
+            @click="updateColor('theme-gray')"
             style="background-color: darkgray"
-          ></span>
+          ><CheckOutlined v-if="color==='theme-gray'" /></span>
+          <span
+            class="select-color-item"
+            @click="updateColor('theme-gray')"
+            style="background-color: darkgray"
+          ><CheckOutlined v-if="color==='theme-gray'" /></span>
         </div>
       </div>
       <br />
@@ -370,10 +376,16 @@
   </a-drawer>
 </template>
 <script>
+import {
+  CheckOutlined
+} from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 export default {
+  components:{
+    CheckOutlined
+  },
   setup() {
     const { getters, commit } = useStore();
     const visible = computed(() => getters.settingVisible);
@@ -387,6 +399,7 @@ export default {
     const fixedSide = computed(() => getters.fixedSide);
     const fixedHeader = computed(() => getters.fixedHeader);
     const layout = computed(() => getters.layout);
+    const color = computed(() => getters.color);
 
     // 新代码
     const updateLayout = function (layout) {
@@ -397,7 +410,7 @@ export default {
       commit("layout/UPDATE_THEME", theme);
     };
     const updateColor = function (color) {
-      message.info("选中颜色 ：" + color);
+      commit("layout/UPDATE_COLOR", color);
     };
     return {
       // 新代码
@@ -425,6 +438,7 @@ export default {
       changeLanguage: (e) => {
         commit("layout/setLanguage", e.target.value);
       },
+      color
     };
   },
 };
