@@ -4,7 +4,7 @@
       <a-card>
         <a-result
           status="error"
-          title="Submission Failed"
+          title="提交失败"
           sub-title="Please check and modify the following information before resubmitting."
         >
           <template #extra>
