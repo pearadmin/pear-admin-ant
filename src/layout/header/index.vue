@@ -128,7 +128,6 @@ import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
 import _path from "path";
-/** 图标集 */
 import {
   AlignLeftOutlined,
   AlignRightOutlined,

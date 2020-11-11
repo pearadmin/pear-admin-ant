@@ -9,7 +9,7 @@
     :class="[color]"
   >
     <div>
-      <div class="pearone-color" >
+      <div class="pearone-color">
         <div class="color-title">整体风格</div>
         <div class="color-content">
           <ul>
@@ -109,7 +109,7 @@
                   ></span></div
               ></a>
             </li>
-             <li
+            <li
               @click="updateTheme('theme-night')"
               :class="[theme === 'theme-night' ? 'layui-this' : '']"
             >
@@ -226,7 +226,7 @@
                 style=""
                 class="clearfix full-opacity-hover"
                 ><div>
-                 <span
+                  <span
                     style="
                       display: block;
                       width: 100%;
@@ -308,32 +308,34 @@
             class="select-color-item"
             @click="updateColor('theme-red')"
             style="background-color: #ff5722"
-          ><CheckOutlined v-if="color==='theme-red'" /></span
+            ><CheckOutlined v-if="color === 'theme-red'" /></span
           ><span
             class="select-color-item layui-icon layui-icon-ok"
             @click="updateColor('theme-green')"
             style="background-color: #5fb878"
-          ><CheckOutlined v-if="color==='theme-green'" /></span
+            ><CheckOutlined v-if="color === 'theme-green'" /></span
           ><span
             class="select-color-item"
             @click="updateColor('theme-blue')"
             style="background-color: #1e9fff"
-          ><CheckOutlined v-if="color==='theme-blue'" /></span
+            ><CheckOutlined v-if="color === 'theme-blue'" /></span
           ><span
             class="select-color-item"
             @click="updateColor('theme-yellow')"
             style="background-color: #ffb800"
-          ><CheckOutlined v-if="color==='theme-yellow'" /></span
+            ><CheckOutlined v-if="color === 'theme-yellow'" /></span
           ><span
             class="select-color-item"
             @click="updateColor('theme-gray')"
             style="background-color: darkgray"
-          ><CheckOutlined v-if="color==='theme-gray'" /></span>
+            ><CheckOutlined v-if="color === 'theme-gray'"
+          /></span>
           <span
             class="select-color-item"
             @click="updateColor('theme-gray')"
             style="background-color: darkgray"
-          ><CheckOutlined v-if="color==='theme-gray'" /></span>
+            ><CheckOutlined v-if="color === 'theme-gray'"
+          /></span>
         </div>
       </div>
       <br />
@@ -341,33 +343,29 @@
         <div class="color-title">更多设置</div>
         <div class="color-content">
           <br />
-          <a-switch v-model:checked="logo" @change="onChangeLogo" /> ---- 侧边图标
+          <a-switch v-model:checked="logo" @change="onChangeLogo" />
+          <div class="setting-title-right">菜单头部</div>
           <br />
           <br />
-          <a-switch v-model:checked="tab" @change="onChangeTab" /> ---- 多选项卡
+          <a-switch v-model:checked="tab" @change="onChangeTab" />
+          <div class="setting-title-right">多选项卡</div>
           <br />
           <br />
           <a-switch
             v-model:checked="fixedHeader"
             @change="onChangeFixedHeader"
           />
-          ---- 固定头部
+          <div class="setting-title-right">固定头部</div>
           <br />
           <br />
           <a-switch v-model:checked="fixedSide" @change="onChangeFixedSide" />
-          ---- 固定侧边
+          <div class="setting-title-right">固定侧边</div>
           <br />
           <br />
-          <a-radio-group
-        :options="lans"
-        v-model:value="lan"
-        @change="changeLanguage"
-      />
-      <br />
-      <br />
-      <a-button type="primary"> 复制配置 </a-button>
-      &nbsp;&nbsp;
-      <a-button>重置配置</a-button>
+          <br />
+          <a-button type="primary"> 复制配置 </a-button>
+          &nbsp;&nbsp;
+          <a-button>重置配置</a-button>
         </div>
       </div>
     </div>
@@ -376,15 +374,13 @@
   </a-drawer>
 </template>
 <script>
-import {
-  CheckOutlined
-} from "@ant-design/icons-vue";
+import { CheckOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 export default {
-  components:{
-    CheckOutlined
+  components: {
+    CheckOutlined,
   },
   setup() {
     const { getters, commit } = useStore();
@@ -438,8 +434,13 @@ export default {
       changeLanguage: (e) => {
         commit("layout/setLanguage", e.target.value);
       },
-      color
+      color,
     };
   },
 };
 </script>
+<style>
+.setting-title-right {
+  float: right;
+}
+</style>
