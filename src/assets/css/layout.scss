@@ -144,8 +144,19 @@
     height: 64px;
     border-bottom: 1px solid #101117;
     background: #191a23;
+    border-right: 1px solid #101117;
   }
   #header{
+    .next-menu{
+      .menu-item:hover{
+        background-color: black!important;
+      }
+    }
+    .prev-menu{
+      .menu-item:hover{
+        background-color: black!important;
+      }
+    }
     .comp-menu{
       display: inline-block;
       height: 64px;
@@ -174,6 +185,9 @@
   }
   .ant-layout-content{
     background: black!important;
+    .ant-divider{
+      background-color: black!important;
+    }
     .ant-card{
       border: solid 1px #191a23!important;
       background: #191a23!important;
@@ -188,8 +202,14 @@
       color: white!important;
     }
     .ant-tabs-tab{
-      color: white;
+      color: white!important;
       background-color: #191a23!important;
+    }
+    .ant-progress-inner{
+      background-color: black;
+    }
+    .ant-progress-text{
+      color: white!important;
     }
   }
   .ant-drawer-content{
@@ -272,9 +292,16 @@
 #logo {
    text-align: center;
   }
-  #logo img{
-    margin-top: 6px;
-    height: 54px;
+  #logo .image{
+    margin-top: 11px;
+    height: 38px;
+  }
+  #logo .title{
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    height: 45px;
+    margin-top: 10px;
   }
   #header {
     height: 65px;
@@ -311,13 +338,18 @@
   }
   #header .prev-menu .avatar-item,
   #header .next-menu .avatar-item{
-    height: 65px;
-    line-height: 65px;
-    padding-top: 12px;
-    padding-bottom: 18px;
     margin-left: 13px;
     margin-right: 13px;
+    height: 60px;
+    width: 40px;
+    padding-top: 13px;
+    padding-bottom: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
     display: inline-block;
+    img{
+      border-radius: 100px;
+    }
   }
   #header .prev-menu .menu-item:hover,
   #header .next-menu .menu-item:hover {

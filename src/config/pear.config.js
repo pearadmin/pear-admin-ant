@@ -62,7 +62,14 @@ export default {
      * true
      * false
      */
-    fixedHeader: true
+    fixedHeader: true,
+
+    /**
+     * 参数: 主题颜色
+     * theme-blue
+     * theme-green
+     */
+    color: "theme-green"
 
 }
   

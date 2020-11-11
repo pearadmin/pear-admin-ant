@@ -4,7 +4,7 @@
     background-color: #5FB878 !important;
 }
 /** 选项卡选中色 */
-.theme-green #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active::before{
+.theme-green  #tab .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active::before{
     background-color: #5FB878 !important
 }
 /** 主题选中颜色 */
@@ -39,4 +39,23 @@
 
 .theme-green  .ant-radio-checked .ant-radio-inner{
     border-color: #5FB878!important;
+}
+
+/** 分步表单样式 */
+.theme-green .ant-steps-item-process .ant-steps-item-icon{
+    border-color: #5FB878!important;
+    background-color:  #5FB878!important;
+}
+.theme-green .ant-steps-item-finish .ant-steps-item-icon{
+    border-color: #5FB878!important;
+}
+.theme-green .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon{
+    color: #5FB878!important;
+}
+.theme-green .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
+    background-color:  #5FB878!important;
+}
+
+.theme-green.theme-light.layout-comp .ant-layout-header .comp-menu .menu-item{
+    color: #5FB878!important;
 }

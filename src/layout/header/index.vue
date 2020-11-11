@@ -82,7 +82,7 @@
         <!-- 国际化切换 -->
         <GlobalOutlined />
       </div>
-      <a-dropdown class="avatar-item">
+      <a-dropdown  class="avatar-item">
         <a-avatar
           src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
         ></a-avatar>

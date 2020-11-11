@@ -3,7 +3,7 @@
     <page-layout>
       <a-row :gutter="[10, 10]">
         <a-col :span="6">
-          <a-card>
+          <a-card style="border-radius:6px;">
             <p-count
               startVal="5500"
               endVal="6334.32"
@@ -17,7 +17,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card>
+          <a-card  style="border-radius:6px;">
             <p-count
               startVal="4500"
               endVal="5303.10"
@@ -36,7 +36,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card>
+          <a-card  style="border-radius:6px;">
             <p-count
               startVal="6500"
               endVal="7600.00"
@@ -50,7 +50,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card>
+          <a-card  style="border-radius:6px;">
             <p-count
               startVal="4000"
               endVal="4500.00"
@@ -327,99 +327,76 @@ export default {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById("echartContainer"));
     var option = {
-      backgroundColor: "#fff",
-      title: {
-        top: 10,
-        left: 15,
-        textStyle: {
-          color: "#35598d",
-          fontSize: 16,
-          fontWeight: "normal",
-        },
-      },
-      tooltip: {
-        trigger: "axis",
-        formatter: "{b}：{c}",
-      },
-      grid: {
-        left: "5%",
-        right: "6%",
-        bottom: "3%",
-        top: "20%",
-        containLabel: true,
-      },
-      xAxis: {
-        type: "category",
-        data: [
-          "策略1",
-          "策略2",
-          "策略3",
-          "策略4",
-          "策略5",
-          "策略6",
-          "策略7",
-          "策略8",
-          "策略9",
-        ],
-        axisLabel: {
-          //坐标轴字体颜色
-          textStyle: {
-            color: "#9eaaba",
-          },
-        },
-        axisLine: {
-          lineStyle: {
-            color: "#e5e5e5",
-          },
-        },
-        axisTick: {
-          //y轴刻度线
-          show: false,
-        },
-        splitLine: {
-          //网格
-          show: false,
-        },
-      },
-      yAxis: {
-        type: "value",
-        axisLabel: {
-          //坐标轴字体颜色
-          textStyle: {
-            color: "#9eaaba",
-          },
-        },
-        axisLine: {
-          show: false,
-        },
-        axisTick: {
-          //y轴刻度线
-          show: false,
-        },
-        splitLine: {
-          //网格
-          show: true,
-          lineStyle: {
-            color: "#dadde4",
-            type: "dashed", //坐标网线类型
-          },
-        },
-      },
-      series: {
-        name: "",
-        type: "bar",
-        barWidth: "40%", //柱子宽度
-        itemStyle: {
-          //柱子颜色
-          normal: {
-            borderWidth: 2,
-            borderColor: "#008dff",
-            color: "#008dff",
-          },
-        },
-        data: [320, 332, 301, 334, 390, 330, 320, 230, 156],
-      },
-    };
+					tooltip: {
+						trigger: 'axis'
+					},
+					xAxis: [{
+						type: 'category',
+						data: ['2019-01', '2019-02', '2019-03', '2019-04', '2019-05', '2019-06'],
+						axisLine: {
+							lineStyle: {
+								color: "#999"
+							}
+						}
+					}],
+					yAxis: [{
+						type: 'value',
+						splitNumber: 4,
+						splitLine: {
+							lineStyle: {
+								type: 'dashed',
+								color: '#DDD'
+							}
+						},
+						axisLine: {
+							show: false,
+							lineStyle: {
+								color: "#333"
+							},
+						},
+						nameTextStyle: {
+							color: "#999"
+						},
+						splitArea: {
+							show: false
+						}
+					}],
+					series: [{
+						name: '课时',
+						type: 'line',
+						data: [23, 60, 20, 36, 23, 85],
+						lineStyle: {
+							normal: {
+								width: 8,
+								color: {
+									type: 'linear',
+
+									colorStops: [{
+										offset: 0,
+										color: '#A9F387' // 0% 处的颜色
+									}, {
+										offset: 1,
+										color: '#48D8BF' // 100% 处的颜色
+									}],
+									globalCoord: false // 缺省为 false
+								},
+								shadowColor: 'rgba(72,216,191, 0.3)',
+								shadowBlur: 10,
+								shadowOffsetY: 20
+							}
+						},
+						itemStyle: {
+							normal: {
+								color: '#fff',
+								borderWidth: 10,
+								/*shadowColor: 'rgba(72,216,191, 0.3)',
+								shadowBlur: 100,*/
+								borderColor: "#A9F387"
+							}
+						},
+						smooth: true
+					}]
+				};
     myChart.setOption(option);
 
     window.addEventListener("resize", () => {

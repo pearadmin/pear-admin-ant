@@ -2,14 +2,14 @@
   <div id="logo" :class="[theme]">
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-if="!collapsed">
-      <img
-        src="https://file.iviewui.com/admin-pro-dist/img/logo-dark.ab519d9f.png"
-      />
+    ><img class="image"
+        src="../../assets/image/logo.png"
+    />
     </span>
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-else
-      ><img
-        src="https://file.iviewui.com/admin-pro-dist/img/logo-small.4a34a883.png"
+      ><img class="image"
+        src="../../assets/image/logo.png"
     /></span>
   </div>
 </template>

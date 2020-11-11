@@ -23,7 +23,7 @@ const state = {
 	 * blue
 	 * green 
 	 */
-	color: "theme-blue",
+	color: config.color == null?"theme-green":localStorage.getItem("color") == null?config.color:localStorage.getItem("color"),
 
 	/**
 	 * 侧边状态
