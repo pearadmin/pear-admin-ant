@@ -1,9 +1,9 @@
 <template>
   <div id="logo" :class="[theme]">
     <!-- 根据侧边收缩状态决定隐显内容 -->
-    <span v-if="!collapsed">
-      <img class="image" src="../../assets/image/logo.png" />
-    </span>
+    <div v-if="!collapsed">
+       <span class="title">Pear Admin</span>
+    </div>
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-else><img class="image" src="../../assets/image/logo.png" /></span>
   </div>

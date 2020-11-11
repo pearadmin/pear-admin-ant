@@ -21,8 +21,8 @@
           </p>
         </div>
         <template #extra>
-          <a-button key="console" type="primary"> Go Console </a-button>
-          <a-button key="buy"> Buy Again </a-button>
+          <a-button key="console" type="primary"> 前往控制台 </a-button>
+          <a-button key="buy"> 再次购买 </a-button>
         </template>
       </a-result>
       </a-card>
