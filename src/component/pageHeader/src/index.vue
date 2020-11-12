@@ -1,5 +1,5 @@
 <template>
-  <a-card>
+  <a-card class="page-header">
     <p class="page-header-title">{{ title }}</p>
     <p class="page-header-describe">{{ describe }}</p>
   </a-card>
@@ -20,6 +20,10 @@ export default {
 };
 </script>
 <style scoped>
+.page-header{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .page-header-title {
   font-size: 20px;
   font-weight: 500;
