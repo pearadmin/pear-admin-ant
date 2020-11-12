@@ -66,6 +66,10 @@ const state = {
 	 */
 	fixedSide: config.fixedSide == null?true:localStorage.getItem("fixedSide") == null?config.fixedSide:localStorage.getItem("fixedSide"),
 
+
+
+	colorList: config.colorList,
+
 	/**
 	 * 主题面板状态
 	 * true

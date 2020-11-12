@@ -3,7 +3,6 @@
     <router-view></router-view>
   </a-config-provider>
 </template>
-
 <script >
   import { computed, watch, ref, reactive } from 'vue'
   import { useStore } from 'vuex'
@@ -14,26 +13,21 @@
     name: "App",
     setup(){
       const { getters, commit } = useStore();
-
       //当前配置的语言
       const language = computed(() => getters.language)
       //支持配置的语言
       const languages = reactive({ zhcn, zhtw, enus })
       commit('layout/setLanguages', ['zhcn', 'zhtw', 'enus'])
-
       const locale = ref(languages[language] || zhcn)
       commit('layout/setLanguage', locale.value.locale.replace('-', ''))
-
       //监听配置的变化
       watch(language, (lan) => locale.value = languages[lan])
-
       return {
         locale,
       }
     }
   };
 </script>
-
 <style>
   #app,
   body,

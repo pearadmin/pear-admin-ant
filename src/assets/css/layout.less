@@ -1,3 +1,4 @@
+/** 布 局 样 式 */
 #layout {
   height: 100%;
 }
@@ -298,7 +299,7 @@
   }
   #logo .title{
     display: inline-block;
-    color: #5FB878 !important;
+    color: #1890ff !important;
     font-size: 23px;
     margin-top: 2px;
     height: 60px;
@@ -362,7 +363,7 @@
     line-height: 45.5px;
   }
   #tab .tab {
-    width: calc(100% - 40px);
+    width: calc(~"(100% - 40px)");
     display: inline-block;
   }
   #tab .tab-tool {
@@ -397,7 +398,6 @@
   #tab .ant-tabs-nav-container {
     height: 34px;
   }
-
   #tab .ant-tabs-nav .ant-tabs-tab::before{
     background-color: whitesmoke;
     height: 8px;
@@ -407,7 +407,6 @@
     margin-top: 14.5px;
     margin-left: 13px;
   }
-
   #tab .ant-tabs-nav .ant-tabs-tab>div{
     margin-left: 12px;
     color:#808695;
@@ -421,7 +420,7 @@
   }
   .fixedHeader.muiltTab{
     #content{
-      height: calc(100% - 51px);
+      height: calc(~"(100% - 51px)");
     }
   }
 
@@ -446,7 +445,7 @@
 	cursor: pointer;
 	font-size: 12px;
   color: #666;
-  border-radius: 9px;
+  border-radius: 6px;
 }
 
 .pearone-color .color-content li.layui-this:after,
@@ -457,7 +456,7 @@
   left: -5px;
 	border: #1890ff 2.3px solid;
 	opacity: 1;
-	border-radius: 9px;
+	border-radius: 6px;
 }
 .pearone-color .color-content li:after {
 	content: '';

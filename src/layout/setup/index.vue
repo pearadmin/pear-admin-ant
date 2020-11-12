@@ -19,7 +19,7 @@
             >
               <a
                 href="javascript:;"
-                style="border-radius:4px;"
+                style="border-radius: 4px"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -70,7 +70,10 @@
               @click="updateTheme('theme-light')"
               :class="[theme === 'theme-light' ? 'layui-this' : '']"
             >
-              <a href="javascript:;" class="clearfix full-opacity-hover" style="border-radius:4px;"
+              <a
+                href="javascript:;"
+                class="clearfix full-opacity-hover"
+                style="border-radius: 4px"
                 ><div>
                   <span
                     style="
@@ -123,7 +126,7 @@
               <a
                 href="javascript:;"
                 data-skin="skin-blue"
-                style="border-radius:4px;"
+                style="border-radius: 4px"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -184,7 +187,7 @@
               <a
                 href="javascript:;"
                 data-skin="skin-blue"
-                style="border-radius:4px;"
+                style="border-radius: 4px"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -237,7 +240,7 @@
             >
               <a
                 href="javascript:;"
-                style="border-radius:4px;"
+                style="border-radius: 4px"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -273,7 +276,7 @@
               <a
                 href="javascript:;"
                 data-skin="skin-blue"
-                style="border-radius:4px;"
+                style="border-radius: 4px"
                 class="clearfix full-opacity-hover"
                 ><div>
                   <span
@@ -327,39 +330,13 @@
         <div class="select-color-title">主题配色</div>
         <div class="select-color-content">
           <span
+            v-for="(colorItem, index) in colorList"
             class="select-color-item"
-            @click="updateColor('theme-blue')"
-            style="background-color: #1e9fff"
-            ><CheckOutlined v-if="color === 'theme-blue'" /></span
-          ><span
-            class="select-color-item"
-            @click="updateColor('theme-yellow')"
-            style="background-color: #ffb800"
-            ><CheckOutlined v-if="color === 'theme-yellow'" /></span
-          ><span
-            class="select-color-item"
-            @click="updateColor('theme-gray')"
-            style="background-color: darkgray"
-            ><CheckOutlined v-if="color === 'theme-gray'"
+            :key="index"
+            @click="updateColor(colorItem)"
+            :style="{ 'background-color': colorItem }"
+            ><CheckOutlined v-if="color === colorItem"
           /></span>
-          <span
-            class="select-color-item"
-            @click="updateColor('theme-gray')"
-            style="background-color: darkgray"
-            ><CheckOutlined v-if="color === 'theme-gray'"
-          /></span>
-          <span
-            class="select-color-item"
-            @click="updateColor('theme-red')"
-            style="background-color: #ff5722"
-            ><CheckOutlined v-if="color === 'theme-red'" /></span
-          >
-          <span
-            class="select-color-item layui-icon layui-icon-ok"
-            @click="updateColor('theme-green')"
-            style="background-color: #5fb878"
-            ><CheckOutlined v-if="color === 'theme-green'" /></span
-          >
         </div>
       </div>
       <br />
@@ -420,6 +397,7 @@ export default {
     const fixedHeader = computed(() => getters.fixedHeader);
     const layout = computed(() => getters.layout);
     const color = computed(() => getters.color);
+    const colorList = computed(() => getters.colorList);
 
     // 新代码
     const updateLayout = function (layout) {
@@ -430,14 +408,20 @@ export default {
       commit("layout/UPDATE_THEME", theme);
     };
     const updateColor = function (color) {
+      window.less.modifyVars({
+        "@primary-color": color,
+        "@link-color": color,
+        "@btn-primary-bg": color,
+      });
       commit("layout/UPDATE_COLOR", color);
     };
+
     return {
       // 新代码
       updateLayout,
       updateTheme,
       updateColor,
-
+      colorList,
       fixedSide,
       fixedHeader,
       visible,

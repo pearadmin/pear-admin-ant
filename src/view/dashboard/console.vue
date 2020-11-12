@@ -3,7 +3,7 @@
     <page-layout>
       <a-row :gutter="[10, 10]">
         <a-col :span="6">
-          <a-card style="border-radius:6px;">
+          <a-card>
             <p-count
               startVal="5500"
               endVal="6334.32"
@@ -17,7 +17,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card  style="border-radius:6px;">
+          <a-card>
             <p-count
               startVal="4500"
               endVal="5303.10"
@@ -36,7 +36,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card  style="border-radius:6px;">
+          <a-card>
             <p-count
               startVal="6500"
               endVal="7600.00"
@@ -50,7 +50,7 @@
           </a-card>
         </a-col>
         <a-col :span="6">
-          <a-card  style="border-radius:6px;">
+          <a-card>
             <p-count
               startVal="4000"
               endVal="4500.00"

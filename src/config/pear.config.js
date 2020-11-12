@@ -66,10 +66,15 @@ export default {
 
     /**
      * 参数: 主题颜色
-     * theme-blue
-     * theme-green
+     * color - list
      */
-    color: "theme-green"
+    color: "rgb(30, 159, 255)",
+
+    /**
+     * 参数: 可选的主题颜色列表
+     * color - key
+     */
+    colorList: ["rgb(30, 159, 255)","rgb(255, 184, 0)","rgb(255, 87, 34)","rgb(95, 184, 120)","black","gray"]
 
 }
   
