@@ -34,11 +34,9 @@ export default {
     const openChange = function (openKeys) {
       commit("layout/updateOpenKey", { openKeys });
     };
-
     // 根据条件初始化路由,当非 cnmp 布局模式下初始化全部路由
     const $routes = useRouter().options.routes;
     const $route = computed(() => useRoute());
-
     //vuex中的布局模式
     const layout = computed(() => getters.layout);
     //vuex中记录的菜单
@@ -53,7 +51,6 @@ export default {
     const menu = ref([]);
     //不同的布局, 菜单的前缀path需要修改
     const rootPath = ref('');
-
     //路由变化的时候处理方法
     const dynamicRoute = to => {
       // 当前路由匹配的数组

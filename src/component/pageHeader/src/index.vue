@@ -21,8 +21,7 @@ export default {
 </script>
 <style scoped>
 .page-header{
-  margin-left: 10px;
-  margin-right: 10px;
+  border-radius: 0px!important;
 }
 .page-header-title {
   font-size: 20px;

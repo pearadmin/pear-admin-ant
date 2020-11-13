@@ -66,8 +66,9 @@ const state = {
 	 */
 	fixedSide: config.fixedSide == null?true:localStorage.getItem("fixedSide") == null?config.fixedSide:localStorage.getItem("fixedSide"),
 
-
-
+	/**
+	 * 配色列表
+	 */
 	colorList: config.colorList,
 
 	/**
@@ -100,7 +101,6 @@ const state = {
 }
 
 const mutations = {
-
 	TOGGLE_FIXEDSIDE(state) {
 		state.fixedSide = !state.fixedSide;
 	},
@@ -179,12 +179,10 @@ const mutations = {
 	removeTab(state, targetKey) {
 		//当前激活的选项卡, 选项卡列表
 		let { activeKey, panes } = state;
-
 		//从选项卡列表移除当前选项卡
 		let index = panes.findIndex(pane => pane.path === targetKey);
 		panes.splice(index, 1);
 		state.panes = panes;
-
 		//更换已经选中的菜单
 		if (activeKey === targetKey) {
 			let lastPane = panes[panes.length - 1];
@@ -195,11 +193,9 @@ const mutations = {
 	closeAllTab(state, keepKeys = []) {
 		//当前激活的选项卡, 选项卡列表
 		let { activeKey, panes } = state;
-
 		//保留不能关闭的选项卡
 		panes = panes.filter((pane) => pane.closable === false || keepKeys.includes(pane.path))
 		state.panes = panes;
-
 		//检查当前选中的是否被关闭
 		if (panes.findIndex(pane => pane.path === activeKey) === -1) {
 			let lastPane = panes[panes.length - 1];

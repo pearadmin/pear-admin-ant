@@ -77,7 +77,6 @@ export default {
   setup() {
     const { getters, commit } = useStore();
     const { ctx } = getCurrentInstance();
-
     const panes = ref(initPanes);
     watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
 

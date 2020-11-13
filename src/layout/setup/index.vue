@@ -398,7 +398,6 @@ export default {
     const layout = computed(() => getters.layout);
     const color = computed(() => getters.color);
     const colorList = computed(() => getters.colorList);
-
     // 新代码
     const updateLayout = function (layout) {
       var menu = new Array();
