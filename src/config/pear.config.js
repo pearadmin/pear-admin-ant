@@ -68,13 +68,13 @@ export default {
      * 参数: 主题颜色
      * color - list
      */
-    color: "rgb(30, 159, 255)",
+    color: "#36b368",
 
     /**
      * 参数: 可选的主题颜色列表
      * color - key
      */
-    colorList: ["rgb(30, 159, 255)","rgb(255, 184, 0)","rgb(255, 87, 34)","rgb(95, 184, 120)","black","gray"]
+    colorList: ["rgb(30, 159, 255)","rgb(255, 184, 0)","rgb(255, 87, 34)","#36b368","black","gray"]
 
 }
   

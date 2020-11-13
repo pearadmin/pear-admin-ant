@@ -1,9 +1,9 @@
-@primary-color:  #1890ff;
+@primary-color:  #36b368;
 @text-color: fade(@black, 65%);
 @text-color-secondary: fade(@black, 45%);
 @heading-color: fade(#000, 85%);
 @layout-body-background: #f0f2f5;
-@btn-primary-bg: #1890ff;
+@btn-primary-bg: #36b368;
 @layout-header-background: #001529;
 
 // 菜单头部
@@ -17,12 +17,22 @@
 // 主题选中
 .pearone-color .color-content li.layui-this:after,
 .pearone-color .color-content li:hover:after {
-	border:@primary-color 2.3px solid;
+	border:@primary-color 2.4px solid;
 }
 // 进度条
 .ant-progress-success-bg, .ant-progress-bg{
     background-color:@primary-color!important;
 }
+// 路由动画
+#nprogress .bar {
+    background:@primary-color!important;
+}
+#nprogress .peg {
+    box-shadow:@primary-color!important;
+}
+
+
+// 其他需要调整的主题颜色
 
 html {-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
 body {color: @text-color;background-color: #fff;}
