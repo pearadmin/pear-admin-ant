@@ -42,7 +42,9 @@
 import _path from "path";
 import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
+import router from "../../router/index.js";
 import { DownOutlined } from "@ant-design/icons-vue";
+import { useRouter,useRoute} from "vue-router";
 export default {
   components: {
     DownOutlined,
@@ -92,26 +94,26 @@ export default {
         }
       })
     }
-    findFixedPane(initPanes, '', ctx.$root.$router.options.routes)
+    findFixedPane(initPanes, '', useRouter().options.routes)
     commit('layout/initPanes', initPanes);
     
     //切换路由的时候切换选项卡
-    const route = computed(() => ctx.$root.$route);
+    const route = computed(() => useRoute());
     const dynamicMenu = to => {
       const title = to.meta.title;
       const path = to.path;
       commit("layout/addTab", { title, path });
     }
     dynamicMenu(route.value);
-    watch(route, dynamicMenu)
+    watch(route.value, dynamicMenu);
 
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
     watch(storeKey, targetKey => {
       activeKey.value = targetKey
-      ctx.$root.$router.push(
-        panes.value.find((item) => item.path === targetKey)
-      );
+
+      // TODO 此处需修改为 useRouter() 方式, 但是不生效
+      router.push(targetKey);
     })
 
     return {

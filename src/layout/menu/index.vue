@@ -21,6 +21,7 @@
 import { computed, watch, ref, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
 import SubMenu from "./SubMenu.vue";
+import {useRoute, useRouter} from "vue-router";
 
 export default {
   components: {
@@ -28,7 +29,6 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
-    const { ctx } = getCurrentInstance();
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const openChange = function (openKeys) {
@@ -36,9 +36,8 @@ export default {
     };
 
     // 根据条件初始化路由,当非 cnmp 布局模式下初始化全部路由
-    const { $router } = ctx.$root
-    const $routes = $router.options.routes;
-    const $route = computed(() => ctx.$root.$route);
+    const $routes = useRouter().options.routes;
+    const $route = computed(() => useRoute());
 
     //vuex中的布局模式
     const layout = computed(() => getters.layout);

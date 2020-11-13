@@ -29,6 +29,7 @@ export default{
     },
   },
   setup(props) {
+    
     const start = ref(+props.startVal);
     const end = ref(+props.endVal);
     const formatSpeed = ref(+props.speed || 5);

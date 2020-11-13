@@ -123,6 +123,7 @@ import { computed, watch, getCurrentInstance, ref } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
+import { useRoute, useRouter } from "vue-router";
 import _path from "path";
 import {
   AlignLeftOutlined,
@@ -188,7 +189,7 @@ export default {
     const theme = computed(() => getters.theme);
     const { ctx } = getCurrentInstance();
 
-    const $route = computed(() => ctx.$root.$route);
+    const $route = computed(() => useRoute());
     const active = ref($route.value.matched[0].path);
     watch($route, (to) => (active.value = to.matched[0].path));
 
@@ -205,12 +206,11 @@ export default {
       return path;
     };
 
-    const { $router } = ctx.$root;
-    const routes = ref($router.options.routes.filter((r) => !r.hidden));
+    const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
     //实现当前路由刷新
     const refresh = () => {
       let _route = $route.value;
-      $router.replace({
+      useRouter().replace({
         path: _route.path,
         params: _route.params,
         query: {
