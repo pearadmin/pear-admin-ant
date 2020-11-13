@@ -110,9 +110,7 @@ export default {
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
     watch(storeKey, targetKey => {
-      activeKey.value = targetKey
-
-      // TODO 此处需修改为 useRouter() 方式, 但是不生效
+      activeKey.value = targetKey;
       router.push(targetKey);
     })
 

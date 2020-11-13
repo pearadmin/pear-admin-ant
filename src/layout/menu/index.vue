@@ -84,7 +84,7 @@ export default {
 
     //监听变化
     watch(layout, n => changeLayout(n))
-    watch($route, dynamicRoute);
+    watch($route.value, dynamicRoute);
     watch(activeKey, n => selectKey.value = [ n ]);
     watch(storeOpenKey, n => openKey.value = n, { deep: true });
 
