@@ -71,7 +71,7 @@
       </a-list>
     </a-card>
     </page-layout>
-   
+     <page-footer></page-footer>
    
   </div>
 </template>

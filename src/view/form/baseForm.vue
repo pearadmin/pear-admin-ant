@@ -6,7 +6,9 @@
     ></page-header>
     <page-layout>
       <a-card>
-         <a-form
+        <a-row>
+          <a-col offset="4" span="20">
+               <a-form
         ref="ruleForm"
         :model="form"
         :rules="rules"
@@ -60,8 +62,12 @@
           </a-button>
         </a-form-item>
       </a-form>
+
+          </a-col>
+        </a-row>
       </a-card>
     </page-layout>
+      <page-footer></page-footer>
   </div>
 </template>
 <script>
@@ -69,7 +75,7 @@ export default {
   data() {
     return {
       labelCol: { span: 4 },
-      wrapperCol: { span: 14 },
+      wrapperCol: { span: 11 },
       other: "",
       form: {
         name: "",

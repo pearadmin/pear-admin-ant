@@ -258,6 +258,7 @@
         </a-col>
       </a-row>
     </page-layout>
+    <page-footer></page-footer>
   </div>
 </template>
 <script>
