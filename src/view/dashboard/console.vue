@@ -172,7 +172,7 @@
               <a-col :span="12">
                 <a-card>
                   <a-statistic
-                    title="Feedback"
+                    title="销量"
                     :value="11.28"
                     :precision="2"
                     suffix="%"
@@ -188,7 +188,7 @@
               <a-col :span="12">
                 <a-card>
                   <a-statistic
-                    title="Idle"
+                    title="访客"
                     :value="9.3"
                     :precision="2"
                     suffix="%"
@@ -295,27 +295,27 @@ export default {
     const datas = [
       {
         key: 1,
-        name: "Bai Liang",
-        age: 1332334.0,
-        address: "Today me living in Sidney No. 1 Lake Park.",
+        name: "1 号店",
+        age: 13323.34,
+        address: "北京市朝阳区凤鸣路 112 号.",
       },
       {
         key: 2,
-        name: "Bai Liang",
-        age: 3543241.0,
-        address: "Today me living in Sidney No. 1 Lake Park.",
+        name: "2 号店",
+        age: 35432.41,
+        address: "北京市朝阳区凤鸣路 112 号.",
       },
       {
         key: 3,
-        name: "Bai Liang",
-        age: 4745244.0,
-        address: "Today me living in Sidney No. 1 Lake Park.",
+        name: "3 号店",
+        age: 47452.44,
+        address: "北京市朝阳区凤鸣路 112 号.",
       },
       {
         key: 4,
-        name: "Bai Liang",
-        age: 3235244.0,
-        address: "Today me living in Sidney No. 1 Lake Park.",
+        name: "4 号店",
+        age: 32352.44,
+        address: "北京市朝阳区凤鸣路 112 号.",
       },
     ];
     return {
