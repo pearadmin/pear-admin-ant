@@ -190,7 +190,7 @@ export default {
     const { ctx } = getCurrentInstance();
     const $route = computed(() => useRoute());
     const active = ref($route.value.matched[0].path);
-    watch($route, (to) => (active.value = to.matched[0].path));
+    watch($route.value, (to) => (active.value = to.matched[0].path));
     //计算点击跳转的最终路由
     const toPath = (route) => {
       let { redirect, children, path } = route;
