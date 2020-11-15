@@ -76,7 +76,6 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
-    const { ctx } = getCurrentInstance();
     const panes = ref(initPanes);
     watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
     const initPanes =[];
@@ -102,6 +101,7 @@ export default {
       const path = to.path;
       commit("layout/addTab", { title, path });
     }
+
     dynamicMenu(route.value);
     watch(route.value, dynamicMenu);
 

@@ -17,7 +17,7 @@
           <a-checkbox :checked="true" @change="onChange">
             Remember me
           </a-checkbox>
-          <a class="login-form-forgot" href=""> Forgot password </a>
+          <a class="login-form-forgot" href=""> 忘记密码 </a>
         </a-form-item>
         <a-form-item :wrapper-col="{ span: 24 }">
           <a-button style="width: 100%" type="primary" @click="onSubmit">
@@ -112,10 +112,9 @@ export default {
 
   .title {
     font-size: 30px !important;
-    font-weight: 550 !important;
+    font-weight: 700 !important;
     margin-left: 20px !important;
     width: 300px;
-    color: #1890ff !important;
     display: inline-block !important;
     height: 60px !important;
     line-height: 60px !important;
