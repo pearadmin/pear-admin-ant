@@ -82,14 +82,15 @@ export default {
       }
     }
 
-    //监听变化
+    // 布 局 变 化 监 听
     watch(layout, n => changeLayout(n))
-    // 路由改变打开菜单目录
+    // 路 由 监 听 菜 单 打 开
     watch($route.value, dynamicRoute);
+    // 选 项 卡 切 换 监 听
     watch(activeKey, n => selectKey.value = [ n ]);
+    // 监 听 当 前 打 开 菜 单
     watch(storeOpenKey, n => openKey.value = n, { deep: true });
-
-    //初始化路由
+    // 初 始 化 路 由
     dynamicRoute($route.value);
 
     return {

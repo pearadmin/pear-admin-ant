@@ -68,18 +68,17 @@ export default {
     closeCurrent() {
       this.closeCurrentTab();
     },
-    // 选项卡删除回调
     remove(targetKey) {
-      // 删除选项卡, 并选中尾部的选项卡
       this.removeTab(targetKey);
     },
   },
   setup() {
     const { getters, commit } = useStore();
     const panes = ref(initPanes);
-    watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
     const initPanes =[];
-
+    const route = computed(() => useRoute());
+    const storeKey = computed(() => getters.activeKey);
+    const activeKey = ref(storeKey.value);
     const findFixedPane = (list, prefix, panes) => {
       panes.forEach(pane => {
         const { path, meta, hidden, children } = pane;
@@ -94,31 +93,27 @@ export default {
     }
 
     findFixedPane(initPanes, '', useRouter().options.routes)
-    commit('layout/initPanes', initPanes);
     
-    //切换路由的时候切换选项卡
-    const route = computed(() => useRoute());
+    // 新 增 或 添 加 选 项 卡 操 作
     const dynamicMenu = to => {
       const title = to.meta.title;
       const path = to.path;
       commit("layout/addTab", { title, path });
     }
-
-    dynamicMenu(route.value);
-    
-
-    // 路由变更添加选项卡
+  
+    // 路 由 变 更 监 听
     watch(route.value, dynamicMenu);
-   
-   // 选项卡选中
-    const storeKey = computed(() => getters.activeKey);
-    const activeKey = ref(storeKey.value);
-
-    // 选项卡选中发生改变，切换路由
+    // 选 项 卡 变 化 监 听
+    watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
+    // 选 项 卡 选 中 监 听
     watch(storeKey, targetKey => {
       activeKey.value = targetKey;
       router.push(targetKey);
     })
+
+    // 初 始 化 操 作
+    dynamicMenu(route.value);
+    commit('layout/initPanes', initPanes);
 
     return {
       placement: ref("bottomRight"),
