@@ -79,7 +79,6 @@ export default {
     const { ctx } = getCurrentInstance();
     const panes = ref(initPanes);
     watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
-
     const initPanes =[];
     const findFixedPane = (list, prefix, panes) => {
       panes.forEach(pane => {

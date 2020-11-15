@@ -63,11 +63,8 @@ export default {
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme);
     const sideWitch = computed(() => getters.sideWitch);
-    // 固定 header
     const fixedHeader = computed(() => getters.fixedHeader);
-    // 固定 side
     const fixedSide = computed(() => getters.fixedSide);
-
     return {
       collapsed,
       fixedHeader,
