@@ -49,7 +49,7 @@
         <CompressOutlined />
       </div>
       <div class="menu-item">
-        <a-dropdown v-model:visible="visible">
+        <a-dropdown>
           <BellOutlined />
           <template #overlay>
             <a-menu>

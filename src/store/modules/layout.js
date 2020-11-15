@@ -93,11 +93,7 @@ const state = {
 	// 浏览器全屏
 	fullscreen: false,
 	// 路由列表
-	routes:[],
-	// 国 际 化 语 言 配 置
-	language: 'zhcn',
-	// 语 言 包
-	languages: []
+	routes:[]
 }
 
 const mutations = {
@@ -216,12 +212,6 @@ const mutations = {
 	},
 	updateRouterActive(state) {
 		state.routerActive = !state.routerActive;
-	},
-	setLanguage(state, language) {
-		state.language = language
-	},
-	setLanguages(state, languages) {
-		state.languages = languages
 	}
 }
 
