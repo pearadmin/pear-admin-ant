@@ -187,7 +187,6 @@ export default {
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
-    const { ctx } = getCurrentInstance();
     const $route = computed(() => useRoute());
     const active = ref($route.value.matched[0].path);
     watch($route.value, (to) => (active.value = to.matched[0].path));

@@ -42,7 +42,6 @@
 import _path from "path";
 import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
-import router from "../../router/index.js";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { useRouter,useRoute} from "vue-router";
 export default {
@@ -103,13 +102,14 @@ export default {
     }
 
     dynamicMenu(route.value);
+
     watch(route.value, dynamicMenu);
 
-    const storeKey = computed(() => getters.activeKey);
-    const activeKey = ref(storeKey.value);
-    watch(storeKey, targetKey => {
-      activeKey.value = targetKey;
-      router.push(targetKey);
+    const activeKey = computed(() => getters.activeKey);
+  
+    // 监听当前路由, 
+    watch(activeKey.value, targetKey => {
+      useRouter().push(targetKey);
     })
 
     return {
