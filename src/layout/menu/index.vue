@@ -51,6 +51,8 @@ export default {
     const menu = ref([]);
     //不同的布局, 菜单的前缀path需要修改
     const rootPath = ref('');
+
+
     //路由变化的时候处理方法
     const dynamicRoute = to => {
       // 当前路由匹配的数组
@@ -67,6 +69,7 @@ export default {
         commit('layout/clearOpenKey');
       }
     }
+
     //布局变化的处理方法
     const changeLayout = model => {
       if(model === 'layout-comp'){
@@ -81,6 +84,7 @@ export default {
 
     //监听变化
     watch(layout, n => changeLayout(n))
+    // 路由改变打开菜单目录
     watch($route.value, dynamicRoute);
     watch(activeKey, n => selectKey.value = [ n ]);
     watch(storeOpenKey, n => openKey.value = n, { deep: true });

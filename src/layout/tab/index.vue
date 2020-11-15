@@ -79,6 +79,7 @@ export default {
     const panes = ref(initPanes);
     watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
     const initPanes =[];
+
     const findFixedPane = (list, prefix, panes) => {
       panes.forEach(pane => {
         const { path, meta, hidden, children } = pane;
@@ -91,6 +92,7 @@ export default {
         }
       })
     }
+
     findFixedPane(initPanes, '', useRouter().options.routes)
     commit('layout/initPanes', initPanes);
     
@@ -104,10 +106,15 @@ export default {
 
     dynamicMenu(route.value);
     
-    watch(route.value, dynamicMenu);
 
+    // 路由变更添加选项卡
+    watch(route.value, dynamicMenu);
+   
+   // 选项卡选中
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
+
+    // 选项卡选中发生改变，切换路由
     watch(storeKey, targetKey => {
       activeKey.value = targetKey;
       router.push(targetKey);
