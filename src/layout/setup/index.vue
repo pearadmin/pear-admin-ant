@@ -389,16 +389,12 @@ export default {
     const logo = computed(() => getters.logo);
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme);
-    const lan = ref(getters.language);
-    const lans = computed(() =>
-      getters.languages.map((lan) => ({ label: lan, value: lan }))
-    );
     const fixedSide = computed(() => getters.fixedSide);
     const fixedHeader = computed(() => getters.fixedHeader);
     const layout = computed(() => getters.layout);
     const color = computed(() => getters.color);
     const colorList = computed(() => getters.colorList);
-    // 新代码
+
     const updateLayout = function (layout) {
       var menu = new Array();
       commit("layout/UPDATE_LAYOUT", layout);
@@ -428,8 +424,6 @@ export default {
       tab,
       layout,
       theme,
-      lan,
-      lans,
       onChangeVisible: () => commit("layout/TOGGLE_SETTING"),
       onChangeLogo: () => commit("layout/TOGGLE_LOGO"),
       onChangeTab: () => commit("layout/updateTab"),

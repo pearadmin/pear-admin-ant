@@ -8,7 +8,7 @@
       <template v-slot:title>
         <span>
           <MenuIcon v-if="level === 0" />
-          <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span v-else><div class="indent"></div></span>
           <span>{{ item.meta.title }}</span>
         </span>
       </template>
@@ -25,7 +25,7 @@
     <a-menu-item v-bind="$attrs" :key="resolvePath(item.path, true)" v-else>
       <router-link :to="resolvePath(item.path, true)">
         <MenuIcon v-if="level === 0" />
-        <span v-else>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span v-else><div class="indent"></div></span>
         <span>{{ item.meta.title }}</span>
       </router-link>
     </a-menu-item>
@@ -74,3 +74,10 @@ export default {
   },
 };
 </script>
+<style>
+.indent{
+  width: 15px;
+
+  display: inline-block;
+}
+</style>
