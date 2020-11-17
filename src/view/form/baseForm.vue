@@ -8,66 +8,65 @@
       <a-card>
         <a-row>
           <a-col offset="4" span="20">
-               <a-form
-        ref="ruleForm"
-        :model="form"
-        :rules="rules"
-        :label-col="labelCol"
-        :wrapper-col="wrapperCol"
-      >
-        <a-form-item ref="name" label="事件" name="name">
-          <a-input v-model:value="form.name" />
-        </a-form-item>
-        <a-form-item label="地点" name="region">
-          <a-select
-            v-model:value="form.region"
-            placeholder="please select your zone"
-          >
-            <a-select-option value="shanghai"> Zone one </a-select-option>
-            <a-select-option value="beijing"> Zone two </a-select-option>
-          </a-select>
-        </a-form-item>
-        <a-form-item label="时间" required name="date1">
-          <a-date-picker
-            v-model:value="form.date1"
-            show-time
-            type="date"
-            placeholder="Pick a date"
-            style="width: 100%"
-          />
-        </a-form-item>
-        <a-form-item label="启用" name="delivery">
-          <a-switch v-model:checked="form.delivery" />
-        </a-form-item>
-        <a-form-item label="状态" name="type">
-          <a-checkbox-group v-model:value="form.type">
-            <a-checkbox value="1" name="type"> Online </a-checkbox>
-            <a-checkbox value="2" name="type"> Promotion </a-checkbox>
-            <a-checkbox value="3" name="type"> Offline </a-checkbox>
-          </a-checkbox-group>
-        </a-form-item>
-        <a-form-item label="资源" name="resource">
-          <a-radio-group v-model:value="form.resource">
-            <a-radio value="1"> Sponsor </a-radio>
-            <a-radio value="2"> Venue </a-radio>
-          </a-radio-group>
-        </a-form-item>
-        <a-form-item label="描述" name="desc">
-          <a-textarea v-model:value="form.desc" />
-        </a-form-item>
-        <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-          <a-button type="primary" @click="onSubmit"> Create </a-button>
-          <a-button style="margin-left: 10px" @click="resetForm">
-            Reset
-          </a-button>
-        </a-form-item>
-      </a-form>
-
+            <a-form
+              ref="ruleForm"
+              :model="form"
+              :rules="rules"
+              :label-col="labelCol"
+              :wrapper-col="wrapperCol"
+            >
+              <a-form-item ref="name" label="事件" name="name">
+                <a-input v-model:value="form.name" />
+              </a-form-item>
+              <a-form-item label="地点" name="region">
+                <a-select
+                  v-model:value="form.region"
+                  placeholder="please select your zone"
+                >
+                  <a-select-option value="shanghai"> Zone one </a-select-option>
+                  <a-select-option value="beijing"> Zone two </a-select-option>
+                </a-select>
+              </a-form-item>
+              <a-form-item label="时间" required name="date1">
+                <a-date-picker
+                  v-model:value="form.date1"
+                  show-time
+                  type="date"
+                  placeholder="Pick a date"
+                  style="width: 100%"
+                />
+              </a-form-item>
+              <a-form-item label="启用" name="delivery">
+                <a-switch v-model:checked="form.delivery" />
+              </a-form-item>
+              <a-form-item label="状态" name="type">
+                <a-checkbox-group v-model:value="form.type">
+                  <a-checkbox value="1" name="type"> Online </a-checkbox>
+                  <a-checkbox value="2" name="type"> Promotion </a-checkbox>
+                  <a-checkbox value="3" name="type"> Offline </a-checkbox>
+                </a-checkbox-group>
+              </a-form-item>
+              <a-form-item label="资源" name="resource">
+                <a-radio-group v-model:value="form.resource">
+                  <a-radio value="1"> Sponsor </a-radio>
+                  <a-radio value="2"> Venue </a-radio>
+                </a-radio-group>
+              </a-form-item>
+              <a-form-item label="描述" name="desc">
+                <a-textarea v-model:value="form.desc" />
+              </a-form-item>
+              <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
+                <a-button type="primary" @click="onSubmit"> Create </a-button>
+                <a-button style="margin-left: 10px" @click="resetForm">
+                  Reset
+                </a-button>
+              </a-form-item>
+            </a-form>
           </a-col>
         </a-row>
       </a-card>
     </page-layout>
-      <page-footer></page-footer>
+    <page-footer></page-footer>
   </div>
 </template>
 <script>

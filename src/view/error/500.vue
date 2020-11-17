@@ -13,6 +13,6 @@
         </a-result>
       </a-card>
     </page-layout>
-      <page-footer></page-footer>
+    <page-footer></page-footer>
   </div>
 </template>

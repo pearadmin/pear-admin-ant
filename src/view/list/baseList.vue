@@ -5,74 +5,73 @@
       describe="标准的列表，包含增删改查等基础操作."
     ></page-header>
 
-        <page-layout>
- <a-card style="text-align: center">
-      <a-row>
-        <a-col :span="8">
-          <a-statistic
-            title="Feedback"
-            :value="1128"
-            style="margin-right: 50px"
-          >
-          </a-statistic>
-        </a-col>
-        <a-col :span="8">
-          <a-statistic title="Unmerged" :value="93" class="demo-class">
-            <template #suffix>
-              <span> / 100</span>
-            </template>
-          </a-statistic>
-        </a-col>
-        <a-col :span="8">
-          <a-statistic title="Teacher" :value="5433" class="demo-class">
-          </a-statistic>
-        </a-col>
-      </a-row>
-    </a-card>
+    <page-layout>
+      <a-card style="text-align: center">
+        <a-row>
+          <a-col :span="8">
+            <a-statistic
+              title="Feedback"
+              :value="1128"
+              style="margin-right: 50px"
+            >
+            </a-statistic>
+          </a-col>
+          <a-col :span="8">
+            <a-statistic title="Unmerged" :value="93" class="demo-class">
+              <template #suffix>
+                <span> / 100</span>
+              </template>
+            </a-statistic>
+          </a-col>
+          <a-col :span="8">
+            <a-statistic title="Teacher" :value="5433" class="demo-class">
+            </a-statistic>
+          </a-col>
+        </a-row>
+      </a-card>
     </page-layout>
     <page-layout>
- <a-card>
-      <a-list :loading="loading" item-layout="horizontal" :data-source="data">
-        <template v-slot:loadMore>
-          <div
-            v-if="showLoadingMore"
-            :style="{
-              textAlign: 'center',
-              marginTop: '12px',
-              height: '32px',
-              lineHeight: '32px',
-            }"
-          >
-            <a-spin v-if="loadingMore" />
-            <a-button v-else @click="onLoadMore"> loading more </a-button>
-          </div>
-        </template>
-        <template v-slot:renderItem="{ item }">
-          <a-list-item>
-            <template v-slot:actions>
-              <a>edit</a>
-              <a>more</a>
-            </template>
-            <a-list-item-meta
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+      <a-card>
+        <a-list :loading="loading" item-layout="horizontal" :data-source="data">
+          <template v-slot:loadMore>
+            <div
+              v-if="showLoadingMore"
+              :style="{
+                textAlign: 'center',
+                marginTop: '12px',
+                height: '32px',
+                lineHeight: '32px',
+              }"
             >
-              <template v-slot:title>
-                <a href="https://www.antdv.com/">{{ item.name.last }}</a>
+              <a-spin v-if="loadingMore" />
+              <a-button v-else @click="onLoadMore"> loading more </a-button>
+            </div>
+          </template>
+          <template v-slot:renderItem="{ item }">
+            <a-list-item>
+              <template v-slot:actions>
+                <a>edit</a>
+                <a>more</a>
               </template>
-              <template v-slot:avatar>
-                <a-avatar
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                />
-              </template>
-            </a-list-item-meta>
-            <div>content</div>
-          </a-list-item>
-        </template>
-      </a-list>
-    </a-card>
+              <a-list-item-meta
+                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+              >
+                <template v-slot:title>
+                  <a href="https://www.antdv.com/">{{ item.name.last }}</a>
+                </template>
+                <template v-slot:avatar>
+                  <a-avatar
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                </template>
+              </a-list-item-meta>
+              <div>content</div>
+            </a-list-item>
+          </template>
+        </a-list>
+      </a-card>
     </page-layout>
-     <page-footer></page-footer>
-   
+    <page-footer></page-footer>
   </div>
 </template>
 <script>
