@@ -16,6 +16,7 @@
         </div>
       </div>
     </template>
+
     <template v-else>
       <div class="head-logo">
         <Logo></Logo>
@@ -38,14 +39,12 @@
       </template>
     </div>
 
-    <!-- 右侧菜单功能项 -->
+    <!-- 右侧菜单功能项 基本公用 -->
     <div class="next-menu">
       <div class="menu-item" v-if="!fullscreen" @click="full(1)">
-        <!-- 当前页面最大化 -->
         <ExpandOutlined />
       </div>
       <div class="menu-item" v-else @click="full(2)">
-        <!-- 当前页面最大化 -->
         <CompressOutlined />
       </div>
       <div class="menu-item">
@@ -70,7 +69,7 @@
                 >
               </a-menu-item>
               <a-menu-divider />
-              <a-menu-item key="3" disabled>
+              <a-menu-item key="3">
                 3rd menu item（disabled）
               </a-menu-item>
             </a-menu>
@@ -79,10 +78,9 @@
       </div>
 
       <div class="menu-item">
-        <!-- 国际化切换 -->
         <GlobalOutlined />
       </div>
-      <a-dropdown  class="avatar-item">
+      <a-dropdown class="avatar-item">
         <a-avatar
           src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
         ></a-avatar>

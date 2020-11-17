@@ -4,7 +4,7 @@
       v-model:openKeys="openKey"
       v-model:selectedKeys="selectKey"
       :mode="menuModel"
-      :theme="theme === 'theme-dark' || theme === 'theme-night'?'dark':'light'"
+      :theme="menuTheme"
       @openChange="openChange"
     >
       <sub-menu
@@ -18,10 +18,10 @@
   </div>
 </template>
 <script>
-import { computed, watch, ref, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
 import SubMenu from "./SubMenu.vue";
 import {useRoute, useRouter} from "vue-router";
+import { computed, watch, ref, getCurrentInstance } from "vue";
 
 export default {
   components: {
@@ -29,37 +29,34 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
-    const menuModel = computed(() => getters.menuModel);
+
     const theme = computed(() => getters.theme);
+    const layout = computed(() => getters.layout);
+
+    const menuModel = computed(() => getters.layout == "layout-head"?"horizontal":"inline" );
+    const menuTheme = computed(() => getters.theme === 'theme-dark' || getters.theme === 'theme-night'?'dark':'light');
+
+    const routes = useRouter().options.routes;
+    const route = computed(() => useRoute());
+
     const openChange = function (openKeys) {
       commit("layout/updateOpenKey", { openKeys });
     };
-    // 根据条件初始化路由,当非 cnmp 布局模式下初始化全部路由
-    const $routes = useRouter().options.routes;
-    const $route = computed(() => useRoute());
-    //vuex中的布局模式
-    const layout = computed(() => getters.layout);
-    //vuex中记录的菜单
+    
     const storeOpenKey = computed(() => getters.openKey);
-    //vuex中记录的激活的菜单
     const activeKey = computed(() => getters.activeKey);
-    //记录当前选中的菜单
-    const selectKey = ref([ activeKey.value ]);
-    //记录打开的菜单
+
     const openKey =ref([ ...storeOpenKey.value ]);
-    //不同的布局, 涉及到的菜单可能会不同
-    const menu = ref([]);
-    //不同的布局, 菜单的前缀path需要修改
+
+    const selectKey = ref([ activeKey.value ]);
+    
     const rootPath = ref('');
-
-
-    //路由变化的时候处理方法
+    
+    const menu = ref([]);
+    
     const dynamicRoute = to => {
-      // 当前路由匹配的数组
       let { matched } = to;
-      //需要打开的菜单keys
       let needOpenKeys = matched.slice(0, matched.length - 1).map(m => m.path);
-      //store中已经打开的数据
       let openKeys = [ ...storeOpenKey.value ];
       needOpenKeys.forEach(nk => !openKeys.includes(nk) && openKeys.push(nk))
       changeLayout(layout.value)
@@ -70,34 +67,32 @@ export default {
       }
     }
 
-    //布局变化的处理方法
     const changeLayout = model => {
       if(model === 'layout-comp'){
-        let topPath = $route.value.matched[0].path;
-        menu.value = $routes.find(r => r.path === topPath).children;
+        let topPath = route.value.matched[0].path;
+        menu.value = routes.find(r => r.path === topPath).children;
         rootPath.value = topPath + '/';
       }else{
-        menu.value = $routes;
+        menu.value = routes;
         rootPath.value = '';
       }
     }
 
-    // 布 局 变 化 监 听
     watch(layout, n => changeLayout(n))
-    // 路 由 监 听 菜 单 打 开
-    watch($route.value, dynamicRoute);
-    // 选 项 卡 切 换 监 听
+
+    watch(route.value, dynamicRoute);
+    
     watch(activeKey, n => selectKey.value = [ n ]);
-    // 监 听 当 前 打 开 菜 单
+  
     watch(storeOpenKey, n => openKey.value = n, { deep: true });
-    // 初 始 化 路 由
-    dynamicRoute($route.value);
+    
+    dynamicRoute(route.value);
 
     return {
       selectKey,
       openKey,
       menuModel,
-      theme,
+      menuTheme,
       openChange,
       menu,
       rootPath,

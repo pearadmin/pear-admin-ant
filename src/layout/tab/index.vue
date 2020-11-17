@@ -44,18 +44,15 @@ import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
 import router from "../../router/index.js";
 import { DownOutlined } from "@ant-design/icons-vue";
-import { useRouter,useRoute} from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 export default {
   components: {
     DownOutlined,
   },
   methods: {
-    // 选项卡切换回调
     callback(key) {
-      // 更改当前选中的选项卡 与 菜单项
       this.selectTab(key);
     },
-    // 选项卡新增 删除时所触发的事件
     onEdit(targetKey, action) {
       this[action](targetKey);
     },
@@ -75,45 +72,53 @@ export default {
   setup() {
     const { getters, commit } = useStore();
     const panes = ref(initPanes);
-    const initPanes =[];
+    const initPanes = [];
     const route = computed(() => useRoute());
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
     const findFixedPane = (list, prefix, panes) => {
-      panes.forEach(pane => {
+      panes.forEach((pane) => {
         const { path, meta, hidden, children } = pane;
-        if(children && children.length > 0){
+        if (children && children.length > 0) {
           findFixedPane(list, _path.resolve(prefix, path), children);
-        }else{
-            if(!hidden && meta && meta.fixed){
-              list.push({ title: meta.title, path: _path.resolve(prefix, path), closable: false })
-            }
+        } else {
+          if (!hidden && meta && meta.fixed) {
+            list.push({
+              title: meta.title,
+              path: _path.resolve(prefix, path),
+              closable: false,
+            });
+          }
         }
-      })
-    }
+      });
+    };
 
-    findFixedPane(initPanes, '', useRouter().options.routes)
-    
+    findFixedPane(initPanes, "", useRouter().options.routes);
+
     // 新 增 或 添 加 选 项 卡 操 作
-    const dynamicMenu = to => {
+    const dynamicMenu = (to) => {
       const title = to.meta.title;
       const path = to.path;
       commit("layout/addTab", { title, path });
-    }
-  
+    };
+
     // 路 由 变 更 监 听
     watch(route.value, dynamicMenu);
     // 选 项 卡 变 化 监 听
-    watch(computed(() => getters.panes), n => panes.value = n, { deep: true })
+    watch(
+      computed(() => getters.panes),
+      (n) => (panes.value = n),
+      { deep: true }
+    );
     // 选 项 卡 选 中 监 听
-    watch(storeKey, targetKey => {
+    watch(storeKey, (targetKey) => {
       activeKey.value = targetKey;
       router.push(targetKey);
-    })
+    });
 
     // 初 始 化 操 作
     dynamicMenu(route.value);
-    commit('layout/initPanes', initPanes);
+    commit("layout/initPanes", initPanes);
 
     return {
       placement: ref("bottomRight"),

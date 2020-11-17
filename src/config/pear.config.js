@@ -11,7 +11,7 @@ export default {
      * 参数 : 图标
      * 
      */
-    image: 'logo',
+    image: 'https://gitee.com/Jmysy/Pear-Admin-Layui/raw/master/admin/images/logo.png',
 
     /**
      * 参数 : 网站名称
