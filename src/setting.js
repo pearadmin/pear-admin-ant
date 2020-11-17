@@ -11,12 +11,13 @@ export default {
      * 参数 : 图标
      * 
      */
-    image: 'logo',
+    image: "http://Jmysy/Pear-Admin-Layui/raw/master/admin/images/logo.png",
 
     /**
-     * 参数 : 网站名称
-     * */
-    title: 'Pear Admin',
+     * 参数 : 标题
+     * 
+     */
+    title: "Pear Admin",
 
     /**
      * 参数 : 默认使用的布局

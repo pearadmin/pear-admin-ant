@@ -1,26 +1,31 @@
 <template>
-  <div id="logo" :class="[theme]">
+  <div id="logo">
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <div v-if="!collapsed">
-       <span class="title">Pear Admin</span>
+       <span class="title">{{title}}</span>
     </div>
     <!-- 根据侧边收缩状态决定隐显内容 -->
-    <span v-else><img class="image" src="../../assets/image/logo.png" /></span>
+    <span v-else><img class="image" :src="image" /></span>
   </div>
 </template>
 <script>
 import { computed } from "vue";
 import { useStore } from "vuex";
-// 图 标 引 入
+import config from '@/config/pear.config.js';
 export default {
   setup() {
+    
     const { getters } = useStore();
     const collapsed = computed(() => getters.collapsed);
-    const theme = computed(() => getters.theme);
+
+    const image = config.image;
+    const title = config.title;
+
     return {
       collapsed,
-      theme,
+      image,
+      title
     };
-  },
+  }
 };
 </script>
