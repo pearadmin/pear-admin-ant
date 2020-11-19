@@ -40,12 +40,11 @@ export default {
   border-radius: 6px;
 }
 .card-base .ant-card-body {
-  padding: 10px;
+  padding: 12px;
 }
 .card-base-icon {
   text-align: center;
-  font-size: 32px;
-  color: rgb(105, 192, 255);
+  font-size: 30px;
 }
 .card-base-title {
   text-align: center;

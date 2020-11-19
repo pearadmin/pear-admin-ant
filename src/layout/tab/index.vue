@@ -76,6 +76,8 @@ export default {
     const router = useRouter();
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
+    
+    // 初 始 化 选 项 卡 选 中 项
     const findFixedPane = (list, prefix, panes) => {
       panes.forEach((pane) => {
         const { path, meta, hidden, children } = pane;
@@ -92,7 +94,6 @@ export default {
         }
       });
     };
-
     findFixedPane(initPanes, "", useRouter().options.routes);
 
     // 新 增 或 添 加 选 项 卡 操 作
