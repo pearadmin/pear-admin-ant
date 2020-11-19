@@ -13,12 +13,12 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to, from, next) => {
   //配置路由加载动画效果
   NProgress.start();
   //这里也可以验证权限
 
-  return true;
+  next();
 })
 
 router.afterEach((to, from) => {
