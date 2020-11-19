@@ -69,9 +69,7 @@
                 >
               </a-menu-item>
               <a-menu-divider />
-              <a-menu-item key="3">
-                3rd menu item（disabled）
-              </a-menu-item>
+              <a-menu-item key="3"> 3rd menu item（disabled） </a-menu-item>
             </a-menu>
           </template>
         </a-dropdown>
@@ -146,6 +144,7 @@ export default {
     Logo,
     BellOutlined,
   },
+
   methods: {
     full: function (num) {
       num = num || 1;
@@ -185,9 +184,14 @@ export default {
     const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
-    const $route = computed(() => useRoute());
-    const active = ref($route.value.matched[0].path);
-    watch($route.value, (to) => (active.value = to.matched[0].path));
+    const $route = useRoute();
+    const active = ref($route.matched[0].path);
+    watch(
+      computed(()=>$route.fullPath),
+      () => {
+        active.value = $route.matched[0].path;
+      }
+    );
     //计算点击跳转的最终路由
     const toPath = (route) => {
       let { redirect, children, path } = route;
@@ -203,7 +207,7 @@ export default {
     const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
     //实现当前路由刷新
     const refresh = () => {
-      let _route = $route.value;
+      let _route = $route;
       useRouter().replace({
         path: _route.path,
         params: _route.params,

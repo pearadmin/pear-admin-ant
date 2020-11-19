@@ -72,7 +72,7 @@ export default {
     const { getters, commit } = useStore();
     const panes = ref(initPanes);
     const initPanes = [];
-    const route = computed(() => useRoute());
+    const route = useRoute();
     const router = useRouter();
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
@@ -96,14 +96,15 @@ export default {
     findFixedPane(initPanes, "", useRouter().options.routes);
 
     // 新 增 或 添 加 选 项 卡 操 作
-    const dynamicMenu = (to) => {
-      const title = to.meta.title;
-      const path = to.path;
+    const dynamicMenu = () => {
+      const title = route.meta.title;
+      const path = route.path;
       commit("layout/addTab", { title, path });
     };
 
     // 路 由 变 更 监 听
-    watch(route.value, dynamicMenu);
+    watch(computed(()=>route.fullPath), dynamicMenu);
+
     // 选 项 卡 变 化 监 听
     watch(
       computed(() => getters.panes),
@@ -117,7 +118,7 @@ export default {
     });
 
     // 初 始 化 操 作
-    dynamicMenu(route.value);
+    dynamicMenu(route);
     commit("layout/initPanes", initPanes);
 
     return {

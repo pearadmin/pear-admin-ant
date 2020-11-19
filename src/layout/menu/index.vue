@@ -33,11 +33,17 @@ export default {
     const theme = computed(() => getters.theme);
     const layout = computed(() => getters.layout);
 
-    const menuModel = computed(() => getters.layout == "layout-head" ? "horizontal" : "inline");
-    const menuTheme = computed(() => getters.theme === "theme-dark" || getters.theme === "theme-night"? "dark": "light");
+    const menuModel = computed(() =>
+      getters.layout == "layout-head" ? "horizontal" : "inline"
+    );
+    const menuTheme = computed(() =>
+      getters.theme === "theme-dark" || getters.theme === "theme-night"
+        ? "dark"
+        : "light"
+    );
 
     const routes = useRouter().options.routes;
-    const route = computed(() => useRoute());
+    const route = useRoute();
 
     const storeOpenKey = computed(() => getters.openKey);
     const activeKey = computed(() => getters.activeKey);
@@ -47,8 +53,8 @@ export default {
     const menu = ref([]);
 
     // 根据路由打开菜单
-    const dynamicRoute = (to) => {
-      let { matched } = to;
+    const dynamicRoute = () => {
+      let { matched } = route;
       let needOpenKeys = matched
         .slice(0, matched.length - 1)
         .map((m) => m.path);
@@ -65,7 +71,7 @@ export default {
     // 根据布局调整路由
     const changeLayout = (model) => {
       if (model === "layout-comp") {
-        let topPath = route.value.matched[0].path;
+        let topPath = route.matched[0].path;
         menu.value = routes.find((r) => r.path === topPath).children;
         rootPath.value = topPath + "/";
       } else {
@@ -81,10 +87,12 @@ export default {
 
     // 监听响应值
     watch(layout, (n) => changeLayout(n));
-    watch(route.value, dynamicRoute);
+    watch(computed(()=>route.fullPath),
+      dynamicRoute
+    );
     watch(activeKey, (n) => (selectKey.value = [n]));
     watch(storeOpenKey, (n) => (openKey.value = n), { deep: true });
-    dynamicRoute(route.value);
+    dynamicRoute(route);
 
     return {
       selectKey,
