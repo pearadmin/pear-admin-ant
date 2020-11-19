@@ -47,6 +47,13 @@ const state = {
 	tab: config.tab == null?true:localStorage.getItem("tab") == null?config.tab:localStorage.getItem("tab"),
 
 	/**
+	 * 多标签页样式
+	 * pear-card-tab
+	 * pear-dot-tab
+	 */
+	tabType: config.tabType == null?"pear-dot-tab":localStorage.getItem("tabType") == null?config.tabType:localStorage.getItem("tabType"),
+
+	/**
 	 * 侧边菜单栏宽度
 	 * 单位:px
 	 * */
@@ -105,6 +112,9 @@ const mutations = {
 	},
 	UPDATE_LAYOUT(state,layout) {
 		state.layout = layout;
+	},
+	UPDATE_TAB_TYPE(state,tabType) {
+		state.tabType = tabType;
 	},
 	UPDATE_THEME(state,theme) {
 		state.theme = theme;

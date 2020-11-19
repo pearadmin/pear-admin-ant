@@ -6,6 +6,7 @@ const getters = {
 	settingVisible: state => state.layout.setting.opened,
 	logo: state => state.layout.logo,
 	tab: state => state.layout.tab,
+	tabType: state => state.layout.tabType,
 	routerActive: state => state.layout.routerActive,
 	openKey: state => state.layout.openKey,
 	activeKey: state => state.layout.activeKey,

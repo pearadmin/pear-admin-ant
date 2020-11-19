@@ -40,7 +40,7 @@ export default {
   border-radius: 6px;
 }
 .card-base .ant-card-body {
-  padding: 12px;
+  padding: 14px;
 }
 .card-base-icon {
   text-align: center;
@@ -48,7 +48,7 @@ export default {
 }
 .card-base-title {
   text-align: center;
-  font-size: 15px;
-  margin-top: 2px;
+  font-size: 14px;
+  margin-top: 6px;
 }
 </style>

@@ -76,6 +76,13 @@ export default {
     fixedHeader: true,
 
     /**
+     * 参数: 选项卡样式
+     * pear-card-tab
+     * pear-dot-tab
+     */
+    tabType: "pear-dot-tab",
+
+    /**
      * 参数: 主题颜色
      * color - list
      */

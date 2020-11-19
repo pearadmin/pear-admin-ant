@@ -28,7 +28,7 @@
                       width: 20%;
                       float: left;
                       height: 12px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-top-left-radius: 4px;
                     "
                   ></span
@@ -50,7 +50,7 @@
                       width: 20%;
                       float: left;
                       height: 34px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-bottom-left-radius: 4px;
                     "
                   ></span
@@ -135,7 +135,7 @@
                       width: 20%;
                       float: left;
                       height: 12px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-top-left-radius: 4px;
                     "
                   ></span
@@ -145,7 +145,7 @@
                       width: 80%;
                       float: left;
                       height: 12px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-top-right-radius: 4px;
                     "
                   ></span>
@@ -157,7 +157,7 @@
                       width: 20%;
                       float: left;
                       height: 34px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-bottom-left-radius: 4px;
                     "
                   ></span
@@ -167,7 +167,7 @@
                       width: 80%;
                       float: left;
                       height: 34px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-bottom-right-radius: 4px;
                     "
                   ></span></div
@@ -196,7 +196,7 @@
                       width: 20%;
                       float: left;
                       height: 12px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-top-left-radius: 4px;
                     "
                   ></span
@@ -218,7 +218,7 @@
                       width: 20%;
                       float: left;
                       height: 34px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-bottom-left-radius: 4px;
                     "
                   ></span
@@ -249,7 +249,7 @@
                       width: 100%;
                       float: left;
                       height: 12px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-top-left-radius: 4px;
                       border-top-right-radius: 4px;
                     "
@@ -285,7 +285,7 @@
                       width: 20%;
                       float: left;
                       height: 12px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-top-left-radius: 4px;
                     "
                   ></span
@@ -295,7 +295,7 @@
                       width: 80%;
                       float: left;
                       height: 12px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-top-right-radius: 4px;
                     "
                   ></span>
@@ -307,7 +307,7 @@
                       width: 20%;
                       float: left;
                       height: 34px;
-                      background: #28333e;
+                      background: #2e3549;
                       border-bottom-left-radius: 4px;
                     "
                   ></span
@@ -363,6 +363,18 @@
           <div class="setting-title-right">固定侧边</div>
           <br />
           <br />
+          <a-select
+            label-in-value
+            v-model:value="tabType"
+            style="width: 100px"
+            @change="handleChange"
+          >
+            <a-select-option value="pear-dot-tab"> 样式一 </a-select-option>
+            <a-select-option value="pear-card-tab"> 样式二 </a-select-option>
+          </a-select>
+          <div class="setting-title-right">卡片样式</div>
+          <br />
+          <br />
           <br />
           <a-button type="primary"> 复制配置 </a-button>
           &nbsp;&nbsp;
@@ -411,8 +423,16 @@ export default {
       commit("layout/UPDATE_COLOR", color);
     };
 
+    const handleChange = function(value){
+        commit("layout/UPDATE_TAB_TYPE",value.key);
+    }
+
+    const tabType = {key:computed(()=>getters.tabType)}; 
+
     return {
       // 新代码
+      tabType,
+      handleChange,
       updateLayout,
       updateTheme,
       updateColor,

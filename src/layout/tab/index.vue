@@ -1,5 +1,5 @@
 <template>
-  <div id="tab">
+  <div id="tab" :class="[tabType]">
     <a-tabs
       hide-add
       v-model:activeKey="activeKey"
@@ -76,6 +76,7 @@ export default {
     const router = useRouter();
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
+    const tabType = computed(()=> getters.tabType);
     
     // 初 始 化 选 项 卡 选 中 项
     const findFixedPane = (list, prefix, panes) => {
@@ -126,6 +127,7 @@ export default {
       placement: ref("bottomRight"),
       panes,
       activeKey,
+      tabType,
       selectTab: (key) => commit("layout/selectTab", key),
       removeTab: (key) => commit("layout/removeTab", key),
       closeAllTab: () => commit("layout/closeAllTab"),
