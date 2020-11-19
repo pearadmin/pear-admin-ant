@@ -20,7 +20,7 @@
 <script>
 import { useStore } from "vuex";
 import SubMenu from "./SubMenu.vue";
-import {useRoute, useRouter} from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { computed, watch, ref, getCurrentInstance } from "vue";
 
 export default {
@@ -33,54 +33,57 @@ export default {
     const theme = computed(() => getters.theme);
     const layout = computed(() => getters.layout);
 
-    const menuModel = computed(() => getters.layout == "layout-head"?"horizontal":"inline" );
-    const menuTheme = computed(() => getters.theme === 'theme-dark' || getters.theme === 'theme-night'?'dark':'light');
+    const menuModel = computed(() => getters.layout == "layout-head" ? "horizontal" : "inline");
+    const menuTheme = computed(() => getters.theme === "theme-dark" || getters.theme === "theme-night"? "dark": "light");
 
     const routes = useRouter().options.routes;
     const route = computed(() => useRoute());
 
+    const storeOpenKey = computed(() => getters.openKey);
+    const activeKey = computed(() => getters.activeKey);
+    const openKey = ref([...storeOpenKey.value]);
+    const selectKey = ref([activeKey.value]);
+    const rootPath = ref("");
+    const menu = ref([]);
+
+    // 根据路由打开菜单
+    const dynamicRoute = (to) => {
+      let { matched } = to;
+      let needOpenKeys = matched
+        .slice(0, matched.length - 1)
+        .map((m) => m.path);
+      let openKeys = [...storeOpenKey.value];
+      needOpenKeys.forEach((nk) => !openKeys.includes(nk) && openKeys.push(nk));
+      changeLayout(layout.value);
+      if (layout.value !== "layout-head") {
+        commit("layout/updateOpenKey", { openKeys });
+      } else {
+        commit("layout/clearOpenKey");
+      }
+    };
+
+    // 根据布局调整路由
+    const changeLayout = (model) => {
+      if (model === "layout-comp") {
+        let topPath = route.value.matched[0].path;
+        menu.value = routes.find((r) => r.path === topPath).children;
+        rootPath.value = topPath + "/";
+      } else {
+        menu.value = routes;
+        rootPath.value = "";
+      }
+    };
+
+    // 点击回调
     const openChange = function (openKeys) {
       commit("layout/updateOpenKey", { openKeys });
     };
-    
-    const storeOpenKey = computed(() => getters.openKey);
-    const activeKey = computed(() => getters.activeKey);
-    const openKey =ref([ ...storeOpenKey.value ]);
-    const selectKey = ref([ activeKey.value ]);
-    const rootPath = ref('');
-    const menu = ref([]);
-    
-    // 根据路由打开菜单
-    const dynamicRoute = to => {
-      let { matched } = to;
-      let needOpenKeys = matched.slice(0, matched.length - 1).map(m => m.path);
-      let openKeys = [ ...storeOpenKey.value ];
-      needOpenKeys.forEach(nk => !openKeys.includes(nk) && openKeys.push(nk))
-      changeLayout(layout.value)
-      if(layout.value!=='layout-head'){
-        commit('layout/updateOpenKey', { openKeys });
-      }else{
-        commit('layout/clearOpenKey');
-      }
-    }
-
-    // 根据布局调整路由
-    const changeLayout = model => {
-      if(model === 'layout-comp'){
-        let topPath = route.value.matched[0].path;
-        menu.value = routes.find(r => r.path === topPath).children;
-        rootPath.value = topPath + '/';
-      }else{
-        menu.value = routes;
-        rootPath.value = '';
-      }
-    }
 
     // 监听响应值
-    watch(layout, n => changeLayout(n))
+    watch(layout, (n) => changeLayout(n));
     watch(route.value, dynamicRoute);
-    watch(activeKey, n => selectKey.value = [ n ]);
-    watch(storeOpenKey, n => openKey.value = n, { deep: true });
+    watch(activeKey, (n) => (selectKey.value = [n]));
+    watch(storeOpenKey, (n) => (openKey.value = n), { deep: true });
     dynamicRoute(route.value);
 
     return {
