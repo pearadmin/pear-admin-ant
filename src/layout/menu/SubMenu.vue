@@ -77,7 +77,6 @@ export default {
 <style>
 .indent{
   width: 15px;
-
   display: inline-block;
 }
 </style>

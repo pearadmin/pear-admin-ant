@@ -1,8 +1,8 @@
 <template>
   <div id="tab">
     <a-tabs
-      v-model:activeKey="activeKey"
       hide-add
+      v-model:activeKey="activeKey"
       type="editable-card"
       @edit="onEdit"
       @change="callback"
@@ -42,7 +42,6 @@
 import _path from "path";
 import { computed, getCurrentInstance, ref, watch } from "vue";
 import { useStore } from "vuex";
-import router from "../../router/index.js";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { useRouter, useRoute } from "vue-router";
 export default {
@@ -74,6 +73,7 @@ export default {
     const panes = ref(initPanes);
     const initPanes = [];
     const route = computed(() => useRoute());
+    const router = useRouter();
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
     const findFixedPane = (list, prefix, panes) => {

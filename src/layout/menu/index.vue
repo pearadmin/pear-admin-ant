@@ -45,15 +45,12 @@ export default {
     
     const storeOpenKey = computed(() => getters.openKey);
     const activeKey = computed(() => getters.activeKey);
-
     const openKey =ref([ ...storeOpenKey.value ]);
-
     const selectKey = ref([ activeKey.value ]);
-    
     const rootPath = ref('');
-    
     const menu = ref([]);
     
+    // 根据路由打开菜单
     const dynamicRoute = to => {
       let { matched } = to;
       let needOpenKeys = matched.slice(0, matched.length - 1).map(m => m.path);
@@ -67,6 +64,7 @@ export default {
       }
     }
 
+    // 根据布局调整路由
     const changeLayout = model => {
       if(model === 'layout-comp'){
         let topPath = route.value.matched[0].path;
@@ -78,14 +76,11 @@ export default {
       }
     }
 
+    // 监听响应值
     watch(layout, n => changeLayout(n))
-
     watch(route.value, dynamicRoute);
-    
     watch(activeKey, n => selectKey.value = [ n ]);
-  
     watch(storeOpenKey, n => openKey.value = n, { deep: true });
-    
     dynamicRoute(route.value);
 
     return {

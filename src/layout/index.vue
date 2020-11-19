@@ -45,7 +45,6 @@ import Header from "./header/index.vue";
 import Logo from "./logo/index.vue";
 import Tab from "./tab/index.vue";
 import Setup from "./setup/index.vue";
-
 export default {
   components: {
     Menu,
@@ -65,6 +64,7 @@ export default {
     const sideWitch = computed(() => getters.sideWitch);
     const fixedHeader = computed(() => getters.fixedHeader);
     const fixedSide = computed(() => getters.fixedSide);
+
     return {
       collapsed,
       fixedHeader,
