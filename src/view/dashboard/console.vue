@@ -2,7 +2,7 @@
   <div id="home">
     <page-layout>
       <a-row :gutter="[10, 10]">
-        <a-col :span="6">
+        <a-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
           <a-card>
             <p-count
               startVal="5500"
@@ -10,13 +10,18 @@
               decimals="2"
               speed="300"
             />
-            <a-progress style="margin-top: 16px" :percent="30" size="small" />
+            <a-progress
+              :show-info="false"
+              style="margin-top: 16px"
+              :percent="30"
+              size="small"
+            />
             <a-divider />
             <div class="card-left">访问量</div>
             <div class="card-right">68 万</div>
           </a-card>
         </a-col>
-        <a-col :span="6">
+        <a-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
           <a-card>
             <p-count
               startVal="4500"
@@ -29,13 +34,14 @@
               :percent="50"
               size="small"
               status="active"
+              :show-info="false"
             />
             <a-divider />
             <div class="card-left">销售量</div>
             <div class="card-right">23 万</div>
           </a-card>
         </a-col>
-        <a-col :span="6">
+        <a-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
           <a-card>
             <p-count
               startVal="6500"
@@ -43,13 +49,18 @@
               decimals="2"
               speed="300"
             />
-            <a-progress style="margin-top: 16px" :percent="30" size="small" />
+            <a-progress
+              :show-info="false"
+              style="margin-top: 16px"
+              :percent="30"
+              size="small"
+            />
             <a-divider />
             <div class="card-left">转化率</div>
             <div class="card-right">60 %</div>
           </a-card>
         </a-col>
-        <a-col :span="6">
+        <a-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
           <a-card>
             <p-count
               startVal="4000"
@@ -62,21 +73,22 @@
               :percent="50"
               size="small"
               status="active"
+              :show-info="false"
             />
             <a-divider />
             <div class="card-left">用户量</div>
             <div class="card-right">578 人</div>
           </a-card>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base color="rgb(105, 192, 255)" icon="BuildFilled" title="用户">
           </card-base>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base color="rgb(149, 222, 100)" icon="CloudFilled" title="首页">
           </card-base>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base
             color="rgb(255, 156, 110)"
             icon="CustomerServiceFilled"
@@ -84,11 +96,11 @@
           >
           </card-base>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base color="rgb(179, 127, 235)" icon="MailFilled" title="邮件">
           </card-base>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base
             color="rgb(255, 214, 102)"
             icon="NotificationFilled"
@@ -96,11 +108,11 @@
           >
           </card-base>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base color="rgb(92, 219, 211)" icon="SignalFilled" title="统计">
           </card-base>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base
             color="rgb(255, 133, 192)"
             icon="TrophyFilled"
@@ -108,7 +120,7 @@
           >
           </card-base>
         </a-col>
-        <a-col span="3">
+        <a-col :xs="12" :sm="6" :md="6" :lg="3" :xl="3">
           <card-base color="rgb(255, 192, 105)" icon="BellFilled" title="通知">
           </card-base>
         </a-col>
@@ -117,10 +129,10 @@
             <a-tabs>
               <a-tab-pane key="1" tab="销量">
                 <a-row>
-                  <a-col :span="17">
+                  <a-col :xs="24" :sm="24" :md="24" :lg="17" :xl="17">
                     <div id="container"></div>
                   </a-col>
-                  <a-col :span="7">
+                  <a-col :xs="24" :sm="24" :md="24" :lg="7" :xl="7">
                     <a-row style="margin: 22px">
                       <a-col span="2"><div>1</div></a-col>
                       <a-col span="18">高新区1号店</a-col>
@@ -163,7 +175,7 @@
             </a-tabs>
           </a-card>
         </a-col>
-        <a-col :span="12">
+        <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
           <a-card title="线上热门搜索">
             <a-row :gutter="10">
               <a-col :span="12">
@@ -208,7 +220,7 @@
             </a-row>
           </a-card>
         </a-col>
-        <a-col :span="12">
+        <a-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
           <a-card title="销售类别占比">
             <a-row :gutter="10">
               <a-col :span="12">
@@ -300,10 +312,6 @@ export default {
     chart.interaction("active-region");
 
     chart.render();
-
-    const e = document.createEvent("Event");
-    e.initEvent("resize", true, true);
-    window.dispatchEvent(e);
   },
   setup() {
     const data = [

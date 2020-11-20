@@ -65,6 +65,13 @@ export default {
     const fixedHeader = computed(() => getters.fixedHeader);
     const fixedSide = computed(() => getters.fixedSide);
 
+    // G2 图 表 自 适 应
+    watch(collapsed, function () {
+      const e = document.createEvent("Event");
+      e.initEvent("resize", true, true);
+      window.dispatchEvent(e);
+    });
+
     return {
       collapsed,
       fixedHeader,
