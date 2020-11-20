@@ -145,8 +145,9 @@
   padding-left: 0px;
   padding-right: 0px;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-  z-index: 100;//这里控制了顶部的层级, 暂时设置为100
+  z-index: 100;
 }
+
 // 菜单样式
 .ant-menu-sub.ant-menu-inline > .ant-menu-item,
 .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
@@ -213,88 +214,89 @@
   top: 0px;
 }
 
+// 图标 顶部 样式
 #logo {
    text-align: center;
-  }
-  #logo .image{
-    margin-top: 11px;
-    height: 38px;
-  }
-  #logo .title{
-    display: inline-block;
-    color: #1890ff !important;
-    font-size: 23px;
-    margin-top: 2px;
-    height: 60px;
-    font-weight: 700;
-    line-height: 53px;
-  }
-  #header {
+}
+#logo .image{
+   margin-top: 11px;
+   height: 38px;
+}
+#logo .title{
+   display: inline-block;
+   color: #1890ff !important;
+   font-size: 23px;
+   margin-top: 2px;
+   height: 60px;
+   font-weight: 700;
+   line-height: 53px;
+}
+#header {
+   height: 65px;
+   line-height: 65px;
+   background-color: white;
+}
+#header .next-menu {
+   float: right;
+   height: 65px;
+}
+#header .prev-menu{
+   display: inline-block;
+   height: 65px;
+}
+#header .head-logo{
+   width:250px;
+   height: 64px;
+   display: inline-block;
+}
+#header .head-menu{
+  .ant-menu{
     height: 65px;
     line-height: 65px;
-    background-color: white;
   }
-  #header .next-menu {
-    float: right;
-    height: 65px;
+  display: inline-block;
+}
+#header .prev-menu .menu-item,
+#header .next-menu .menu-item {
+  font-size: 15.8px;
+  padding: 0 13.5px;
+  height: 64px;
+  line-height: 64px;
+  display: inline-block;
+}
+#header .prev-menu .avatar-item,
+#header .next-menu .avatar-item{
+  margin-left: 13px;
+  margin-right: 13px;
+  height: 60px;
+  width: 40px;
+  padding-top: 13px;
+  padding-bottom: 15px;
+  padding-right: 5px;
+  padding-left: 5px;
+  display: inline-block;
+  img{
+    border-radius: 100px;
   }
-  #header .prev-menu{
-    display: inline-block;
-    height: 65px;
-  }
-  #header .head-logo{
-    width:250px;
-    height: 64px;
-    display: inline-block;
-  }
-  #header .head-menu{
-    .ant-menu{
-      height: 65px;
-      line-height: 65px;
-    }
-    display: inline-block;
-  }
-  #header .prev-menu .menu-item,
-  #header .next-menu .menu-item {
-    font-size: 15.8px;
-    padding: 0 13.5px;
-    height: 65px;
-    line-height: 65px;
-    display: inline-block;
-  }
-  #header .prev-menu .avatar-item,
-  #header .next-menu .avatar-item{
-    margin-left: 13px;
-    margin-right: 13px;
-    height: 60px;
-    width: 40px;
-    padding-top: 13px;
-    padding-bottom: 15px;
-    padding-right: 5px;
-    padding-left: 5px;
-    display: inline-block;
-    img{
-      border-radius: 100px;
-    }
-  }
-  #header .prev-menu .menu-item:hover,
-  #header .next-menu .menu-item:hover {
-    background-color: #f7f7f7;
-  }
+}
+#header .prev-menu .menu-item:hover,
+#header .next-menu .menu-item:hover {
+  background-color: #f7f7f7;
+}
 
-  /** Fixed 头部样式 */
-  .fixedHeader{
-    #content{
-      height: 100%;
-    }
+/** 头 部 固 定 样 式 */
+.fixedHeader{
+  #content{
+    height: 100%;
   }
-  .fixedHeader.muiltTab{
-    #content{
-      height: calc(~"(100% - 51px)");
-    }
+}
+.fixedHeader.muiltTab{
+  #content{
+    height: calc(~"(100% - 51px)");
   }
+}
 
-  /** 主 题 选 择 界 面 样 式 */
+/** 主 题 配 置 样 式 */
 .pearone-color .color-title {padding: 15px 0 0px 20px;margin-bottom: 4px;}
 .pearone-color .color-content {
 	padding: 15px 10px 0 20px;
@@ -317,7 +319,6 @@
   color: #666;
   border-radius: 6px;
 }
-
 .pearone-color .color-content li.layui-this:after,
 .pearone-color .color-content li:hover:after {
 	width: 81px;

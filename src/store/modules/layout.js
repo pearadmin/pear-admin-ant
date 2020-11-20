@@ -74,6 +74,13 @@ const state = {
 	fixedSide: config.fixedSide == null?true:localStorage.getItem("fixedSide") == null?config.fixedSide:localStorage.getItem("fixedSide"),
 
 	/**
+	 * 路由动画
+	 * fadeRight
+	 * fadeTop 
+	 */
+	routerAnimate:config.routerAnimate == null?"":localStorage.getItem("routerAnimate") == null?config.routerAnimate:localStorage.getItem("routerAnimate"),
+
+	/**
 	 * 配色列表
 	 */
 	colorList: config.colorList,
@@ -118,6 +125,9 @@ const mutations = {
 	},
 	UPDATE_THEME(state,theme) {
 		state.theme = theme;
+	},
+	UPDATE_ROUTER_ANIMATE(state, routerAnimate){
+		state.routerAnimate = routerAnimate;
 	},
 	UPDATE_COLOR(state,color){
 		state.color = color;

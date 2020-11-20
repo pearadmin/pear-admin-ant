@@ -16,6 +16,7 @@ const getters = {
 	fixedHeader: state => state.layout.fixedHeader,
 	fixedSide: state => state.layout.fixedSide,
 	routes: state => state.layout.routes,
-	colorList: state => state.layout.colorList
+	colorList: state => state.layout.colorList,
+	routerAnimate: state => state.layout.routerAnimate
 };
 export default getters;

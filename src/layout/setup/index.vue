@@ -378,11 +378,13 @@
           <br />
           <a-select
             label-in-value
-            v-model:value="tabType"
+            v-model:value="routerAnimate"
             style="width: 100px"
-            @change="handleChange">
-            <a-select-option value="pear-dot-tab"> 渐入 </a-select-option>
-            <a-select-option value="pear-card-tab"> 渐出 </a-select-option>
+            @change="updateRouterAnimate"
+          >
+            <a-select-option value="null"> 无 </a-select-option>
+            <a-select-option value="fade-right"> 渐入 </a-select-option>
+            <a-select-option value="fade-top"> 上滑 </a-select-option>
           </a-select>
           <div class="setting-title-right">路由动画</div>
           <br />
@@ -418,6 +420,8 @@ export default {
     const layout = computed(() => getters.layout);
     const color = computed(() => getters.color);
     const colorList = computed(() => getters.colorList);
+    const routerAnimate = {key:computed(() => getters.routerAnimate)};
+    const tabType = { key: computed(() => getters.tabType) };
 
     const updateLayout = function (layout) {
       var menu = new Array();
@@ -425,6 +429,9 @@ export default {
     };
     const updateTheme = function (theme) {
       commit("layout/UPDATE_THEME", theme);
+    };
+    const updateRouterAnimate = function (animate) {
+      commit("layout/UPDATE_ROUTER_ANIMATE", animate.key);
     };
     const updateColor = function (color) {
       window.less.modifyVars({
@@ -434,16 +441,15 @@ export default {
       });
       commit("layout/UPDATE_COLOR", color);
     };
-
-    const handleChange = function(value){
-        commit("layout/UPDATE_TAB_TYPE",value.key);
-    }
-
-    const tabType = {key:computed(()=>getters.tabType)}; 
+    const handleChange = function (value) {
+      commit("layout/UPDATE_TAB_TYPE", value.key);
+    };
 
     return {
       // 新代码
       tabType,
+      routerAnimate,
+      updateRouterAnimate,
       handleChange,
       updateLayout,
       updateTheme,
@@ -475,5 +481,6 @@ export default {
 <style>
 .setting-title-right {
   float: right;
+  margin-right: 25px;
 }
 </style>

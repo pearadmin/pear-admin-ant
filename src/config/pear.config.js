@@ -92,7 +92,14 @@ export default {
      * 参数: 可选的主题颜色列表
      * color - key
      */
-    colorList: ["rgb(30, 159, 255)","rgb(255, 184, 0)","rgb(255, 87, 34)","#36b368","black","gray"]
+    colorList: ["rgb(30, 159, 255)","rgb(255, 184, 0)","rgb(255, 87, 34)","#36b368","black","gray"],
+
+    /**
+     * 参数: 路由动画
+     * fade-right
+     * fade-top
+     */
+    routerAnimate: "fade-top"
 
 }
   

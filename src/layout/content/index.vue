@@ -2,7 +2,7 @@
   <!-- 框架 content 区域 , 路由内容页面 -->
   <div id="content">
     <router-view v-slot="{ Component }">
-      <transition name="fade">
+      <transition :name="routerAnimate">
         <component :is="Component"></component >
       </transition>
     </router-view>
@@ -15,8 +15,10 @@ export default {
   setup() {
     const { getters } = useStore();
     const routerActive = computed(() => getters.routerActive);
+    const routerAnimate = computed(() => getters.routerAnimate);
     return {
       routerActive,
+      routerAnimate
     };
   },
 };

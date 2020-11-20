@@ -6,10 +6,12 @@ import Pear from './component';
 import Antd from 'ant-design-vue';
 import './assets/css/index.less';
 import 'ant-design-vue/dist/antd.less';
+import G2 from "@antv/g2";
 
 const app = createApp(App);
 app.use(Antd);
 app.use(Store);
+app.use(G2);
 app.use(Pear);
 app.use(Router);
 app.mount('#app');

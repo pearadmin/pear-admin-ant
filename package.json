@@ -8,9 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@antv/g2": "^4.0.15",
     "ant-design-vue": "^2.0.0-rc.1",
     "core-js": "^3.6.5",
-    "echarts": "^4.9.0",
     "nprogress": "^0.2.0",
     "reqwest": "^2.0.5",
     "vue": "^3.0.2",

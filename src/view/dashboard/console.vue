@@ -118,6 +118,7 @@
               <a-tab-pane key="1" tab="销量">
                 <a-row>
                   <a-col :span="17">
+                    <div id="container"></div>
                   </a-col>
                   <a-col :span="7">
                     <a-row style="margin: 22px">
@@ -258,7 +259,6 @@
   </div>
 </template>
 <script>
-var echarts = require("echarts");
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -314,6 +314,7 @@ export default {
         address: "北京市朝阳区凤鸣路 112 号.",
       },
     ];
+
     return {
       data,
       columns,
