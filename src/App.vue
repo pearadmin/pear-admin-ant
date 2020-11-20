@@ -1,15 +1,29 @@
 <template>
+<a-config-provider :locale="locale">
   <router-view></router-view>
+</a-config-provider>
 </template>
 <script >
 import { computed, watch, ref, reactive } from "vue";
 import { useStore } from "vuex";
-import zhcn from "ant-design-vue/es/locale/zh_CN"; //简体中文
-import zhtw from "ant-design-vue/es/locale/zh_TW"; //繁体中文
-import enus from "ant-design-vue/es/locale/en_US"; //美式英语
+import { messages } from '@/lang/index';
 export default {
-  name: "App"
-};
+  name: 'App',
+  data() {
+    return {
+    }
+  },
+  computed: {
+    locale() {
+          const { getters } = useStore();
+      if (messages[getters.language]) {
+        return messages[getters.language]
+      }else {
+        return null
+      }
+    }
+  }
+}
 </script>
 <style>
 #app,

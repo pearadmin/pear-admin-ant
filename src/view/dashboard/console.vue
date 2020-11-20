@@ -118,7 +118,7 @@
               <a-tab-pane key="1" tab="销量">
                 <a-row>
                   <a-col :span="17">
-                    <div id="container"></div>
+                     {{ lang("welcome") }}
                   </a-col>
                   <a-col :span="7">
                     <a-row style="margin: 22px">
@@ -259,6 +259,7 @@
   </div>
 </template>
 <script>
+import lang from "../../lang/main";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -319,6 +320,7 @@ export default {
       data,
       columns,
       datas,
+      lang
     };
   }
 };

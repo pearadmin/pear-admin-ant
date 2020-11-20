@@ -107,7 +107,9 @@ const state = {
 	// 浏览器全屏
 	fullscreen: false,
 	// 路由列表
-	routes:[]
+	routes:[],
+	// 国际化默认语言
+	language: "zh"
 }
 
 const mutations = {
@@ -116,6 +118,9 @@ const mutations = {
 	},
 	TOGGLE_FIXEDHEADER(state) {
 		state.fixedHeader = !state.fixedHeader;
+	},
+	TOGGLE_LANGUAGE(state,language){
+		state.language = language;
 	},
 	UPDATE_LAYOUT(state,layout) {
 		state.layout = layout;
