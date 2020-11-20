@@ -293,12 +293,16 @@ export default {
       .interval()
       .position("year*sales")
       .color("year*sales", function (year, sales) {
-          return "#36b368";
-    });
+        return "#36b368";
+      });
 
     chart.interaction("active-region");
 
     chart.render();
+
+    const e = document.createEvent("Event");
+    e.initEvent("resize", true, true);
+    window.dispatchEvent(e);
   },
   setup() {
     const data = [
