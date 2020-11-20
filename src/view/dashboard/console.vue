@@ -118,7 +118,7 @@
               <a-tab-pane key="1" tab="销量">
                 <a-row>
                   <a-col :span="17">
-                     {{ lang("welcome") }}
+                    <div id="container"></div>
                   </a-col>
                   <a-col :span="7">
                     <a-row style="margin: 22px">
@@ -259,12 +259,46 @@
   </div>
 </template>
 <script>
+import { Chart } from "@antv/g2";
 import lang from "../../lang/main";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
 export default {
   components: {
     ArrowUpOutlined,
     ArrowDownOutlined,
+  },
+  mounted() {
+    const data = [
+      { year: "1951 年", sales: 38 },
+      { year: "1952 年", sales: 52 },
+      { year: "1956 年", sales: 70 },
+      { year: "1957 年", sales: 145 },
+      { year: "1958 年", sales: 60 },
+      { year: "1959 年", sales: 38 },
+      { year: "1960 年", sales: 38 },
+      { year: "1962 年", sales: 38 },
+    ];
+    const chart = new Chart({
+      container: "container",
+      autoFit: true,
+      height: 320,
+    });
+
+    chart.data(data);
+    chart.scale("sales", {
+      nice: true,
+    });
+
+    chart
+      .interval()
+      .position("year*sales")
+      .color("year*sales", function (year, sales) {
+          return "#36b368";
+    });
+
+    chart.interaction("active-region");
+
+    chart.render();
   },
   setup() {
     const data = [
@@ -320,9 +354,9 @@ export default {
       data,
       columns,
       datas,
-      lang
+      lang,
     };
-  }
+  },
 };
 </script>
 <style scoped>

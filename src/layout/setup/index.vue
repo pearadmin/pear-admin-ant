@@ -385,7 +385,7 @@
             <a-select-option value="zh"> 中文 </a-select-option>
             <a-select-option value="en"> 英文 </a-select-option>
           </a-select>
-          <div class="setting-title-right">卡片样式</div>
+          <div class="setting-title-right">国际语言</div>
           <br />
           <br />
           <a-select
@@ -435,7 +435,6 @@ export default {
     const routerAnimate = { key: computed(() => getters.routerAnimate) };
     const tabType = { key: computed(() => getters.tabType) };
     const language = { key: computed(() => getters.language) };
-
 
     const updateLayout = function (layout) {
       var menu = new Array();
@@ -499,6 +498,6 @@ export default {
 <style>
 .setting-title-right {
   float: right;
-  margin-right: 25px;
+  margin-right: 15px;
 }
 </style>
