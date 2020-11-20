@@ -129,44 +129,50 @@
             <a-tabs>
               <a-tab-pane key="1" tab="销量">
                 <a-row>
-                  <a-col :xs="24" :sm="24" :md="24" :lg="17" :xl="17">
+                  <a-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
                     <div id="container"></div>
                   </a-col>
-                  <a-col :xs="24" :sm="24" :md="24" :lg="7" :xl="7">
+                  <a-col
+                    :xs="24"
+                    :sm="24"
+                    :md="24"
+                    :lg="{ span: 7, offset: 1 }"
+                    :xl="{ span: 7, offset: 1 }"
+                  >
                     <a-row style="margin: 22px">
                       <a-col span="2"><div>1</div></a-col>
                       <a-col span="18">高新区1号店</a-col>
-                      <a-col span="4">3423.32</a-col>
+                      <a-col span="4">3223.14</a-col>
                     </a-row>
                     <a-row style="margin: 22px">
                       <a-col span="2"><span>2</span></a-col>
                       <a-col span="18">高新区2号店</a-col>
-                      <a-col span="4">3423.32</a-col>
+                      <a-col span="4">2433.42</a-col>
                     </a-row>
                     <a-row style="margin: 22px">
                       <a-col span="2"><span>3</span></a-col>
                       <a-col span="18">高新区3号店</a-col>
-                      <a-col span="4">3423.32</a-col>
+                      <a-col span="4">6392.15</a-col>
                     </a-row>
                     <a-row style="margin: 22px">
                       <a-col span="2"><span>4</span></a-col>
                       <a-col span="18">高新区4号店</a-col>
-                      <a-col span="4">3423.32</a-col>
+                      <a-col span="4">1465.75</a-col>
                     </a-row>
                     <a-row style="margin: 22px">
                       <a-col span="2"><span>5</span></a-col>
                       <a-col span="18">高新区5号店</a-col>
-                      <a-col span="4">3423.32</a-col>
+                      <a-col span="4">4324.35</a-col>
                     </a-row>
                     <a-row style="margin: 22px">
                       <a-col span="2"><span>6</span></a-col>
                       <a-col span="18">高新区6号店</a-col>
-                      <a-col span="4">3423.32</a-col>
+                      <a-col span="4">3233.22</a-col>
                     </a-row>
                     <a-row style="margin: 22px">
                       <a-col span="2"><span>7</span></a-col>
                       <a-col span="18">高新区7号店</a-col>
-                      <a-col span="4">3423.32</a-col>
+                      <a-col span="4">6423.32</a-col>
                     </a-row>
                   </a-col>
                 </a-row>
@@ -283,11 +289,12 @@ export default {
     const data = [
       { year: "1951 年", sales: 38 },
       { year: "1952 年", sales: 52 },
-      { year: "1956 年", sales: 70 },
-      { year: "1957 年", sales: 145 },
-      { year: "1958 年", sales: 60 },
-      { year: "1959 年", sales: 38 },
-      { year: "1960 年", sales: 38 },
+      { year: "1956 年", sales: 80 },
+      { year: "1957 年", sales: 135 },
+      { year: "1958 年", sales: 80 },
+      { year: "1959 年", sales: 70 },
+      { year: "1960 年", sales: 60 },
+      { year: "1961 年", sales: 55 },
       { year: "1962 年", sales: 38 },
     ];
     const chart = new Chart({
@@ -297,10 +304,11 @@ export default {
     });
 
     chart.data(data);
-
     chart.scale("sales", {
       nice: true,
     });
+
+    chart.axis("sales", false);
 
     chart
       .interval()
@@ -310,8 +318,11 @@ export default {
       });
 
     chart.interaction("active-region");
-
     chart.render();
+
+    const e = document.createEvent("Event");
+    e.initEvent("resize", true, true);
+    window.dispatchEvent(e);
   },
   setup() {
     const data = [

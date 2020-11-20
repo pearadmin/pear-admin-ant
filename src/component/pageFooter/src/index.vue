@@ -11,7 +11,7 @@
           <a target="_blank" href="http://forum.pearadmin.com/">论坛</a>
       </span>
     </div>
-    <div class="page-footer-copyright" style="text-align: center">Copyright © 2020  PEAR 开 源 社 区</div>
+    <div class="page-footer-copyright" style="text-align: center">Copyright © 2020 &nbsp;&nbsp; OpenSource 开 源 社 区</div>
   </div>
 </template>
 <script>
