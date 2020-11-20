@@ -285,6 +285,7 @@ export default {
     });
 
     chart.data(data);
+
     chart.scale("sales", {
       nice: true,
     });
