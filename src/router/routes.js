@@ -13,6 +13,18 @@ export default [
     component: () => import('@/view/account/login.vue'),
     hidden: true,
   },
+  {
+    path: '/account',
+    name: 'account',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: 'center',
+      name: 'account-center',
+      meta: { key: 'center', title: '个人中心', icon: 'DashboardOutlined' },
+      component: () => import('@/view/account/center.vue')
+    }]
+  },
   //首页
   {
     path: '/dashboard',

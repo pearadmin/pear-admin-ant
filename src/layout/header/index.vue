@@ -52,14 +52,6 @@
           <BellOutlined />
           <template #overlay>
             <a-menu>
-              <a-menu-item key="0">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="http://www.alipay.com/"
-                  >1st menu item</a
-                >
-              </a-menu-item>
               <a-menu-item key="1">
                 <a
                   target="_blank"
@@ -86,12 +78,7 @@
         <template #overlay>
           <a-menu>
             <a-menu-item key="0">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="http://www.alipay.com/"
-                >1st menu item</a
-              >
+                <router-link to="/account/center">个人中心</router-link>
             </a-menu-item>
             <a-menu-item key="1">
               <a

@@ -7,7 +7,7 @@
     <page-layout>
       <a-card>
         <a-row>
-          <a-col offset="4" span="20">
+          <a-col offset="5" span="19">
             <a-form
               ref="ruleForm"
               :model="form"
