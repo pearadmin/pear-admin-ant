@@ -1,6 +1,6 @@
 import {createI18n, useI18n as use} from 'vue-i18n'
-import enLocale from './module/en_US'
-import zhLocale from './module/zh_CN'
+import enLocale from './module/en'
+import zhLocale from './module/zh'
 import antdZhCN from 'ant-design-vue/es/locale-provider/zh_CN';
 import antdEnUS from 'ant-design-vue/es/locale-provider/en_US';
 import monentZhCN from 'moment/locale/zh-cn.js';
