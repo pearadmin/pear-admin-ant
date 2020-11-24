@@ -11,7 +11,7 @@ export default {
      * 参数 : 图标
      * 
      */
-    image: 'https://gitee.com/Jmysy/Pear-Admin-Layui/raw/master/admin/images/logo.png',
+    image: 'https://gitee.com/pear-admin/Pear-Admin-Layui/raw/master/admin/images/logo.png',
 
     /**
      * 参数 : 网站名称
@@ -80,26 +80,34 @@ export default {
      * pear-card-tab
      * pear-dot-tab
      */
-    tabType: "pear-dot-tab",
+    tabType: "pear-card-tab",
 
     /**
      * 参数: 主题颜色
      * color - list
      */
-    color: "#36b368",
+    color: "#2d8cf0",
 
     /**
      * 参数: 可选的主题颜色列表
      * color - key
      */
-    colorList: ["rgb(30, 159, 255)","rgb(255, 184, 0)","rgb(255, 87, 34)","#36b368","black","gray"],
+    colorList: ["#2d8cf0","rgb(255, 184, 0)","rgb(255, 87, 34)","#36b368","black","gray"],
 
     /**
      * 参数: 路由动画
      * fade-right
      * fade-top
      */
-    routerAnimate: "fade-top"
+    routerAnimate: "fade-top",
+
+
+    /**
+     * 参数: 通栏
+     * true
+     * false 
+     */
+    passbar: true
 
 }
   
