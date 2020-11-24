@@ -3,7 +3,7 @@
 <br/>
 
   <h1 align="center">
-    Pear Admin Antd ( 孵化中 )
+    Pear Admin Ant ( 孵化中 )
   </h1>
   <h4 align="center">
     开 箱 即 用 的 Vue 3.0 前 端 开 发 框 架
@@ -25,7 +25,7 @@
     </a>
 </p>
 <div align="center">
-  <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1108/150814_80561bf8_4835367.png" />
+  <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png" />
 </div>
 
 ### 开发任务
