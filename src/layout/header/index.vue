@@ -76,7 +76,7 @@
           src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
         ></a-avatar>
         <template #overlay>
-          <a-menu>
+          <a-menu class="header-dropdown">
             <a-menu-item key="0">
                 <router-link to="/account/center">个人中心</router-link>
             </a-menu-item>
@@ -85,12 +85,12 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 href="http://www.taobao.com/"
-                >2nd menu item</a
+                >系统设置</a
               >
             </a-menu-item>
             <a-menu-divider />
-            <a-menu-item key="3" disabled>
-              3rd menu item（disabled）
+            <a-menu-item key="3">
+              注销登录
             </a-menu-item>
           </a-menu>
         </template>

@@ -44,7 +44,7 @@
               }"
             >
               <a-spin v-if="loadingMore" />
-              <a-button v-else @click="onLoadMore"> loading more </a-button>
+              <a-button v-else @click="onLoadMore"> 加载更多 </a-button>
             </div>
           </template>
           <template v-slot:renderItem="{ item }">
