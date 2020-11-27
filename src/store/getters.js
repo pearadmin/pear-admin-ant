@@ -18,6 +18,7 @@ const getters = {
 	routes: state => state.layout.routes,
 	colorList: state => state.layout.colorList,
 	routerAnimate: state => state.layout.routerAnimate,
-	language: state => state.layout.language
+	language: state => state.layout.language,
+	token: state => state.user.token
 };
 export default getters;

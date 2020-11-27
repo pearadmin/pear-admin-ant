@@ -7,15 +7,15 @@
           <div class="title">Pear Admin</div>
           <div class="desc">明 湖 区 最 具 影 响 力 的 设 计 规 范 之 一</div>
         </a-form-item>
-        <a-form-item v-bind="validateInfos.name">
-          <a-input placeholder="Username" v-model:value="modelRef.name" />
+        <a-form-item v-bind="validateInfos.username">
+          <a-input placeholder="账 户" v-model:value="modelRef.username" />
         </a-form-item>
-        <a-form-item v-bind="validateInfos['sub.name']">
-          <a-input placeholder="Password" v-model:value="modelRef.sub.name" />
+        <a-form-item v-bind="validateInfos.password">
+          <a-input placeholder="密 码" v-model:value="modelRef.password" />
         </a-form-item>
         <a-form-item>
           <a-checkbox :checked="true" @change="onChange">
-            Remember me
+            记住我
           </a-checkbox>
           <a class="login-form-forgot" href=""> 忘记密码 </a>
         </a-form-item>
@@ -34,24 +34,22 @@ import { useForm } from "@ant-design-vue/use";
 export default {
   setup() {
     const modelRef = reactive({
-      name: "",
-      sub: {
-        name: "",
-      },
+      username: "",
+      password: ""
     });
     const { resetFields, validate, validateInfos } = useForm(
       modelRef,
       reactive({
-        name: [
+        username: [
           {
             required: true,
-            message: "Please input name",
+            message: "Please input username",
           },
         ],
-        "sub.name": [
+        password: [
           {
             required: true,
-            message: "Please input sub name",
+            message: "Please input password",
           },
         ],
       })

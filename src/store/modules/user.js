@@ -1,16 +1,8 @@
 const state = {
-    token: '',
-    info: {}
+    token: ''
 }
 
 const mutations = {
-    SET_USER_INFO(state, info) {
-        if (info) {
-            state.info = info;
-        } else {
-            state.info = {}
-        }
-    },
     SET_USER_TOKEN(state, token) {
         if (token) {
             state.token = token;
@@ -26,13 +18,7 @@ const actions = {
             commit('SET_USER_TOKEN', token);
             resolve()
         })
-    },
-    setUserInfo({ commit }, info) {
-        return new Promise(resolve => {
-            commit('SET_USER_INFO', info);
-            resolve()
-        })
-    },
+    }
 }
 
 export default {
