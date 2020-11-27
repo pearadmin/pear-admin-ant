@@ -101,9 +101,8 @@ export default {
      */
     routerAnimate: "fade-top",
 
-
     /**
-     * 参数: 通栏
+     * 参数: 通栏 (待实现)
      * true
      * false 
      */

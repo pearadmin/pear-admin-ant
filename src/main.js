@@ -4,7 +4,6 @@ import Router from './router'
 import Store from './store'
 import Pear from './component';
 import i18n from './lang';
-import './permission';
 import Antd from 'ant-design-vue';
 import './assets/css/index.less';
 import 'ant-design-vue/dist/antd.less';
