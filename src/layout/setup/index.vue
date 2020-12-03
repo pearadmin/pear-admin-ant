@@ -433,8 +433,8 @@ export default {
     const color = computed(() => getters.color);
     const colorList = computed(() => getters.colorList);
     const routerAnimate = { key: computed(() => getters.routerAnimate) };
-    const tabType = { key: computed(() => getters.tabType) };
-    const language = { key: computed(() => getters.language) };
+    const tabType = { key: computed(() => getters.tabType).value };
+    const language = { key: computed(() => getters.language).value };
 
     const updateLayout = function (layout) {
       var menu = new Array();
