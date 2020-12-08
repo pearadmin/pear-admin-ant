@@ -193,7 +193,6 @@ const mutations = {
 			// 如果不存在新增选项卡
 			state.panes.push(value)
 		}
-		// 选中新增 或 已存在的选项卡
 		state.activeKey = value.path;
 	},
 	// 删除选项卡实现

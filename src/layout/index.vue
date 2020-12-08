@@ -6,7 +6,7 @@
       :width="sideWitch"
       :collapsed="collapsed"
       :trigger="null"
-      collapsible
+       collapsible
       :class="fixedSide ? 'fixed-side' : ''"
     >
       <div>
@@ -64,13 +64,6 @@ export default {
     const sideWitch = computed(() => getters.sideWitch);
     const fixedHeader = computed(() => getters.fixedHeader);
     const fixedSide = computed(() => getters.fixedSide);
-
-    // G2 图 表 自 适 应
-    watch(collapsed, function () {
-      const e = document.createEvent("Event");
-      e.initEvent("resize", true, true);
-      window.dispatchEvent(e);
-    });
 
     return {
       collapsed,
