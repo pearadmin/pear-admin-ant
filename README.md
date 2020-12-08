@@ -3,7 +3,7 @@
 <br/>
 
   <h1 align="center">
-    Pear Admin Ant ( 孵化中 )
+    Pear Admin Ant
   </h1>
   <h4 align="center">
     开 箱 即 用 的 Vue 3.0 前 端 开 发 框 架
