@@ -39,12 +39,12 @@
 <script>
 import { computed, watch, ref, getCurrentInstance } from "vue";
 import { useStore } from "vuex";
-import Menu from "./menu/index.vue";
-import Content from "./content/index.vue";
-import Header from "./header/index.vue";
-import Logo from "./logo/index.vue";
-import Tab from "./tab/index.vue";
-import Setup from "./setup/index.vue";
+import Content from "./module/content/index.vue";
+import Header from "./module/header/index.vue";
+import Logo from "./module/logo/index.vue";
+import Tab from "./module/tab/index.vue";
+import Setup from "./module/setup/index.vue";
+import Menu from "./module/menu/index.vue";
 export default {
   components: {
     Menu,

@@ -1,8 +1,6 @@
 import Layout from '@/layout/index.vue'
 
 export default [
-
-  //默认访问路由
   {
     path: '/',
     redirect: "/dashboard/console",
@@ -131,6 +129,5 @@ export default [
         component: () => import('@/view/error/500.vue'),
       }
     ]
-  },
-
+  }
 ]
