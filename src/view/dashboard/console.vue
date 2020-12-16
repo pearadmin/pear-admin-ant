@@ -278,7 +278,6 @@
 </template>
 <script>
 import { Chart } from "@antv/g2";
-import lang from "../../lang/main";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -377,8 +376,7 @@ export default {
     return {
       data,
       columns,
-      datas,
-      lang,
+      datas
     };
   },
 };
