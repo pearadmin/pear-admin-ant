@@ -103,7 +103,8 @@
   </div>
 </template>
 <script>
-import { computed, watch, getCurrentInstance, ref } from "vue";
+import { message } from 'ant-design-vue';
+import { computed, watch, getCurrentInstance, ref , nextTick} from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
@@ -193,17 +194,12 @@ export default {
       return path;
     };
     const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
-    //实现当前路由刷新
-    const refresh = () => {
-      let _route = $route;
-      useRouter().replace({
-        path: _route.path,
-        params: _route.params,
-        query: {
-          ..._route.query,
-          _: Date.now(),
-        },
-      });
+  
+    const refresh = async () => { 
+      commit("layout/UPDATE_ROUTER_ACTIVE");
+      await nextTick()
+      commit("layout/UPDATE_ROUTER_ACTIVE");
+      message.info('刷新成功');
     };
 
     return {

@@ -1,7 +1,7 @@
 <template>
   <!-- 框架 content 区域 , 路由内容页面 -->
   <div id="content">
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="{ Component }" v-if="routerActive">
       <transition :name="routerAnimate">
         <component :is="Component"></component >
       </transition>

@@ -235,7 +235,7 @@ const mutations = {
 	selectTab(state, key) {
 		state.activeKey = key;
 	},
-	updateRouterActive(state) {
+	UPDATE_ROUTER_ACTIVE(state) {
 		state.routerActive = !state.routerActive;
 	}
 }
