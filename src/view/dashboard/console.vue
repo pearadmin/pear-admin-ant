@@ -130,7 +130,7 @@
               <a-tab-pane key="1" tab="销量">
                 <a-row>
                   <a-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
-                    <div id="container"></div>
+                    <div id="container" style="width:100%;"></div>
                   </a-col>
                   <a-col
                     :xs="24"
@@ -279,51 +279,57 @@
 <script>
 import { Chart } from "@antv/g2";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
+import { onMounted } from "vue";
 export default {
   components: {
     ArrowUpOutlined,
     ArrowDownOutlined,
   },
-  mounted() {
-    const data = [
-      { year: "1951 年", sales: 38 },
-      { year: "1952 年", sales: 52 },
-      { year: "1956 年", sales: 80 },
-      { year: "1957 年", sales: 135 },
-      { year: "1958 年", sales: 80 },
-      { year: "1959 年", sales: 70 },
-      { year: "1960 年", sales: 60 },
-      { year: "1961 年", sales: 55 },
-      { year: "1962 年", sales: 38 },
-    ];
-    const chart = new Chart({
-      container: "container",
-      autoFit: true,
-      height: 320,
-    });
+  setup() {
+    onMounted(() => {
 
-    chart.data(data);
-    chart.scale("sales", {
-      nice: true,
-    });
+      const datass = [
+        { year: "1951 年", sales: 38 },
+        { year: "1952 年", sales: 52 },
+        { year: "1956 年", sales: 80 },
+        { year: "1957 年", sales: 135 },
+        { year: "1958 年", sales: 80 },
+        { year: "1959 年", sales: 70 },
+        { year: "1960 年", sales: 60 },
+        { year: "1961 年", sales: 55 },
+        { year: "1962 年", sales: 38 },
+      ];
 
-    chart.axis("sales", false);
-
-    chart
-      .interval()
-      .position("year*sales")
-      .color("year*sales", function (year, sales) {
-        return "#36b368";
+      const chart = new Chart({
+        container: "container",
+        autoFit: true,
+        forceFit: true,
+        height: 320,
       });
 
-    chart.interaction("active-region");
-    chart.render();
+      chart.data(datass);
+      chart.scale("sales", {
+        nice: true,
+      });
 
-    const e = document.createEvent("Event");
-    e.initEvent("resize", true, true);
-    window.dispatchEvent(e);
-  },
-  setup() {
+      chart.axis("sales", false);
+
+      chart
+        .interval()
+        .position("year*sales")
+        .color("year*sales", function (year, sales) {
+          return "#36b368";
+        });
+
+      chart.interaction("active-region");
+      chart.render();
+
+      const e = document.createEvent('Event')
+      e.initEvent('resize', true, true)
+      window.dispatchEvent(e)
+
+    });
+
     const data = [
       {
         title: "Ant Design Title 1",
@@ -376,7 +382,7 @@ export default {
     return {
       data,
       columns,
-      datas
+      datas,
     };
   },
 };
