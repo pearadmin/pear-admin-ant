@@ -81,7 +81,7 @@ export default {
     };
 
     watch(layout, (n) => changeLayout(n));
-    watch(computed(()=>route.fullPath),dynamicRoute);
+    watch(computed(() => route.fullPath),dynamicRoute);
     watch(activeKey, (n) => (selectKey.value = [n]));
     watch(storeOpenKey, (n) => (openKey.value = n), { deep: true });
     dynamicRoute(route);
