@@ -279,15 +279,15 @@
 <script>
 import { Chart } from "@antv/g2";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
-import { onMounted } from "vue";
+import {onMounted, ref, onUnmounted} from "vue";
 export default {
   components: {
     ArrowUpOutlined,
     ArrowDownOutlined,
   },
   setup() {
+    const chartRef = ref(null)
     onMounted(() => {
-
       const datass = [
         { year: "1951 年", sales: 38 },
         { year: "1952 年", sales: 52 },
@@ -306,6 +306,8 @@ export default {
         forceFit: true,
         height: 320,
       });
+
+      chartRef.value = chart
 
       chart.data(datass);
       chart.scale("sales", {
@@ -329,6 +331,9 @@ export default {
       window.dispatchEvent(e)
 
     });
+    onUnmounted(() => {
+      chartRef.value && chartRef.value.destroy()
+    })
 
     const data = [
       {

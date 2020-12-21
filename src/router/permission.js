@@ -42,7 +42,7 @@ export const listToTree = list => {
 
 /**
  * 跟据后端返回的权限路由 树 生成vue-router所需要的路由树
- * 注: component这里不加载。因为生成的路由树，除了菜单使用外
+ * 注: component这里不加载。因为生成的路由树，除了菜单使用外, 还需要在vue-router中做为动态路由使用
  * @param menuList
  * @returns {*}
  */
