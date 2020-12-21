@@ -6,6 +6,7 @@ import Pear from './component';
 import Antd from 'ant-design-vue';
 import './assets/css/index.less';
 import 'ant-design-vue/dist/antd.less';
+import './mock'
 
 const app = createApp(App);
 app.use(Antd);

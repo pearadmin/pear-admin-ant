@@ -4,15 +4,20 @@
 </a-config-provider>
 </template>
 <script >
-import { computed, watch, ref, reactive } from "vue";
+import {computed, watch, ref, reactive, defineComponent} from "vue";
 import { useStore } from "vuex";
-export default {
+// import {useRouter} from "vue-router";
+export default defineComponent({
   name: 'App',
-  data() {
-    return {
-    }
-  },
-}
+  setup () {
+    // const router = useRouter()
+    // const routes = router.getRoutes()
+    // watch(() => routes, v => {
+    //   console.log(v)
+    // }, { immediate: true })
+    return {}
+  }
+})
 </script>
 <style>
 #app,

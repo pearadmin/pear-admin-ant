@@ -21,7 +21,8 @@
 import { useStore } from "vuex";
 import SubMenu from "./SubMenu.vue";
 import { useRoute, useRouter } from "vue-router";
-import { computed, watch, ref, getCurrentInstance } from "vue";
+import {computed, watch, ref, getCurrentInstance, onMounted, reactive} from "vue";
+import store from "@/store";
 
 export default {
   components: {
@@ -40,7 +41,12 @@ export default {
     const openKey = ref([...storeOpenKey.value]);
     const selectKey = ref([activeKey.value]);
     const rootPath = ref("");
-    const menu = ref([]);
+
+    const state = reactive({
+      menu: computed(() => getters.menu)
+    })
+    // store中不允许修改，这里转一次
+    const menu = ref(state.menu);
 
     const dynamicRoute = () => {
       let { matched } = route;
@@ -60,10 +66,12 @@ export default {
     const changeLayout = (model) => {
       if (model === "layout-comp") {
         let topPath = route.matched[0].path;
-        menu.value = routes.find((r) => r.path === topPath).children;
+        // menu.value = routes.find((r) => r.path === topPath).children;
+        menu.value = state.menu.find(r => r.path === topPath).children
         rootPath.value = topPath + "/";
       } else {
-        menu.value = routes;
+        // menu.value = routes;
+        menu.value = state.menu
         rootPath.value = "";
       }
     };

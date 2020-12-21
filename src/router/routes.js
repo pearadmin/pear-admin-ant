@@ -19,7 +19,7 @@ export default [
     children: [{
       path: 'center',
       name: 'account-center',
-      meta: { key: 'center', title: '个人中心', icon: 'DashboardOutlined' },
+      meta: { key: 'center', title: '个人中心', icon: 'DashboardOutlined'},
       component: () => import('@/view/account/center.vue')
     }]
   },

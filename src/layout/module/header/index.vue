@@ -90,7 +90,9 @@
             </a-menu-item>
             <a-menu-divider />
             <a-menu-item key="3">
-              注销登录
+              <a @click="logOut">
+                注销登录
+              </a>
             </a-menu-item>
           </a-menu>
         </template>
@@ -104,7 +106,7 @@
 </template>
 <script>
 import { message } from 'ant-design-vue';
-import { computed, watch, getCurrentInstance, ref , nextTick} from "vue";
+import {computed, watch, getCurrentInstance, ref, nextTick, reactive} from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
@@ -167,7 +169,8 @@ export default {
     },
   },
   setup() {
-    const { getters, commit } = useStore();
+    const { getters, commit, dispatch } = useStore();
+    const router = useRouter()
     const layout = computed(() => getters.layout);
     const collapsed = computed(() => getters.collapsed);
     const fullscreen = computed(() => getters.fullscreen);
@@ -175,6 +178,7 @@ export default {
     const theme = computed(() => getters.theme);
     const $route = useRoute();
     const active = ref($route.matched[0].path);
+
     watch(
       computed(()=>$route.fullPath),
       () => {
@@ -193,14 +197,20 @@ export default {
       }
       return path;
     };
-    const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
-  
-    const refresh = async () => { 
+    // const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
+    const routes = computed(() => getters.menu).value.filter(r => !r.hidden)
+
+    const refresh = async () => {
       commit("layout/UPDATE_ROUTER_ACTIVE");
       await nextTick()
       commit("layout/UPDATE_ROUTER_ACTIVE");
       message.info('刷新成功');
     };
+
+    const logOut = async e => {
+      await dispatch('user/logout')
+      window.location.reload()
+    }
 
     return {
       layout,
@@ -215,6 +225,7 @@ export default {
       routes,
       active,
       toPath,
+      logOut,
     };
   },
 };

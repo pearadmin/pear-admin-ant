@@ -9,7 +9,7 @@
       collapsible
       :class="fixedSide ? 'fixed-side' : ''"
     >
-      <div>
+      <div class="pear-layout-left-sider">
         <!-- 顶部图标 -->
         <Logo v-if="logo"></Logo>
         <!-- 垂直菜单 -->
@@ -85,3 +85,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.pear-layout-left-sider{
+  width: 100%;
+}
+</style>
