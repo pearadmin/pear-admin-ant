@@ -165,11 +165,9 @@ export const permissionController = async (to, from, next) => {
         // 为解决刷新页面后页面不显示将用户的权限菜单缓存于LocalStorage。而存放于storage中必然要将数组字符串化，那么对应的() => import('@/views/xx/xx')
         // 异步加载会失效，所以在使用真正添加路由时再生成component的值
         setUserRouteComponent(userRoutes)
-        console.log('userRoutes', userRoutes)
         userRoutes.forEach(r => {
           router.addRoute(r)
         })
-        console.log(router.getRoutes())
         next(to.fullPath)
       } else {
         next('/error/404')
