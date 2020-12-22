@@ -41,10 +41,10 @@
 
 ### 开源地址
 
-Gitee 开源地址: [前往下载](https://gitee.com/Jmysy/pear-admin-ant)
+Gitee 开源地址: [前往下载](https://gitee.com/pear-admin/pear-admin-ant)
 
 
-Github 开源地址: [前往下载](https://github.com/Jmysy/Pear-Admin-Ant)
+Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 
 ### 主题模式
 
