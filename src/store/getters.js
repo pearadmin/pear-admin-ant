@@ -1,3 +1,8 @@
+const getStorageObject = (key, storage, defaultValue) => {
+  const storageStr = storage.getItem(key)
+  if (!storageStr) return defaultValue
+  return JSON.parse(storageStr)
+}
 const getters = {
   layout: state => state.layout.layout,
   theme: state => state.layout.theme,

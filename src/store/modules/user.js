@@ -46,6 +46,7 @@ const actions = {
     await logout()
     commit('SET_USER_TOKEN', '')
     commit('SET_USER_MENU')
+    commit('layout/closeAllTab', [], { root: true })
     return Promise.resolve()
   },
   async login({commit}, data) {

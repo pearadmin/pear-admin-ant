@@ -21,7 +21,7 @@ const state = {
 	/**
 	 * 主题颜色(主题颜色)
 	 * blue
-	 * green 
+	 * green
 	 */
 	color: config.color == null?"theme-green":localStorage.getItem("color") == null?config.color:localStorage.getItem("color"),
 
@@ -33,14 +33,14 @@ const state = {
 	collapsed: config.collapsed == null?false:localStorage.getItem("collapsed") == null?config.collapsed:localStorage.getItem("collapsed"),
 
 	/**
-	 * 菜单头部 
+	 * 菜单头部
 	 * true  --  隐藏
 	 * false --  展开
 	 * */
 	logo: config.logo == null?true:localStorage.getItem("logo") == null?config.logo:localStorage.getItem("logo"),
-	
+
 	/**
-	 * 是否开启多标签页 
+	 * 是否开启多标签页
 	 * true  --  隐藏
 	 * false --  展开
 	 * */
@@ -60,7 +60,7 @@ const state = {
 	sideWitch: config.sideWidth == null?250:config.sideWidth,
 
 	/**
-	 * 固定头部 
+	 * 固定头部
 	 * true
 	 * false
 	 */
@@ -69,14 +69,14 @@ const state = {
 	/**
 	 * 固定侧边
 	 * true
-	 * false 
+	 * false
 	 */
 	fixedSide: config.fixedSide == null?true:localStorage.getItem("fixedSide") == null?config.fixedSide:localStorage.getItem("fixedSide"),
 
 	/**
 	 * 路由动画
 	 * fadeRight
-	 * fadeTop 
+	 * fadeTop
 	 */
 	routerAnimate:config.routerAnimate == null?"":localStorage.getItem("routerAnimate") == null?config.routerAnimate:localStorage.getItem("routerAnimate"),
 
@@ -88,14 +88,14 @@ const state = {
 	/**
 	 * 主题面板状态
 	 * true
-	 * false 
+	 * false
 	 */
 	setting: {
 		opened: false,
 	},
 
 	// 选项卡内容存储
-	panes: [],
+	panes: sessionStorage.getItem('pear_tabs') ? JSON.parse(sessionStorage.getItem('pear_tabs')) : [],
 	// 当前激活选项卡
 	activeKey: '',
 	// 当前打开菜单
@@ -192,9 +192,10 @@ const mutations = {
 		if (state.panes.findIndex(pane => pane.path === value.path) === -1) {
 			// 如果不存在新增选项卡
 			state.panes.push(value)
+      sessionStorage.setItem('pear_tabs', JSON.stringify(state.panes))
 		}
 		state.activeKey = value.path;
-	},
+  },
 	// 删除选项卡实现
 	removeTab(state, targetKey) {
 		//当前激活的选项卡, 选项卡列表
@@ -203,7 +204,8 @@ const mutations = {
 		let index = panes.findIndex(pane => pane.path === targetKey);
 		panes.splice(index, 1);
 		state.panes = panes;
-		//更换已经选中的菜单
+    sessionStorage.setItem('pear_tabs', JSON.stringify(panes))
+    //更换已经选中的菜单
 		if (activeKey === targetKey) {
 			let lastPane = panes[panes.length - 1];
 			state.activeKey = lastPane ? lastPane.path : '';
@@ -216,7 +218,8 @@ const mutations = {
 		//保留不能关闭的选项卡
 		panes = panes.filter((pane) => pane.closable === false || keepKeys.includes(pane.path))
 		state.panes = panes;
-		//检查当前选中的是否被关闭
+    sessionStorage.setItem('pear_tabs', JSON.stringify(panes))
+    //检查当前选中的是否被关闭
 		if (panes.findIndex(pane => pane.path === activeKey) === -1) {
 			let lastPane = panes[panes.length - 1];
 			state.activeKey = lastPane ? lastPane.path : '';
