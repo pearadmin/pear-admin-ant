@@ -78,8 +78,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.pear-layout-left-sider{
-  width: 100%;
-}
-</style>
