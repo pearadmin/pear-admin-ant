@@ -140,18 +140,15 @@
     background-color: white!important;
   }
 }
-
 #layout .ant-layout-header {
   padding-left: 0px;
   padding-right: 0px;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   z-index: 100;
 }
-
 #layout .ant-layout-content{
   z-index: 200;
 }
-
 // 菜单样式
 .ant-menu-sub.ant-menu-inline > .ant-menu-item,
 .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
@@ -169,7 +166,6 @@
   height: 48px !important;
   line-height: 48px !important;
 }
-
 .ant-layout-sider {
   background: #191a23 !important;
   &.fixed-side{
@@ -208,7 +204,6 @@
 .ant-menu-dark, .ant-menu-dark .ant-menu-sub{
   background-color: #191a23 !important;
 }
-
 .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu{
   border-bottom: none;
   top: 0px;
@@ -217,7 +212,6 @@
   border-bottom: none;
   top: 0px;
 }
-
 // 图标 顶部 样式
 #logo {
    text-align: center;
@@ -268,8 +262,16 @@
   line-height: 64px;
   display: inline-block;
 }
-.header-dropdown{
-  width: 150px!important;
+.avatar-dropdown{
+  width: 160px!important;
+}
+.notice-dropdown{
+  .ant-tabs{
+    margin: 10px;
+  }
+  width: 368px!important;
+  height: 300px;
+  margin: 10px;
 }
 #header .prev-menu .avatar-item,
 #header .next-menu .avatar-item{
@@ -286,11 +288,23 @@
     border-radius: 100px;
   }
 }
+#header .prev-menu .notice-item,
+#header .next-menu .notice-item{
+  margin-left: 13px;
+  margin-right: 13px;
+  height: 60px;
+  width: 40px;
+  padding-top: 13px;
+  padding-bottom: 15px;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 16px;
+  display: inline-block;
+}
 #header .prev-menu .menu-item:hover,
 #header .next-menu .menu-item:hover {
   background-color: #f7f7f7;
 }
-
 /** 头 部 固 定 样 式 */
 .fixedHeader{
   #content{
@@ -302,7 +316,6 @@
     height: calc(~"(100% - 51px)");
   }
 }
-
 /** 主 题 配 置 样 式 */
 .pearone-color .color-title {padding: 15px 0 0px 20px;margin-bottom: 4px;}
 .pearone-color .color-content {

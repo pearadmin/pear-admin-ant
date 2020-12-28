@@ -40,10 +40,11 @@
 </template>
 <script>
 import _path from "path";
-import { computed, getCurrentInstance, ref, watch } from "vue";
+import {computed, getCurrentInstance, reactive, ref, watch} from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { useRouter, useRoute } from "vue-router";
+import config from '@/config/pear.config'
 export default {
   components: {
     DownOutlined,
@@ -70,32 +71,43 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
+    const defaultPanes = computed(() => getters.panes)
     const panes = ref(initPanes);
+    // const panes = ref([...defaultPanes.value]);
     const initPanes = [];
     const route = useRoute();
     const router = useRouter();
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
     const tabType = computed(()=> getters.tabType);
-    
+
+    const state = reactive({
+      menu: computed(() => getters.menu)
+    })
+    // store中不允许修改，这里转一次
+    const menu = ref(state.menu);
+
     // 初 始 化 选 项 卡 选 中 项
     const findFixedPane = (list, prefix, panes) => {
       panes.forEach((pane) => {
-        const { path, meta, hidden, children } = pane;
+        const { path, meta, hidden, children = [] } = pane;
         if (children && children.length > 0) {
           findFixedPane(list, _path.resolve(prefix, path), children);
         } else {
-          if (!hidden && meta && meta.fixed) {
+          // if (!hidden && meta && meta.fixed) {
+          const currentName = route.name
+          if (!hidden && meta && config.defaultTab === pane.name) {
             list.push({
               title: meta.title,
               path: _path.resolve(prefix, path),
-              closable: false,
+              closable: !currentName === pane.name,
             });
           }
         }
       });
     };
-    findFixedPane(initPanes, "", useRouter().options.routes);
+    // findFixedPane(initPanes, "", useRouter().options.routes);
+    findFixedPane(initPanes, "", menu.value);
 
     // 新 增 或 添 加 选 项 卡 操 作
     const dynamicMenu = () => {
@@ -111,7 +123,7 @@ export default {
     watch(
       computed(() => getters.panes),
       (n) => (panes.value = n),
-      { deep: true }
+      { deep: true, immediate: true }
     );
     // 选 项 卡 选 中 监 听
     watch(storeKey, (targetKey) => {
@@ -121,7 +133,17 @@ export default {
 
     // 初 始 化 操 作
     dynamicMenu(route);
-    commit("layout/initPanes", initPanes);
+    // 合并并去重vuex中的初始值
+    const allTabs = [...initPanes, ...defaultPanes.value ]
+    const tabs = allTabs.reduce((result, current) => {
+      const resultTitles = result.map(it => it.title)
+      if (!resultTitles.includes(current.title)) {
+        return [...result, current]
+      } else {
+        return result
+      }
+    }, [])
+    commit("layout/initPanes", tabs);
 
     return {
       placement: ref("bottomRight"),

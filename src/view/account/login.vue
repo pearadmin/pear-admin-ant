@@ -8,10 +8,10 @@
           <div class="desc">明 湖 区 最 具 影 响 力 的 设 计 规 范 之 一</div>
         </a-form-item>
         <a-form-item v-bind="validateInfos.username">
-          <a-input placeholder="账 户" v-model:value="modelRef.username" />
+          <a-input placeholder="账 户 : admin" v-model:value="modelRef.username" />
         </a-form-item>
         <a-form-item v-bind="validateInfos.password">
-          <a-input placeholder="密 码" v-model:value="modelRef.password" />
+          <a-input placeholder="密 码 : admin" v-model:value="modelRef.password" type="password"/>
         </a-form-item>
         <a-form-item>
           <a-checkbox :checked="true" @change="onChange">
@@ -20,7 +20,7 @@
           <a class="login-form-forgot" href=""> 忘记密码 </a>
         </a-form-item>
         <a-form-item :wrapper-col="{ span: 24 }">
-          <a-button style="width: 100%" type="primary" @click="onSubmit">
+          <a-button :loading="loading" style="width: 100%" type="primary" @click="onSubmit">
             登录
           </a-button>
         </a-form-item>
@@ -29,10 +29,14 @@
   </div>
 </template>
 <script>
-import { reactive, toRaw } from "vue";
+import { reactive, ref, toRaw } from "vue";
 import { useForm } from "@ant-design-vue/use";
+import { useRouter } from 'vue-router';
+import {useStore} from "vuex";
 export default {
   setup() {
+    const router = useRouter()
+    const store = useStore()
     const modelRef = reactive({
       username: "",
       password: ""
@@ -54,15 +58,22 @@ export default {
         ],
       })
     );
-    const onSubmit = (e) => {
+
+    const onChange = e => {};
+    const loading = ref(false);
+
+    const onSubmit = async (e) => {
       e.preventDefault();
-      validate()
-        .then((res) => {
-          console.log(res, toRaw(modelRef));
-        })
-        .catch((err) => {
-          console.log("error", err);
-        });
+      try {
+        const v = await validate()
+        if (v) {
+          loading.value = true;
+          await store.dispatch('user/login', modelRef)
+          await router.push('/')
+        }
+      } catch (e) {
+        console.log('error', e)
+      }
     };
     const reset = () => {
       resetFields();
@@ -74,6 +85,8 @@ export default {
       reset,
       modelRef,
       onSubmit,
+      onChange,
+      loading
     };
   },
 };

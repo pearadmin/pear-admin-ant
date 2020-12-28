@@ -1,11 +1,14 @@
-import { createStore } from 'vuex'
+import {createLogger, createStore} from 'vuex'
 
 import getters from './getters.js'
-import layout from './modules/layout.js'
+import modules from "./store";
+import { isNotProduction } from "@/utils/util";
+
+const debug = isNotProduction()
 
 export default createStore({
-    modules: {
-			layout
-		},
-		getters,
+  modules,
+  getters,
+  strict: debug,
+  plugins: debug ? [createLogger()] : []
 })

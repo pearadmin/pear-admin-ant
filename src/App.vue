@@ -4,15 +4,11 @@
 </a-config-provider>
 </template>
 <script >
-import { computed, watch, ref, reactive } from "vue";
+import {computed, watch, ref, reactive, defineComponent} from "vue";
 import { useStore } from "vuex";
-export default {
-  name: 'App',
-  data() {
-    return {
-    }
-  },
-}
+export default defineComponent({
+  name: 'App'
+})
 </script>
 <style>
 #app,

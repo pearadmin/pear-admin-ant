@@ -1,9 +1,11 @@
 // 可以根据路由模式的不同，后面俩可以只引用一个
-import { createRouter, createWebHashHistory } from 'vue-router'
-import routes from './routes.js'
-
+import {createRouter, createWebHashHistory} from 'vue-router'
+// 引入基础路由
+// import routes from './routes.js'
+import routes from './modules/basic-routes'
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import { permissionController } from "@/router/permission";
 
 const router = createRouter({
   // 使用 hash 模式构建路由（ url中带 # 号的那种)
@@ -13,13 +15,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(async (to, from, next) => {
-  //配置路由加载动画效果
-  NProgress.start();
-  //这里也可以验证权限
-
-  next();
-})
+router.beforeEach(permissionController)
 
 router.afterEach((to, from) => {
   NProgress.done();
