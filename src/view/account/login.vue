@@ -8,10 +8,10 @@
           <div class="desc">明 湖 区 最 具 影 响 力 的 设 计 规 范 之 一</div>
         </a-form-item>
         <a-form-item v-bind="validateInfos.username">
-          <a-input placeholder="账 户: admin" v-model:value="modelRef.username" />
+          <a-input placeholder="账 户 : admin" v-model:value="modelRef.username" />
         </a-form-item>
         <a-form-item v-bind="validateInfos.password">
-          <a-input placeholder="密 码: admin" v-model:value="modelRef.password" />
+          <a-input placeholder="密 码 : pearadmin" v-model:value="modelRef.password" />
         </a-form-item>
         <a-form-item>
           <a-checkbox :checked="true" @change="onChange">
@@ -70,7 +70,6 @@ export default {
           loading.value = true;
           await store.dispatch('user/login', modelRef)
           await router.push('/')
-          loading.value = false;
         }
       } catch (e) {
         console.log('error', e)
