@@ -47,38 +47,37 @@
       <div class="menu-item" v-else @click="full(2)">
         <CompressOutlined />
       </div>
-      <div class="menu-item">
-        <a-dropdown>
-          <BellOutlined />
-          <template #overlay>
-            <a-menu>
-              <a-menu-item key="1">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="http://www.taobao.com/"
-                  >2nd menu item</a
-                >
-              </a-menu-item>
-              <a-menu-divider />
-              <a-menu-item key="3"> 3rd menu item（disabled） </a-menu-item>
-            </a-menu>
-          </template>
-        </a-dropdown>
-      </div>
 
+      <a-dropdown class="notice-item">
+        <BellOutlined />
+        <template #overlay>
+          <a-menu class="notice-dropdown">
+            <a-tabs>
+              <a-tab-pane key="1" tab="通知">
+                Content of Tab Pane 1
+              </a-tab-pane>
+              <a-tab-pane key="2" tab="公告">Content of Tab Pane 2</a-tab-pane>
+              <a-tab-pane key="3" tab="私信">
+                Content of Tab Pane 3
+              </a-tab-pane>
+              <a-tab-pane key="4" tab="任务">
+                Content of Tab Pane 3
+              </a-tab-pane>
+            </a-tabs>
+          </a-menu>
+        </template>
+      </a-dropdown>
       <div class="menu-item">
         <GlobalOutlined />
       </div>
-
       <a-dropdown class="avatar-item">
         <a-avatar
           src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
         ></a-avatar>
         <template #overlay>
-          <a-menu class="header-dropdown">
+          <a-menu class="avatar-dropdown">
             <a-menu-item key="0">
-                <router-link to="/account/center">个人中心</router-link>
+              <router-link to="/account/center">个人中心</router-link>
             </a-menu-item>
             <a-menu-item key="1">
               <a
@@ -90,9 +89,7 @@
             </a-menu-item>
             <a-menu-divider />
             <a-menu-item key="3">
-              <a @click="logOut">
-                注销登录
-              </a>
+              <a-menu-item @click="logOut"> 注销登录 </a-menu-item>
             </a-menu-item>
           </a-menu>
         </template>
@@ -105,8 +102,15 @@
   </div>
 </template>
 <script>
-import { message } from 'ant-design-vue';
-import {computed, watch, getCurrentInstance, ref, nextTick, reactive} from "vue";
+import { message } from "ant-design-vue";
+import {
+  computed,
+  watch,
+  getCurrentInstance,
+  ref,
+  nextTick,
+  reactive,
+} from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
@@ -170,7 +174,7 @@ export default {
   },
   setup() {
     const { getters, commit, dispatch } = useStore();
-    const router = useRouter()
+    const router = useRouter();
     const layout = computed(() => getters.layout);
     const collapsed = computed(() => getters.collapsed);
     const fullscreen = computed(() => getters.fullscreen);
@@ -180,7 +184,7 @@ export default {
     const active = ref($route.matched[0].path);
 
     watch(
-      computed(()=>$route.fullPath),
+      computed(() => $route.fullPath),
       () => {
         active.value = $route.matched[0].path;
       }
@@ -198,19 +202,19 @@ export default {
       return path;
     };
     // const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
-    const routes = computed(() => getters.menu).value.filter(r => !r.hidden)
+    const routes = computed(() => getters.menu).value.filter((r) => !r.hidden);
 
     const refresh = async () => {
       commit("layout/UPDATE_ROUTER_ACTIVE");
-      await nextTick()
+      await nextTick();
       commit("layout/UPDATE_ROUTER_ACTIVE");
-      message.info('刷新成功');
+      message.info("刷新成功");
     };
 
-    const logOut = async e => {
-      await dispatch('user/logout')
-      window.location.reload()
-    }
+    const logOut = async (e) => {
+      await dispatch("user/logout");
+      window.location.reload();
+    };
 
     return {
       layout,
