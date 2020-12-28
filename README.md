@@ -15,7 +15,7 @@
 
 <p align="center">
     <a href="#">
-        <img src="https://img.shields.io/badge/Pear Admin Ant-0.0.1+-green.svg" alt="Pear Admin Ant Version">
+        <img src="https://img.shields.io/badge/Pear Admin Ant-1.0.0.release-green.svg" alt="Pear Admin Ant Version">
     </a>
     <a href="#">
         <img src="https://img.shields.io/badge/Vue-3.0.0+-green.svg" alt="Vue Version">
