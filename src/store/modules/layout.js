@@ -107,9 +107,7 @@ const state = {
 	// 浏览器全屏
 	fullscreen: false,
 	// 路由列表
-	routes:[],
-	// 国际化默认语言
-	language: "zh"
+	routes:[]
 }
 
 const mutations = {

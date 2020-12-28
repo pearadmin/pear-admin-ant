@@ -378,18 +378,6 @@
           <br />
           <a-select
             label-in-value
-            v-model:value="language"
-            style="width: 100px"
-            @change="handleLanguage"
-          >
-            <a-select-option value="zh"> 中文 </a-select-option>
-            <a-select-option value="en"> 英文 </a-select-option>
-          </a-select>
-          <div class="setting-title-right">国际语言</div>
-          <br />
-          <br />
-          <a-select
-            label-in-value
             v-model:value="routerAnimate"
             style="width: 100px"
             @change="updateRouterAnimate"
@@ -434,7 +422,6 @@ export default {
     const colorList = computed(() => getters.colorList);
     const routerAnimate = { key: computed(() => getters.routerAnimate) };
     const tabType = { key: computed(() => getters.tabType).value };
-    const language = { key: computed(() => getters.language).value };
 
     const updateLayout = function (layout) {
       var menu = new Array();
@@ -457,14 +444,9 @@ export default {
     const handleChange = function (value) {
       commit("layout/UPDATE_TAB_TYPE", value.key);
     };
-    const handleLanguage = function (value) {
-      commit("layout/TOGGLE_LANGUAGE", value.key);
-    };
     return {
       // 新代码
       tabType,
-      language,
-      handleLanguage,
       routerAnimate,
       updateRouterAnimate,
       handleChange,

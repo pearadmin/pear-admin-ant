@@ -6,17 +6,8 @@
 <script >
 import {computed, watch, ref, reactive, defineComponent} from "vue";
 import { useStore } from "vuex";
-// import {useRouter} from "vue-router";
 export default defineComponent({
-  name: 'App',
-  setup () {
-    // const router = useRouter()
-    // const routes = router.getRoutes()
-    // watch(() => routes, v => {
-    //   console.log(v)
-    // }, { immediate: true })
-    return {}
-  }
+  name: 'App'
 })
 </script>
 <style>
