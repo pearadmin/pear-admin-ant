@@ -1,6 +1,6 @@
 {
   "name": "pear-admin-ant",
-  "version": "0.3.4-beta",
+  "version": "1.0.0-RELEASE",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
