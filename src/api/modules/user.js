@@ -14,13 +14,6 @@ const Api = {
   getUserMenusTree: '/getUserMenusTree',
 }
 
-export const getMethod = params => {
-  return http.request({
-    url: '',
-    params
-  })
-}
-
 export const login = data => {
   return http.request({
     url: Api.login,

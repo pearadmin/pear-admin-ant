@@ -9,7 +9,7 @@ const login = request => {
   const { username, password } = getRequestBody(request)
   const admin = {
     username: 'admin',
-    password: 'pearadmin'
+    password: 'admin'
   }
   isAdmin = (username === admin.username && password === admin.password)
   const userInfo = {

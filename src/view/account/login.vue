@@ -11,7 +11,7 @@
           <a-input placeholder="账 户 : admin" v-model:value="modelRef.username" />
         </a-form-item>
         <a-form-item v-bind="validateInfos.password">
-          <a-input placeholder="密 码 : pearadmin" v-model:value="modelRef.password" />
+          <a-input placeholder="密 码 : admin" v-model:value="modelRef.password" />
         </a-form-item>
         <a-form-item>
           <a-checkbox :checked="true" @change="onChange">
