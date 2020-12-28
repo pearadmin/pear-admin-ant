@@ -8,10 +8,10 @@
           <div class="desc">明 湖 区 最 具 影 响 力 的 设 计 规 范 之 一</div>
         </a-form-item>
         <a-form-item v-bind="validateInfos.username">
-          <a-input placeholder="账 户(全部权限admin/pearadmin, 其它权限随意)" v-model:value="modelRef.username" />
+          <a-input placeholder="账 户: admin" v-model:value="modelRef.username" />
         </a-form-item>
         <a-form-item v-bind="validateInfos.password">
-          <a-input placeholder="密 码" v-model:value="modelRef.password" />
+          <a-input placeholder="密 码: admin" v-model:value="modelRef.password" />
         </a-form-item>
         <a-form-item>
           <a-checkbox :checked="true" @change="onChange">
@@ -20,7 +20,7 @@
           <a class="login-form-forgot" href=""> 忘记密码 </a>
         </a-form-item>
         <a-form-item :wrapper-col="{ span: 24 }">
-          <a-button style="width: 100%" type="primary" @click="onSubmit">
+          <a-button :loading="loading" style="width: 100%" type="primary" @click="onSubmit">
             登录
           </a-button>
         </a-form-item>
@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import { reactive, toRaw } from "vue";
+import { reactive, ref, toRaw } from "vue";
 import { useForm } from "@ant-design-vue/use";
 import { useRouter } from 'vue-router';
 import {useStore} from "vuex";
@@ -60,27 +60,21 @@ export default {
     );
 
     const onChange = e => {};
+    const loading = ref(false);
 
     const onSubmit = async (e) => {
       e.preventDefault();
       try {
         const v = await validate()
         if (v) {
+          loading.value = true;
           await store.dispatch('user/login', modelRef)
           await router.push('/')
+          loading.value = false;
         }
       } catch (e) {
         console.log('error', e)
       }
-      // validate()
-      //   .then((res) => {
-      //     console.log(res, toRaw(modelRef));
-      //     // router.push({ name: 'account-center' })
-      //     login(res).then()
-      //   })
-      //   .catch((err) => {
-      //     console.log("error", err);
-      //   });
     };
     const reset = () => {
       resetFields();
@@ -92,7 +86,8 @@ export default {
       reset,
       modelRef,
       onSubmit,
-      onChange
+      onChange,
+      loading
     };
   },
 };
