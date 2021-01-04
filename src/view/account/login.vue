@@ -47,13 +47,13 @@ export default {
         username: [
           {
             required: true,
-            message: "Please input username",
+            message: "请输入账户",
           },
         ],
         password: [
           {
             required: true,
-            message: "Please input password",
+            message: "请输入密码",
           },
         ],
       })
@@ -104,12 +104,12 @@ export default {
     padding-top: 150px;
     .ant-input {
       border-radius: 4px;
-      height: 45px;
-      line-height: 45px;
+      height: 42px;
+      line-height: 42px;
     }
     .ant-btn {
-      height: 45px;
-      line-height: 45px;
+      height: 42px;
+      line-height: 42px;
     }
   }
   .logo {

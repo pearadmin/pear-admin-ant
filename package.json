@@ -16,7 +16,7 @@
     "moment": "^2.27.0",
     "nprogress": "^0.2.0",
     "reqwest": "^2.0.5",
-    "vue": "^3.0.4",
+    "vue": "^3.0.5",
     "vue-i18n": "^9.0.0-alpha.16",
     "vue-router": "^4.0.0-rc.6",
     "vuex": "^4.0.0-rc.2"
@@ -27,7 +27,7 @@
     "@vue/cli-plugin-babel": "~4.5.8",
     "@vue/cli-plugin-eslint": "~4.5.8",
     "@vue/cli-service": "~4.5.8",
-    "@vue/compiler-sfc": "^3.0.4",
+    "@vue/compiler-sfc": "^3.0.5",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",

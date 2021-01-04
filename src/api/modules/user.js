@@ -17,7 +17,7 @@ const Api = {
 export const login = data => {
   return http.request({
     url: Api.login,
-    data,
+    data: data,
     method: 'post'
   })
 }
@@ -25,7 +25,7 @@ export const login = data => {
 export const logout = data => {
   return http.request({
     url: Api.logout,
-    data,
+    data: data,
     method: 'post'
   })
 }
@@ -33,7 +33,7 @@ export const logout = data => {
 export const getUserMenusArray = data => {
   return http.request({
     url: Api.getUserMenusArray,
-    data,
+    data: data,
     method: 'post'
   })
 }
@@ -41,7 +41,7 @@ export const getUserMenusArray = data => {
 export const getUserMenusTree = data => {
   return http.request({
     url: Api.getUserMenusTree,
-    data,
+    data: data,
     method: 'post'
   })
 }
