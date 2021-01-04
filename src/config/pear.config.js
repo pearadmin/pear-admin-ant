@@ -86,7 +86,7 @@ export default {
      * 参数: 主题颜色
      * color - list
      */
-    color: "#2d8cf0",
+    color: "#36b368",
 
     /**
      * 参数: 可选的主题颜色列表
