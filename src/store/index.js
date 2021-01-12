@@ -2,7 +2,7 @@ import {createLogger, createStore} from 'vuex'
 
 import getters from './getters.js'
 import modules from "./store";
-import { isNotProduction } from "@/utils/util";
+import { isNotProduction } from "@/utils/common";
 
 const debug = isNotProduction()
 

@@ -1,11 +1,4 @@
 /**
- *
- * author: jiabinbin
- * Email: 425605679@qq.com
- * Desc:
- * version: 1.0.0
- */
-/**
  * 是否为生产环境
  * @returns {boolean}
  */

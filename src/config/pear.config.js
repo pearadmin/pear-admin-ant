@@ -1,5 +1,5 @@
 /**
- * project default configuration
+ * Project default config.
  *
  * 项目默认配置信息
  *
