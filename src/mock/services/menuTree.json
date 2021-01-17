@@ -77,6 +77,18 @@
       },
       {
         "parent": "form",
+        "path": "advancedForm",
+        "name": "advanced-form",
+        "type": "menu",
+        "icon": "DatabaseOutlined",
+        "title": "高级表单",
+        "sort": 0,
+        "link": "",
+        "hidden": false,
+        "status": true
+      },
+      {
+        "parent": "form",
         "path": "stepForm",
         "name": "step-form",
         "type": "menu",
