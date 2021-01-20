@@ -26,7 +26,6 @@ import {defineComponent, markRaw, reactive, toRefs} from "vue";
 import step1 from "@/view/form/components/step1";
 import step2 from "@/view/form/components/step2";
 import step3 from "@/view/form/components/step3";
-import {message} from 'ant-design-vue'
 
 export default defineComponent({
   name: 'stepForm',
@@ -64,7 +63,6 @@ export default defineComponent({
     }
     return {
       ...toRefs(state),
-      message,
       next,
       prev,
       finish
