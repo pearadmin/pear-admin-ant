@@ -9,7 +9,7 @@
               :size="64"
               src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
             />
-            <div class="username">夏娜</div>
+            <div class="username">&nbsp;&nbsp;&nbsp;&nbsp;夏娜</div>
             <div class="address">China</div>
             <a-divider />
             <div class="desc">江湖无名，安心练剑</div>
@@ -29,10 +29,10 @@
             <br/>
             <br/>
             <a-row :gutter="[20,20]">
-              <a-col span="12"><a-avatar>USER</a-avatar>&nbsp;&nbsp;科学搬砖组</a-col>
-              <a-col span="12"><a-avatar>USER</a-avatar>&nbsp;&nbsp;程序员日常</a-col>
-              <a-col span="12"><a-avatar>USER</a-avatar>&nbsp;&nbsp;中二少年团</a-col>
-              <a-col span="12"><a-avatar>USER</a-avatar>&nbsp;&nbsp;计算机天团</a-col>
+              <a-col span="12"><a-avatar>科</a-avatar>&nbsp;&nbsp;&nbsp;科学搬砖组</a-col>
+              <a-col span="12"><a-avatar>程</a-avatar>&nbsp;&nbsp;&nbsp;程序员日常</a-col>
+              <a-col span="12"><a-avatar>中</a-avatar>&nbsp;&nbsp;&nbsp;中二少年团</a-col>
+              <a-col span="12"><a-avatar>计</a-avatar>&nbsp;&nbsp;&nbsp;计算机天团</a-col>
             </a-row>
           </a-card>
         </a-col>

@@ -3,17 +3,16 @@
     <a-card>
       <a-avatar
         :size="64"
-        src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
-      >
+        src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200">
       </a-avatar>
       <span style="margin-left: 30px; font-size: 18px"
         >夏娜，我猜你可能累了</span
       >
       <div style="float: right; width: 300px">
-        <a-row :gutter="16" style="margin-top: 18px; font-size: 15.5px">
+        <a-row :gutter="16" style="margin-top: 18px; font-size: 17px">
           <a-col :span="8"> 项目 / 80</a-col>
           <a-col :span="8"> 排名 / 15</a-col>
-          <a-col :span="8"> 访问 / 353</a-col>
+          <a-col :span="8"> 访问 / 35</a-col>
         </a-row>
       </div>
     </a-card>
@@ -24,7 +23,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 95px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -35,7 +34,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 95px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -46,7 +45,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 95px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -57,7 +56,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 95px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -68,7 +67,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 96px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -79,7 +78,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 96px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -90,7 +89,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 96px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -101,7 +100,7 @@
             <a-card-grid
               style="
                 width: 25%;
-                height: 100px;
+                height: 96px;
                 line-height: 50px;
                 text-align: center;
               "
@@ -131,34 +130,35 @@
           <a-card title="任务">
             <a-timeline>
               <a-timeline-item color="green">
-                <p>Technical testing 1</p>
-                <p>Technical testing 2</p>
+                <p>阶段一：Technical testing 1</p>
+                <p>阶段二：Technical testing 2</p>
               </a-timeline-item>
               <a-timeline-item>
-                <p>Technical testing 1</p>
-                <p>Technical testing 2</p>
-                <p>Technical testing 3</p>
+                <p>阶段一：Technical testing 1</p>
+                <p>阶段二：Technical testing 2</p>
+                <p>阶段三：Technical testing 3</p>
               </a-timeline-item>
               <a-timeline-item color="red">
-                <p>Technical testing 1</p>
-                <p>Technical testing 2</p>
-                <p>Technical testing 3</p>
+                <p>阶段一：Technical testing 1</p>
+                <p>阶段二：Technical testing 2</p>
+                <p>阶段三：Technical testing 3</p>
               </a-timeline-item>
               <a-timeline-item>
-                <p>Technical testing 1</p>
-                <p>Technical testing 2</p>
-                <p>Technical testing 3</p>
+                <p>阶段一：Technical testing 1</p>
+                <p>阶段二：Technical testing 2</p>
+                <p>阶段三：Technical testing 3</p>
               </a-timeline-item>
               <a-timeline-item color="gray">
-                <p>Technical testing 1</p>
-                <p>Technical testing 2</p>
-                <p>Technical testing 3</p>
+                <p>阶段一：Technical testing 1</p>
+                <p>阶段二：Technical testing 2</p>
+                <p>阶段三：Technical testing 3</p>
               </a-timeline-item>
             </a-timeline>
           </a-card>
         </a-col>
       </a-row>
     </page-layout>
+    <page-footer></page-footer>
   </div>
 </template>
 <script>
