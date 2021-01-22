@@ -7,10 +7,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'App',
-  setup(){
-    if( document.getElementById('loading'))document.getElementById('loading').remove();
-  }
+  name: 'App'
 })
 </script>
 <style>
