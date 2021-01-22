@@ -7,12 +7,12 @@
             <a-avatar
               class="avatar"
               :size="64"
-              src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
+              src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
             />
-            <div class="username">就眠仪式</div>
+            <div class="username">夏娜</div>
             <div class="address">China</div>
             <a-divider />
-            <div class="desc">被岁月镂空, 亦受其雕琢</div>
+            <div class="desc">江湖无名，安心练剑</div>
           </a-card>
           <a-card style="margin-top:15px;">
             标签
