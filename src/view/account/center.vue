@@ -9,7 +9,7 @@
               :size="64"
               src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
             />
-            <div class="username">&nbsp;&nbsp;&nbsp;&nbsp;夏娜</div>
+            <div class="username">夏娜</div>
             <div class="address">China</div>
             <a-divider />
             <div class="desc">江湖无名，安心练剑</div>
@@ -194,17 +194,20 @@ export default {
     margin-top: 40px;
   }
   .username {
-    margin-left: 37%;
+    width: 100%;
+    text-align: center;
     margin-top: 15px;
     font-size: 16px;
   }
   .address {
-    margin-left: 43%;
+    width: 100%;
+    text-align: center;
     font-size: 14px;
     margin-top: 10px;
   }
   .desc {
-    margin-left: 20%;
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
