@@ -1,11 +1,3 @@
-/**
- *
- * author: jiabinbin
- * Email: 425605679@qq.com
- * Desc:
- * version: 1.0.0
- */
-
 import permissionRoutes from './modules/permission-routes'
 import NProgress from "nprogress";
 import store from "@/store";

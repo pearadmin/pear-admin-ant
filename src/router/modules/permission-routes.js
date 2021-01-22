@@ -1,3 +1,6 @@
+/**
+ * 动态路由
+ */
 import Layout from "@/layout";
 
 export default {
