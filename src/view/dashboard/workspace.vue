@@ -22,91 +22,75 @@
           <a-card title="项目">
             <a-card-grid
               style="
-                width: 25%;
-                height: 95px;
-                line-height: 50px;
-                text-align: center;
+                width: 33.33%;
+                height: 140px;
+                line-height: 28px;
               "
               :hoverable="false"
             >
-              Content
+              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <div style="margin-top:10px">那是一种内在的东西， 他们到达不了，也无法触及的</div>
             </a-card-grid>
+           <a-card-grid
+              style="
+                width: 33.33%;
+                height: 140px;
+                line-height: 28px;
+              "
+              :hoverable="false"
+            >
+              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <div style="margin-top:10px">希望是一个好东西，也许是最好的，好东西是不会消亡的</div>
+           </a-card-grid>
             <a-card-grid
               style="
-                width: 25%;
-                height: 95px;
-                line-height: 50px;
-                text-align: center;
+                width: 33.33%;
+                height: 140px;
+                line-height: 28px;
               "
               :hoverable="false"
             >
-              Content
-            </a-card-grid>
+              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <div style="margin-top:10px">城镇中有那么多的酒馆，她却偏偏走进了我的酒馆</div>
+           </a-card-grid>
             <a-card-grid
               style="
-                width: 25%;
-                height: 95px;
-                line-height: 50px;
-                text-align: center;
+                width: 33.33%;
+                height: 140px;
+                line-height: 28px;
               "
               :hoverable="false"
             >
-              Content
+              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <div style="margin-top:10px">那时候我只会想自己想要什么，从不想自己拥有什么</div>
             </a-card-grid>
+           <a-card-grid
+              style="
+                width: 33.33%;
+                height: 140px;
+                line-height: 28px;
+              "
+              :hoverable="false"
+            >
+              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <div style="margin-top:10px">接近，是我对一切的态度，是我对一切态度的距离</div>
+           </a-card-grid>
             <a-card-grid
               style="
-                width: 25%;
-                height: 95px;
-                line-height: 50px;
-                text-align: center;
+                width: 33.33%;
+                height: 140px;
+                line-height: 28px;
               "
               :hoverable="false"
             >
-              Content
-            </a-card-grid>
-            <a-card-grid
-              style="
-                width: 25%;
-                height: 96px;
-                line-height: 50px;
-                text-align: center;
-              "
-              :hoverable="false"
-            >
-              Content
-            </a-card-grid>
-            <a-card-grid
-              style="
-                width: 25%;
-                height: 96px;
-                line-height: 50px;
-                text-align: center;
-              "
-              :hoverable="false"
-            >
-              Content
-            </a-card-grid>
-            <a-card-grid
-              style="
-                width: 25%;
-                height: 96px;
-                line-height: 50px;
-                text-align: center;
-              "
-              :hoverable="false"
-            >
-              Content
-            </a-card-grid>
-            <a-card-grid
-              style="
-                width: 25%;
-                height: 96px;
-                line-height: 50px;
-                text-align: center;
-              "
-              :hoverable="false"
-            >
-              Content
+              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <div style="margin-top:10px">生命就像一盒巧克力，结果往往出人意料</div>
             </a-card-grid>
           </a-card>
           <a-card title="动态" style="margin-top: 10px">
@@ -152,6 +136,8 @@
                 <p>阶段一：Technical testing 1</p>
                 <p>阶段二：Technical testing 2</p>
                 <p>阶段三：Technical testing 3</p>
+                <p>阶段四：Technical testing 4</p>
+                <p>阶段五：Technical testing 5</p>
               </a-timeline-item>
             </a-timeline>
           </a-card>
