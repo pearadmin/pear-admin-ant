@@ -9,7 +9,7 @@
         >江湖无名，安心练剑</span
       >
       <div style="float: right; width: 340px">
-        <a-row :gutter="16" style="margin-top: 18px; font-size: 17px">
+        <a-row :gutter="16" style="font-weight:500;margin-top: 18px; font-size: 18px">
           <a-col :span="8"> 项目 / 80</a-col>
           <a-col :span="8"> 排名 / 15</a-col>
           <a-col :span="8"> 访问 / 35</a-col>
@@ -122,6 +122,7 @@
                 <p>阶段一：Technical testing 1</p>
                 <p>阶段二：Technical testing 2</p>
                 <p>阶段三：Technical testing 3</p>
+                <p>阶段四：Technical testing 4</p>
               </a-timeline-item>
               <a-timeline-item color="red">
                 <p>阶段一：Technical testing 1</p>
@@ -132,6 +133,7 @@
                 <p>阶段一：Technical testing 1</p>
                 <p>阶段二：Technical testing 2</p>
                 <p>阶段三：Technical testing 3</p>
+                <p>阶段四：Technical testing 4</p>
               </a-timeline-item>
               <a-timeline-item color="gray">
                 <p>阶段一：Technical testing 1</p>
@@ -177,6 +179,12 @@ export default {
         title: "落小梅",
         info:
           "只向你撒了一回谎。我说：“人惯是薄凉的，昨日才说衷心爱你，怕是今日，明日便是不肯再爱了”。你看，我总是这般，唯恐爱使我的心成了破洞窟窿，便要紧紧裹住自己的尾巴先做逃。枉你说爱我的胆量和真心。",
+      },{
+        avatar:
+          "https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200",
+        title: "马克思",
+        info:
+          "没有锚的船当然也可以航行，只是紧张充满你的一生。",
       },
     ];
 
