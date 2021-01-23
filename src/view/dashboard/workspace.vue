@@ -28,8 +28,8 @@
               "
               :hoverable="false"
             >
-              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
-              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <a-avatar src="https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Alipay</span>
               <div style="margin-top:10px">那是一种内在的东西， 他们到达不了，也无法触及的</div>
             </a-card-grid>
            <a-card-grid
@@ -40,8 +40,8 @@
               "
               :hoverable="false"
             >
-              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
-              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <a-avatar src="https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Angular</span>
               <div style="margin-top:10px">希望是一个好东西，也许是最好的，好东西是不会消亡的</div>
            </a-card-grid>
             <a-card-grid
@@ -52,8 +52,8 @@
               "
               :hoverable="false"
             >
-              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
-              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <a-avatar src="https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Bootstrap</span>
               <div style="margin-top:10px">城镇中有那么多的酒馆，她却偏偏走进了我的酒馆</div>
            </a-card-grid>
             <a-card-grid
@@ -64,8 +64,8 @@
               "
               :hoverable="false"
             >
-              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
-              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <a-avatar src="https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Ant Design</span>
               <div style="margin-top:10px">那时候我只会想自己想要什么，从不想自己拥有什么</div>
             </a-card-grid>
            <a-card-grid
@@ -77,7 +77,7 @@
               :hoverable="false"
             >
               <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
-              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <span style="margin-left:15px;font-weight:600;">Shayna</span>
               <div style="margin-top:10px">接近，是我对一切的态度，是我对一切态度的距离</div>
            </a-card-grid>
             <a-card-grid
@@ -88,8 +88,8 @@
               "
               :hoverable="false"
             >
-              <a-avatar src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"></a-avatar>
-              <span style="margin-left:15px;font-weight:600;">Pear Admin</span>
+              <a-avatar src="https://gw.alipayobjects.com/zos/rmsportal/ComBAopevLwENQdKWiIn.png"></a-avatar>
+              <span style="margin-left:15px;font-weight:600;">Vue</span>
               <div style="margin-top:10px">生命就像一盒巧克力，结果往往出人意料</div>
             </a-card-grid>
           </a-card>
