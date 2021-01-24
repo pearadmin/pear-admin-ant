@@ -67,6 +67,13 @@ Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005917_e2433885_4835367.png "黄色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png "绿色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005952_3c465c30_4835367.png "蓝色.png") |
 |---|---|---|
 
+### 多选项卡
+
+| DOT主题  | CARD主题 |  BTN主题  |
+|---|---|---|
+| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181653_e19b682a_4835367.png "选项卡1.png") | ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181711_5af239fd_4835367.png "选项卡2.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181730_1718d754_4835367.png "选项卡3.png") |
+|---|---|---|
+
 
 ### 项目安装
 ```
