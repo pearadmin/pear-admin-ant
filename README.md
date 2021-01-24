@@ -28,17 +28,6 @@
   <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png" />
 </div>
 
-### 开发任务
-
-1. 顶部布局
-2. 侧边布局
-3. 联动布局
-4. 多选项卡
-5. 权限处理
-6. 登录逻辑
-7. 主题配置
-8. 夜间模式
-
 ### 开源地址
 
 Gitee 开源地址: [前往下载](https://gitee.com/pear-admin/pear-admin-ant)
