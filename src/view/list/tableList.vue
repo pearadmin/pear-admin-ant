@@ -3,7 +3,12 @@
     <page-header title="查询表格" describe="表格查询的复杂示例"></page-header>
     <page-layout>
       <a-card>
-        <a-table :columns="columns" :data-source="data">
+        <p-table
+          :columns="columns"
+          :fetch="fetch"
+          :rowSelection="rowSelection"
+          alert
+        >
           <template v-slot:name="{ text }">
             <a>{{ text }}</a>
           </template>
@@ -36,7 +41,7 @@
               <a class="ant-dropdown-link"> More actions <down-outlined /> </a>
             </span>
           </template>
-        </a-table>
+        </p-table>
       </a-card>
     </page-layout>
     <page-footer></page-footer>
@@ -44,6 +49,7 @@
 </template>
 <script>
 import { SmileOutlined, DownOutlined } from "@ant-design/icons-vue";
+import {computed, defineComponent, reactive} from "vue";
 const columns = [
   {
     dataIndex: "name",
@@ -64,6 +70,7 @@ const columns = [
     title: "Age",
     dataIndex: "age",
     key: "age",
+    needTotal: true
   },
   {
     title: "Address",
@@ -97,7 +104,7 @@ const data = [
     key: "3",
     name: "Joe Black",
     sex: "boy",
-    age: 32,
+    age: 31,
     createTime: "2020-02-09 00:00:00",
     address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
@@ -106,7 +113,7 @@ const data = [
     key: "3",
     name: "Joe Black",
     sex: "boy",
-    age: 32,
+    age: 332,
     createTime: "2020-02-09 00:00:00",
     address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
@@ -158,16 +165,46 @@ const data = [
   },
 ];
 
-export default {
+export default defineComponent({
   components: {
     SmileOutlined,
     DownOutlined,
   },
-  data() {
+  setup () {
+    const fetch = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({
+            pageNo: 1,
+            total: data.length,
+            data
+          })
+        })
+      })
+    }
+
+    const state = reactive({
+      selectedRowKeys: [],
+      selectedRows: []
+    })
+
+    const onSelectChange = (selectedRowKeys, selectedRows) => {
+      state.selectedRowKeys = selectedRowKeys
+      state.selectedRows = selectedRows
+    }
+
+    const rowSelection = computed(() => {
+      return {
+        selectedRowKeys: state.selectedRowKeys,
+        onChange: onSelectChange
+      }
+    })
     return {
-      data,
+      // data,
+      fetch,
       columns,
-    };
-  },
-};
+      rowSelection
+    }
+  }
+})
 </script>
