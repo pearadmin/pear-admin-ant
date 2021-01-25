@@ -44,6 +44,11 @@ export default [
     meta: { key: '18', title: '表单页面', icon: 'FormOutlined' },
     children: [
       {
+        path: 'advancedForm',
+        name: 'advanced-form',
+        meta: { key: '21', title: '高级表单', icon: 'DatabaseOutlined' },
+        component: () => import('@/view/form/advancedForm.vue')
+      }, {
         path: 'baseForm',
         name: 'base-form',
         meta: { key: '19', title: '基础表单', icon: 'DatabaseOutlined' },

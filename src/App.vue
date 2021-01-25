@@ -3,9 +3,9 @@
   <router-view></router-view>
 </a-config-provider>
 </template>
-<script >
-import {computed, watch, ref, reactive, defineComponent} from "vue";
-import { useStore } from "vuex";
+<script>
+import { defineComponent } from "vue";
+
 export default defineComponent({
   name: 'App'
 })

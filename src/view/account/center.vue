@@ -7,12 +7,33 @@
             <a-avatar
               class="avatar"
               :size="64"
-              src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
+              src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
             />
-            <div class="username">就眠仪式</div>
+            <div class="username">夏娜</div>
             <div class="address">China</div>
             <a-divider />
-            <div class="desc">被岁月镂空, 亦受其雕琢</div>
+            <div class="desc">江湖无名，安心练剑</div>
+          </a-card>
+          <a-card style="margin-top:15px;">
+            标签
+            <br />
+            <br />
+            <a-tag>很有想法</a-tag>
+            <a-tag>专注设计</a-tag>
+            <a-tag>帅</a-tag>
+            <a-tag>海纳百川</a-tag>
+            <br/>
+            <br/>
+            <br/>
+            团队
+            <br/>
+            <br/>
+            <a-row :gutter="[20,20]">
+              <a-col span="12"><a-avatar>科</a-avatar>&nbsp;&nbsp;&nbsp;科学搬砖组</a-col>
+              <a-col span="12"><a-avatar>程</a-avatar>&nbsp;&nbsp;&nbsp;程序员日常</a-col>
+              <a-col span="12"><a-avatar>中</a-avatar>&nbsp;&nbsp;&nbsp;中二少年团</a-col>
+              <a-col span="12"><a-avatar>计</a-avatar>&nbsp;&nbsp;&nbsp;计算机天团</a-col>
+            </a-row>
           </a-card>
         </a-col>
         <a-col :span="18">
@@ -91,7 +112,7 @@ export default {
         region: undefined,
         date1: undefined,
         delivery: true,
-        type: ["1","2"],
+        type: ["1", "2"],
         resource: "北京",
         desc: "被岁月镂空, 亦受其雕琢",
       },
@@ -173,17 +194,20 @@ export default {
     margin-top: 40px;
   }
   .username {
-    margin-left: 37%;
+    width: 100%;
+    text-align: center;
     margin-top: 15px;
     font-size: 16px;
   }
-  .address{
-    margin-left: 43%;
+  .address {
+    width: 100%;
+    text-align: center;
     font-size: 14px;
     margin-top: 10px;
   }
-  .desc{
-    margin-left: 20%;
+  .desc {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>

@@ -1,9 +1,5 @@
 /**
- *
- * author: jiabinbin
- * Email: 425605679@qq.com
- * Desc: 备份原有路由，当动态路由成功生效后该文件会被删除
- * version: 1.0.0
+ * 静态路由 
  */
 import Layout from "@/layout";
 

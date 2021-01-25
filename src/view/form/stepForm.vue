@@ -7,29 +7,14 @@
     <page-layout>
       <a-card>
         <a-steps :current="current">
-          <a-step v-for="item in steps" :key="item.title" :title="item.title" />
+          <a-step v-for="(item, key) in steps" :key="key" :title="item.title"/>
         </a-steps>
         <div class="steps-content">
-          {{ steps[current].content }}
-        </div>
-        <div class="steps-action">
-          <a-button
-            v-if="current < steps.length - 1"
-            type="primary"
-            @click="next"
-          >
-            下一步
-          </a-button>
-          <a-button
-            v-if="current == steps.length - 1"
-            type="primary"
-            @click="$message.success('Processing complete!')"
-          >
-            完成
-          </a-button>
-          <a-button v-if="current > 0" style="margin-left: 8px" @click="prev">
-            上一步
-          </a-button>
+          <!-- {{ steps[current].content }} -->
+          <!-- 使用keep-alive 保存执行上一步的时候，原来的数据还在 -->
+          <!-- <keep-alive> -->
+          <component :is="steps[current].content" @next="next" @prev="prev" @finish="finish"></component>
+          <!-- </keep-alive> -->
         </div>
       </a-card>
     </page-layout>
@@ -37,48 +22,53 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
+import {defineComponent, markRaw, reactive, toRefs} from "vue";
+import step1 from "@/view/form/components/step1";
+import step2 from "@/view/form/components/step2";
+import step3 from "@/view/form/components/step3";
+
+export default defineComponent({
+  name: 'stepForm',
+  components: {
+    step1,
+    step2,
+    step3
+  },
+  setup() {
+    const state = reactive({
       current: 0,
       steps: [
         {
-          title: "第一步",
-          content: "First-content",
+          title: "填写转账信息",
+          content: markRaw(step1),
         },
         {
-          title: "第二步",
-          content: "Second-content",
+          title: "确认转账信息",
+          content: markRaw(step2),
         },
         {
-          title: "第三步",
-          content: "Last-content",
+          title: "完成",
+          content: markRaw(step3),
         },
       ],
-    };
-  },
-  methods: {
-    next() {
-      this.current++;
-    },
-    prev() {
-      this.current--;
-    },
-  },
-};
+    })
+    const next = e => {
+      state.current++;
+    }
+    const prev = e => {
+      state.current--;
+    }
+    const finish = e => {
+      state.current = 0
+    }
+    return {
+      ...toRefs(state),
+      next,
+      prev,
+      finish
+    }
+  }
+})
 </script>
 <style scoped>
-.steps-content {
-  margin-top: 16px;
-  border: 1px dashed #e9e9e9;
-  border-radius: 6px;
-  background-color: #fafafa;
-  min-height: 200px;
-  text-align: center;
-  padding-top: 80px;
-}
-
-.steps-action {
-  margin-top: 24px;
-}
 </style>

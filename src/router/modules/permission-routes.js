@@ -1,9 +1,14 @@
+/**
+ * 动态路由
+ */
 import Layout from "@/layout";
 
 export default {
   Layout,
   'account-center': () => import('@/view/account/center.vue'),
   'dashboard-console': () => import('@/view/dashboard/console.vue'),
+  'dashboard-workspace': () => import('@/view/dashboard/workspace.vue'),
+  'advanced-form': () => import('@/view/form/advancedForm.vue'),
   'base-form': () => import('@/view/form/baseForm.vue'),
   'step-form': () => import('@/view/form/stepForm.vue'),
   'base-list': () => import('@/view/list/baseList.vue'),

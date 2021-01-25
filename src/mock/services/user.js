@@ -3,7 +3,7 @@ import Mock from "mockjs2";
 import menuList from './menuList.json'
 import menuTree from './menuTree.json'
 
-let isAdmin = false
+let isAdmin = true
 
 const login = request => {
   const { username, password } = getRequestBody(request)

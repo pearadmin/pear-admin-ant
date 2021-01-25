@@ -22,6 +22,18 @@
         "link": "",
         "hidden": false,
         "status": true
+      },
+      {
+        "parent": "dashboard",
+        "path": "workspace",
+        "name": "dashboard-workspace",
+        "type": "menu",
+        "icon": "DashboardOutlined",
+        "title": "工作台",
+        "sort": 0,
+        "link": "",
+        "hidden": false,
+        "status": true
       }
     ]
   },
@@ -70,6 +82,18 @@
         "type": "menu",
         "icon": "DatabaseOutlined",
         "title": "基础表单",
+        "sort": 0,
+        "link": "",
+        "hidden": false,
+        "status": true
+      },
+      {
+        "parent": "form",
+        "path": "advancedForm",
+        "name": "advanced-form",
+        "type": "menu",
+        "icon": "DatabaseOutlined",
+        "title": "高级表单",
         "sort": 0,
         "link": "",
         "hidden": false,

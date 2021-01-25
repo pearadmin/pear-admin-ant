@@ -54,14 +54,16 @@
           <a-menu class="notice-dropdown">
             <a-tabs>
               <a-tab-pane key="1" tab="通知">
-                Content of Tab Pane 1
+                <a-empty description="暂无通知" />
               </a-tab-pane>
-              <a-tab-pane key="2" tab="公告">Content of Tab Pane 2</a-tab-pane>
+              <a-tab-pane key="2" tab="公告">
+                <a-empty description="暂无公告" />
+              </a-tab-pane>
               <a-tab-pane key="3" tab="私信">
-                Content of Tab Pane 3
+                <a-empty description="暂无私信" />
               </a-tab-pane>
               <a-tab-pane key="4" tab="任务">
-                Content of Tab Pane 3
+                <a-empty description="暂无任务" />
               </a-tab-pane>
             </a-tabs>
           </a-menu>

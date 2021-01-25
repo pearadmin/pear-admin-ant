@@ -28,17 +28,6 @@
   <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png" />
 </div>
 
-### 开发任务
-
-1. 顶部布局
-2. 侧边布局
-3. 联动布局
-4. 多选项卡
-5. 权限处理
-6. 登录逻辑
-7. 主题配置
-8. 夜间模式
-
 ### 开源地址
 
 Gitee 开源地址: [前往下载](https://gitee.com/pear-admin/pear-admin-ant)
@@ -65,6 +54,13 @@ Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 | 黄色主题  | 绿色主题 |  蓝色主题  |
 |---|---|---|
 | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005917_e2433885_4835367.png "黄色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png "绿色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005952_3c465c30_4835367.png "蓝色.png") |
+|---|---|---|
+
+### 多选项卡
+
+| DOT主题  | CARD主题 |  BTN主题  |
+|---|---|---|
+| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181653_e19b682a_4835367.png "选项卡1.png") | ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181711_5af239fd_4835367.png "选项卡2.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181730_1718d754_4835367.png "选项卡3.png") |
 |---|---|---|
 
 

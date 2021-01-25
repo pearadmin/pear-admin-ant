@@ -1,11 +1,4 @@
-/**
- *
- * author: jiabinbin
- * Email: 425605679@qq.com
- * Desc:
- * version: 1.0.0
- */
-import { isNotProduction } from "@/utils/util";
+import { isNotProduction } from "@/utils/common";
 
 // const useMock = isNotProduction()
 
