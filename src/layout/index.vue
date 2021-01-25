@@ -1,13 +1,22 @@
 <template>
   <a-layout id="layout" :class="[theme, layout]">
     <!-- 侧边栏 -->
+    <div
+      v-if="isMobile && !collapsed"
+      class="layout_mobile_mask"
+      @click="handleFoldSideBar"
+    />
     <a-layout-sider
       v-if="layout != 'layout-head'"
       :width="sideWitch"
       :collapsed="collapsed"
       :trigger="null"
-       collapsible
-      :class="fixedSide ? 'fixed-side' : ''"
+      collapsible
+      :class="[
+        fixedSide ? 'fixed-side' : '',
+        isMobile && 'layout_mobile',
+        collapsed && 'layout_collapse'
+      ]"
     >
       <div class="pear-layout-left-sider">
         <!-- 顶部图标 -->
@@ -37,7 +46,14 @@
   </a-layout>
 </template>
 <script>
-import { computed, watch, ref, getCurrentInstance } from "vue";
+import {
+  computed,
+  watch,
+  ref,
+  getCurrentInstance,
+  onBeforeMount,
+  onBeforeUnmount
+} from "vue";
 import { useStore } from "vuex";
 import Content from "./module/content/index.vue";
 import Header from "./module/header/index.vue";
@@ -45,6 +61,7 @@ import Logo from "./module/logo/index.vue";
 import Tab from "./module/tab/index.vue";
 import Setup from "./module/setup/index.vue";
 import Menu from "./module/menu/index.vue";
+import { errorMonitor } from "events";
 export default {
   components: {
     Menu,
@@ -52,10 +69,10 @@ export default {
     Header,
     Logo,
     Tab,
-    Setup,
+    Setup
   },
   setup() {
-    const { getters } = useStore();
+    const { getters, commit } = useStore();
     const layout = computed(() => getters.layout);
     const collapsed = computed(() => getters.collapsed);
     const logo = computed(() => getters.logo);
@@ -64,8 +81,32 @@ export default {
     const sideWitch = computed(() => getters.sideWitch);
     const fixedHeader = computed(() => getters.fixedHeader);
     const fixedSide = computed(() => getters.fixedSide);
+    const isMobile = computed(() => getters.isMobile);
+    const handleFoldSideBar = () => {
+      commit("layout/UPDATE_COLLAPSED", true);
+    };
+    const handleLayouts = () => {
+      const domWidth = document.body.getBoundingClientRect().width;
+      const isLayoutMobile = domWidth - 1 < 992;
+      commit("layout/UPDATE_ISMOBILE", isLayoutMobile);
+      //手机端2秒折叠导航栏
+      if (isLayoutMobile) {
+        setTimeout(() => {
+          handleFoldSideBar();
+        }, 2000);
+      }
+    };
 
+    onBeforeMount(() => {
+      window.addEventListener("resize", handleLayouts);
+    });
+
+    onBeforeUnmount(() => {
+      window.addEventListener("resize", handleLayouts);
+    });
     return {
+      handleFoldSideBar,
+      isMobile,
       collapsed,
       fixedHeader,
       fixedSide,
@@ -73,8 +114,50 @@ export default {
       layout,
       theme,
       logo,
-      tab,
+      tab
     };
-  },
+  }
 };
 </script>
+<style lang="less" scoped>
+//移动端侧边栏遮罩层
+.layout_mobile_mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  opacity: 0.5;
+}
+//移动端导航栏布局
+.layout_mobile {
+  position: fixed !important;
+  z-index: 999;
+  .pear-layout-left-sider {
+    right: 0 !important;
+  }
+  &.layout_collapse {
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    * {
+      display: none !important;
+      width: 0 !important;
+      min-width: 0 !important;
+      max-width: 0 !important;
+    }
+    .ant-menu-item,
+    .ant-menu-submenu {
+      display: none !important;
+      width: 0 !important;
+      min-width: 0 !important;
+      max-width: 0 !important;
+    }
+  }
+}
+</style>

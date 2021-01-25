@@ -24,6 +24,7 @@ const getters = {
   colorList: state => state.layout.colorList,
   routerAnimate: state => state.layout.routerAnimate,
   language: state => state.layout.language,
+  isMobile: state => state.layout.isMobile,
   token: state => state.user.token ? state.user.token : localStorage.getItem('pear_admin_ant_token') ? localStorage.getItem('pear_admin_ant_token') : '',
   menu: state => state.user.userRoutes.length !== 0 ? state.user.userRoutes : localStorage.getItem('user_routes') ? JSON.parse(localStorage.getItem('user_routes')) : ''
 };
