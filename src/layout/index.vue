@@ -83,20 +83,23 @@ export default {
     const fixedSide = computed(() => getters.fixedSide);
     const isMobile = computed(() => getters.isMobile);
     const handleFoldSideBar = () => {
-      commit("layout/UPDATE_COLLAPSED", true);
+      const isComputedMobile = computed(() => getters.isMobile);
+      if (isComputedMobile.value) {
+        commit("layout/UPDATE_COLLAPSED", true);
+      }
     };
     const handleLayouts = () => {
       const domWidth = document.body.getBoundingClientRect().width;
       const isLayoutMobile = domWidth - 1 < 992;
       commit("layout/UPDATE_ISMOBILE", isLayoutMobile);
-      //手机端2秒折叠导航栏
+      /* 手机端2秒折叠导航栏 */
       if (isLayoutMobile) {
         setTimeout(() => {
           handleFoldSideBar();
-        }, 2000);
+        }, 1800);
       }
     };
-
+    handleLayouts();
     onBeforeMount(() => {
       window.addEventListener("resize", handleLayouts);
     });
@@ -104,6 +107,7 @@ export default {
     onBeforeUnmount(() => {
       window.addEventListener("resize", handleLayouts);
     });
+
     return {
       handleFoldSideBar,
       isMobile,
@@ -140,7 +144,13 @@ export default {
   z-index: 999;
   .pear-layout-left-sider {
     right: 0 !important;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
   }
+  .pear-layout-left-sider::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
   &.layout_collapse {
     width: 0 !important;
     min-width: 0 !important;

@@ -1,6 +1,6 @@
 <template>
   <!-- 框架顶部菜单区域 -->
-  <div id="header">
+  <div id="header" :class="[isMobile && 'mobile_header']">
     <template v-if="layout !== 'layout-head'">
       <!-- 左侧菜单功能项 -->
       <div class="prev-menu">
@@ -96,7 +96,7 @@
           </a-menu>
         </template>
       </a-dropdown>
-      <div class="menu-item" @click="setting()">
+      <div v-if="!isMobile" class="menu-item" @click="setting()">
         <!-- 主题设置隐显键 -->
         <MoreOutlined />
       </div>
@@ -111,7 +111,7 @@ import {
   getCurrentInstance,
   ref,
   nextTick,
-  reactive,
+  reactive
 } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
@@ -126,7 +126,7 @@ import {
   CompressOutlined,
   ReloadOutlined,
   GlobalOutlined,
-  BellOutlined,
+  BellOutlined
 } from "@ant-design/icons-vue";
 export default {
   components: {
@@ -139,11 +139,11 @@ export default {
     GlobalOutlined,
     Menu,
     Logo,
-    BellOutlined,
+    BellOutlined
   },
 
   methods: {
-    full: function (num) {
+    full: function(num) {
       num = num || 1;
       num = num * 1;
       var docElm = document.documentElement;
@@ -172,7 +172,7 @@ export default {
           break;
       }
       this.updateFullscreen();
-    },
+    }
   },
   setup() {
     const { getters, commit, dispatch } = useStore();
@@ -184,6 +184,7 @@ export default {
     const theme = computed(() => getters.theme);
     const $route = useRoute();
     const active = ref($route.matched[0].path);
+    const isMobile = computed(() => getters.isMobile);
 
     watch(
       computed(() => $route.fullPath),
@@ -192,7 +193,7 @@ export default {
       }
     );
     //计算点击跳转的最终路由
-    const toPath = (route) => {
+    const toPath = route => {
       let { redirect, children, path } = route;
       if (redirect) {
         return redirect;
@@ -204,7 +205,7 @@ export default {
       return path;
     };
     // const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
-    const routes = computed(() => getters.menu).value.filter((r) => !r.hidden);
+    const routes = computed(() => getters.menu).value.filter(r => !r.hidden);
 
     const refresh = async () => {
       commit("layout/UPDATE_ROUTER_ACTIVE");
@@ -213,12 +214,13 @@ export default {
       message.info("刷新成功");
     };
 
-    const logOut = async (e) => {
+    const logOut = async e => {
       await dispatch("user/logout");
       window.location.reload();
     };
 
     return {
+      isMobile,
       layout,
       collapsed,
       fullscreen,
@@ -231,8 +233,13 @@ export default {
       routes,
       active,
       toPath,
-      logOut,
+      logOut
     };
-  },
+  }
 };
 </script>
+<style lang="less" scoped>
+.mobile_header {
+  padding-right: 0px !important;
+}
+</style>
