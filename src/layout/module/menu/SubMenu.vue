@@ -2,6 +2,7 @@
   <template v-if="!item.hidden">
     <!-- if item.children is not null 渲染 a-sub-menu -->
     <a-sub-menu
+      @click="handleFoldSideBar"
       :key="item.path"
       v-if="item.children && item.children.length > 0"
     >
@@ -22,7 +23,12 @@
       />
     </a-sub-menu>
     <!-- if item.chilren is null 渲染 a-menu-item -->
-    <a-menu-item v-bind="$attrs" :key="resolvePath(item.path, true)" v-else>
+    <a-menu-item
+      @click="handleFoldSideBar"
+      v-bind="$attrs"
+      :key="resolvePath(item.path, true)"
+      v-else
+    >
       <router-link :to="resolvePath(item.path, true)">
         <MenuIcon v-if="level && level === 0" />
         <span v-else><div class="indent"></div></span>
@@ -33,6 +39,7 @@
 </template>
 
 <script>
+import { computed } from "vue";
 import path from "path";
 import { useStore, getter } from "vuex";
 import * as Icons from "@ant-design/icons-vue";
@@ -41,19 +48,19 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true,
+      required: true
     },
     basePath: {
       type: String,
-      default: "",
+      default: ""
     },
     level: {
       type: Number,
-      required: true,
-    },
+      required: true
+    }
   },
   setup(props) {
-    const { commit } = useStore();
+    const { commit, getters } = useStore();
     const resolvePath = (routePath, single) => {
       if (/^(https?:|mailto:|tel:)/.test(routePath)) {
         return routePath;
@@ -64,18 +71,26 @@ export default {
       // 当处于 comp 模式下拼接相关路由
       return path.resolve(props.basePath, routePath);
     };
+    const handleFoldSideBar = () => {
+      console.log(54544545);
+      const isComputedMobile = computed(() => getters.isMobile);
+      if (isComputedMobile.value) {
+        commit("layout/UPDATE_COLLAPSED", true);
+      }
+    };
 
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
 
     return {
+      handleFoldSideBar,
       resolvePath,
-      MenuIcon,
+      MenuIcon
     };
-  },
+  }
 };
 </script>
 <style>
-.indent{
+.indent {
   width: 15px;
   display: inline-block;
 }

@@ -96,7 +96,7 @@ export default {
       if (isLayoutMobile) {
         setTimeout(() => {
           handleFoldSideBar();
-        }, 1800);
+        }, 1000);
       }
     };
     handleLayouts();
