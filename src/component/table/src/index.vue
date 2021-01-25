@@ -245,14 +245,14 @@ export default defineComponent({
         return tableProps[k]
       })
       return (
-        <Fragment>
+        <div>
           { showAlert ? renderAlert() : null }
           <a-table
             {...tableProps}
             v-slots={slots}
             change={fetchData}
           ></a-table>
-        </Fragment>
+        </div>
       )
     }
   }

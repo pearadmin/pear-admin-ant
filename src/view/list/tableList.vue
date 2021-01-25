@@ -3,7 +3,12 @@
     <page-header title="查询表格" describe="表格查询的复杂示例"></page-header>
     <page-layout>
       <a-card>
+        <p-query
+          :default-query="queryArray"
+          :hidden-query="hiddenQuery"
+        ></p-query>
         <p-table
+          style="margin-top: 24px;"
           :columns="columns"
           :fetch="fetch"
           :rowSelection="rowSelection"
@@ -49,7 +54,7 @@
 </template>
 <script>
 import { SmileOutlined, DownOutlined } from "@ant-design/icons-vue";
-import {computed, defineComponent, reactive} from "vue";
+import {computed, defineComponent, markRaw, reactive} from "vue";
 const columns = [
   {
     dataIndex: "name",
@@ -92,7 +97,7 @@ const columns = [
 
 const data = [
   {
-    key: "3",
+    key: "1",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -101,7 +106,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "2",
     name: "Joe Black",
     sex: "boy",
     age: 31,
@@ -119,7 +124,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "4",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -128,7 +133,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "5",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -137,7 +142,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "6",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -146,7 +151,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "7",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -155,7 +160,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "8",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -199,10 +204,62 @@ export default defineComponent({
         onChange: onSelectChange
       }
     })
+    const queryArray = [
+      {
+        type: 'input',
+        modelName: 'id',
+        rules: [],
+        defaultValue: '',
+        label: '规则编号'
+      },
+      {
+        type: 'select',
+        modelName: 'status',
+        rules: [],
+        defaultValue: '0',
+        label: '使用状态'
+      }
+    ]
+    const hiddenQuery = [
+      {
+        type: 'input-number',
+        modelName: 'callNo',
+        rules: [],
+        defaultValue: '0',
+        label: '调用次数',
+        hidden: true
+      },
+      {
+        type: 'input-number',
+        modelName: 'callNo',
+        rules: [],
+        defaultValue: '0',
+        label: '更新日期',
+        hidden: true
+      },
+      {
+        type: 'input-number',
+        modelName: 'callNo',
+        rules: [],
+        defaultValue: '0',
+        label: '使用状态',
+        hidden: true
+      },
+      {
+        type: 'input-number',
+        modelName: 'callNo',
+        rules: [],
+        defaultValue: '0',
+        label: '使用状态',
+        hidden: true
+      }
+    ]
     return {
       // data,
       fetch,
       columns,
+      queryArray,
+      hiddenQuery,
       rowSelection
     }
   }
