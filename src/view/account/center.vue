@@ -2,8 +2,8 @@
   <div class="center">
     <page-layout>
       <a-row :gutter="[15, 15]">
-        <a-col :span="6">
-          <a-card>
+        <a-col :lg="6" :md="6" :sm="24" :xs="24">
+          <a-card style="position: relative">
             <a-avatar
               class="avatar"
               :size="64"
@@ -14,7 +14,7 @@
             <a-divider />
             <div class="desc">江湖无名，安心练剑</div>
           </a-card>
-          <a-card style="margin-top:15px;">
+          <a-card style="margin-top: 15px">
             标签
             <br />
             <br />
@@ -22,21 +22,29 @@
             <a-tag>专注设计</a-tag>
             <a-tag>帅</a-tag>
             <a-tag>海纳百川</a-tag>
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
             团队
-            <br/>
-            <br/>
-            <a-row :gutter="[20,20]">
-              <a-col span="12"><a-avatar>科</a-avatar>&nbsp;&nbsp;&nbsp;科学搬砖组</a-col>
-              <a-col span="12"><a-avatar>程</a-avatar>&nbsp;&nbsp;&nbsp;程序员日常</a-col>
-              <a-col span="12"><a-avatar>中</a-avatar>&nbsp;&nbsp;&nbsp;中二少年团</a-col>
-              <a-col span="12"><a-avatar>计</a-avatar>&nbsp;&nbsp;&nbsp;计算机天团</a-col>
+            <br />
+            <br />
+            <a-row :gutter="[20, 20]">
+              <a-col span="12"
+                ><a-avatar>科</a-avatar>&nbsp;&nbsp;&nbsp;科学搬砖组</a-col
+              >
+              <a-col span="12"
+                ><a-avatar>程</a-avatar>&nbsp;&nbsp;&nbsp;程序员日常</a-col
+              >
+              <a-col span="12"
+                ><a-avatar>中</a-avatar>&nbsp;&nbsp;&nbsp;中二少年团</a-col
+              >
+              <a-col span="12"
+                ><a-avatar>计</a-avatar>&nbsp;&nbsp;&nbsp;计算机天团</a-col
+              >
             </a-row>
           </a-card>
         </a-col>
-        <a-col :span="18">
+        <a-col :lg="18" :md="18" :sm="24" :xs="24">
           <a-card>
             <a-tabs @change="callback">
               <a-tab-pane key="1" tab="基本信息">
@@ -190,7 +198,7 @@ export default {
 <style lang="less">
 .center {
   .avatar {
-    margin-left: 36%;
+    margin-left: 38%;
     margin-top: 40px;
   }
   .username {
