@@ -22,7 +22,7 @@
     </a-card>
     <page-layout>
       <a-row :gutter="[10, 10]">
-        <a-col :xs="24" :xxl="18">
+        <a-col :xs="24" :lg="18" :xxl="18">
           <a-card title="项目">
             <a-card-grid
               style="
@@ -138,7 +138,7 @@
             </a-list>
           </a-card>
         </a-col>
-        <a-col :xs="24" :xxl="6">
+        <a-col :xs="24" :lg="6" :xxl="6">
           <a-card title="任务">
             <a-timeline>
               <a-timeline-item color="green">
