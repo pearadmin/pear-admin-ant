@@ -21,8 +21,7 @@
 import { useStore } from "vuex";
 import SubMenu from "./SubMenu.vue";
 import { useRoute, useRouter } from "vue-router";
-import {computed, watch, ref, getCurrentInstance, onMounted, reactive} from "vue";
-import store from "@/store";
+import {computed, watch, ref, reactive} from "vue";
 
 export default {
   components: {
@@ -30,9 +29,7 @@ export default {
   },
   setup() {
     const { getters, commit } = useStore();
-    const routes = useRouter().options.routes;
     const route = useRoute();
-    const theme = computed(() => getters.theme);
     const layout = computed(() => getters.layout);
     const menuModel = computed(() =>getters.layout == "layout-head" ? "horizontal" : "inline");
     const menuTheme = computed(() =>getters.theme === "theme-dark" || getters.theme === "theme-night"? "dark": "light");
@@ -50,9 +47,7 @@ export default {
 
     const dynamicRoute = () => {
       let { matched } = route;
-      let needOpenKeys = matched
-        .slice(0, matched.length - 1)
-        .map((m) => m.path);
+      let needOpenKeys = matched.slice(0, matched.length - 1).map((m) => m.path);
       let openKeys = [...storeOpenKey.value];
       needOpenKeys.forEach((nk) => !openKeys.includes(nk) && openKeys.push(nk));
       changeLayout(layout.value);
