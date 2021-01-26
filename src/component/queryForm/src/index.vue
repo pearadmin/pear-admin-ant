@@ -2,7 +2,6 @@
 import {defineComponent, onMounted, reactive, Fragment, watch} from 'vue'
 import {useForm} from "@ant-design-vue/use";
 import {UpOutlined, DownOutlined} from '@ant-design/icons-vue'
-import './form.less'
 
 export default defineComponent({
   name: 'p-query',
@@ -21,47 +20,60 @@ export default defineComponent({
       type: Array
     }
   },
+  emits: ['on-search', 'on-reset'],
   setup(props, {attrs, slots, emit}) {
     const componentState = reactive({
-      showHideQuery: false
+      showHideQuery: false,
+      promiseQueue: []
     })
-
-    // 监听
-    // watch(() => props.hiddenQuery, array => {
-    //   componentState.showHideQuery = array.length !== 0
-    // }, { immediate: true })
 
     // generator reactive state
     const formState = reactive({})
     const formRules = reactive({})
-    props.defaultQuery.forEach(it => {
-      const {modelName, rules = [], defaultValue} = it
-      formState[modelName] = defaultValue
-      formRules[modelName] = rules
-    })
+
+    const generatorFormState = array => {
+      array.length > 0 && array.forEach(it => {
+        const {modelName, rules = [], defaultValue} = it
+        formState[modelName] = defaultValue
+        formRules[modelName] = rules
+      })
+    }
+    generatorFormState(props.defaultQuery)
+    generatorFormState(props.hiddenQuery)
 
     // form
     const {validate, validateInfos, resetFields} = useForm(formState, formRules)
 
-
     const getFormItem = item => {
-      const {modelName, type, label} = item
+      const {modelName, type, label, options: defaultOption } = item
       switch (type) {
         case 'select':
           return (
-            <a-select v-model={modelName} placeholder={`请选择${label}`}></a-select>
+            <a-select v-model={[formState[modelName], 'value']} placeholder={`请选择${label}`}>
+              {
+                defaultOption.length !== 0 ? (
+                  defaultOption.map(({key, title}) => (
+                    <a-select-option key={key} value={key} title={title}>{title}</a-select-option>
+                  ))
+                ) : null
+              }
+            </a-select>
+          )
+        case 'input-number':
+          return (
+            <a-input-number style="width:100%;" v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}></a-input-number>
+          )
+        case 'date-picker':
+          return (
+            <a-date-picker v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}/>
           )
         default:
-          return (<a-input v-model={modelName} placeholder={`请输入${label}`}></a-input>)
+          return (<a-input v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}></a-input>)
       }
     }
+
     /**
-     * item : {
-     *   component: DOM
-     *   label: String
-     *   modelName: String
-     *   defaultValue: Any 保证与组件的默认值一至的类型，在antdv中，有的组件的默认值为undefined, 有的为''. 默认值的类型不对的时候，无法显示Placeholder属性
-     * }
+     * 渲染formItem中的表单
      * @param item
      */
     const renderFormItem = item => {
@@ -69,7 +81,7 @@ export default defineComponent({
       return (
         <a-form-item
           label={label}
-          {...validateInfos[modelName]}
+          {...{...validateInfos[modelName]}}
         >
           {getFormItem(item)}
         </a-form-item>
@@ -80,9 +92,16 @@ export default defineComponent({
     const handleSearch = async e => {
       try {
         const validates = await validate()
+        emit('on-search', validates)
       } catch (e) {
         console.info(e)
       }
+    }
+
+    // reset
+    const handleReset = e => {
+      resetFields()
+      emit('on-reset')
     }
 
     // toggle search button
@@ -92,33 +111,36 @@ export default defineComponent({
 
     return () => {
       return (
-        <a-form layout="inline">
-          <a-row gutter={48}>
-            {
-              props.defaultQuery.map((item, key) => {
-                return (
-                  <a-col md={8} sm={24}>
-                    {renderFormItem(item)}
-                  </a-col>
-                )
-              })
-            }
-            {
-              componentState.showHideQuery ? (
-                props.hiddenQuery.map((item, key) => {
+        <div class="table-page-search-wrapper">
+          <a-form layout="inline">
+            <a-row gutter={48}>
+              {
+                props.defaultQuery.map((item, key) => {
                   return (
                     <a-col md={8} sm={24}>
                       {renderFormItem(item)}
                     </a-col>
                   )
                 })
-              ) : null
-            }
-            <a-col md={!componentState.showHideQuery && 8 || 24} sm={24}>
+              }
+              {
+                componentState.showHideQuery ? (
+                  props.hiddenQuery.map((item, key) => {
+                    return (
+                      <a-col md={8} sm={24}>
+                        {renderFormItem(item)}
+                      </a-col>
+                    )
+                  })
+                ) : null
+              }
+              <a-col md={!componentState.showHideQuery && 8 || 24} sm={24}>
               <span
+                class="table-page-search-submitButtons"
                 style={componentState.showHideQuery && {float: 'right', overflow: 'hidden'} || {}}
               >
-                <a-button onClick={handleSearch}>查询</a-button>
+                <a-button type="primary" onClick={handleSearch}>查询</a-button>
+                <a-button style="margin-left: 8px" onClick={handleReset}>重置</a-button>
                 <a onClick={toggleAdvanced} style="margin-left: 8px">
                   {componentState.showHideQuery ? '收起' : '展开'}
                 </a>
@@ -126,11 +148,16 @@ export default defineComponent({
                   componentState.showHideQuery ? <UpOutlined/> : <DownOutlined/>
                 }
               </span>
-            </a-col>
-          </a-row>
-        </a-form>
+              </a-col>
+            </a-row>
+          </a-form>
+        </div>
       )
     }
   }
 })
 </script>
+
+<style lang="less">
+@import './index.less';
+</style>

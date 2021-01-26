@@ -6,6 +6,8 @@
         <p-query
           :default-query="queryArray"
           :hidden-query="hiddenQuery"
+          @on-search="handleSearch"
+          @on-reset="handleReset"
         ></p-query>
         <p-table
           style="margin-top: 24px;"
@@ -170,6 +172,21 @@ const data = [
   },
 ];
 
+const selectOptions = [
+  {
+    key: '0',
+    title: '全部',
+  },
+  {
+    key: '1',
+    title: '关闭',
+  },
+  {
+    key: '2',
+    title: '运行中',
+  }
+]
+
 export default defineComponent({
   components: {
     SmileOutlined,
@@ -204,6 +221,8 @@ export default defineComponent({
         onChange: onSelectChange
       }
     })
+
+    // 查询表头
     const queryArray = [
       {
         type: 'input',
@@ -217,7 +236,8 @@ export default defineComponent({
         modelName: 'status',
         rules: [],
         defaultValue: '0',
-        label: '使用状态'
+        label: '使用状态',
+        options: selectOptions
       }
     ]
     const hiddenQuery = [
@@ -225,42 +245,52 @@ export default defineComponent({
         type: 'input-number',
         modelName: 'callNo',
         rules: [],
-        defaultValue: '0',
+        defaultValue: undefined,
         label: '调用次数',
-        hidden: true
       },
       {
-        type: 'input-number',
-        modelName: 'callNo',
+        type: 'date-picker',
+        modelName: 'date',
         rules: [],
-        defaultValue: '0',
+        defaultValue: undefined,
         label: '更新日期',
-        hidden: true
       },
       {
-        type: 'input-number',
-        modelName: 'callNo',
+        type: 'select',
+        modelName: 'useStatus',
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        hidden: true
+        options: selectOptions
       },
       {
-        type: 'input-number',
-        modelName: 'callNo',
+        type: 'select',
+        modelName: 'useStatus2',
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        hidden: true
+        options: selectOptions
       }
     ]
+
+    // 查询回调
+    const handleSearch = data => {
+      console.log('query-data ==> ', data)
+    }
+
+    const handleReset = e => {
+      console.log('reset form')
+    }
+
     return {
       // data,
       fetch,
       columns,
       queryArray,
       hiddenQuery,
-      rowSelection
+      rowSelection,
+      handleSearch,
+      handleReset
     }
   }
 })
