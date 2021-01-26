@@ -10,7 +10,6 @@
           @on-reset="handleReset"
         ></p-query>
         <p-table
-          style="margin-top: 24px;"
           :columns="columns"
           :fetch="fetch"
           :rowSelection="rowSelection"
