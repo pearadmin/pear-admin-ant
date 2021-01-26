@@ -1,5 +1,5 @@
 <script>
-import {defineComponent, onMounted, reactive, Fragment, watch} from 'vue'
+import {defineComponent, reactive} from 'vue'
 import {useForm} from "@ant-design-vue/use";
 import {UpOutlined, DownOutlined} from '@ant-design/icons-vue'
 
@@ -81,7 +81,7 @@ export default defineComponent({
       return (
         <a-form-item
           label={label}
-          {...{...validateInfos[modelName]}}
+          {...validateInfos[modelName]}
         >
           {getFormItem(item)}
         </a-form-item>
@@ -117,7 +117,7 @@ export default defineComponent({
               {
                 props.defaultQuery.map((item, key) => {
                   return (
-                    <a-col md={8} sm={24}>
+                    <a-col key={key} md={8} sm={24}>
                       {renderFormItem(item)}
                     </a-col>
                   )
@@ -127,7 +127,7 @@ export default defineComponent({
                 componentState.showHideQuery ? (
                   props.hiddenQuery.map((item, key) => {
                     return (
-                      <a-col md={8} sm={24}>
+                      <a-col key={key} md={8} sm={24}>
                         {renderFormItem(item)}
                       </a-col>
                     )
