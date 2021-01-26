@@ -92,11 +92,11 @@ export default {
       const domWidth = document.body.getBoundingClientRect().width;
       const isLayoutMobile = domWidth - 1 < 992;
       commit("layout/UPDATE_ISMOBILE", isLayoutMobile);
-      /* 手机端2秒折叠导航栏 */
+      /* 手机端1秒后折叠导航栏 */
       if (isLayoutMobile) {
         setTimeout(() => {
           handleFoldSideBar();
-        }, 1800);
+        }, 1000);
       }
     };
     handleLayouts();

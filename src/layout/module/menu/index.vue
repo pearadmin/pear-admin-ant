@@ -13,6 +13,7 @@
         :item="route"
         :base-path="rootPath + route.path"
         :level="0"
+        @click="handleFoldSideBar"
       />
     </a-menu>
   </div>
@@ -39,6 +40,7 @@ export default {
     const selectKey = ref([activeKey.value]);
     const rootPath = ref("");
 
+
     const state = reactive({
       menu: computed(() => getters.menu)
     })
@@ -51,7 +53,9 @@ export default {
       let openKeys = [...storeOpenKey.value];
       needOpenKeys.forEach((nk) => !openKeys.includes(nk) && openKeys.push(nk));
       changeLayout(layout.value);
-      if (layout.value !== "layout-head") {
+      const collapsed = computed(() => getters.collapsed);
+      //折叠的时候不弹出当前导航栏 &&!collapsed.value
+      if (layout.value !== "layout-head"&&!collapsed.value) {
         commit("layout/updateOpenKey", { openKeys });
       } else {
         commit("layout/clearOpenKey");
@@ -74,6 +78,12 @@ export default {
     const openChange = function (openKeys) {
       commit("layout/updateOpenKey", { openKeys });
     };
+    const handleFoldSideBar = () => {
+      const isComputedMobile = computed(() => getters.isMobile);
+      if (isComputedMobile.value) {
+        commit("layout/UPDATE_COLLAPSED", true);
+      }
+    };
 
     watch(layout, (n) => changeLayout(n));
     watch(computed(() => route.fullPath),dynamicRoute);
@@ -82,6 +92,7 @@ export default {
     dynamicRoute(route);
 
     return {
+      handleFoldSideBar,
       selectKey,
       openKey,
       menuModel,

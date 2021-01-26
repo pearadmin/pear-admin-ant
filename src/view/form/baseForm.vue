@@ -6,8 +6,8 @@
     ></page-header>
     <page-layout>
       <a-card>
-        <a-row>
-          <a-col offset="5" span="19">
+        <a-row type="flex" justify="center">
+          <a-col :xs="24" :sm="24" :md="24" :lg="24" :xl="22" :xxl="19">
             <a-form
               ref="ruleForm"
               :model="form"
@@ -55,6 +55,12 @@
               <a-form-item label="描述" name="desc">
                 <a-textarea v-model:value="form.desc" />
               </a-form-item>
+              <a-form-item label="富文本" name="content">
+                <Ue
+                  v-model:value="form.content"
+                  @change="val => (form.content = val)"
+                />
+              </a-form-item>
               <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
                 <a-button type="primary" @click="onSubmit"> Create </a-button>
                 <a-button style="margin-left: 10px" @click="resetForm">
@@ -70,11 +76,13 @@
   </div>
 </template>
 <script>
+import Ue from "@/component/ue";
 export default {
+  components: { Ue },
   data() {
     return {
-      labelCol: { span: 4 },
-      wrapperCol: { span: 11 },
+      labelCol: { xs: 4, sm: 4, md: 2, lg: 3, xl: 3, xxl: 3 },
+      wrapperCol: { xs: 20, sm: 20, md: 20, lg: 18, xl: 16, xxl: 17 },
       other: "",
       form: {
         name: "",
@@ -83,60 +91,61 @@ export default {
         delivery: false,
         type: [],
         resource: "",
-        desc: "",
+        content: "",
+        desc: ""
       },
       rules: {
         name: [
           {
             required: true,
             message: "Please input Activity name",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 3,
             max: 5,
             message: "Length should be 3 to 5",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         region: [
           {
             required: true,
             message: "Please select Activity zone",
-            trigger: "change",
-          },
+            trigger: "change"
+          }
         ],
         date1: [
           {
             required: true,
             message: "Please pick a date",
             trigger: "change",
-            type: "object",
-          },
+            type: "object"
+          }
         ],
         type: [
           {
             type: "array",
             required: true,
             message: "Please select at least one activity type",
-            trigger: "change",
-          },
+            trigger: "change"
+          }
         ],
         resource: [
           {
             required: true,
             message: "Please select activity resource",
-            trigger: "change",
-          },
+            trigger: "change"
+          }
         ],
         desc: [
           {
             required: true,
             message: "Please input activity form",
-            trigger: "blur",
-          },
-        ],
-      },
+            trigger: "blur"
+          }
+        ]
+      }
     };
   },
   methods: {
@@ -146,13 +155,13 @@ export default {
         .then(() => {
           console.log("values", this.form);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log("error", error);
         });
     },
     resetForm() {
       this.$refs.ruleForm.resetFields();
-    },
-  },
+    }
+  }
 };
 </script>
