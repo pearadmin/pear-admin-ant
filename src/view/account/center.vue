@@ -2,7 +2,7 @@
   <div class="center">
     <page-layout>
       <a-row :gutter="[15, 15]">
-        <a-col :span="6">
+        <a-col :xs="24" :xxl="6">
           <a-card>
             <a-avatar
               class="avatar"
@@ -36,7 +36,7 @@
             </a-row>
           </a-card>
         </a-col>
-        <a-col :span="18">
+        <a-col :xs="24" :xxl="18">
           <a-card>
             <a-tabs @change="callback">
               <a-tab-pane key="1" tab="基本信息">
