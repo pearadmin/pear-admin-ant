@@ -65,7 +65,7 @@ export default defineComponent({
           )
         case 'date-picker':
           return (
-            <a-date-picker v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}/>
+            <a-date-picker style={{width: '100%'}} v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}/>
           )
         default:
           return (<a-input v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}></a-input>)
