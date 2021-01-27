@@ -6,7 +6,8 @@
     "serve-dev": "vue-cli-service serve --mode development",
     "serve-prod": "vue-cli-service serve --mode production",
     "build-dev": "vue-cli-service build --mode development",
-    "build-prod": "vue-cli-service build --mode production"
+    "build-prod": "vue-cli-service build --mode production",
+    "report": "vue-cli-service build --report"
   },
   "dependencies": {
     "@tinymce/tinymce-vue": "^4.0.0",
@@ -16,6 +17,7 @@
     "ant-design-vue": "^2.0.0-rc.7",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "lodash.get": "^4.4.2",
     "moment": "^2.27.0",
     "nprogress": "^0.2.0",
     "reqwest": "^2.0.5",

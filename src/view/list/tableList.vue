@@ -3,7 +3,18 @@
     <page-header title="查询表格" describe="表格查询的复杂示例"></page-header>
     <page-layout>
       <a-card>
-        <a-table :columns="columns" :data-source="data">
+        <p-query
+          :default-query="queryArray"
+          :hidden-query="hiddenQuery"
+          @on-search="handleSearch"
+          @on-reset="handleReset"
+        ></p-query>
+        <p-table
+          :columns="columns"
+          :fetch="fetch"
+          :rowSelection="rowSelection"
+          alert
+        >
           <template v-slot:name="{ text }">
             <a>{{ text }}</a>
           </template>
@@ -36,7 +47,7 @@
               <a class="ant-dropdown-link"> More actions <down-outlined /> </a>
             </span>
           </template>
-        </a-table>
+        </p-table>
       </a-card>
     </page-layout>
     <page-footer></page-footer>
@@ -44,6 +55,7 @@
 </template>
 <script>
 import { SmileOutlined, DownOutlined } from "@ant-design/icons-vue";
+import {computed, defineComponent, markRaw, reactive} from "vue";
 const columns = [
   {
     dataIndex: "name",
@@ -64,6 +76,7 @@ const columns = [
     title: "Age",
     dataIndex: "age",
     key: "age",
+    needTotal: true
   },
   {
     title: "Address",
@@ -85,7 +98,7 @@ const columns = [
 
 const data = [
   {
-    key: "3",
+    key: "1",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -94,10 +107,10 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "2",
     name: "Joe Black",
     sex: "boy",
-    age: 32,
+    age: 31,
     createTime: "2020-02-09 00:00:00",
     address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
@@ -106,13 +119,13 @@ const data = [
     key: "3",
     name: "Joe Black",
     sex: "boy",
-    age: 32,
+    age: 332,
     createTime: "2020-02-09 00:00:00",
     address: "Sidney No. 1 Lake Park Sidney No. 1 ",
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "4",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -121,7 +134,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "5",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -130,7 +143,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "6",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -139,7 +152,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "7",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -148,7 +161,7 @@ const data = [
     tags: ["cool", "teacher"],
   },
   {
-    key: "3",
+    key: "8",
     name: "Joe Black",
     sex: "boy",
     age: 32,
@@ -158,16 +171,126 @@ const data = [
   },
 ];
 
-export default {
+const selectOptions = [
+  {
+    key: '0',
+    title: '全部',
+  },
+  {
+    key: '1',
+    title: '关闭',
+  },
+  {
+    key: '2',
+    title: '运行中',
+  }
+]
+
+export default defineComponent({
   components: {
     SmileOutlined,
     DownOutlined,
   },
-  data() {
+  setup () {
+    const fetch = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({
+            pageNo: 1,
+            total: data.length,
+            data
+          })
+        })
+      })
+    }
+
+    const state = reactive({
+      selectedRowKeys: [],
+      selectedRows: []
+    })
+
+    const onSelectChange = (selectedRowKeys, selectedRows) => {
+      state.selectedRowKeys = selectedRowKeys
+      state.selectedRows = selectedRows
+    }
+
+    const rowSelection = computed(() => {
+      return {
+        selectedRowKeys: state.selectedRowKeys,
+        onChange: onSelectChange
+      }
+    })
+
+    // 查询表头
+    const queryArray = [
+      {
+        type: 'input',
+        modelName: 'id',
+        rules: [],
+        defaultValue: '',
+        label: '规则编号'
+      },
+      {
+        type: 'select',
+        modelName: 'status',
+        rules: [],
+        defaultValue: '0',
+        label: '使用状态',
+        options: { data: selectOptions }
+      }
+    ]
+    const hiddenQuery = [
+      {
+        type: 'input-number',
+        modelName: 'callNo',
+        rules: [],
+        defaultValue: undefined,
+        label: '调用次数',
+      },
+      {
+        type: 'date-picker',
+        modelName: 'date',
+        rules: [],
+        defaultValue: undefined,
+        label: '更新日期',
+      },
+      {
+        type: 'select',
+        modelName: 'useStatus',
+        rules: [],
+        defaultValue: '0',
+        label: '使用状态',
+        options: { data: selectOptions }
+      },
+      {
+        type: 'select',
+        modelName: 'useStatus2',
+        rules: [],
+        defaultValue: '0',
+        label: '使用状态',
+        options: { data: selectOptions }
+      }
+    ]
+
+    // 查询回调
+    const handleSearch = data => {
+      console.log('query-data ==> ', data)
+    }
+
+    const handleReset = e => {
+      console.log('reset form')
+    }
+
     return {
-      data,
+      // data,
+      fetch,
       columns,
-    };
-  },
-};
+      queryArray,
+      hiddenQuery,
+      rowSelection,
+      handleSearch,
+      handleReset
+    }
+  }
+})
 </script>

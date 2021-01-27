@@ -1,37 +1,38 @@
 <template>
-  <page-header
-    title="高级表单"
-    describe="高级表单常见于一次性输入和提交大批量数据的场景"
-  ></page-header>
-  <page-layout>
-    <a-card class="card" title="仓库管理" :bordered="false">
-      <repository-form ref="repository" :showSubmit="false"/>
-    </a-card>
-    <a-card class="card" title="任务管理" :bordered="false">
-      <task-form ref="task" :showSubmit="false"/>
-    </a-card>
+  <div>
+    <page-header
+      title="高级表单"
+      describe="高级表单常见于一次性输入和提交大批量数据的场景"
+    ></page-header>
+    <page-layout>
+      <a-card class="card" title="仓库管理" :bordered="false">
+        <repository-form ref="repository" :showSubmit="false"/>
+      </a-card>
+      <a-card class="card" title="任务管理" :bordered="false">
+        <task-form ref="task" :showSubmit="false"/>
+      </a-card>
 
-    <!-- table -->
-    <a-card>
-      <a-table
-        :columns="columns"
-        :dataSource="data"
-        :pagination="false"
-        :loading="memberLoading"
-      >
-        <template v-for="(col, i) in ['name', 'workId', 'department']" v-slot:[col]="{text, record}">
-          <a-input
-            :key="col"
-            v-if="record.editable"
-            style="margin: -5px 0"
-            :value="text"
-            :placeholder="columns[i].title"
-            @change="e => handleChange(e.target.value, record.key, col)"
-          />
-          <template v-else>{{ text }}</template>
-        </template>
-        <template #operation="{record}">
-          <template v-if="record.editable">
+      <!-- table -->
+      <a-card>
+        <a-table
+          :columns="columns"
+          :dataSource="data"
+          :pagination="false"
+          :loading="memberLoading"
+        >
+          <template v-for="(col, i) in ['name', 'workId', 'department']" v-slot:[col]="{text, record}">
+            <a-input
+              :key="col"
+              v-if="record.editable"
+              style="margin: -5px 0"
+              :value="text"
+              :placeholder="columns[i].title"
+              @change="e => handleChange(e.target.value, record.key, col)"
+            />
+            <template v-else>{{ text }}</template>
+          </template>
+          <template #operation="{record}">
+            <template v-if="record.editable">
             <span v-if="record.isNew">
               <a @click="saveRow(record)">添加</a>
               <a-divider type="vertical"/>
@@ -39,32 +40,33 @@
                 <a>删除</a>
               </a-popconfirm>
             </span>
-            <span v-else>
+              <span v-else>
               <a @click="saveRow(record)">保存</a>
               <a-divider type="vertical"/>
               <a @click="cancel(record.key)">取消</a>
             </span>
-          </template>
-          <span v-else>
+            </template>
+            <span v-else>
             <a @click="toggle(record.key)">编辑</a>
             <a-divider type="vertical"/>
             <a-popconfirm title="是否要删除此行？" @confirm="remove(record.key)">
               <a>删除</a>
             </a-popconfirm>
           </span>
-        </template>
-      </a-table>
-      <a-button style="width: 100%; margin-top: 16px; margin-bottom: 24px" type="dashed" @click="newMember">
-        <template #icon>
-          <PlusOutlined/>
-        </template>
-        新增成员
-      </a-button>
-      <a-button @click="resetForm">重置</a-button>
-      <a-button type="primary" @click="validate" :loading="loading" style="margin-left: 16px;">提交</a-button>
-    </a-card>
-  </page-layout>
-  <page-footer></page-footer>
+          </template>
+        </a-table>
+        <a-button style="width: 100%; margin-top: 16px; margin-bottom: 24px" type="dashed" @click="newMember">
+          <template #icon>
+            <PlusOutlined/>
+          </template>
+          新增成员
+        </a-button>
+        <a-button @click="resetForm">重置</a-button>
+        <a-button type="primary" @click="validate" :loading="loading" style="margin-left: 16px;">提交</a-button>
+      </a-card>
+    </page-layout>
+    <page-footer></page-footer>
+  </div>
 </template>
 
 <script>
