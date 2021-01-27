@@ -236,7 +236,7 @@ export default defineComponent({
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        options: selectOptions
+        options: { data: selectOptions }
       }
     ]
     const hiddenQuery = [
@@ -260,7 +260,7 @@ export default defineComponent({
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        options: selectOptions
+        options: { data: selectOptions }
       },
       {
         type: 'select',
@@ -268,7 +268,7 @@ export default defineComponent({
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        options: selectOptions
+        options: { data: selectOptions }
       }
     ]
 

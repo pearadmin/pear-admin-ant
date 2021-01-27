@@ -44,17 +44,21 @@ export default defineComponent({
     // form
     const {validate, validateInfos, resetFields} = useForm(formState, formRules)
 
+    // 如果需要扩充请自行修改该方法
     const getFormItem = item => {
-      const {modelName, type, label, options: defaultOption } = item
+      const {modelName, type, label, options = {} } = item
+      const { data = [], keyName = 'key', titleName ='title' } = options
       switch (type) {
         case 'select':
           return (
             <a-select v-model={[formState[modelName], 'value']} placeholder={`请选择${label}`}>
               {
-                defaultOption.length !== 0 ? (
-                  defaultOption.map(({key, title}) => (
-                    <a-select-option key={key} value={key} title={title}>{title}</a-select-option>
-                  ))
+                data.length !== 0 ? (
+                  data.map(it => {
+                    return (
+                      <a-select-option key={it[keyName]} value={it[keyName]} title={it[titleName]}>{it[titleName]}</a-select-option>
+                    )
+                  })
                 ) : null
               }
             </a-select>
@@ -65,7 +69,7 @@ export default defineComponent({
           )
         case 'date-picker':
           return (
-            <a-date-picker style={{width: '100%'}} v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}/>
+            <a-date-picker style={{width: '100%'}} v-model={[formState[modelName], 'value']} placeholder={`请选择${label}`}/>
           )
         default:
           return (<a-input v-model={[formState[modelName], 'value']} placeholder={`请输入${label}`}></a-input>)
