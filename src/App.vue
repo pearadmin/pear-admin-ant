@@ -4,13 +4,8 @@
   </a-config-provider>
 </template>
 <script>
-<<<<<<< HEAD
 import { defineComponent } from "vue";
-=======
-import {computed, watch, ref, reactive, defineComponent} from "vue";
-import {useStore} from "vuex";
 import zh_CN from 'ant-design-vue/es/locale/zh_CN'
->>>>>>> dev
 
 export default defineComponent({
   name: 'App',
