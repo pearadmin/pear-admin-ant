@@ -7,11 +7,11 @@
       v-bind="validateInfos.paymentUser"
     >
       <a-select
-        placeholder="ant-design@alipay.com"
+        placeholder="pearadmin@com"
         v-model:value="paymentUser"
         allowClear
       >
-        <a-select-option value="1">ant-design@alipay.com</a-select-option>
+        <a-select-option value="1">pearadmin.com</a-select-option>
       </a-select>
     </a-form-item>
     <a-form-item

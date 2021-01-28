@@ -1,5 +1,5 @@
 <template>
-  <di id="404">
+  <div id="404">
     <page-layout>
       <a-card>
         <a-result
@@ -14,5 +14,5 @@
       </a-card>
     </page-layout>
     <page-footer></page-footer>
-  </di>
+  </div>
 </template>
