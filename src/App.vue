@@ -5,8 +5,7 @@
 </template>
 <script>
 import { defineComponent } from "vue";
-import zh_CN from 'ant-design-vue/es/locale/zh_CN'
-
+import zh_CN from 'ant-design-vue/es/locale/zh_CN';
 export default defineComponent({
   name: 'App',
   setup() {

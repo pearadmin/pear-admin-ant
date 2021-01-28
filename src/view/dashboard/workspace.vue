@@ -6,17 +6,16 @@
         src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
       >
       </a-avatar>
-      <span style="margin-left: 30px; font-size: 18px"
-        >江湖无名，安心练剑 &nbsp; 🍚</span
-      >
+      <span style="margin-left: 30px; margin-top:0px; font-size: 18px"
+        >&nbsp;江湖无名，安心练剑 </span>
       <div style="float: right; width: 340px">
         <a-row
           :gutter="16"
           style="font-weight:500;margin-top: 18px; font-size: 18px"
         >
-          <a-col :span="8"> 项目 / 80</a-col>
-          <a-col :span="8"> 排名 / 15</a-col>
-          <a-col :span="8"> 访问 / 35</a-col>
+          <a-col :span="8" style="text-align: center;"> 项目 / 80 </a-col>
+          <a-col :span="8" style="text-align: center;"> 排名 / 15 </a-col>
+          <a-col :span="8" style="text-align: center;"> 访问 / 35 </a-col>
         </a-row>
       </div>
     </a-card>

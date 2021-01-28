@@ -53,7 +53,7 @@ export default {
      * true
      * false
      * */
-    tab: false,
+    tab: true,
 
     /**
      * 参数: 侧边菜单栏宽度
@@ -99,7 +99,7 @@ export default {
      * fade-right
      * fade-top
      */
-    routerAnimate: "fade-right",
+    routerAnimate: "fade-top",
 
     /**
      * 参数: 通栏 (待实现)
