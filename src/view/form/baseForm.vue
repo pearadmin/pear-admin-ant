@@ -55,13 +55,9 @@
               <a-form-item label="描述" name="desc">
                 <a-textarea v-model:value="form.desc" />
               </a-form-item>
-              <a-form-item label="富文本mini" name="content">
+              <a-form-item label="富文本" name="content">
                 <Ue mini v-model:value="form.content" />
               </a-form-item>
-              <a-form-item label="富文本" name="content">
-                <Ue v-model:value="form.content" />
-              </a-form-item>
-
               <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
                 <a-button type="primary" @click="onSubmit"> Create </a-button>
                 <a-button style="margin-left: 10px" @click="resetForm">
