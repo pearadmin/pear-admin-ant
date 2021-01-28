@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-card>
+    <a-card style="border-radius:0px!important;">
       <a-avatar
         :size="64"
         src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
