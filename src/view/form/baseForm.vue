@@ -56,7 +56,7 @@
                 <a-textarea v-model:value="form.desc" />
               </a-form-item>
               <a-form-item label="富文本" name="content">
-                <Ue mini v-model:value="form.content" />
+                <Tinymce mini v-model:value="form.content" />
               </a-form-item>
               <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
                 <a-button type="primary" @click="onSubmit"> Create </a-button>
@@ -73,9 +73,9 @@
   </div>
 </template>
 <script>
-import Ue from "@/component/ue";
+import Tinymce from "@/component/tinymce";
 export default {
-  components: { Ue },
+  components: { Tinymce },
   data() {
     return {
       labelCol: { xs: 4, sm: 3, md: 3, lg: 3, xl: 2, xxl: 3 },

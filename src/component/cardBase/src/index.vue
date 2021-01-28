@@ -9,7 +9,6 @@
   </a-card>
 </template>
 <script>
-import "./index.less";
 import * as Icons from "@ant-design/icons-vue";
 export default {
   name: "card-base",
@@ -36,3 +35,6 @@ export default {
   },
 };
 </script>
+<style lang="less">
+@import './index.less';
+</style>

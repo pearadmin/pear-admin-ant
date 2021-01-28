@@ -5,7 +5,6 @@
   </a-card>
 </template>
 <script>
-import "./index.less";
 export default {
   name: 'page-header',
   props: {
@@ -20,3 +19,6 @@ export default {
   },
 };
 </script>
+<style lang="less">
+@import './index.less';
+</style>

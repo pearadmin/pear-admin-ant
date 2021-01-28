@@ -15,8 +15,10 @@
   </div>
 </template>
 <script>
-import "./index.less";
 export default {
   name: "page-footer",
 };
 </script>
+<style lang="less">
+@import './index.less';
+</style>

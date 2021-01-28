@@ -4,17 +4,13 @@
   </div>
 </template>
 <script>
-/**
- * @author zhouwei
- * @description 富文本组件
- */
-//
 import Editor from "@tinymce/tinymce-vue";
 require("./imp.js");
 import init from "./init";
 import initMini from "./init_mini";
 
 export default {
+  name:"tinymce",
   components: {
     Editor
   },
