@@ -4,7 +4,7 @@
     <div
       v-if="isMobile && !collapsed"
       class="layout_mobile_mask"
-      @click="handleFoldSideBar"
+      @click="closeSideBar"
     />
     <a-layout-sider
       v-if="layout != 'layout-head'"
@@ -82,17 +82,23 @@ export default {
     const fixedHeader = computed(() => getters.fixedHeader);
     const fixedSide = computed(() => getters.fixedSide);
     const isMobile = computed(() => getters.isMobile);
-    const handleFoldSideBar = () => {
+    const closeSideBar = () => {
       const isComputedMobile = computed(() => getters.isMobile);
       if (isComputedMobile.value) {
-        commit("layout/UPDATE_COLLAPSED", true);
+        commit("layout/TOGGLE_SIDEBAR", true);
+      }
+    };
+    const handleFoldSideBar = () => {
+      const isComputedMobile = computed(() => getters.isMobile);
+      const isCollapsed = computed(() => getters.collapsed);
+      if (isComputedMobile.value && !isCollapsed.value) {
+        commit("layout/TOGGLE_SIDEBAR");
       }
     };
     const handleLayouts = () => {
       const domWidth = document.body.getBoundingClientRect().width;
       const isLayoutMobile = domWidth - 1 < 992;
       commit("layout/UPDATE_ISMOBILE", isLayoutMobile);
-      /* 手机端1秒后折叠导航栏 */
       if (isLayoutMobile) {
         setTimeout(() => {
           handleFoldSideBar();
@@ -109,7 +115,7 @@ export default {
     });
 
     return {
-      handleFoldSideBar,
+      closeSideBar,
       isMobile,
       collapsed,
       fixedHeader,

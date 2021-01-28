@@ -55,10 +55,13 @@
               <a-form-item label="描述" name="desc">
                 <a-textarea v-model:value="form.desc" />
               </a-form-item>
+              <a-form-item label="富文本mini" name="content">
+                <Ue mini v-model:value="form.content" />
+              </a-form-item>
               <a-form-item label="富文本" name="content">
-                {{ form.content }}
                 <Ue v-model:value="form.content" />
               </a-form-item>
+
               <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
                 <a-button type="primary" @click="onSubmit"> Create </a-button>
                 <a-button style="margin-left: 10px" @click="resetForm">
@@ -79,8 +82,8 @@ export default {
   components: { Ue },
   data() {
     return {
-      labelCol: { xs: 4, sm: 4, md: 2, lg: 3, xl: 3, xxl: 3 },
-      wrapperCol: { xs: 20, sm: 20, md: 20, lg: 18, xl: 16, xxl: 17 },
+      labelCol: { xs: 4, sm: 3, md: 3, lg: 3, xl: 2, xxl: 3 },
+      wrapperCol: { xs: 20, sm: 21, md: 21, lg: 21, xl: 20, xxl: 17 },
       other: "",
       form: {
         name: "",
