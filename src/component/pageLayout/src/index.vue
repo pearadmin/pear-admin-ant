@@ -4,12 +4,8 @@
   </div>
 </template>
 <script>
+import "./index.less";
 export default {
   name:"page-layout"
 }
 </script>
-<style scoped>
-.page-layout {
-  margin: 10px;
-}
-</style>

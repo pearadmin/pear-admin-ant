@@ -15,23 +15,8 @@
   </div>
 </template>
 <script>
+import "./index.less";
 export default {
   name: "page-footer",
 };
 </script>
-<style>
-.page-footer {
-  padding: 25px;
-  color: #808695;
-}
-.page-footer .page-footer-title a{
-  color: #808695;
-}
-
-.page-footer .page-footer-title {
-  padding: 20px;
-}
-.page-footer .page-footer-copyright {
-  padding-top: 20px;
-}
-</style>
