@@ -56,10 +56,8 @@
                 <a-textarea v-model:value="form.desc" />
               </a-form-item>
               <a-form-item label="富文本" name="content">
-                <Ue
-                  v-model:value="form.content"
-                  @change="val => (form.content = val)"
-                />
+                {{ form.content }}
+                <Ue v-model:value="form.content" />
               </a-form-item>
               <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
                 <a-button type="primary" @click="onSubmit"> Create </a-button>

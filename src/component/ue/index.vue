@@ -27,8 +27,7 @@ export default {
     // imageUpload,
   },
   model: {
-    prop: "value",
-    event: "change"
+    prop: "value"
   },
   props: {
     value: {
@@ -64,7 +63,7 @@ export default {
         // let data = val;
         // data = data.replace(new RegExp(this.img_url, "g"), "");
         // this.$emit("change", data);
-        this.$emit("change", val);
+        this.$emit("update:value", val);
       },
       deep: true
     },

@@ -9,6 +9,9 @@ const resolve = (dir) => {
 const isDev = process.env.NODE_ENV === "development";
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const ProductionGzipExtensions = ["html", "js", "css", "svg"];
+const WebpackBar = require("webpackbar");
+const webpackBarName = "pear-admin";
+
 module.exports = {
   publicPath: "",
   outputDir: "dist",
@@ -26,6 +29,11 @@ module.exports = {
           "@": resolve("src"),
         },
       },
+      plugins: [
+        new WebpackBar({
+          name: webpackBarName,
+        }),
+      ],
     };
   },
   chainWebpack(config) {

@@ -122,60 +122,60 @@ export default {
         delivery: true,
         type: ["1", "2"],
         resource: "北京",
-        desc: "被岁月镂空, 亦受其雕琢",
+        desc: "被岁月镂空, 亦受其雕琢"
       },
       rules: {
         name: [
           {
             required: true,
             message: "Please input Activity name",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 3,
             max: 5,
             message: "Length should be 3 to 5",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         region: [
           {
             required: true,
             message: "Please select Activity zone",
-            trigger: "change",
-          },
+            trigger: "change"
+          }
         ],
         date1: [
           {
             required: true,
             message: "Please pick a date",
             trigger: "change",
-            type: "object",
-          },
+            type: "object"
+          }
         ],
         type: [
           {
             type: "array",
             required: true,
             message: "Please select at least one activity type",
-            trigger: "change",
-          },
+            trigger: "change"
+          }
         ],
         resource: [
           {
             required: true,
             message: "Please select activity resource",
-            trigger: "change",
-          },
+            trigger: "change"
+          }
         ],
         desc: [
           {
             required: true,
             message: "Please input activity form",
-            trigger: "blur",
-          },
-        ],
-      },
+            trigger: "blur"
+          }
+        ]
+      }
     };
   },
   methods: {
@@ -185,14 +185,14 @@ export default {
         .then(() => {
           console.log("values", this.form);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log("error", error);
         });
     },
     resetForm() {
       this.$refs.ruleForm.resetFields();
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="less">
