@@ -10,7 +10,7 @@ import "./mock";
 
 const app = createApp(App);
 app.use(Antd);
-app.use(Store);
 app.use(Pear);
+app.use(Store);
 app.use(Router);
 app.mount("#app");
