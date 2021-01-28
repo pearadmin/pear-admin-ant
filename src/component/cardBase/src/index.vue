@@ -24,7 +24,7 @@ export default {
     color: {
       type: String,
       required: true,
-    },
+    }
   },
   setup(props) {
     const MenuIcon = Icons[props.icon] || {};
@@ -35,20 +35,21 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="less">
 .card-base {
   border-radius: 6px;
+  >div{
+    padding: 14px;
+  }
+  .card-base-icon {
+    text-align: center;
+    font-size: 30px;
+  }
+  .card-base-title {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 6px;
+  }
 }
-.card-base .ant-card-body {
-  padding: 14px;
-}
-.card-base-icon {
-  text-align: center;
-  font-size: 30px;
-}
-.card-base-title {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 6px;
-}
+
 </style>
