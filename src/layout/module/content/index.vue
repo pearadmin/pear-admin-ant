@@ -30,7 +30,9 @@ export default {
 .spinLoading {
   width: 100%;
   min-height: 60vh;
-  padding-top: 20vh;
+  padding-top: 30vh;
   text-align: center;
+  background-color: transparent;
+  height: 100%;
 }
 </style>
