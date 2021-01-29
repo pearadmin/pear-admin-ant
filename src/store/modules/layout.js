@@ -201,9 +201,9 @@ const mutations = {
       state.openKey = JSON.parse(localStorage.getItem("openKey"));
     } else {
       // 要隐藏
+      state.sideWitch = 80;
       localStorage.setItem("openKey", JSON.stringify(state.openKey));
       state.openKey = [];
-      state.sideWitch = 80;
     }
     state.collapsed = !state.collapsed;
   },
