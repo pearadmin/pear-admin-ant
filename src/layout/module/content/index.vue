@@ -3,9 +3,12 @@
   <div id="content">
     <router-view v-slot="{ Component }" v-if="routerActive">
       <transition :name="routerAnimate">
-        <component :is="Component"></component >
+        <component :is="Component"></component>
       </transition>
     </router-view>
+    <div class="spinLoading" v-else>
+      <a-spin size="large" />
+    </div>
   </div>
 </template>
 <script>
@@ -20,6 +23,14 @@ export default {
       routerActive,
       routerAnimate
     };
-  },
+  }
 };
 </script>
+<style lang="less" scoped>
+.spinLoading {
+  width: 100%;
+  min-height: 60vh;
+  padding-top: 20vh;
+  text-align: center;
+}
+</style>

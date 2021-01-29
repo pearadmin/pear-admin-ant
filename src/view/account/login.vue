@@ -11,7 +11,12 @@
           <a-input placeholder="账 户 : admin" v-model:value="param.username" />
         </a-form-item>
         <a-form-item v-bind="validateInfos.password">
-          <a-input placeholder="密 码 : admin" v-model:value="param.password" type="password"/>
+          <a-input
+            placeholder="密 码 : admin"
+            v-model:value="param.password"
+            type="password"
+            @keyup.enter="onSubmit"
+          />
         </a-form-item>
         <a-form-item>
           <a-checkbox :checked="true">
@@ -31,37 +36,37 @@
 <script>
 import { reactive, ref, toRaw } from "vue";
 import { useForm } from "@ant-design-vue/use";
-import { useRouter } from 'vue-router';
-import {useStore} from "vuex";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 export default {
   setup() {
-    const router = useRouter()
-    const store = useStore()
+    const router = useRouter();
+    const store = useStore();
     const param = reactive({
-      username: "",
-      password: ""
+      username: "admin",
+      password: "admin"
     });
     const { resetFields, validate, validateInfos } = useForm(
       param,
       reactive({
-        username: [{required: true,message: "请输入账户"}],
-        password: [{required: true,message: "请输入密码"}],
+        username: [{ required: true, message: "请输入账户" }],
+        password: [{ required: true, message: "请输入密码" }]
       })
     );
 
     const load = ref(false);
 
-    const onSubmit = async (e) => {
+    const onSubmit = async e => {
       e.preventDefault();
       try {
-        const v = await validate()
+        const v = await validate();
         if (v) {
           load.value = true;
-          await store.dispatch('user/login', param)
-          await router.push('/')
+          await store.dispatch("user/login", param);
+          await router.push("/");
         }
       } catch (e) {
-        console.log('error', e)
+        console.log("error", e);
       }
     };
     return {
@@ -72,7 +77,7 @@ export default {
       param,
       load
     };
-  },
+  }
 };
 </script>
 <style lang="scss">

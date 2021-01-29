@@ -46,14 +46,7 @@
   </a-layout>
 </template>
 <script>
-import {
-  computed,
-  watch,
-  ref,
-  getCurrentInstance,
-  onBeforeMount,
-  onBeforeUnmount
-} from "vue";
+import { computed, onBeforeMount, onBeforeUnmount } from "vue";
 import { useStore } from "vuex";
 import Content from "./module/content/index.vue";
 import Header from "./module/header/index.vue";
@@ -61,7 +54,6 @@ import Logo from "./module/logo/index.vue";
 import Tab from "./module/tab/index.vue";
 import Setup from "./module/setup/index.vue";
 import Menu from "./module/menu/index.vue";
-import { errorMonitor } from "events";
 export default {
   components: {
     Menu,

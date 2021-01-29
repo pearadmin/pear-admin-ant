@@ -209,9 +209,9 @@ export default {
 
     const refresh = async () => {
       commit("layout/UPDATE_ROUTER_ACTIVE");
-      await nextTick();
-      commit("layout/UPDATE_ROUTER_ACTIVE");
-      message.info("刷新成功");
+      setTimeout(() => {
+        commit("layout/UPDATE_ROUTER_ACTIVE");
+      }, 500);
     };
 
     const logOut = async e => {

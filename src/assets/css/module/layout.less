@@ -146,7 +146,7 @@
   z-index: 100;
 }
 #layout .ant-layout-content {
-  z-index: 200;
+  // z-index: 200;
 }
 // 菜单样式
 .ant-menu-sub.ant-menu-inline > .ant-menu-item,
@@ -315,6 +315,11 @@
 .fixedHeader.muiltTab {
   #content {
     height: calc(~"(100% - 51px)");
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+  }
+  #content::-webkit-scrollbar {
+    width: 0 !important;
   }
 }
 /** 主 题 配 置 样 式 */

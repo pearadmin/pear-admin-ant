@@ -203,8 +203,8 @@ const mutations = {
     } else {
       // 要隐藏
       state.sideWitch = 80;
-      localStorage.setItem("openKeys", JSON.stringify(state.openKey));
       state.openKey = [];
+      localStorage.setItem("openKeys", JSON.stringify(state.openKey));
     }
     state.collapsed = !state.collapsed;
   },
