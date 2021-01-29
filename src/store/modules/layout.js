@@ -6,7 +6,7 @@ const state = {
    * 布局方式（整体界面的排版方式）
    * layout-side -- 侧边布局
    * layout-head -- 顶部菜单
-   * layout-comp 联动布局
+   * layout-comp -- 联动布局
    * */
   layout:
     config.layout == null
@@ -30,8 +30,6 @@ const state = {
 
   /**
    * 主题颜色(主题颜色)
-   * blue
-   * green
    */
   color:
     config.color == null
@@ -200,12 +198,12 @@ const mutations = {
     if (state.collapsed) {
       // 要展开
       state.sideWitch = 250;
-      state.openKey = JSON.parse(localStorage.getItem("openKeys"));
+      state.openKey = JSON.parse(localStorage.getItem("openKey"));
     } else {
       // 要隐藏
-      state.sideWitch = 80;
+      localStorage.setItem("openKey", JSON.stringify(state.openKey));
       state.openKey = [];
-      localStorage.setItem("openKeys", JSON.stringify(state.openKey));
+      state.sideWitch = 80;
     }
     state.collapsed = !state.collapsed;
   },
