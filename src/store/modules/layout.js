@@ -264,7 +264,6 @@ const mutations = {
     let { activeKey, panes } = state;
     panes.forEach((pane, index) => {
       if (pane.path === targetKey) { 
-        console.log(JSON.stringify(pane.closable)) 
         if (pane.closable != false) {
           panes.splice(index, 1);
           state.panes = panes;
