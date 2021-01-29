@@ -72,7 +72,6 @@ export default {
       return path.resolve(props.basePath, routePath);
     };
     const handleFoldSideBar = () => {
-      console.log(54544545);
       const isComputedMobile = computed(() => getters.isMobile);
       if (isComputedMobile.value) {
         commit("layout/UPDATE_COLLAPSED", true);

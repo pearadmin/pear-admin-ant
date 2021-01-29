@@ -87,7 +87,6 @@ export default {
     };
 
     const openChange = function(openKeys) {
-      console.log("------------------");
       commit("layout/updateOpenKey", { openKeys });
     };
     const handleFoldSideBar = () => {

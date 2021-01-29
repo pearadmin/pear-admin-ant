@@ -40,14 +40,14 @@
 </template>
 <script>
 import _path from "path";
-import {computed, getCurrentInstance, reactive, ref, watch} from "vue";
+import { computed, getCurrentInstance, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { useRouter, useRoute } from "vue-router";
-import config from '@/config/pear.config'
+import config from "@/config/pear.config";
 export default {
   components: {
-    DownOutlined,
+    DownOutlined
   },
   methods: {
     callback(key) {
@@ -67,11 +67,11 @@ export default {
     },
     remove(targetKey) {
       this.removeTab(targetKey);
-    },
+    }
   },
   setup() {
     const { getters, commit } = useStore();
-    const defaultPanes = computed(() => getters.panes)
+    const defaultPanes = computed(() => getters.panes);
     const panes = ref(initPanes);
     // const panes = ref([...defaultPanes.value]);
     const initPanes = [];
@@ -79,28 +79,28 @@ export default {
     const router = useRouter();
     const storeKey = computed(() => getters.activeKey);
     const activeKey = ref(storeKey.value);
-    const tabType = computed(()=> getters.tabType);
+    const tabType = computed(() => getters.tabType);
 
     const state = reactive({
       menu: computed(() => getters.menu)
-    })
+    });
     // store中不允许修改，这里转一次
     const menu = ref(state.menu);
 
     // 初 始 化 选 项 卡 选 中 项
     const findFixedPane = (list, prefix, panes) => {
-      panes.forEach((pane) => {
+      panes.forEach(pane => {
         const { path, meta, hidden, children = [] } = pane;
         if (children && children.length > 0) {
           findFixedPane(list, _path.resolve(prefix, path), children);
         } else {
           // if (!hidden && meta && meta.fixed) {
-          const currentName = route.name
+          const currentName = route.name;
           if (!hidden && meta && config.defaultTab === pane.name) {
             list.push({
               title: meta.title,
               path: _path.resolve(prefix, path),
-              closable: !currentName === pane.name,
+              closable: !currentName === pane.name
             });
           }
         }
@@ -114,19 +114,27 @@ export default {
       const title = route.meta.title;
       const path = route.path;
       commit("layout/addTab", { title, path });
+      const { fullPath } = route;
+      const startIndex = fullPath.indexOf("/");
+      const endIndex = fullPath.lastIndexOf("/");
+      const openKey = [fullPath.substring(startIndex, endIndex)];
+      localStorage.setItem("openKey", JSON.stringify(openKey));
     };
 
     // 路 由 变 更 监 听
-    watch(computed(()=>route.fullPath), dynamicMenu);
+    watch(
+      computed(() => route.fullPath),
+      dynamicMenu
+    );
 
     // 选 项 卡 变 化 监 听
     watch(
       computed(() => getters.panes),
-      (n) => (panes.value = n),
+      n => (panes.value = n),
       { deep: true, immediate: true }
     );
     // 选 项 卡 选 中 监 听
-    watch(storeKey, (targetKey) => {
+    watch(storeKey, targetKey => {
       activeKey.value = targetKey;
       router.push(targetKey);
     });
@@ -134,15 +142,15 @@ export default {
     // 初 始 化 操 作
     dynamicMenu(route);
     // 合并并去重vuex中的初始值
-    const allTabs = [...initPanes, ...defaultPanes.value ]
+    const allTabs = [...initPanes, ...defaultPanes.value];
     const tabs = allTabs.reduce((result, current) => {
-      const resultTitles = result.map(it => it.title)
+      const resultTitles = result.map(it => it.title);
       if (!resultTitles.includes(current.title)) {
-        return [...result, current]
+        return [...result, current];
       } else {
-        return result
+        return result;
       }
-    }, [])
+    }, []);
     commit("layout/initPanes", tabs);
 
     return {
@@ -150,12 +158,12 @@ export default {
       panes,
       activeKey,
       tabType,
-      selectTab: (key) => commit("layout/selectTab", key),
-      removeTab: (key) => commit("layout/removeTab", key),
+      selectTab: key => commit("layout/selectTab", key),
+      removeTab: key => commit("layout/removeTab", key),
       closeAllTab: () => commit("layout/closeAllTab"),
       closeOtherTab: () => commit("layout/closeOtherTab"),
-      closeCurrentTab: () => commit("layout/closeCurrentTab"),
+      closeCurrentTab: () => commit("layout/closeCurrentTab")
     };
-  },
+  }
 };
 </script>
