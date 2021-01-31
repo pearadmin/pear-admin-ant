@@ -130,7 +130,6 @@ export default defineComponent({
     onMounted(async () => {
       const { pageNo: routePageNo } = useRoute().params
       const localPageNum = props.pageURI && (routePageNo && parseInt(routePageNo)) || props.pageNum
-
       state.localPagination = ['auto', true].includes(props.showPagination) && Object.assign({}, state.localPagination, {
         current: localPageNum,
         pageSize: props.pageSize,
@@ -206,8 +205,7 @@ export default defineComponent({
         )
       }
       return (
-        <a-alert showIcon={true} style="margin-bottom: 16px" v-slots={alertSlots}>
-        </a-alert>
+        <a-alert type="success" showIcon={true} style="margin-bottom: 16px" v-slots={alertSlots}></a-alert>
       )
     }
 
