@@ -24,7 +24,7 @@ export default {
      * layout-head
      * layout-comp
      * */
-    layout:"layout-side",
+    layout:"layout-comp",
 
     /**
      * 参数 : 默认的主题

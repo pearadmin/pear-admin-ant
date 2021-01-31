@@ -36,9 +36,7 @@ export default {
       getters.layout == "layout-head" ? "horizontal" : "inline"
     );
     const menuTheme = computed(() =>
-      getters.theme === "theme-dark" || getters.theme === "theme-night"
-        ? "dark"
-        : "light"
+      getters.theme === "theme-dark" || getters.theme === "theme-night" ? "dark": "light"
     );
     const storeOpenKey = computed(() => getters.openKey);
     const activeKey = computed(() => getters.activeKey);
@@ -61,8 +59,7 @@ export default {
       changeLayout(layout.value);
       const isComputedMobile = computed(() => getters.isMobile);
       const collapsed = computed(() => getters.collapsed);
-      //pc折叠的时候不弹出当前导航栏 &&!collapsed.value
-      //手机端弹出 || isComputedMobile.value
+      // isComputedMobile.value
       if (
         (layout.value !== "layout-head" && !collapsed.value) ||
         isComputedMobile.value
@@ -80,7 +77,6 @@ export default {
         menu.value = state.menu.find(r => r.path === topPath).children;
         rootPath.value = topPath + "/";
       } else {
-        // menu.value = routes;
         menu.value = state.menu;
         rootPath.value = "";
       }
@@ -97,10 +93,7 @@ export default {
     };
 
     watch(layout, n => changeLayout(n));
-    watch(
-      computed(() => route.fullPath),
-      dynamicRoute
-    );
+    watch(computed(() => route.fullPath),dynamicRoute);
     watch(activeKey, n => (selectKey.value = [n]));
     watch(storeOpenKey, n => (openKey.value = n), { deep: true });
     dynamicRoute(route);

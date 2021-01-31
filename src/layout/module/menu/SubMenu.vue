@@ -30,7 +30,7 @@
       v-else
     >
       <router-link :to="resolvePath(item.path, true)">
-        <MenuIcon v-if="level && level === 0" />
+        <MenuIcon v-if="level === 0" />
         <span v-else><div class="indent"></div></span>
         <span>{{ item.meta.title }}</span>
       </router-link>
@@ -68,7 +68,6 @@ export default {
       if (single) {
         return props.basePath;
       }
-      // 当处于 comp 模式下拼接相关路由
       return path.resolve(props.basePath, routePath);
     };
     const handleFoldSideBar = () => {
