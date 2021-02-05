@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import Antd from "ant-design-vue";
+import Antd from "ant-design-vue/es";
 import App from "./App.vue";
 import Router from "./router";
 import Store from "./store";

@@ -46,7 +46,7 @@
   </a-layout>
 </template>
 <script>
-import { computed, onBeforeMount, onBeforeUnmount } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 import Content from "./module/content/index.vue";
 import Header from "./module/header/index.vue";
@@ -98,13 +98,7 @@ export default {
       }
     };
     handleLayouts();
-    onBeforeMount(() => {
-      window.addEventListener("resize", handleLayouts);
-    });
-
-    onBeforeUnmount(() => {
-      window.addEventListener("resize", handleLayouts);
-    });
+    window.addEventListener("resize", handleLayouts);
 
     return {
       closeSideBar,

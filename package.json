@@ -42,7 +42,8 @@
     "mockjs2": "^1.0.8",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.2",
-    "webpackbar": "^5.0.0-3"
+    "webpackbar": "^5.0.0-3",
+    "babel-plugin-import": "^1.13.3"
   },
   "eslintConfig": {
     "root": true,
