@@ -262,5 +262,31 @@
         "status": true
       }
     ]
+  },
+  {
+    "parent": "",
+    "path": "/permission",
+    "name": "permission",
+    "type": "dir",
+    "icon": "DatabaseOutlined",
+    "title": "权限",
+    "sort": 6,
+    "link": "",
+    "hidden": false,
+    "status": true,
+    "children": [
+      {
+        "parent": "permission",
+        "path": "permissionTest",
+        "name": "permissionTest",
+        "type": "menu",
+        "icon": "DatabaseOutlined",
+        "title": "权限按钮",
+        "sort": 0,
+        "link": "",
+        "hidden": false,
+        "status": true
+      }
+    ]
   }
 ]

@@ -7,6 +7,9 @@ export default [
   {
     path: '/login',
     component: () => import('@/view/account/login.vue'),
+    meta: {
+      title: '登录'
+    },
     hidden: true,
   }
 ]
