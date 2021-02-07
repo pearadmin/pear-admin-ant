@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {computed, defineComponent, ref} from "vue";
+import {computed, defineComponent} from "vue";
 import {useStore} from "vuex";
 
 export default defineComponent({
