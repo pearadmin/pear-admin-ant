@@ -1,8 +1,8 @@
 <template>
   <div>
     <page-header
-      title="权限"
-      describe="权限按钮"
+      title="系统权限"
+      describe="根 据 权 限 提 供 节 点 的 渲 染"
     ></page-header>
     <page-layout>
       <a-card>

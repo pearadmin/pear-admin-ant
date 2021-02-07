@@ -257,7 +257,7 @@
     "name": "permission",
     "type": "menu",
     "icon": "DatabaseOutlined",
-    "title": "权限",
+    "title": "系统权限",
     "sort": 6,
     "link": "",
     "hidden": false,
