@@ -34,10 +34,11 @@
   </div>
 </template>
 <script>
-import { reactive, ref, toRaw } from "vue";
+import { reactive, ref } from "vue";
 import { useForm } from "@ant-design-vue/use";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { message } from 'ant-design-vue'
 export default {
   setup() {
     const router = useRouter();
@@ -67,6 +68,7 @@ export default {
         }
       } catch (e) {
         console.log("error", e);
+        message.error(e)
       }
     };
     return {

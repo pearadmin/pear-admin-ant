@@ -38,3 +38,12 @@ export const getRequestBody = request => {
   return JSON.parse(body)
 }
 
+export const getRolePermission = (isAdmin = false) => {
+  return [
+    {
+      role: isAdmin ? 'admin' : 'other_user',
+      pageId: 'permissionTest', // route path
+      actions: isAdmin ? ['add', 'upd', 'del'] : ['add', 'upd']
+    }, // todo: add other permission
+  ]
+}

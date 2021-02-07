@@ -5,7 +5,7 @@ import {
 
 const state = {
   token: '',
-  userInfo: null,
+  userInfo: localStorage.getItem('user_info') ? JSON.parse(localStorage.getItem('user_info')) : null,
   userRoutes: []
 }
 
@@ -50,25 +50,33 @@ const actions = {
     return Promise.resolve()
   },
   async login({commit}, data) {
-    const response = await login(data)
-    const {result: userInfo} = response
-    const {menuList, token} = userInfo
-    /**
-     * 若菜单不是单独的接口用以下注释的代码
-     const dynamicRoutes = generatorUserMenuForList(menuList)
-     // 末尾添加未知路由404
-     dynamicRoutes.push({
+    try {
+      const response = await login(data)
+      const {code, message, result: userInfo} = response
+      if (code === 200) {
+        const {menuList, token} = userInfo
+        /**
+         * 若菜单不是单独的接口用以下注释的代码
+         const dynamicRoutes = generatorUserMenuForList(menuList)
+         // 末尾添加未知路由404
+         dynamicRoutes.push({
          path: '/:pathMatch(.*)*',
          hidden: true,
          redirect: '/error/404'
      })
-     commit('SET_USER_MENU', dynamicRoutes)
-     */
-    delete userInfo.menuList
-    delete userInfo.token
-    commit('SET_USER_TOKEN', token)
-    commit('SET_USER_INFO', userInfo)
-    return Promise.resolve()
+         commit('SET_USER_MENU', dynamicRoutes)
+         */
+        delete userInfo.menuList
+        delete userInfo.token
+        commit('SET_USER_TOKEN', token)
+        commit('SET_USER_INFO', userInfo)
+        return Promise.resolve()
+      } else {
+        return Promise.reject(message)
+      }
+    } catch (e) {
+      console.log(e)
+    }
   },
   // addUserRouteForArray, addUserRouteForTree 跟据后端返回数据结构来决定走哪个方法。
   async addUserRouteForArray ({ state: { userRoutes }, commit }) {
@@ -92,7 +100,6 @@ const actions = {
     commit('SET_USER_MENU', dynamicRoutes)
   }
 }
-
 export default {
   namespaced: true,
   state,
