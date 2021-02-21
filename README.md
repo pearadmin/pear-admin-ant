@@ -71,12 +71,16 @@ npm install
 
 ### 项目运行
 ```
-npm run serve
+npm run serve-dev
+
+npm run serve-prod
 ```
 
 ### 编译项目
 ```
-npm run build
+npm run build-dev
+
+npm run build-prod
 ```
 
 ## 示例截图
