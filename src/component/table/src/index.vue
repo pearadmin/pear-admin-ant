@@ -1,5 +1,5 @@
 <script>
-import {defineComponent, onMounted, reactive, Fragment} from 'vue'
+import {defineComponent, onMounted, reactive, Fragment, watch} from 'vue'
 import T from 'ant-design-vue/es/table/Table'
 import get from 'lodash.get'
 import {useRoute} from "vue-router";
@@ -77,6 +77,22 @@ export default defineComponent({
       })
       return totalList
     }
+
+    watch(() => state.localPagination.current, val => {
+      state.needTotalList = initTotalList(props.columns)
+      state.selectedRowKeys = []
+      state.selectedRows = []
+    })
+    watch(() => props.pageSize, val => {
+      Object.assign(state.localPagination, {
+        pageSize: val
+      })
+    })
+    watch(() => props.showSizeChanger, val => {
+      Object.assign(state.localPagination, {
+        showSizeChanger: val
+      })
+    })
 
     /**
      * 加载表格数据
@@ -250,7 +266,7 @@ export default defineComponent({
           <a-table
             {...tableProps}
             v-slots={slots}
-            change={fetchData}
+            onChange={fetchData}
           ></a-table>
         </div>
       )

@@ -19,7 +19,7 @@
             <a>{{ text }}</a>
           </template>
           <template v-slot:customTitle>
-            <span><smile-outlined /> Name</span>
+            <span><smile-outlined/> Name</span>
           </template>
           <template v-slot:tags="{ text: tags }">
             <span>
@@ -41,10 +41,10 @@
           <template v-slot:action="{ record }">
             <span>
               <a>Invite 一 {{ record.name }}</a>
-              <a-divider type="vertical" />
+              <a-divider type="vertical"/>
               <a>Delete</a>
-              <a-divider type="vertical" />
-              <a class="ant-dropdown-link"> More actions <down-outlined /> </a>
+              <a-divider type="vertical"/>
+              <a class="ant-dropdown-link"> More actions <down-outlined/> </a>
             </span>
           </template>
         </p-table>
@@ -54,13 +54,14 @@
   </div>
 </template>
 <script>
-import { SmileOutlined, DownOutlined } from "@ant-design/icons-vue";
+import {SmileOutlined, DownOutlined} from "@ant-design/icons-vue";
 import {computed, defineComponent, markRaw, reactive} from "vue";
+
 const columns = [
   {
     dataIndex: "name",
     key: "name",
-    slots: { title: "customTitle", customRender: "name" },
+    slots: {title: "customTitle", customRender: "name"},
   },
   {
     dataIndex: "sex",
@@ -87,89 +88,24 @@ const columns = [
     title: "Tags",
     key: "tags",
     dataIndex: "tags",
-    slots: { customRender: "tags" },
+    slots: {customRender: "tags"},
   },
   {
     title: "Action",
     key: "action",
-    slots: { customRender: "action" },
+    slots: {customRender: "action"},
   },
 ];
 
-const data = [
-  {
-    key: "1",
-    name: "Joe Black",
-    sex: "boy",
-    age: 32,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "2",
-    name: "Joe Black",
-    sex: "boy",
-    age: 31,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    sex: "boy",
-    age: 332,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "4",
-    name: "Joe Black",
-    sex: "boy",
-    age: 32,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "5",
-    name: "Joe Black",
-    sex: "boy",
-    age: 32,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "6",
-    name: "Joe Black",
-    sex: "boy",
-    age: 32,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "7",
-    name: "Joe Black",
-    sex: "boy",
-    age: 32,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-  {
-    key: "8",
-    name: "Joe Black",
-    sex: "boy",
-    age: 32,
-    createTime: "2020-02-09 00:00:00",
-    address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-    tags: ["cool", "teacher"],
-  },
-];
+const dataItem = {
+  key: "1",
+  name: "Joe Black",
+  sex: "boy",
+  age: 32,
+  createTime: "2020-02-09 00:00:00",
+  address: "Sidney No. 1 Lake Park Sidney No. 1 ",
+  tags: ["cool", "teacher"],
+}
 
 const selectOptions = [
   {
@@ -191,23 +127,41 @@ export default defineComponent({
     SmileOutlined,
     DownOutlined,
   },
-  setup () {
-    const fetch = () => {
+  setup() {
+    const state = reactive({
+      selectedRowKeys: [],
+      selectedRows: [],
+      // 模拟后端返回
+      pages: {
+        pageNo: 1,
+        total: 100,
+        pageSize: 10
+      },
+      maxPageSize: 10
+      // 模拟结束
+    })
+
+    // 非实际返回的接口，只是为了模拟一个过程
+    // 所以如果最后一页数据量不够默的pageSize的值时，没有额外的处理
+    // 比如 一共106条数据，最后一页(11页)理应只返回6条。这里就统一的返回了new Array(pages.pageSize)条
+    const fetch = (params) => {
       return new Promise((resolve, reject) => {
+        const { pageSize, pageNo } = params
+        Object.assign(state.pages, {
+          pageNo,
+          pageSize
+        })
         setTimeout(() => {
+          // test 最后一页
+          const isLast = state.pages.pageNo === state.maxPageSize
           resolve({
-            pageNo: 1,
-            total: data.length,
-            data
+            pageNo: !isLast ? state.pages.pageNo++ : state.pages.pageNo,
+            total: state.pages.total,
+            data: new Array(state.pages.pageSize).fill(dataItem)
           })
         })
       })
     }
-
-    const state = reactive({
-      selectedRowKeys: [],
-      selectedRows: []
-    })
 
     const onSelectChange = (selectedRowKeys, selectedRows) => {
       state.selectedRowKeys = selectedRowKeys
@@ -236,7 +190,7 @@ export default defineComponent({
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        options: { data: selectOptions }
+        options: {data: selectOptions}
       }
     ]
     const hiddenQuery = [
@@ -260,7 +214,7 @@ export default defineComponent({
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        options: { data: selectOptions }
+        options: {data: selectOptions}
       },
       {
         type: 'select',
@@ -268,7 +222,7 @@ export default defineComponent({
         rules: [],
         defaultValue: '0',
         label: '使用状态',
-        options: { data: selectOptions }
+        options: {data: selectOptions}
       }
     ]
 
