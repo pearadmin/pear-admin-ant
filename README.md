@@ -102,3 +102,19 @@ npm run build
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214346_4e5261c2_4835367.png "ant8.png")
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214354_d3c1d47d_4835367.png "ant9.png")
+
+### 目录结构
+pear-admin-ant
+|-src
+  |-api             http请求
+  |-assets          静态资源
+  |-component       常用组件目录       
+  |-config          项目配置文件
+  |-directives      自定义指令目录
+  |-layout          页面整体布局-layout
+  |-mock            mock数据
+  |-router          页面路由 
+  |-utils           工具类
+  |-view            页面目录
+  |-App.vue         Vue主文件
+  |-main.js         Vue加载启动文件
