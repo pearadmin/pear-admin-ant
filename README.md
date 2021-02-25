@@ -116,6 +116,7 @@ npm run build-prod
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214354_d3c1d47d_4835367.png "ant9.png")
 
 ### 目录结构
+```
 pear-admin-ant
 |-src
   |-api             http请求
@@ -130,3 +131,4 @@ pear-admin-ant
   |-view            页面目录
   |-App.vue         Vue主文件
   |-main.js         Vue加载启动文件
+```
