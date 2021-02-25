@@ -1,4 +1,5 @@
 <script>
+import "./index.less";
 import {defineComponent, reactive} from 'vue'
 import {useForm} from "@ant-design-vue/use";
 import {UpOutlined, DownOutlined} from '@ant-design/icons-vue'
@@ -76,10 +77,6 @@ export default defineComponent({
       }
     }
 
-    /**
-     * 渲染formItem中的表单
-     * @param item
-     */
     const renderFormItem = item => {
       const {modelName, label} = item
       return (
@@ -92,7 +89,6 @@ export default defineComponent({
       )
     }
 
-    // search
     const handleSearch = async e => {
       try {
         const validates = await validate()
@@ -161,6 +157,3 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="less">
-@import './index.less';
-</style>

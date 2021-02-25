@@ -3,7 +3,7 @@
     placement="right"
     :closable="false"
     :visible="visible"
-    width="370"
+    width="365"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
     :class="[color]"
@@ -65,6 +65,7 @@
                     "
                   ></span></div
               ></a>
+              <p-dot ></p-dot>
             </li>
             <li
               @click="updateTheme('theme-light')"
@@ -387,12 +388,6 @@
             <a-select-option value="fade-top"> 上滑 </a-select-option>
           </a-select>
           <div class="setting-title-right">路由动画</div>
-          <br />
-          <br />
-          <br />
-          <a-button type="primary"> 复制配置 </a-button>
-          &nbsp;&nbsp;
-          <a-button>重置配置</a-button>
         </div>
       </div>
     </div>
@@ -402,8 +397,7 @@
 </template>
 <script>
 import { CheckOutlined } from "@ant-design/icons-vue";
-import { message } from "ant-design-vue";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 export default {
   components: {
@@ -424,7 +418,6 @@ export default {
     const tabType = { key: computed(() => getters.tabType).value };
 
     const updateLayout = function (layout) {
-      var menu = new Array();
       commit("layout/UPDATE_LAYOUT", layout);
     };
     const updateTheme = function (theme) {
@@ -445,7 +438,6 @@ export default {
       commit("layout/UPDATE_TAB_TYPE", value.key);
     };
     return {
-      // 新代码
       tabType,
       routerAnimate,
       updateRouterAnimate,

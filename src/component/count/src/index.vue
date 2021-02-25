@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import "./index.less";
 import { computed, ref, onMounted, nextTick } from "vue";
 export default{
   name: "p-count",
@@ -92,6 +93,3 @@ export default{
   },
 };
 </script>
-<style lang="less">
-@import './index.less';
-</style>

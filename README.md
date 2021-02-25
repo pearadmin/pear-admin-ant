@@ -67,16 +67,28 @@ Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 ### 项目安装
 ```
 npm install
+
+或
+
+cnpm install
 ```
 
 ### 项目运行
 ```
-npm run serve
+npm run serve-dev
+
+或
+
+npm run serve-prod
 ```
 
 ### 编译项目
 ```
-npm run build
+npm run build-dev
+
+或
+
+npm run build-prod
 ```
 
 ## 示例截图

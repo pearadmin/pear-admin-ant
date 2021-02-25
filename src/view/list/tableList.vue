@@ -54,9 +54,9 @@
   </div>
 </template>
 <script>
-import {SmileOutlined, DownOutlined} from "@ant-design/icons-vue";
-import {computed, defineComponent, markRaw, reactive} from "vue";
 
+import { SmileOutlined, DownOutlined } from "@ant-design/icons-vue";
+import {computed, defineComponent,  reactive} from "vue";
 const columns = [
   {
     dataIndex: "name",
@@ -118,7 +118,7 @@ const selectOptions = [
   },
   {
     key: '2',
-    title: '运行中',
+    title: '开启',
   }
 ]
 
@@ -226,7 +226,6 @@ export default defineComponent({
       }
     ]
 
-    // 查询回调
     const handleSearch = data => {
       console.log('query-data ==> ', data)
     }
@@ -236,7 +235,6 @@ export default defineComponent({
     }
 
     return {
-      // data,
       fetch,
       columns,
       queryArray,
