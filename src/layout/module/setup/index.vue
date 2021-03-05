@@ -3,7 +3,7 @@
     placement="right"
     :closable="false"
     :visible="visible"
-    width="365"
+    width="340"
     :after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
     :class="[color]"
@@ -473,5 +473,8 @@ export default {
 .setting-title-right {
   float: right;
   margin-right: 15px;
+}
+.ant-drawer-body{
+  padding: 10px!important;
 }
 </style>

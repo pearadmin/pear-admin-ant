@@ -2,6 +2,7 @@ import config from "../../config/pear.config";
 import { message } from "ant-design-vue";
 
 const state = {
+  
   /**
    * 布局方式（整体界面的排版方式）
    * layout-side -- 侧边布局
