@@ -21,9 +21,9 @@ export default {
     const routerAnimate = computed(() => getters.routerAnimate);
     return {
       routerActive,
-      routerAnimate
+      routerAnimate,
     };
-  }
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -34,5 +34,41 @@ export default {
   text-align: center;
   background-color: transparent;
   height: 100%;
+}
+.router-view {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+  height: 100%;
+  will-change: transform;
+  transition: all 500ms cubic-bezier(0.55, 0, 0.1, 1);
+  position: absolute;
+  backface-visibility: hidden;
+}
+.slide-right-enter-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.slide-left-enter-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.slide-left-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }
 </style>

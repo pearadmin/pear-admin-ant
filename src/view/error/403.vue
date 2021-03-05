@@ -21,7 +21,7 @@ import { ref, onUnmounted } from "vue";
 import router from "@/router";
 export default {
   setup() {
-    const overTime = ref(5);
+    const overTime = ref(10);
     setTimeout(() => {
       router.push("/");
     }, overTime.value * 1000);
