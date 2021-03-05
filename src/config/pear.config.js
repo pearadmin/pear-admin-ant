@@ -85,7 +85,7 @@ export default {
    * pear-card-tab
    * pear-dot-tab
    */
-  tabType: "pear-card-tab",
+  tabType: "pear-dot-tab",
 
   /**
    * 参数: 主题颜色
