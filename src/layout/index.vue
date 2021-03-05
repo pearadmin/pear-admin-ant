@@ -128,9 +128,7 @@ export default {
     padding: 0 !important;
     text-align: center;
   }
-
-  //* 菜单每行高度 */
-  @ant-menu-hieht: 42px;
+  @ant-menu-hieht: 48px;
   .ant-menu-vertical > .ant-menu-item,
   .ant-menu-vertical-left > .ant-menu-item,
   .ant-menu-vertical-right > .ant-menu-item,

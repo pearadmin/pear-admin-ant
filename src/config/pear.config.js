@@ -59,12 +59,12 @@ export default {
    * 参数: 侧边菜单栏宽度
    * 单位: px
    * */
-  sideWidth: 230,
+  sideWidth: 240,
   /**
    * 参数: 侧边菜单栏宽度(折叠)
    * 单位: px
    * */
-  collapsedWidth: 60,
+  collapsedWidth: 70,
 
   /**
    * 参数: 是否固定侧边

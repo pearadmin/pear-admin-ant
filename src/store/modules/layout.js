@@ -90,7 +90,7 @@ const state = {
    * 侧边菜单栏宽度
    * 单位:px
    * */
-  sideWitch: config.sideWidth == null ? 230 : config.sideWidth,
+  sideWitch: config.sideWidth == null ? 220 : config.sideWidth,
   /**
    * 侧边菜单栏宽度(折叠)
    * 单位:px
@@ -202,7 +202,6 @@ const mutations = {
   TOGGLE_SIDEBAR(state) {
     if (state.collapsed) {
       // 要展开
-      state.sideWitch = 250;
       state.openKey = JSON.parse(localStorage.getItem("openKey"));
     } else {
       // 要隐藏
