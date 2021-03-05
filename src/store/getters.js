@@ -13,6 +13,7 @@ const getters = {
   panes: state => state.layout.panes,
   fullscreen: state => state.layout.fullscreen,
   sideWitch: state => state.layout.sideWitch,
+  collapsedWidth: state => state.layout.collapsedWidth,
   fixedHeader: state => state.layout.fixedHeader,
   fixedSide: state => state.layout.fixedSide,
   routes: state => state.layout.routes,
@@ -20,8 +21,18 @@ const getters = {
   routerAnimate: state => state.layout.routerAnimate,
   language: state => state.layout.language,
   isMobile: state => state.layout.isMobile,
-  token: state => state.user.token ? state.user.token : localStorage.getItem('pear_admin_ant_token') ? localStorage.getItem('pear_admin_ant_token') : '',
-  menu: state => state.user.userRoutes.length !== 0 ? state.user.userRoutes : localStorage.getItem('user_routes') ? JSON.parse(localStorage.getItem('user_routes')) : '',
+  token: state =>
+    state.user.token
+      ? state.user.token
+      : localStorage.getItem("pear_admin_ant_token")
+      ? localStorage.getItem("pear_admin_ant_token")
+      : "",
+  menu: state =>
+    state.user.userRoutes.length !== 0
+      ? state.user.userRoutes
+      : localStorage.getItem("user_routes")
+      ? JSON.parse(localStorage.getItem("user_routes"))
+      : ""
   // userInfo: state => state.user.userInfo ? state.user.userInfo : localStorage.getItem('user_info') ? JSON.parse(localStorage.getItem('user_info')) : ''
 };
 export default getters;
