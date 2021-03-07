@@ -9,6 +9,7 @@ import "ant-design-vue/dist/antd.less";
 import "./mock";
 import directives from "./directives"
 
+
 const app = createApp(App);
 app.use(Antd);
 app.use(Pear);
