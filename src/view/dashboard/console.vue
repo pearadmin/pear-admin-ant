@@ -130,7 +130,7 @@
               <a-tab-pane key="1" tab="销量">
                 <a-row>
                   <a-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
-                    <div id="container" style="width:100%;"></div>
+                    <div id="container" style="width: 100%"></div>
                   </a-col>
                   <a-col
                     :xs="24"
@@ -279,14 +279,14 @@
 <script>
 import { Chart } from "@antv/g2";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
-import {onMounted, ref, onUnmounted} from "vue";
+import { onMounted, ref, onUnmounted } from "vue";
 export default {
   components: {
     ArrowUpOutlined,
     ArrowDownOutlined,
   },
   setup() {
-    const chartRef = ref(null)
+    const chartRef = ref(null);
     onMounted(() => {
       const datass = [
         { year: "1951 年", sales: 38 },
@@ -307,7 +307,7 @@ export default {
         height: 320,
       });
 
-      chartRef.value = chart
+      chartRef.value = chart;
 
       chart.data(datass);
       chart.scale("sales", {
@@ -326,14 +326,13 @@ export default {
       chart.interaction("active-region");
       chart.render();
 
-      const e = document.createEvent('Event')
-      e.initEvent('resize', true, true)
-      window.dispatchEvent(e)
-
+      const e = document.createEvent("Event");
+      e.initEvent("resize", true, true);
+      window.dispatchEvent(e);
     });
     onUnmounted(() => {
-      chartRef.value && chartRef.value.destroy()
-    })
+      chartRef.value && chartRef.value.destroy();
+    });
 
     const data = [
       {

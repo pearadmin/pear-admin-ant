@@ -3,22 +3,20 @@
     <a-card style="border-radius: 0px !important">
       <a-avatar
         :size="64"
-        style="float:left;"
+        style="float: left"
         src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
       >
       </a-avatar>
-      <div style="float:left;margin-left:20px;">
-        <div style="font-size:18px;margin-top:5px;">就 眠 仪 式</div>
-        <div style="margin-top:9px;">全 栈 工 程 师 - 蚂 蚁 金 服 - 事 业 群 - VUE 平台</div>
+      <div style="float: left; margin-left: 20px">
+        <div style="font-size: 18px; margin-top: 2px">就 眠 仪 式</div>
+        <div style="margin-top: 9px">
+          全 栈 工 程 师 - 蚂 蚁 金 服 - 事 业 群 - 前 端 平 台
+        </div>
       </div>
-      <div style="float:right;width:380px;">
+      <div style="float: right; width: 380px">
         <a-row :gutter="16">
           <a-col :span="8">
-            <a-statistic
-              title="项目"
-              :value="240"
-            >
-            </a-statistic>
+            <a-statistic title="项目" :value="240"> </a-statistic>
           </a-col>
           <a-col :span="8">
             <a-statistic title="排名" :value="93">
@@ -28,11 +26,7 @@
             </a-statistic>
           </a-col>
           <a-col :span="8">
-            <a-statistic
-              title="团队"
-              :value="28"
-            >
-            </a-statistic>
+            <a-statistic title="团队" :value="28"> </a-statistic>
           </a-col>
         </a-row>
       </div>
@@ -138,38 +132,67 @@
           </a-card>
         </a-col>
         <a-col :xs="24" :lg="6" :xxl="6">
-          <a-card title="任务">
-            <a-timeline>
-              <a-timeline-item color="green">
-                <p>阶段一：Technical testing 1</p>
-                <p>阶段二：Technical testing 2</p>
-                <p>阶段三：Technical testing 3</p>
-              </a-timeline-item>
-              <a-timeline-item>
-                <p>阶段一：Technical testing 1</p>
-                <p>阶段二：Technical testing 2</p>
-                <p>阶段三：Technical testing 3</p>
-                <p>阶段四：Technical testing 4</p>
-              </a-timeline-item>
-              <a-timeline-item color="red">
-                <p>阶段一：Technical testing 1</p>
-                <p>阶段二：Technical testing 2</p>
-                <p>阶段三：Technical testing 3</p>
-              </a-timeline-item>
-              <a-timeline-item>
-                <p>阶段一：Technical testing 1</p>
-                <p>阶段二：Technical testing 2</p>
-                <p>阶段三：Technical testing 3</p>
-                <p>阶段四：Technical testing 4</p>
-              </a-timeline-item>
-              <a-timeline-item color="gray">
-                <p>阶段一：Technical testing 1</p>
-                <p>阶段二：Technical testing 2</p>
-                <p>阶段三：Technical testing 3</p>
-                <p>阶段四：Technical testing 4</p>
-                <p>阶段五：Technical testing 5</p>
-              </a-timeline-item>
-            </a-timeline>
+          <a-card title="快捷">
+            <a-row>
+              <a-col :span="8">
+                <card-base
+                  color="rgb(255, 214, 102)"
+                  icon="NotificationFilled"
+                  title="消息"
+                >
+                </card-base>
+              </a-col>
+              <a-col :span="8">
+                <card-base
+                  color="rgb(179, 127, 235)"
+                  icon="MailFilled"
+                  title="邮件"
+                >
+                </card-base>
+              </a-col>
+              <a-col :span="8">
+                <card-base
+                  color="rgb(255, 156, 110)"
+                  icon="CustomerServiceFilled"
+                  title="访问"
+                >
+                </card-base>
+              </a-col>
+              <a-col :span="8">
+                <card-base
+                  color="rgb(105, 192, 255)"
+                  icon="BuildFilled"
+                  title="用户"
+                >
+                </card-base>
+              </a-col>
+              <a-col :span="8">
+                <card-base
+                  color="rgb(255, 133, 192)"
+                  icon="TrophyFilled"
+                  title="排名"
+                >
+                </card-base>
+              </a-col>
+              <a-col :span="8">
+                <card-base
+                  color="rgb(149, 222, 100)"
+                  icon="CloudFilled"
+                  title="首页"
+                >
+                </card-base>
+              </a-col>
+            </a-row>
+          </a-card>
+          <a-card title="欢迎" style="margin-top: 10px">
+            <a-result title="Hello Word!">
+              <template #icon>
+                <smile-twoTone />
+              </template>
+              <template #extra>
+                <a-button type="primary">Next</a-button>
+              </template>
+            </a-result>
           </a-card>
         </a-col>
       </a-row>
@@ -178,7 +201,11 @@
   </div>
 </template>
 <script>
+import { SmileTwoTone } from "@ant-design/icons-vue";
 export default {
+  components: {
+    SmileTwoTone,
+  },
   setup() {
     const data = [
       {
