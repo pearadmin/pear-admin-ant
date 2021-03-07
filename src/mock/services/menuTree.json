@@ -281,7 +281,7 @@
         "name": "permissionTest",
         "type": "menu",
         "icon": "DatabaseOutlined",
-        "title": "权限按钮",
+        "title": "权限测试",
         "sort": 0,
         "link": "",
         "hidden": false,
