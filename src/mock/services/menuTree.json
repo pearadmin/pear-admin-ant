@@ -210,6 +210,17 @@
         "link": "",
         "hidden": false,
         "status": true
+      },{
+        "parent": "result-menu",
+        "path": "warning",
+        "name": "result-warning",
+        "type": "menu",
+        "icon": "DatabaseOutlined",
+        "title": "警告",
+        "sort": 1,
+        "link": "",
+        "hidden": false,
+        "status": true
       }
     ]
   },

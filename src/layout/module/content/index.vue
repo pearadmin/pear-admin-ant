@@ -7,7 +7,7 @@
       </transition>
     </router-view>
     <div class="spinLoading" v-else>
-      <a-spin size="large" />
+      <a-spin size="large"/>
     </div>
   </div>
 </template>
