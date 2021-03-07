@@ -24,7 +24,7 @@
             </p>
           </div>
           <template #extra>
-            <a-button key="console" type="primary"> Go Console </a-button>
+            <a-button key="console" type="primary"> 回到首页 </a-button>
           </template>
         </a-result>
       </a-card>

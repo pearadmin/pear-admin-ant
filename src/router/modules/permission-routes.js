@@ -18,6 +18,7 @@ export default {
   'result-success': () => import('@/view/result/success.vue'),
   'result-failure': () => import('@/view/result/failure.vue'),
   'result-warning': () => import('@/view/result/warning.vue'),
+  'result-info': () => import('@/view/result/info.vue'),
   'error-403': () => import('@/view/error/403.vue'),
   'error-404': () => import('@/view/error/404.vue'),
   'error-500': () => import('@/view/error/500.vue'),

@@ -213,6 +213,17 @@
     "link": "",
     "hidden": false,
     "status": true
+  },{
+    "parent": "result-menu",
+    "path": "info",
+    "name": "result-info",
+    "type": "menu",
+    "icon": "DatabaseOutlined",
+    "title": "详情",
+    "sort": 1,
+    "link": "",
+    "hidden": false,
+    "status": true
   },
   {
     "parent": "",
