@@ -90,7 +90,7 @@ export default {
   background-size: cover;
   .login-form {
     margin: auto;
-    width: 350px;
+    width: 340px;
     min-height: 20px;
     padding-top: 150px;
     .ant-input {

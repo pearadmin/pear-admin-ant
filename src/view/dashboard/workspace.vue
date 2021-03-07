@@ -133,7 +133,7 @@
         </a-col>
         <a-col :xs="24" :lg="6" :xxl="6">
           <a-card title="快捷">
-            <a-row>
+            <a-row :gutter="[10,10]">
               <a-col :span="8">
                 <card-base
                   color="rgb(255, 214, 102)"
