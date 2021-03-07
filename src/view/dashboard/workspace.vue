@@ -3,19 +3,21 @@
     <a-card style="border-radius: 0px !important">
       <a-avatar
         :size="64"
+        style="float:left;"
         src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
       >
       </a-avatar>
-      <div style="float:right;width:400px;">
+      <div style="float:left;margin-left:20px;">
+        <div style="font-size:18px;margin-top:5px;">就 眠 仪 式</div>
+        <div style="margin-top:9px;">全 栈 工 程 师 - 蚂 蚁 金 服 - 事 业 群 - VUE 平台</div>
+      </div>
+      <div style="float:right;width:380px;">
         <a-row :gutter="16">
           <a-col :span="8">
             <a-statistic
               title="项目"
               :value="240"
             >
-              <template #suffix>
-                <a-icon type="like" />
-              </template>
             </a-statistic>
           </a-col>
           <a-col :span="8">
@@ -30,9 +32,6 @@
               title="团队"
               :value="28"
             >
-              <template #suffix>
-                <a-icon type="like" />
-              </template>
             </a-statistic>
           </a-col>
         </a-row>
@@ -222,7 +221,7 @@ export default {
   },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .ant-list-item-meta-description {
   line-height: 28px;
 }
