@@ -91,7 +91,7 @@ export default {
     };
     const handleLayouts = () => {
       const domWidth = document.body.getBoundingClientRect().width;
-      const isLayoutMobile = domWidth - 1 < 992;
+      const isLayoutMobile = domWidth !== 0 && domWidth - 1 < 992;
       commit("layout/UPDATE_ISMOBILE", isLayoutMobile);
       if (isLayoutMobile) {
         setTimeout(() => {
