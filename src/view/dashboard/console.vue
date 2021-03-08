@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <page-layout>
+    <page-layout style="magin-top:0">
       <a-row :gutter="[10, 10]">
         <a-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
           <a-card>
@@ -283,7 +283,7 @@ import { onMounted, ref, onUnmounted } from "vue";
 export default {
   components: {
     ArrowUpOutlined,
-    ArrowDownOutlined,
+    ArrowDownOutlined
   },
   setup() {
     const chartRef = ref(null);
@@ -297,21 +297,21 @@ export default {
         { year: "1959 年", sales: 70 },
         { year: "1960 年", sales: 60 },
         { year: "1961 年", sales: 55 },
-        { year: "1962 年", sales: 38 },
+        { year: "1962 年", sales: 38 }
       ];
 
       const chart = new Chart({
         container: "container",
         autoFit: true,
         forceFit: true,
-        height: 320,
+        height: 320
       });
 
       chartRef.value = chart;
 
       chart.data(datass);
       chart.scale("sales", {
-        nice: true,
+        nice: true
       });
 
       chart.axis("sales", false);
@@ -319,7 +319,7 @@ export default {
       chart
         .interval()
         .position("year*sales")
-        .color("year*sales", function (year, sales) {
+        .color("year*sales", function(year, sales) {
           return "#36b368";
         });
 
@@ -336,24 +336,24 @@ export default {
 
     const data = [
       {
-        title: "Ant Design Title 1",
+        title: "Ant Design Title 1"
       },
       {
-        title: "Ant Design Title 2",
+        title: "Ant Design Title 2"
       },
       {
-        title: "Ant Design Title 3",
+        title: "Ant Design Title 3"
       },
       {
-        title: "Ant Design Title 4",
-      },
+        title: "Ant Design Title 4"
+      }
     ];
 
     const columns = [
       { title: "排名", dataIndex: "key", key: "key" },
       { title: "门店", dataIndex: "name", key: "name" },
       { title: "销量", dataIndex: "age", key: "age" },
-      { title: "地址", dataIndex: "address", key: "address" },
+      { title: "地址", dataIndex: "address", key: "address" }
     ];
 
     const datas = [
@@ -361,37 +361,42 @@ export default {
         key: 1,
         name: "1 号店",
         age: 13323.34,
-        address: "北京市朝阳区凤鸣路 112 号.",
+        address: "北京市朝阳区凤鸣路 112 号."
       },
       {
         key: 2,
         name: "2 号店",
         age: 35432.41,
-        address: "北京市朝阳区凤鸣路 112 号.",
+        address: "北京市朝阳区凤鸣路 112 号."
       },
       {
         key: 3,
         name: "3 号店",
         age: 47452.44,
-        address: "北京市朝阳区凤鸣路 112 号.",
+        address: "北京市朝阳区凤鸣路 112 号."
       },
       {
         key: 4,
         name: "4 号店",
         age: 32352.44,
-        address: "北京市朝阳区凤鸣路 112 号.",
-      },
+        address: "北京市朝阳区凤鸣路 112 号."
+      }
     ];
 
     return {
       data,
       columns,
-      datas,
+      datas
     };
-  },
+  }
 };
 </script>
-<style scoped>
+<style lang="less" scoped>
+#home {
+  .page-layout {
+    margin-top: 0;
+  }
+}
 .ant-divider-horizontal {
   margin-bottom: 10px !important;
 }

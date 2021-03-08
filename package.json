@@ -3,6 +3,7 @@
   "version": "1.0.0-RELEASE",
   "private": true,
   "scripts": {
+    "serve": "vue-cli-service serve --mode development",
     "serve-dev": "vue-cli-service serve --mode development",
     "serve-prod": "vue-cli-service serve --mode production",
     "build-dev": "vue-cli-service build --mode development",
@@ -14,7 +15,7 @@
     "@antv/data-set": "^0.11.8",
     "@antv/g2": "^4.1.0",
     "@tinymce/tinymce-vue": "^4.0.0",
-    "ant-design-vue": "^2.0.0",
+    "ant-design-vue": "^2.0.1",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "lodash.get": "^4.4.2",
@@ -41,8 +42,6 @@
     "less": "^2.7.2",
     "less-loader": "^7.1.0",
     "mockjs2": "^1.0.8",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2",
     "webpackbar": "^5.0.0-3",
     "babel-plugin-import": "^1.13.3"
   },
