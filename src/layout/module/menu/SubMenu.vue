@@ -10,7 +10,8 @@
         <span>
           <MenuIcon v-if="level === 0" />
           <span v-else><div class="indent"></div></span>
-          <span>{{ item.meta.title }}</span>
+<!--          <span>{{ item.meta.title }}</span>-->
+          <span>{{ t(item.meta.i18nTitle) }}</span>
         </span>
       </template>
       <!-- 递归 item.children -->
@@ -32,7 +33,8 @@
       <router-link :to="resolvePath(item.path, true)">
         <MenuIcon v-if="level === 0" />
         <span v-else><div class="indent"></div></span>
-        <span>{{ item.meta.title }}</span>
+<!--        <span>{{ item.meta.title }}</span>-->
+        <span>{{ t(item.meta.i18nTitle) }}</span>
       </router-link>
     </a-menu-item>
   </template>
@@ -41,8 +43,9 @@
 <script>
 import { computed } from "vue";
 import path from "path";
-import { useStore, getter } from "vuex";
+import { useStore } from "vuex";
 import * as Icons from "@ant-design/icons-vue";
+import {useI18n} from "vue-i18n";
 export default {
   name: "SubMenu",
   props: {
@@ -79,10 +82,14 @@ export default {
 
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
 
+    // i18n
+    const { t } = useI18n()
+
     return {
       handleFoldSideBar,
       resolvePath,
-      MenuIcon
+      MenuIcon,
+      t
     };
   }
 };

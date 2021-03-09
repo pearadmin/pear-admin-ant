@@ -1,4 +1,12 @@
+import config from "@/config/pear.config";
+
 const state = {
+  language:
+    config.defaultLanguage == null
+      ? "zh-CN"
+      : localStorage.getItem("pear_lang") == null
+      ? config.defaultLanguage
+      : localStorage.getItem("pear_lang"),
   cancelToken: [] // 已发送的http请求的取消回调函数数组
 }
 
@@ -11,6 +19,10 @@ const mutations = {
       executor('路由跳转取消上个页面的请求')
     })
     state.cancelToken = []
+  },
+  SET_LANGUAGE (state, payload) {
+    state.language = payload
+    localStorage.setItem('pear_lang', payload)
   }
 }
 
@@ -20,6 +32,9 @@ const actions = {
       commit('EXEC_CANCEL_TOKEN');
       resolve()
     })
+  },
+  setLanguage({commit}, payload) {
+    commit('SET_LANGUAGE', payload)
   }
 }
 

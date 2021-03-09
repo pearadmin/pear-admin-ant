@@ -71,7 +71,25 @@
         </template>
       </a-dropdown>
       <div class="menu-item">
-        <GlobalOutlined />
+        <a-dropdown>
+          <GlobalOutlined />
+          <template #overlay>
+            <a-menu
+              @click="toggleLang"
+              :selectedKeys="selectedKeys"
+            >
+              <a-menu-item key="zh-CN">
+                🇨🇳 简体中文
+              </a-menu-item>
+              <!--        <a-menu-item key="zh-TW">-->
+              <!--          🇭🇰 繁体中文-->
+              <!--        </a-menu-item>-->
+              <a-menu-item key="en-US">
+                🇺🇸 English
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
       </div>
       <a-dropdown class="avatar-item">
         <a-avatar
@@ -108,13 +126,14 @@
 import {
   computed,
   watch,
-  ref,
+  ref, unref,
 } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
 import { useRoute} from "vue-router";
 import _path from "path";
+import i18n from '@/locales'
 import {
   AlignLeftOutlined,
   AlignRightOutlined,
@@ -126,6 +145,7 @@ import {
   BellOutlined,
   LoadingOutlined
 } from "@ant-design/icons-vue";
+import {loadLocaleMessages} from "@/locales/i18n";
 export default {
   components: {
     AlignLeftOutlined,
@@ -218,6 +238,15 @@ export default {
       window.location.reload();
     };
 
+    const store = useStore()
+    const defaultLang = computed(() => store.state.app.language)
+    const selectedKeys = ref([unref(defaultLang)])
+    const toggleLang = async ({ key }) => {
+      selectedKeys.value = [key]
+      await loadLocaleMessages(i18n, key)
+      await store.dispatch('app/setLanguage', key)
+    }
+
     return {
       isMobile,
       layout,
@@ -233,7 +262,9 @@ export default {
       routes,
       active,
       toPath,
-      logOut
+      logOut,
+      toggleLang,
+      selectedKeys
     };
   }
 };
