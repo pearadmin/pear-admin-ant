@@ -111,7 +111,10 @@ export default {
 
     // 新 增 或 添 加 选 项 卡 操 作
     const dynamicMenu = () => {
-      const title = route.meta.title;
+      const title = route.meta.title || "";
+      if (!title) {
+        return;
+      }
       const path = route.path;
       commit("layout/addTab", { title, path });
       const { fullPath } = route;
