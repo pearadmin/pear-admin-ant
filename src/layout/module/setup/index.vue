@@ -65,7 +65,6 @@
                     "
                   ></span></div
               ></a>
-              <p-dot ></p-dot>
             </li>
             <li
               @click="updateTheme('theme-light')"
