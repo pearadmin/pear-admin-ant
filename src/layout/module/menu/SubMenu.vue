@@ -1,10 +1,23 @@
 <template>
   <template v-if="!item.hidden">
+    <a-menu-item
+      v-if="
+        item.children && item.children.length == 1 && item.alwaysShow != true
+      "
+      @click="handleFoldSideBar"
+      v-bind="$attrs"
+    >
+      <router-link :to="item.path + '/' + item.children[0].path">
+        <MenuIcon />
+        <span>{{ item.meta.title }}</span>
+      </router-link>
+    </a-menu-item>
+
     <!-- if item.children is not null 渲染 a-sub-menu -->
     <a-sub-menu
       @click="handleFoldSideBar"
       :key="item.path"
-      v-if="item.children && item.children.length > 0"
+      v-else-if="item.children && item.children.length > 0"
     >
       <template v-slot:title>
         <span>
@@ -30,7 +43,7 @@
       v-else
     >
       <router-link :to="resolvePath(item.path, true)">
-        <MenuIcon v-if="level === 0" />
+        <MenuIcon v-if="level && level === 0" />
         <span v-else><div class="indent"></div></span>
         <span>{{ item.meta.title }}</span>
       </router-link>
@@ -44,6 +57,7 @@ import path from "path";
 import { useStore, getter } from "vuex";
 import * as Icons from "@ant-design/icons-vue";
 export default {
+  emits: ["click"],
   name: "SubMenu",
   props: {
     item: {
@@ -68,6 +82,7 @@ export default {
       if (single) {
         return props.basePath;
       }
+      // 当处于 comp 模式下拼接相关路由
       return path.resolve(props.basePath, routePath);
     };
     const handleFoldSideBar = () => {

@@ -48,18 +48,6 @@
     "status": true
   },
   {
-    "parent": "dashboard",
-    "path": "workspace",
-    "name": "dashboard-workspace",
-    "type": "menu",
-    "icon": "DashboardOutlined",
-    "title": "工作台",
-    "sort": 0,
-    "link": "",
-    "hidden": false,
-    "status": true
-  },
-  {
     "parent": "",
     "path": "/form",
     "name": "form",
@@ -202,7 +190,8 @@
     "link": "",
     "hidden": false,
     "status": true
-  },{
+  },
+  {
     "parent": "result-menu",
     "path": "warning",
     "name": "result-warning",
@@ -213,7 +202,8 @@
     "link": "",
     "hidden": false,
     "status": true
-  },{
+  },
+  {
     "parent": "result-menu",
     "path": "info",
     "name": "result-info",
