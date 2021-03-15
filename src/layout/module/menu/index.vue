@@ -41,7 +41,13 @@ export default {
         : "light"
     );
     const storeOpenKey = computed(() => getters.openKey);
-    const activeKey = computed(() => getters.activeKey);
+    const activeKey = computed(() => {
+      const propRoute = route.matched[0];
+      if (propRoute.children.length == 1 && propRoute.meta.alwaysShow != true) {
+        return propRoute.path;
+      }
+      return getters.activeKey;
+    });
 
     const openKey = ref([...storeOpenKey.value]);
     const selectKey = ref([activeKey.value]);

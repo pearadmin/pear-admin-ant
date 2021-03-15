@@ -2,8 +2,11 @@
   <template v-if="!item.hidden">
     <a-menu-item
       v-if="
-        item.children && item.children.length == 1 && item.alwaysShow != true
+        item.children &&
+          item.children.length == 1 &&
+          item.meta.alwaysShow != true
       "
+      :key="resolvePath(item.path, true)"
       @click="handleFoldSideBar"
       v-bind="$attrs"
     >
@@ -91,9 +94,7 @@ export default {
         commit("layout/UPDATE_COLLAPSED", true);
       }
     };
-
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
-
     return {
       handleFoldSideBar,
       resolvePath,

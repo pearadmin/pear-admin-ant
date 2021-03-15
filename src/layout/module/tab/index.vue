@@ -51,6 +51,7 @@ export default {
   },
   methods: {
     callback(key) {
+      console.log("callback", key);
       this.selectTab(key);
     },
     onEdit(targetKey, action) {
@@ -115,8 +116,27 @@ export default {
       if (!title) {
         return;
       }
+      // const poprRoute = route.matched[0];
+      // if (poprRoute.children.length == 1 && poprRoute.alwaysShow != true) {
+      //   console.log("满足一级条件");
+      //   console.log(poprRoute);
+      //   commit("layout/addTab", {
+      //     path: poprRoute.path,
+      //     title: poprRoute.meta.title || ""
+      //   });
+      // } else {
+      //   const path = route.path;
+      //   commit("layout/addTab", { title, path });
+      // }
+
+      let isTop = false;
+      const poprRoute = route.matched[0];
+      if (poprRoute.children.length == 1 && poprRoute.alwaysShow != true) {
+        isTop = true;
+      }
       const path = route.path;
-      commit("layout/addTab", { title, path });
+      commit("layout/addTab", { title, path, isTop });
+
       const { fullPath } = route;
       const startIndex = fullPath.indexOf("/");
       const endIndex = fullPath.lastIndexOf("/");

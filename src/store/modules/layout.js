@@ -257,6 +257,11 @@ const mutations = {
       state.panes.push(value);
       sessionStorage.setItem("pear_tabs", JSON.stringify(state.panes));
     }
+    // if (value.isTop) {
+    //   const subPath = value.path.substring(0, value.path.lastIndexOf("/"));
+    //   state.activeKey = subPath;
+    //   return;
+    // }
     state.activeKey = value.path;
   },
   // 删除选项卡实现
