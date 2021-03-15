@@ -140,6 +140,11 @@ export default {
     height: @ant-menu-hieht !important;
     line-height: @ant-menu-hieht !important;
   }
+
+  .ant-menu-inline-collapsed > .ant-menu-item {
+    padding: 0px !important;
+    text-align: center;
+  }
 }
 </style>
 <style lang="less" scoped>

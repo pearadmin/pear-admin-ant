@@ -8,7 +8,6 @@
       "
       :key="resolvePath(item.path, true)"
       @click="handleFoldSideBar"
-      v-bind="$attrs"
     >
       <router-link :to="item.path + '/' + item.children[0].path">
         <MenuIcon />
