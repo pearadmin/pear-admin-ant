@@ -12,8 +12,8 @@
         </div>
         <div class="menu-item" @click="refresh">
           <!-- 刷新当前页面路由 -->
-          <ReloadOutlined v-if="routerActive"/>
-          <LoadingOutlined v-else/>
+          <ReloadOutlined v-if="routerActive" />
+          <LoadingOutlined v-else />
         </div>
       </div>
     </template>
@@ -48,7 +48,6 @@
       <div class="menu-item" v-else @click="full(2)">
         <CompressOutlined />
       </div>
-
       <a-dropdown class="notice-item">
         <BellOutlined />
         <template #overlay>
@@ -70,9 +69,15 @@
           </a-menu>
         </template>
       </a-dropdown>
-      <div class="menu-item">
+      <a-dropdown class="locale-item">
         <GlobalOutlined />
-      </div>
+        <template #overlay>
+          <a-menu @click="toggleLang" :selectedKeys="selectedKeys">
+            <a-menu-item key="zh-CN"> 简体中文 </a-menu-item>
+            <a-menu-item key="en-US"> English </a-menu-item>
+          </a-menu>
+        </template>
+      </a-dropdown>
       <a-dropdown class="avatar-item">
         <a-avatar
           src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
@@ -105,16 +110,13 @@
   </div>
 </template>
 <script>
-import {
-  computed,
-  watch,
-  ref,
-} from "vue";
+import { computed, watch, ref, unref } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
-import { useRoute} from "vue-router";
+import { useRoute } from "vue-router";
 import _path from "path";
+import i18n from "@/locales";
 import {
   AlignLeftOutlined,
   AlignRightOutlined,
@@ -124,8 +126,9 @@ import {
   ReloadOutlined,
   GlobalOutlined,
   BellOutlined,
-  LoadingOutlined
+  LoadingOutlined,
 } from "@ant-design/icons-vue";
+import { loadLocaleMessages } from "@/locales/i18n";
 export default {
   components: {
     AlignLeftOutlined,
@@ -138,11 +141,11 @@ export default {
     Menu,
     Logo,
     BellOutlined,
-    LoadingOutlined
+    LoadingOutlined,
   },
 
   methods: {
-    full: function(num) {
+    full: function (num) {
       num = num || 1;
       num = num * 1;
       var docElm = document.documentElement;
@@ -171,7 +174,7 @@ export default {
           break;
       }
       this.updateFullscreen();
-    }
+    },
   },
   setup() {
     const { getters, commit, dispatch } = useStore();
@@ -192,7 +195,7 @@ export default {
       }
     );
     //计算点击跳转的最终路由
-    const toPath = route => {
+    const toPath = (route) => {
       let { redirect, children, path } = route;
       if (redirect) {
         return redirect;
@@ -204,7 +207,7 @@ export default {
       return path;
     };
     // const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
-    const routes = computed(() => getters.menu).value.filter(r => !r.hidden);
+    const routes = computed(() => getters.menu).value.filter((r) => !r.hidden);
 
     const refresh = async () => {
       commit("layout/UPDATE_ROUTER_ACTIVE");
@@ -213,9 +216,18 @@ export default {
       }, 500);
     };
 
-    const logOut = async e => {
+    const logOut = async (e) => {
       await dispatch("user/logout");
       window.location.reload();
+    };
+
+    const store = useStore();
+    const defaultLang = computed(() => store.state.app.language);
+    const selectedKeys = ref([unref(defaultLang)]);
+    const toggleLang = async ({ key }) => {
+      selectedKeys.value = [key];
+      await loadLocaleMessages(i18n, key);
+      await store.dispatch("app/setLanguage", key);
     };
 
     return {
@@ -233,9 +245,11 @@ export default {
       routes,
       active,
       toPath,
-      logOut
+      logOut,
+      toggleLang,
+      selectedKeys,
     };
-  }
+  },
 };
 </script>
 <style lang="less" scoped>

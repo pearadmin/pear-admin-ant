@@ -40,8 +40,8 @@ export const listToTree = list => {
  */
 export const generatorUserMenuForTree = (menuList) => {
   const userRoutes = menuList.map(menu => {
-    const {parent, icon, name, children = [], path, hidden = false, title} = menu
-    const i18nTitle = parent ? `${parent}.${name}` : `${name}` // name不一定为中文，如果用到i18n，则可以跟据name去做
+    const {parent, icon, name, children = [], path, hidden = false, title, i18nTitle} = menu
+    // const i18nTitle = parent ? `${parent}.${name}` : `${name}` // name不一定为中文，如果用到i18n，则可以跟据name去做
     // key是唯一的，防止重复，所以拼上父级菜单
     const key = parent ? `${parent}-${name}` : `${name}`
     // todo: 如果后端返回的父级菜单的路径为不带'/'号，则需要拼上 '/', 子菜单不需要，因为vue-router会自动跟据路径拼

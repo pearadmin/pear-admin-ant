@@ -123,5 +123,10 @@ export default {
   /**
    * 参数：默认的tab栏
    */
-  defaultTab: "dashboard-console"
+  defaultTab: "dashboard-console",
+
+  /**
+   * 参数：国际化默认语言
+   */
+  defaultLanguage: 'zh-CN'
 };

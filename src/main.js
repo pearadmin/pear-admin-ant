@@ -8,12 +8,15 @@ import "./assets/css/index.less";
 import "ant-design-vue/dist/antd.less";
 import "./mock";
 import directives from "./directives"
+import i18n from './locales'
+
 
 const app = createApp(App);
 app.use(Antd);
 app.use(Pear);
 app.use(Store);
 app.use(Router);
+app.use(i18n)
 
 Object.keys(directives).forEach(directive => {
   app.directive(directive, directives[directive])

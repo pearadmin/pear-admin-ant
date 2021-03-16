@@ -22,5 +22,5 @@ export default {
   'error-403': () => import('@/view/error/403.vue'),
   'error-404': () => import('@/view/error/404.vue'),
   'error-500': () => import('@/view/error/500.vue'),
-  'permissionTest': () => import('@/view/permission/permission.vue')
+  'permission-test': () => import('@/view/permission/permission.vue')
 }

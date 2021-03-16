@@ -9,7 +9,8 @@
     "sort": 0,
     "link": "",
     "hidden": true,
-    "status": true
+    "status": true,
+    "i18nTitle": "account"
   },
   {
     "parent": "account",
@@ -21,7 +22,8 @@
     "sort": 0,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "account-center"
   },
   {
     "parent": "",
@@ -33,8 +35,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "alwaysShow": true,
-    "status": true
+    "status": true,
+    "i18nTitle": "dashboard"
   },
   {
     "parent": "dashboard",
@@ -46,7 +48,20 @@
     "sort": 0,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "dashboard-console"
+  },{
+    "parent": "dashboard",
+    "path": "workspace",
+    "name": "dashboard-workspace",
+    "type": "menu",
+    "icon": "DashboardOutlined",
+    "title": "工作台",
+    "sort": 0,
+    "link": "",
+    "hidden": false,
+    "status": true,
+    "i18nTitle": "dashboard-workspace"
   },
   {
     "parent": "",
@@ -58,7 +73,8 @@
     "sort": 2,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "form"
   },
   {
     "parent": "form",
@@ -70,7 +86,8 @@
     "sort": 0,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "base-form"
   },
   {
     "parent": "form",
@@ -82,7 +99,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "advanced-form"
   },
   {
     "parent": "form",
@@ -94,7 +112,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "step-form"
   },
   {
     "parent": "",
@@ -106,7 +125,8 @@
     "sort": 3,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "list"
   },
   {
     "parent": "list",
@@ -118,7 +138,8 @@
     "sort": 0,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "base-list"
   },
   {
     "parent": "list",
@@ -130,7 +151,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "card-list"
   },
   {
     "parent": "list",
@@ -142,7 +164,8 @@
     "sort": 2,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "news-list"
   },
   {
     "parent": "list",
@@ -154,7 +177,8 @@
     "sort": 3,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "table-list"
   },
   {
     "parent": "",
@@ -166,7 +190,8 @@
     "sort": 4,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "result-menu"
   },
   {
     "parent": "result-menu",
@@ -178,7 +203,8 @@
     "sort": 0,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "result-success"
   },
   {
     "parent": "result-menu",
@@ -190,7 +216,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "result-failure"
   },
   {
     "parent": "result-menu",
@@ -202,7 +229,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "result-warning"
   },
   {
     "parent": "result-menu",
@@ -214,7 +242,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "result-info"
   },
   {
     "parent": "",
@@ -226,7 +255,8 @@
     "sort": 5,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "error"
   },
   {
     "parent": "error",
@@ -238,7 +268,8 @@
     "sort": 0,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "error-403"
   },
   {
     "parent": "error",
@@ -250,7 +281,8 @@
     "sort": 1,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "error-404"
   },
   {
     "parent": "error",
@@ -262,7 +294,8 @@
     "sort": 2,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "error-500"
   },
   {
     "parent": "",
@@ -274,18 +307,20 @@
     "sort": 6,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "permission"
   },
   {
     "parent": "permission",
-    "path": "permissionTest",
-    "name": "permissionTest",
+    "path": "permission-test",
+    "name": "permission-test",
     "type": "menu",
     "icon": "DatabaseOutlined",
-    "title": "权限测试",
-    "sort": 6,
+    "title": "权限页面",
+    "sort": 7,
     "link": "",
     "hidden": false,
-    "status": true
+    "status": true,
+    "i18nTitle": "permission-test"
   }
 ]
