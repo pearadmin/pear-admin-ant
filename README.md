@@ -35,6 +35,44 @@ Gitee 开源地址: [前往下载](https://gitee.com/pear-admin/pear-admin-ant)
 
 Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 
+#### 项目结构
+
+```
+Pear Admin Ant
+│
+├─dist  打包目录
+│
+├─src 源码
+│  │
+│  |-api 网络请求
+│  |
+│  |-assets 静态资源
+│  |
+│  |-component 常用组件    
+│  |   
+│  |-config 配置文件
+│  |
+│  |-directives 指令目录
+│  |
+│  |-layout 布局组件
+│  |
+│  |-mock 模拟数据
+│  |
+│  |-router 路由管理
+│  | 
+│  |-utils 工具类
+│  |
+│  |-view 页面目录
+│  |
+│  |-App.vue 主体视图
+│  │
+│  └─main.js 入口文件
+│  
+└─pom.xml  Maven 配置
+
+```
+
+
 ### 主题模式
 
 | 默认主题  | 白色主题  |  夜间主题  |
@@ -114,21 +152,3 @@ npm run build-prod
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214346_4e5261c2_4835367.png "ant8.png")
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214354_d3c1d47d_4835367.png "ant9.png")
-
-### 目录结构
-```
-pear-admin-ant
-|-src
-  |-api             http请求
-  |-assets          静态资源
-  |-component       常用组件目录       
-  |-config          项目配置文件
-  |-directives      自定义指令目录
-  |-layout          页面整体布局-layout
-  |-mock            mock数据
-  |-router          页面路由 
-  |-utils           工具类
-  |-view            页面目录
-  |-App.vue         Vue主文件
-  |-main.js         Vue加载启动文件
-```
