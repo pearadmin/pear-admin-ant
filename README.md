@@ -106,27 +106,16 @@ npm run build-dev
 
 2. 欢迎提交 [issue](https://gitee.com/pear-admin/pear-admin-ant/issues)，请写清楚遇到问题的原因、开发环境、复显步骤。
 
+#### 预览项目
 
-## 示例截图
+|  |  |
+|---------------------|---------------------|
+| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175254_08906fd4_4835367.png "屏幕截图.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175304_0315059e_4835367.png "屏幕截图.png")  |
+| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175317_789c0eee_4835367.png "屏幕截图.png")|  ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175330_de1b033f_4835367.png "屏幕截图.png")   |
+| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175343_442fcfa4_4835367.png "屏幕截图.png")|  ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175353_a516655e_4835367.png "屏幕截图.png")   |
+|![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175405_9780096f_4835367.png "屏幕截图.png")| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175418_a4676d4a_4835367.png "屏幕截图.png")   |
+| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175431_e280020a_4835367.png "屏幕截图.png")|  ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175444_35c33986_4835367.png "屏幕截图.png") |
+|![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175514_c720b95a_4835367.png "屏幕截图.png")| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/175526_0b0fb703_4835367.png "屏幕截图.png")   |
+|![](readmes/13.jpg)| ![](readmes/14.jpg)   |
+|![](readmes/15.jpg)| ![](readmes/16.jpg)   |
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1104/172456_91ab3275_4835367.png "ssssssssssssss.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1115/210101_56754a0e_4835367.png "主题.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214245_00adb66f_4835367.png "ant1.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214254_4677557c_4835367.png "ant2.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214302_b36f13d8_4835367.png "ant3.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214310_a363ecb3_4835367.png "ant4.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214319_5e551a1b_4835367.png "ant5.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214328_b50b62e8_4835367.png "ant6.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214337_e99d7b78_4835367.png "ant7.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214346_4e5261c2_4835367.png "ant8.png")
-
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1025/214354_d3c1d47d_4835367.png "ant9.png")
