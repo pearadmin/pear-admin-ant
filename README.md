@@ -28,12 +28,12 @@
   <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png" />
 </div>
 
-### 开源地址
+#### 项目介绍  :jack_o_lantern: 
 
-Gitee 开源地址: [前往下载](https://gitee.com/pear-admin/pear-admin-ant)
+ Vue 3 + Ant Design Vue 2 + Axios 前端模板，提供快速开发
 
+ 项目不定时更新，建议 Star watch 一份
 
-Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 
 #### 项目结构
 
@@ -71,63 +71,39 @@ Pear Admin Ant
 └─pom.xml  Maven 配置
 
 ```
+### 开源地址
+
+Gitee 开源地址: [前往下载](https://gitee.com/pear-admin/pear-admin-ant)
 
 
-### 主题模式
+Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 
-| 默认主题  | 白色主题  |  夜间主题  |
-|---|---|---|
-| ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150340_f168fc5d_4835367.png "黑色主题.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150351_953099c2_4835367.png "白色主题.png")  |  ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150406_27a29e34_4835367.png "夜间主题.png")  |
-|---|---|---|
+### 快速上手
 
-### 布局方式
-
-| 侧边布局  | 顶部布局 |  联动布局  |
-|---|---|---|
-| ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150535_ad4ad37a_4835367.png "黑色主题.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150548_2d6381ee_4835367.png "顶部布局.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1108/150557_bc164bfc_4835367.png "联动布局.png")  |
-|---|---|---|
-
-### 主题配色
-
-| 黄色主题  | 绿色主题 |  蓝色主题  |
-|---|---|---|
-| ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005917_e2433885_4835367.png "黄色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005939_5a252a51_4835367.png "绿色.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2020/1112/005952_3c465c30_4835367.png "蓝色.png") |
-|---|---|---|
-
-### 多选项卡
-
-| DOT主题  | CARD主题 |  BTN主题  |
-|---|---|---|
-| ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181653_e19b682a_4835367.png "选项卡1.png") | ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181711_5af239fd_4835367.png "选项卡2.png")  | ![输入图片说明](https://images.gitee.com/uploads/images/2021/0124/181730_1718d754_4835367.png "选项卡3.png") |
-|---|---|---|
-
-
-### 项目安装
 ```
+
+// 依赖安装
+
 npm install
 
-或
 
-cnpm install
-```
+// 运行项目
 
-### 项目运行
-```
 npm run serve-dev
 
-或
 
-npm run serve-prod
-```
+// 构建项目
 
-### 编译项目
-```
 npm run build-dev
 
-或
-
-npm run build-prod
 ```
+
+#### 开源共建
+
+1. 欢迎提交 [pull request](https://gitee.com/pear-admin/pear-admin-ant/pulls)，注意对应提交对应 `master` 分支
+
+2. 欢迎提交 [issue](https://gitee.com/pear-admin/pear-admin-ant/issues)，请写清楚遇到问题的原因、开发环境、复显步骤。
+
 
 ## 示例截图
 
