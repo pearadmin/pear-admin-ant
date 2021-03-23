@@ -67,7 +67,7 @@ Pear Admin Ant
 │  │
 │  └─main.js 入口文件
 │  
-└─pom.xml  Maven 配置
+└─package.json 配置文件
 
 ```
 
