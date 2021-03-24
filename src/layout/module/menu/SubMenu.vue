@@ -11,8 +11,8 @@
     >
       <router-link :to="item.path + '/' + item.children[0].path">
         <MenuIcon />
-<!--          <span>{{ item.meta.title }}</span>-->
-          <span>{{ t(item.meta.i18nTitle) }}</span>
+        <!-- <span>{{ item.meta.title }}</span> -->
+        <span>{{ t(item.meta.i18nTitle) }}</span>
       </router-link>
     </a-menu-item>
 
@@ -26,7 +26,7 @@
         <span>
           <MenuIcon v-if="level === 0" />
           <span v-else><div class="indent"></div></span>
-<!--          <span>{{ item.meta.title }}</span>-->
+          <!-- <span>{{ item.meta.title }}</span> -->
           <span>{{ t(item.meta.i18nTitle) }}</span>
         </span>
       </template>
@@ -47,9 +47,9 @@
       v-else
     >
       <router-link :to="resolvePath(item.path, true)">
-        <MenuIcon v-if="level && level === 0" />
+        <MenuIcon v-if="level === 0" />
         <span v-else><div class="indent"></div></span>
-<!--        <span>{{ item.meta.title }}</span>-->
+        <!-- <span>{{ item.meta.title }} </span>-->
         <span>{{ t(item.meta.i18nTitle) }}</span>
       </router-link>
     </a-menu-item>
