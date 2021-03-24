@@ -16,20 +16,15 @@
   </div>
 </template>
 <script>
-import { ref, onUnmounted } from "vue";
+import {  isTimeout  } from "@/tools/common";
+import { ref } from "vue";
 import router from "@/router";
 export default {
   setup() {
     const overTime = ref(10);
-    setTimeout(() => {
+     isTimeout(overTime,function(){
       router.push("/");
-    }, overTime.value * 1000);
-    const Interval = setInterval(() => {
-      overTime.value--;
-    }, 1000);
-    onUnmounted(() => {
-      clearInterval(Interval);
-    });
+    })
     return { overTime };
   }
 };

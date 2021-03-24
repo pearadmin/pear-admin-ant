@@ -1,4 +1,4 @@
-import {generatorResponse, generatorToken, getRequestBody, getRolePermission} from "@/mock/util";
+import {generatorResponse, generatorToken, getRequestBody, getRolePermission} from "@/mock/tool";
 import Mock from "mockjs2";
 import menuList from './menuList.json'
 import menuTree from './menuTree.json'

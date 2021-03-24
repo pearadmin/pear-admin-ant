@@ -1,4 +1,4 @@
-import { getModules } from '@/locales/_utils'
+import { getModules } from '@/locales/tool'
 import antLocal from 'ant-design-vue/es/locale/en_US'
 const requireENContext = require.context('./en-US/', false, /[\w+].(js)$/)
 

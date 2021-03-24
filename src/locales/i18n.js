@@ -1,7 +1,6 @@
 import { nextTick } from 'vue'
 import { createI18n } from 'vue-i18n'
 
-
 export function setupI18n(options = { locale: 'en' }) {
   const i18n = createI18n(options)
   setI18nLanguage(i18n, options.locale)

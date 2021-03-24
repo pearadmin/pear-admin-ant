@@ -1,4 +1,4 @@
-import { isNotProduction } from "@/utils/common";
+import { isNotProduction } from "@/tools/common";
 
 // const useMock = isNotProduction()
 

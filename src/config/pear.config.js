@@ -127,6 +127,9 @@ export default {
 
   /**
    * 参数：国际化默认语言
+   * 
+   * zh-CN 中文
+   * en-US 英文
    */
   defaultLanguage: 'zh-CN'
 };

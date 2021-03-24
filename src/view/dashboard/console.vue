@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <page-layout style="magin-top:0">
+    <page-layout>
       <a-row :gutter="[10, 10]">
         <a-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
           <a-card>
@@ -392,11 +392,6 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-#home {
-  .page-layout {
-    margin-top: 0;
-  }
-}
 .ant-divider-horizontal {
   margin-bottom: 10px !important;
 }
