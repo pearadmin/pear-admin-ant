@@ -15,13 +15,13 @@
 
 <p align="center">
     <a href="#">
-        <img src="https://img.shields.io/badge/Pear Admin Ant-1.3.0.release-green.svg" alt="Pear Admin Ant Version">
+        <img src="https://img.shields.io/badge/Pear Admin Ant-1.3.2.release-green.svg" alt="Pear Admin Ant Version">
     </a>
     <a href="#">
-        <img src="https://img.shields.io/badge/Vue-3.0.0+-green.svg" alt="Vue Version">
+        <img src="https://img.shields.io/badge/Vue-3.0.0-green.svg" alt="Vue Version">
     </a>
       <a href="#">
-        <img src="https://img.shields.io/badge/Ant Design Vue-2.0.0.beta+-green.svg" alt="Ant Design Vue Version">
+        <img src="https://img.shields.io/badge/Ant Design Vue-2.0.9-green.svg" alt="Ant Design Vue Version">
     </a>
 </p>
 <div align="center">
