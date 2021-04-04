@@ -13,7 +13,7 @@
         :item="route"
         :base-path="rootPath + route.path"
         :level="0"
-        @click="handleFoldSideBar"
+        @click="foldSide"
       />
     </a-menu>
   </div>
@@ -32,15 +32,10 @@ export default {
     const { getters, commit } = useStore();
     const route = useRoute();
     const layout = computed(() => getters.layout);
-    const menuModel = computed(() =>
-      getters.layout == "layout-head" ? "horizontal" : "inline"
-    );
-    const menuTheme = computed(() =>
-      getters.theme === "theme-dark" || getters.theme === "theme-night"
-        ? "dark"
-        : "light"
-    );
+    const menuModel = computed(() => getters.layout == "layout-head" ? "horizontal" : "inline");
+    const menuTheme = computed(() => getters.theme === "theme-dark" || getters.theme === "theme-night" ? "dark" : "light");
     const storeOpenKey = computed(() => getters.openKey);
+    
     const activeKey = computed(() => {
       const propRoute = route.matched[0];
       if (propRoute.children.length == 1 && propRoute.meta.alwaysShow != true) {
@@ -56,7 +51,7 @@ export default {
     const state = reactive({
       menu: computed(() => getters.menu)
     });
-    // store中不允许修改，这里转一次
+
     const menu = ref(state.menu);
 
     const dynamicRoute = () => {
@@ -67,7 +62,6 @@ export default {
       changeLayout(layout.value);
       const isComputedMobile = computed(() => getters.isMobile);
       const collapsed = computed(() => getters.collapsed);
-      // isComputedMobile.value
       if (
         (layout.value !== "layout-head" && !collapsed.value) ||
         isComputedMobile.value
@@ -81,7 +75,6 @@ export default {
     const changeLayout = model => {
       if (model === "layout-comp") {
         let topPath = route.matched[0].path;
-        // menu.value = routes.find((r) => r.path === topPath).children;
         menu.value = state.menu.find(r => r.path === topPath).children;
         rootPath.value = topPath + "/";
       } else {
@@ -93,7 +86,7 @@ export default {
     const openChange = function(openKeys) {
       commit("layout/updateOpenKey", { openKeys });
     };
-    const handleFoldSideBar = () => {
+    const foldSide = () => {
       const isComputedMobile = computed(() => getters.isMobile);
       if (isComputedMobile.value) {
         commit("layout/UPDATE_COLLAPSED", true);
@@ -101,16 +94,13 @@ export default {
     };
 
     watch(layout, n => changeLayout(n));
-    watch(
-      computed(() => route.fullPath),
-      dynamicRoute
-    );
+    watch(computed(() => route.fullPath), dynamicRoute);
     watch(activeKey, n => (selectKey.value = [n]));
     watch(storeOpenKey, n => (openKey.value = n), { deep: true });
     dynamicRoute(route);
 
     return {
-      handleFoldSideBar,
+      foldSide,
       selectKey,
       openKey,
       menuModel,

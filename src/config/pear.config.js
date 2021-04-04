@@ -6,12 +6,11 @@
  * store 初始化时决定使用 localstore 本地 / pear.config.js 默认配置
  */
 export default {
+  
   /**
-   * 参数 : 图标
-   *
+   * 参数 : 网站图标
    */
-  image:
-    "https://gitee.com/pear-admin/Pear-Admin-Layui/raw/master/admin/images/logo.png",
+  image: "https://gitee.com/pear-admin/Pear-Admin-Layui/raw/master/admin/images/logo.png",
 
   /**
    * 参数 : 网站名称

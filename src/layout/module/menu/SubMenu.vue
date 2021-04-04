@@ -41,7 +41,7 @@
     </a-sub-menu>
     <!-- if item.chilren is null 渲染 a-menu-item -->
     <a-menu-item
-      @click="handleFoldSideBar"
+      @click="foldSide"
       v-bind="$attrs"
       :key="resolvePath(item.path, true)"
       v-else
@@ -49,7 +49,6 @@
       <router-link :to="resolvePath(item.path, true)">
         <MenuIcon v-if="level === 0" />
         <span v-else><div class="indent"></div></span>
-        <!-- <span>{{ item.meta.title }} </span>-->
         <span>{{ t(item.meta.i18nTitle) }}</span>
       </router-link>
     </a-menu-item>
@@ -91,7 +90,8 @@ export default {
       // 当处于 comp 模式下拼接相关路由
       return path.resolve(props.basePath, routePath);
     };
-    const handleFoldSideBar = () => {
+
+    const foldSide = () => {
       const isComputedMobile = computed(() => getters.isMobile);
       if (isComputedMobile.value) {
         commit("layout/UPDATE_COLLAPSED", true);
@@ -99,11 +99,10 @@ export default {
     };
     const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
 
-    // i18n
     const { t } = useI18n()
 
     return {
-      handleFoldSideBar,
+      foldSide,
       resolvePath,
       MenuIcon,
       t

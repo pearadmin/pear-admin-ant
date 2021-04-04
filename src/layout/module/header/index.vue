@@ -194,7 +194,7 @@ export default {
         active.value = $route.matched[0].path;
       }
     );
-    //计算点击跳转的最终路由
+  
     const toPath = (route) => {
       let { redirect, children, path } = route;
       if (redirect) {
@@ -206,7 +206,7 @@ export default {
       }
       return path;
     };
-    // const routes = ref(useRouter().options.routes.filter((r) => !r.hidden));
+
     const routes = computed(() => getters.menu).value.filter((r) => !r.hidden);
 
     const refresh = async () => {

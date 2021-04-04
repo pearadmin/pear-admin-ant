@@ -40,7 +40,7 @@
 </template>
 <script>
 import _path from "path";
-import { computed, getCurrentInstance, reactive, ref, watch } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { useRouter, useRoute } from "vue-router";
@@ -74,7 +74,6 @@ export default {
     const { getters, commit } = useStore();
     const defaultPanes = computed(() => getters.panes);
     const panes = ref(initPanes);
-    // const panes = ref([...defaultPanes.value]);
     const initPanes = [];
     const route = useRoute();
     const router = useRouter();
@@ -116,18 +115,6 @@ export default {
       if (!title) {
         return;
       }
-      // const poprRoute = route.matched[0];
-      // if (poprRoute.children.length == 1 && poprRoute.alwaysShow != true) {
-      //   console.log("满足一级条件");
-      //   console.log(poprRoute);
-      //   commit("layout/addTab", {
-      //     path: poprRoute.path,
-      //     title: poprRoute.meta.title || ""
-      //   });
-      // } else {
-      //   const path = route.path;
-      //   commit("layout/addTab", { title, path });
-      // }
 
       let isTop = false;
       const poprRoute = route.matched[0];
