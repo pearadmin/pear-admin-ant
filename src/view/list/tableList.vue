@@ -8,6 +8,7 @@
           :fetch="fetch"
           :toolbar="toolbar"
           :pagination="pagination"
+          :operate ="operate"
         >
         <!-- 继承至 a-table 的默认插槽 -->
         </pro-table>
@@ -17,6 +18,7 @@
   </div>
 </template>
 <script>
+
 const dataItem = {
   key: "1",
   name: "Joe Black",
@@ -30,7 +32,7 @@ const dataItem = {
 export default {
   setup() {
 
-    /// 远程调用
+    /// 数据来源 [模拟]
     const fetch = async param => {
       return new Promise(resolve => {
         setTimeout(() => {
@@ -50,16 +52,24 @@ export default {
 
     /// 字段
     const columns = [
-      {title: "姓名",dataIndex: "name",key: "name"},
-      {title: "性别",dataIndex: "age",key: "age"},
-      {title: "地址",dataIndex: "address",key: "address"}
+      {title: "姓名", dataIndex: "name", key: "name", type:'text'},
+      {title: "性别", dataIndex: "age", key: "age", type:'text'},
+      {title: "地址", dataIndex: "address", key: "address", type:'text'}
     ];
 
+    /// 行操作
+    const operate = [
+      {label: "修改",event: function(record){alert("修改事件");}},
+      {label: "删除",event: function(record){alert("删除事件");}}
+    ]
+
+    /// 声明抛出
     return {
       pagination: { current: 1, pageSize: 10 }, // 分页配置
       fetch: fetch, // 数据回调
       toolbar: toolbar, // 工具栏
-      columns: columns // 表格配置
+      columns: columns, // 列配置
+      operate: operate  // 行操作
     };
   }
 };

@@ -25,9 +25,16 @@
           </a-button>
           <template #overlay>
             <a-menu class="filtration">
-              <a-checkbox-group v-model:value="filtrationColumnKeys" @change="filtration">
+              <a-checkbox-group
+                v-model:value="filtrationColumnKeys"
+                @change="filtration"
+              >
                 <a-row>
-                  <a-col :span="24" :key="index" v-for="(filtrationColumn, index) in filtrationColumns" >
+                  <a-col
+                    :span="24"
+                    :key="index"
+                    v-for="(filtrationColumn, index) in filtrationColumns"
+                  >
                     <a-checkbox :value="filtrationColumn.value">
                       {{ filtrationColumn.label }}
                     </a-checkbox>
@@ -50,7 +57,14 @@
       @change="fetch"
     >
       <!-- 默认插槽 -->
-      <slot></slot>
+      <template v-slot:action="{ record }">
+        <span>
+          <template :key="index" v-for="(item, index) in operate">
+            <a @click="item.event(record)"> {{ item.label }} </a>
+            <a-divider type="vertical" />
+          </template>
+        </span>
+      </template>
     </a-table>
   </div>
 </template>
@@ -88,18 +102,26 @@ export default defineComponent({
     toolbar: {
       type: Array,
     },
+    /// 行操作
+    operate: {
+      type: Array,
+    },
   }),
   setup(props) {
-
     /// 状态共享
     const state = reactive({
       pagination: Object.assign({}, props.pagination),
       datasource: [],
       loading: true,
       columns: props.columns,
-      filtrationColumnKeys: []
+      filtrationColumnKeys: [],
     });
 
+    /// 默认操作
+    if(props.operate!=false){
+      state.columns.push({ dataIndex: "action", key: "action",title: "操作", slots: { customRender: "action" }})
+    }
+    
     /// 过滤字段
     const filtrationColumns = [];
 
@@ -109,10 +131,10 @@ export default defineComponent({
     });
 
     /// 过滤字段
-    const filtration = function(value){
-      state.columns = props.columns.filter((item)=>value.includes(item.key)); 
+    const filtration = function (value) {
+      state.columns = props.columns.filter((item) => value.includes(item.key));
       state.filtrationColumnKeys = value;
-    }
+    };
 
     /**
      * @param fluter 过滤字段
@@ -172,9 +194,9 @@ export default defineComponent({
   }
 }
 
-.filtration{
+.filtration {
   width: 130px;
-  .ant-checkbox-wrapper{
+  .ant-checkbox-wrapper {
     margin-left: 14px;
     margin-top: 4px;
   }
