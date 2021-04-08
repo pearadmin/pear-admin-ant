@@ -21,18 +21,18 @@ const dataItem = {
   age: 32,
   createTime: "2020-02-09 00:00:00",
   address: "Sidney No. 1 Lake Park Sidney No. 1 ",
-  tags: ["cool", "teacher"],
+  tags: ["cool", "teacher"]
 };
 
 export default {
   setup() {
     /// 远程调用
-    const fetch = (param) => {
-      return new Promise((resolve) => {
+    const fetch = async param => {
+      return new Promise(resolve => {
         setTimeout(() => {
           resolve({
             total: 100,
-            data: new Array(param.pageSize).fill(dataItem),
+            data: new Array(param.pageSize).fill(dataItem)
           });
         });
       });
@@ -43,25 +43,25 @@ export default {
       {
         title: "Name",
         dataIndex: "name",
-        key: "name",
+        key: "name"
       },
       {
         title: "Age",
         dataIndex: "age",
-        key: "age",
+        key: "age"
       },
       {
         title: "Address",
         dataIndex: "address",
-        key: "address",
-      },
+        key: "address"
+      }
     ];
 
     return {
       pagination: { current: 1, pageSize: 10 }, // 分页配置
       fetch: fetch, // 数据回调
-      columns: columns, // 表格配置
+      columns: columns // 表格配置
     };
-  },
+  }
 };
 </script>
