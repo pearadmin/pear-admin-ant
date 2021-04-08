@@ -3,8 +3,7 @@
     <div class="pro-table-tool">
       <!-- 表格工具栏 -->
       <div class="pro-table-prev">
-        <a-button type="primary"> 新增 </a-button>
-        <a-button> 删除 </a-button>
+          <a-button :key ="index"  v-for="(item, index) in toolbar"> {{item.label}} </a-button>
       </div>
       <!-- 默认工具栏 -->
       <div class="pro-table-next">
@@ -102,15 +101,11 @@ export default defineComponent({
 
     /// 刷新方法
     const reload = function () {
-
       fetchData(state.pagination);
     };
 
     onMounted(async () => {
-
        await fetchData(state.pagination);
-
-       console.log(state.loading);
     })
 
     return {

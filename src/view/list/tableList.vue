@@ -38,6 +38,15 @@ export default {
       });
     };
 
+    const toolbar = [
+      {
+        label: "新增",
+        event: function(){
+          
+        }
+      }
+    ]
+
     /// 表格配置
     const columns = [
       {
