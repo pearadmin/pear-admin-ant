@@ -16,5 +16,5 @@ const install = function (Vue) {
 
 export default {
     install,
-    Footer,Header,Layout, CardBase, Count,Table, Search
+    Footer,Header,Layout,CardBase,Count,Table,Search
 }
