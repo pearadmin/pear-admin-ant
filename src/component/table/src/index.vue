@@ -1,8 +1,8 @@
 <template>
-  <div id="pro-table">
-    <div class="pro-table-tool">
+  <div id="p-table">
+    <div class="p-table-tool">
       <!-- 表格工具栏 -->
-      <div class="pro-table-prev">
+      <div class="p-table-prev">
         <template :key="index" v-for="(item, index) in toolbar">
           <!-- 更多按钮 -->
           <a-dropdown v-if="item.children && item.children.length > 0">
@@ -29,7 +29,7 @@
         </template>
       </div>
       <!-- 默认工具栏 -->
-      <div class="pro-table-next">
+      <div class="p-table-next">
         <a-button @click="reload">
           <template #icon
             ><LoadingOutlined v-if="loading" /><SyncOutlined v-else
@@ -112,7 +112,7 @@ import {
 
 const TProps = T.props;
 export default defineComponent({
-  name: "pro-table",
+  name: "p-table",
   components: {
     AppstoreOutlined,
     LoadingOutlined,
@@ -223,14 +223,14 @@ export default defineComponent({
 });
 </script>
 <style lang="less">
-.pro-table-prev {
+.p-table-prev {
   display: inline-block;
   .ant-btn {
     margin: 4px;
     margin-bottom: 8px;
   }
 }
-.pro-table-next {
+.p-table-next {
   float: right;
   .ant-btn {
     margin: 4px;

@@ -3,7 +3,7 @@
     <page-header title="查询表格" describe="表格查询的复杂示例"></page-header>
     <page-layout>
       <a-card>
-        <pro-table
+        <p-table
           :columns="columns"
           :fetch="fetch"
           :toolbar="toolbar"
@@ -11,7 +11,7 @@
           :operate ="operate"
         >
         <!-- 继承至 a-table 的默认插槽 -->
-        </pro-table>
+        </p-table>
       </a-card>
     </page-layout>
     <page-footer></page-footer>
