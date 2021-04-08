@@ -4,10 +4,10 @@
       <!-- 表格工具栏 -->
       <div class="pro-table-prev">
         <a-button
-          :type="index == 0 ? 'primary' : ''"
-          @click="item.event"
+          :type="index == 0?'primary':''"
           :key="index"
           v-for="(item, index) in toolbar"
+          @click="item.event(selectedRowKeys)"
         >
           {{ item.label }}
         </a-button>
@@ -49,12 +49,14 @@
         </a-button>
       </div>
     </div>
+    <!-- 表格组件 -->
     <a-table
       :dataSource="datasource"
       :columns="columns"
       :pagination="pagination"
       :loading="loading"
       @change="fetch"
+      :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
     >
       <!-- 默认插槽 -->
       <template v-slot:action="{ record }">
@@ -105,7 +107,7 @@ export default defineComponent({
     /// 行操作
     operate: {
       type: Array,
-    },
+    }   
   }),
   setup(props) {
     /// 状态共享
@@ -115,6 +117,7 @@ export default defineComponent({
       loading: true,
       columns: props.columns,
       filtrationColumnKeys: [],
+      selectedRowKeys: [],
     });
 
     /// 默认操作
@@ -134,6 +137,11 @@ export default defineComponent({
     const filtration = function (value) {
       state.columns = props.columns.filter((item) => value.includes(item.key));
       state.filtrationColumnKeys = value;
+    };
+
+    /// 选中回调
+    const onSelectChange = selectedRowKeys => {
+      state.selectedRowKeys = selectedRowKeys;
     };
 
     /**
@@ -174,6 +182,8 @@ export default defineComponent({
       /// 过滤字段
       filtrationColumns,
       filtration,
+      /// 选中字段
+      onSelectChange
     };
   },
 });

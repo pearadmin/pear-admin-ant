@@ -46,8 +46,8 @@ export default {
 
     /// 工具栏
     const toolbar = [
-      {label: "新增",event: function(){alert("新增操作")}},
-      {label: "删除",event: function(){alert("批量删除")}},
+      {label: "新增",event: function(keys){alert("新增操作:" + JSON.stringify(keys))}},
+      {label: "删除",event: function(keys){alert("批量删除:" + JSON.stringify(keys))}},
     ]
 
     /// 字段
@@ -59,6 +59,7 @@ export default {
 
     /// 行操作
     const operate = [
+      {label: "查看",event: function(record){alert("查看详情")}},
       {label: "修改",event: function(record){alert("修改事件");}},
       {label: "删除",event: function(record){alert("删除事件");}}
     ]
