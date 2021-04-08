@@ -48,6 +48,10 @@ export default {
     const toolbar = [
       {label: "新增",event: function(keys){alert("新增操作:" + JSON.stringify(keys))}},
       {label: "删除",event: function(keys){alert("批量删除:" + JSON.stringify(keys))}},
+      {label: "更多操作",children: [
+        {label: "批量导入",event(keys){alert("批量导入")}},
+        {label: "批量导出",event(keys){alert("批量导出")}}
+      ]}
     ]
 
     /// 字段
@@ -59,9 +63,14 @@ export default {
 
     /// 行操作
     const operate = [
-      {label: "查看",event: function(record){alert("查看详情")}},
-      {label: "修改",event: function(record){alert("修改事件");}},
-      {label: "删除",event: function(record){alert("删除事件");}}
+      {label: "查看",event: function(record){alert("查看详情:" + JSON.stringify(record));}},
+      {label: "修改",event: function(record){alert("修改事件:" + JSON.stringify(record));}},
+      {label: "删除",event: function(record){alert("删除事件:" + JSON.stringify(record));}},
+      {label: "更多",children: [ 
+        {label: "导出",event: function(record){alert("导出")}},
+        {label: "下载",event: function(record){alert("下载")}}
+      ]}
+
     ]
 
     /// 声明抛出

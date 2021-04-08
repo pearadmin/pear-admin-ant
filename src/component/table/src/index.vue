@@ -3,14 +3,30 @@
     <div class="pro-table-tool">
       <!-- 表格工具栏 -->
       <div class="pro-table-prev">
-        <a-button
-          :type="index == 0?'primary':''"
-          :key="index"
-          v-for="(item, index) in toolbar"
-          @click="item.event(selectedRowKeys)"
-        >
-          {{ item.label }}
-        </a-button>
+        <template :key="index" v-for="(item, index) in toolbar">
+          <!-- 更多按钮 -->
+          <a-dropdown v-if="item.children && item.children.length > 0">
+            <!-- -->
+            <a-button @click="item.event(selectedRowKeys)">
+              {{ item.label }}
+            </a-button>
+            <template #overlay>
+              <a-menu>
+                <!-- 遍历子集 -->
+                <a-menu-item v-for="(child, i) in item.children" :key="i">
+                  <a @click="child.event(selectedRowKeys)"> {{ child.label }} </a>
+                </a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
+          <a-button
+             v-else
+            :type="index == 0 ? 'primary' : ''"
+            @click="item.event(selectedRowKeys)"
+          >
+            {{ item.label }}
+          </a-button>
+        </template>
       </div>
       <!-- 默认工具栏 -->
       <div class="pro-table-next">
@@ -44,9 +60,6 @@
             </a-menu>
           </template>
         </a-dropdown>
-        <a-button>
-          <template #icon><ExportOutlined /></template>
-        </a-button>
       </div>
     </div>
     <!-- 表格组件 -->
@@ -56,13 +69,31 @@
       :pagination="pagination"
       :loading="loading"
       @change="fetch"
-      :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
+      :row-selection="{
+        selectedRowKeys: selectedRowKeys,
+        onChange: onSelectChange,
+      }"
     >
-      <!-- 默认插槽 -->
+      <!-- 默认插槽 [自定义列替换]-->
+      <slot></slot>
+      <!-- 行操作 -->
       <template v-slot:action="{ record }">
         <span>
           <template :key="index" v-for="(item, index) in operate">
-            <a @click="item.event(record)"> {{ item.label }} </a>
+            <!-- 下拉操作 -->
+            <a-dropdown v-if="item.children && item.children.length > 0">
+              <a> {{ item.label }} </a>
+              <template #overlay>
+                <a-menu>
+                  <!-- 遍历子集 -->
+                  <a-menu-item v-for="(child, i) in item.children" :key="i">
+                    <a @click="child.event(record)"> {{ child.label }} </a>
+                  </a-menu-item>
+                </a-menu>
+              </template>
+            </a-dropdown>
+            <!-- 单个操作 -->
+            <a v-else @click="item.event(record)"> {{ item.label }} </a>
             <a-divider type="vertical" />
           </template>
         </span>
@@ -76,7 +107,6 @@ import { defineComponent, onMounted, reactive, toRefs } from "vue";
 import {
   AppstoreOutlined,
   LoadingOutlined,
-  ExportOutlined,
   SyncOutlined,
 } from "@ant-design/icons-vue";
 
@@ -86,7 +116,6 @@ export default defineComponent({
   components: {
     AppstoreOutlined,
     LoadingOutlined,
-    ExportOutlined,
     SyncOutlined,
   },
   props: Object.assign({}, TProps, {
@@ -107,7 +136,7 @@ export default defineComponent({
     /// 行操作
     operate: {
       type: Array,
-    }   
+    },
   }),
   setup(props) {
     /// 状态共享
@@ -121,10 +150,15 @@ export default defineComponent({
     });
 
     /// 默认操作
-    if(props.operate!=false){
-      state.columns.push({ dataIndex: "action", key: "action",title: "操作", slots: { customRender: "action" }})
+    if (props.operate != false) {
+      state.columns.push({
+        dataIndex: "action",
+        key: "action",
+        title: "操作",
+        slots: { customRender: "action" },
+      });
     }
-    
+
     /// 过滤字段
     const filtrationColumns = [];
 
@@ -140,7 +174,7 @@ export default defineComponent({
     };
 
     /// 选中回调
-    const onSelectChange = selectedRowKeys => {
+    const onSelectChange = (selectedRowKeys) => {
       state.selectedRowKeys = selectedRowKeys;
     };
 
@@ -183,7 +217,7 @@ export default defineComponent({
       filtrationColumns,
       filtration,
       /// 选中字段
-      onSelectChange
+      onSelectChange,
     };
   },
 });
