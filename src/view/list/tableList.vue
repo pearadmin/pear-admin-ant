@@ -8,7 +8,9 @@
           :fetch="fetch"
           :toolbar="toolbar"
           :pagination="pagination"
-        ></pro-table>
+        >
+        <!-- 继承至 a-table 的默认插槽 -->
+        </pro-table>
       </a-card>
     </page-layout>
     <page-footer></page-footer>
@@ -27,6 +29,7 @@ const dataItem = {
 
 export default {
   setup() {
+
     /// 远程调用
     const fetch = async param => {
       return new Promise(resolve => {
@@ -35,42 +38,21 @@ export default {
             total: 100,
             data: new Array(param.pageSize).fill(dataItem)
           });
-        });
+        },900);
       });
     };
 
+    /// 工具栏
     const toolbar = [
-      {
-        label: "新增",
-        event: function(){
-            alert("新增操作")
-        }
-      },
-      {
-        label: "删除",
-        event: function(){
-            alert("批量删除")
-        }
-      }
+      {label: "新增",event: function(){alert("新增操作")}},
+      {label: "删除",event: function(){alert("批量删除")}},
     ]
 
-    /// 表格配置
+    /// 字段
     const columns = [
-      {
-        title: "Name",
-        dataIndex: "name",
-        key: "name"
-      },
-      {
-        title: "Age",
-        dataIndex: "age",
-        key: "age"
-      },
-      {
-        title: "Address",
-        dataIndex: "address",
-        key: "address"
-      }
+      {title: "姓名",dataIndex: "name",key: "name"},
+      {title: "性别",dataIndex: "age",key: "age"},
+      {title: "地址",dataIndex: "address",key: "address"}
     ];
 
     return {

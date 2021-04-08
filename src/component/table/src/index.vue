@@ -3,22 +3,43 @@
     <div class="pro-table-tool">
       <!-- 表格工具栏 -->
       <div class="pro-table-prev">
-          <a-button  :type="index==0?'primary':''" @click="item.event" :key ="index"  v-for="(item, index) in toolbar"> {{item.label}} </a-button>
+        <a-button
+          :type="index == 0 ? 'primary' : ''"
+          @click="item.event"
+          :key="index"
+          v-for="(item, index) in toolbar"
+        >
+          {{ item.label }}
+        </a-button>
       </div>
       <!-- 默认工具栏 -->
       <div class="pro-table-next">
-        <a-button v-if="!loading" @click="reload"
-          ><template #icon><SyncOutlined /></template
-        ></a-button>
-        <a-button v-else>
-          <template #icon><LoadingOutlined /></template>
+        <a-button @click="reload">
+          <template #icon
+            ><LoadingOutlined v-if="loading" /><SyncOutlined v-else
+          /></template>
         </a-button>
+        <a-dropdown>
+          <a-button>
+            <template #icon><AppstoreOutlined /></template>
+          </a-button>
+          <template #overlay>
+            <a-menu class="filtration">
+              <a-checkbox-group v-model:value="filtrationColumnKeys" @change="filtration">
+                <a-row>
+                  <a-col :span="24" :key="index" v-for="(filtrationColumn, index) in filtrationColumns" >
+                    <a-checkbox :value="filtrationColumn.value">
+                      {{ filtrationColumn.label }}
+                    </a-checkbox>
+                  </a-col>
+                </a-row>
+              </a-checkbox-group>
+            </a-menu>
+          </template>
+        </a-dropdown>
         <a-button>
-          <template #icon><AppstoreOutlined /> </template>
+          <template #icon><ExportOutlined /></template>
         </a-button>
-        <a-button
-          ><template #icon><ExportOutlined /></template
-        ></a-button>
       </div>
     </div>
     <a-table
@@ -40,7 +61,7 @@ import {
   AppstoreOutlined,
   LoadingOutlined,
   ExportOutlined,
-  SyncOutlined
+  SyncOutlined,
 } from "@ant-design/icons-vue";
 
 const TProps = T.props;
@@ -50,38 +71,55 @@ export default defineComponent({
     AppstoreOutlined,
     LoadingOutlined,
     ExportOutlined,
-    SyncOutlined
+    SyncOutlined,
   },
   props: Object.assign({}, TProps, {
     /// 数据来源
     fetch: {
       type: Function,
-      required: false
+      required: false,
     },
     /// 数据解析
     columns: {
       type: Array,
-      required: true
+      required: true,
     },
     /// 表格工具
     toolbar: {
-      type: Array
-    }
+      type: Array,
+    },
   }),
   setup(props) {
+
     /// 状态共享
     const state = reactive({
       pagination: Object.assign({}, props.pagination),
       datasource: [],
-      loading: true
+      loading: true,
+      columns: props.columns,
+      filtrationColumnKeys: []
     });
 
+    /// 过滤字段
+    const filtrationColumns = [];
+
+    props.columns.forEach(function (item) {
+      filtrationColumns.push({ label: item.title, value: item.key });
+      state.filtrationColumnKeys.push(item.key);
+    });
+
+    /// 过滤字段
+    const filtration = function(value){
+      state.columns = props.columns.filter((item)=>value.includes(item.key)); 
+      state.filtrationColumnKeys = value;
+    }
+
     /**
-     * @param param 分页参数
      * @param fluter 过滤字段
+     * @param param 分页参数
      * @param sort 排序字段
      */
-    const fetchData = async param => {
+    const fetchData = async (param) => {
       /// 开启加载
       state.loading = true;
       /// 请求数据
@@ -95,10 +133,11 @@ export default defineComponent({
     };
 
     /// 刷新方法
-    const reload = function() {
+    const reload = function () {
       fetchData(state.pagination);
     };
 
+    /// 初始数据
     onMounted(async () => {
       await fetchData(state.pagination);
     });
@@ -109,9 +148,12 @@ export default defineComponent({
       /// 数据加载
       fetch: fetchData,
       /// 刷新方法
-      reload: reload
+      reload: reload,
+      /// 过滤字段
+      filtrationColumns,
+      filtration,
     };
-  }
+  },
 });
 </script>
 <style lang="less">
@@ -127,6 +169,14 @@ export default defineComponent({
   .ant-btn {
     margin: 4px;
     margin-bottom: 8px;
+  }
+}
+
+.filtration{
+  width: 130px;
+  .ant-checkbox-wrapper{
+    margin-left: 14px;
+    margin-top: 4px;
   }
 }
 </style>
