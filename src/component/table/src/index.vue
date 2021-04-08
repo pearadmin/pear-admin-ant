@@ -21,10 +21,11 @@
         ></a-button>
       </div>
     </div>
+    {{ loading }}
     <a-table
       :dataSource="datasource"
       :columns="columns"
-      :pagination="page"
+      :pagination="pagination"
       :loading="loading"
       @change="fetch"
     >
@@ -35,12 +36,12 @@
 </template>
 <script>
 import T from "ant-design-vue/es/table/Table";
-import { defineComponent, onMounted, reactive } from "vue";
+import { defineComponent, onMounted, reactive, toRefs } from "vue";
 import {
   AppstoreOutlined,
   LoadingOutlined,
   ExportOutlined,
-  SyncOutlined,
+  SyncOutlined
 } from "@ant-design/icons-vue";
 
 const TProps = T.props;
@@ -50,47 +51,42 @@ export default defineComponent({
     AppstoreOutlined,
     LoadingOutlined,
     ExportOutlined,
-    SyncOutlined,
+    SyncOutlined
   },
   props: Object.assign({}, TProps, {
     /// 数据来源
     fetch: {
       type: Function,
-      required: false,
+      required: false
     },
     /// 数据解析
     columns: {
       type: Array,
-      required: true,
+      required: true
     },
     /// 表格工具
     toolbar: {
-      type: Array,
-    },
+      type: Array
+    }
   }),
   setup(props) {
-
     /// 状态共享
     const state = reactive({
       pagination: Object.assign({}, props.pagination),
       datasource: [],
-      loading: true,
+      loading: true
     });
 
-    /// 加载数据
     /**
      * @param param 分页参数
      * @param fluter 过滤字段
      * @param sort 排序字段
      */
-    const fetchData = async (param) => {
-      
+    const fetchData = async param => {
       /// 开启加载
       state.loading = true;
-
       /// 请求数据
       const { total, data } = await props.fetch(param);
-
       /// 状态重置
       state.pagination.pageSize = param.pageSize;
       state.pagination.current = param.current;
@@ -100,27 +96,23 @@ export default defineComponent({
     };
 
     /// 刷新方法
-    const reload = function () {
+    const reload = function() {
       fetchData(state.pagination);
     };
 
     onMounted(async () => {
-       await fetchData(state.pagination);
-    })
+      await fetchData(state.pagination);
+    });
 
     return {
-      /// 分页信息
-      page: state.pagination,
       /// 数据信息
-      datasource: state.datasource,
-      /// 加载状态
-      loading: state.loading,
+      ...toRefs(state),
       /// 数据加载
       fetch: fetchData,
       /// 刷新方法
-      reload: reload,
+      reload: reload
     };
-  },
+  }
 });
 </script>
 <style lang="less">
