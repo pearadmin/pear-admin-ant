@@ -3,7 +3,7 @@
     <div class="pro-table-tool">
       <!-- 表格工具栏 -->
       <div class="pro-table-prev">
-          <a-button :key ="index"  v-for="(item, index) in toolbar"> {{item.label}} </a-button>
+          <a-button  :type="index==0?'primary':''" @click="item.event" :key ="index"  v-for="(item, index) in toolbar"> {{item.label}} </a-button>
       </div>
       <!-- 默认工具栏 -->
       <div class="pro-table-next">
@@ -21,7 +21,6 @@
         ></a-button>
       </div>
     </div>
-    {{ loading }}
     <a-table
       :dataSource="datasource"
       :columns="columns"

@@ -6,6 +6,7 @@
         <pro-table
           :columns="columns"
           :fetch="fetch"
+          :toolbar="toolbar"
           :pagination="pagination"
         ></pro-table>
       </a-card>
@@ -42,7 +43,13 @@ export default {
       {
         label: "新增",
         event: function(){
-          
+            alert("新增操作")
+        }
+      },
+      {
+        label: "删除",
+        event: function(){
+            alert("批量删除")
         }
       }
     ]
@@ -69,6 +76,7 @@ export default {
     return {
       pagination: { current: 1, pageSize: 10 }, // 分页配置
       fetch: fetch, // 数据回调
+      toolbar: toolbar, // 工具栏
       columns: columns // 表格配置
     };
   }
