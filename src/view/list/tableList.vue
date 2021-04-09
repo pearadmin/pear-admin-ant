@@ -56,9 +56,10 @@ export default {
 
     /// 字段
     const columns = [
-      {title: "姓名", dataIndex: "name", key: "name", type:'text'},
-      {title: "性别", dataIndex: "age", key: "age", type:'text'},
-      {title: "地址", dataIndex: "address", key: "address", type:'text'}
+      {title: "姓名", dataIndex: "name", key: "name"},
+      {title: "性别", dataIndex: "sex", key: "sex"},
+      {title: "年龄", dataIndex: "age", key: "age"},
+      {title: "地址", dataIndex: "address", key: "address"}
     ];
 
     /// 行操作
