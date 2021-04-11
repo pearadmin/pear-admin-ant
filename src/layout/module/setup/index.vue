@@ -353,7 +353,7 @@
           <br />
           <br />
           <a-switch v-model:checked="keepAlive" @change="toggleKeepAlive" />
-          <div class="setting-title-right">keep-alive</div>
+          <div class="setting-title-right">视图缓存</div>
           <br />
           <br />
           <a-switch
