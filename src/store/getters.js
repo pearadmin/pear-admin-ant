@@ -21,6 +21,7 @@ const getters = {
   routerAnimate: state => state.layout.routerAnimate,
   language: state => state.layout.language,
   isMobile: state => state.layout.isMobile,
+  keepAlive: state=> state.layout.keepAlive,
   token: state =>
     state.user.token
       ? state.user.token
@@ -33,6 +34,5 @@ const getters = {
       : localStorage.getItem("user_routes")
       ? JSON.parse(localStorage.getItem("user_routes"))
       : ""
-  // userInfo: state => state.user.userInfo ? state.user.userInfo : localStorage.getItem('user_info') ? JSON.parse(localStorage.getItem('user_info')) : ''
 };
 export default getters;

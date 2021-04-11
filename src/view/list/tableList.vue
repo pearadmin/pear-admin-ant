@@ -4,11 +4,11 @@
     <page-layout>
       <a-card>
         <p-table
-          :columns="columns"
           :fetch="fetch"
+          :columns="columns"
           :toolbar="toolbar"
-          :pagination="pagination"
           :operate ="operate"
+          :pagination="pagination"
         >
         <!-- 继承至 a-table 的默认插槽 -->
         </p-table>

@@ -352,6 +352,10 @@
           <div class="setting-title-right">多选项卡</div>
           <br />
           <br />
+          <a-switch v-model:checked="keepAlive" @change="toggleKeepAlive" />
+          <div class="setting-title-right">keep-alive</div>
+          <br />
+          <br />
           <a-switch
             v-model:checked="fixedHeader"
             @change="onChangeFixedHeader"
@@ -406,6 +410,7 @@ export default {
     const { getters, commit } = useStore();
     const visible = computed(() => getters.settingVisible);
     const logo = computed(() => getters.logo);
+    const keepAlive = computed(() => getters.keepAlive);
     const tab = computed(() => getters.tab);
     const theme = computed(() => getters.theme);
     const fixedSide = computed(() => getters.fixedSide);
@@ -425,6 +430,9 @@ export default {
     const updateRouterAnimate = function (animate) {
       commit("layout/UPDATE_ROUTER_ANIMATE", animate.key);
     };
+    const toggleKeepAlive = function(){
+      commit("layout/TOGGLE_KEEP_ALIVE");
+    };
     const updateColor = function (color) {
       window.less.modifyVars({
         "@primary-color": color,
@@ -438,6 +446,7 @@ export default {
     };
     return {
       tabType,
+      toggleKeepAlive,
       routerAnimate,
       updateRouterAnimate,
       handleChange,
@@ -451,6 +460,7 @@ export default {
       logo,
       tab,
       layout,
+      keepAlive,
       theme,
       onChangeVisible: () => commit("layout/TOGGLE_SETTING"),
       onChangeLogo: () => commit("layout/TOGGLE_LOGO"),

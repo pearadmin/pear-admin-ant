@@ -3,7 +3,10 @@
   <div id="content">
     <router-view v-slot="{ Component }" v-if="routerActive">
       <transition :name="routerAnimate">
-        <component :is="Component"></component>
+        <keep-alive v-if="keepAlive">
+          <component :is="Component"></component>
+        </keep-alive>
+        <component v-else :is="Component"></component>
       </transition>
     </router-view>
     <div class="spinLoading" v-else>
@@ -19,7 +22,9 @@ export default {
     const { getters } = useStore();
     const routerActive = computed(() => getters.routerActive);
     const routerAnimate = computed(() => getters.routerAnimate);
+    const keepAlive = computed(() => getters.keepAlive);
     return {
+      keepAlive,
       routerActive,
       routerAnimate,
     };

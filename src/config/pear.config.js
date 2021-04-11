@@ -73,6 +73,13 @@ export default {
   fixedSide: true,
 
   /**
+   * 参数：是否开启全局 keep - Alive 状态缓存
+   * true
+   * false
+   * */
+  keepAlive: true,
+
+  /**
    * 参数: 是否固定顶部
    * true
    * false
