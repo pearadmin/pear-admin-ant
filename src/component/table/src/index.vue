@@ -102,8 +102,9 @@
   </div>
 </template>
 <script>
+import "./index.less";
 import T from "ant-design-vue/es/table/Table";
-import { defineComponent, onMounted, reactive, toRefs } from "vue";
+import { watch, defineComponent, onMounted, reactive, toRefs } from "vue";
 import {
   AppstoreOutlined,
   LoadingOutlined,
@@ -119,6 +120,10 @@ export default defineComponent({
     SyncOutlined,
   },
   props: Object.assign({}, TProps, {
+    /// 扩展参数
+    param: {
+      type: Object
+    },
     /// 数据来源
     fetch: {
       type: Function,
@@ -206,6 +211,11 @@ export default defineComponent({
       await fetchData(state.pagination);
     });
 
+    /// 监听扩展参数, 触发表格刷新
+    watch(() => props.param,() => {
+        fetchData();
+    },{deep: true});
+
     return {
       /// 数据信息
       ...toRefs(state),
@@ -222,27 +232,3 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="less">
-.p-table-prev {
-  display: inline-block;
-  .ant-btn {
-    margin: 4px;
-    margin-bottom: 8px;
-  }
-}
-.p-table-next {
-  float: right;
-  .ant-btn {
-    margin: 4px;
-    margin-bottom: 8px;
-  }
-}
-
-.filtration {
-  width: 130px;
-  .ant-checkbox-wrapper {
-    margin-left: 14px;
-    margin-top: 4px;
-  }
-}
-</style>

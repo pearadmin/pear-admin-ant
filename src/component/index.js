@@ -4,10 +4,10 @@ import Footer from "./footer";
 import CardBase from "./cardBase";
 import Count from "./count";
 import Table from './table';
-import Search from './search';
+import Query from './query';
 
 const components = [
-    Footer,Header,Layout, CardBase, Count,Table, Search
+    Footer,Header,Layout, CardBase, Count,Table, Query
 ];
 
 const install = function (Vue) {
@@ -17,5 +17,5 @@ const install = function (Vue) {
 
 export default {
     install,
-    Footer,Header,Layout,CardBase, Count,Table, Search
+    Footer,Header,Layout,CardBase, Count,Table, Query
 }
