@@ -3,13 +3,13 @@ import Route from "./route";
 import Store from "./store";
 import Pear from "./component";
 import { createApp } from "vue";
-import "./assets/css/index.less";
 import Antd from "ant-design-vue/es";
-import "ant-design-vue/dist/antd.less";
 import directive from "./directive";
 import i18n from './locale';
-import "./mock";
 
+import "./mock";
+import "./assets/css/index.less";
+import "ant-design-vue/dist/antd.less";
 
 const app = createApp(App);
 app.use(Antd);
@@ -23,5 +23,4 @@ Object.keys(directive).forEach(d => {
 })
 
 app.mount("#app");
-
 export default app
