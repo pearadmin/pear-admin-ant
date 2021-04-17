@@ -1,10 +1,3 @@
-/**
- *
- * author: jiabinbin
- * Email: 425605679@qq.com
- * Desc:
- * version: 1.0.0
- */
 import axios from "axios";
 import { useStore } from "vuex";
 import { notification, message as Msg } from "ant-design-vue";
@@ -28,13 +21,6 @@ class Http {
     instance.interceptors.request.use(
       config => {
         const token = localStorage.getItem("pear_admin_ant_token");
-        /**
-         * 跟据实际情况处理token. eg:
-         * 假设api请求的url为 'api/login', 若当前的请求的url不为登陆的则都带上token
-         * if (!config.url.includes('login')) {
-         *   config.headers.Token = token
-         * }
-         */
         if (token) {
           config.headers["Access-Token"] = token;
         }

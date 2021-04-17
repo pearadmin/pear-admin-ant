@@ -1,25 +1,25 @@
-import { createApp } from "vue";
-import Antd from "ant-design-vue/es";
 import App from "./App.vue";
-import Router from "./router";
+import Route from "./route";
 import Store from "./store";
 import Pear from "./component";
+import { createApp } from "vue";
 import "./assets/css/index.less";
+import Antd from "ant-design-vue/es";
 import "ant-design-vue/dist/antd.less";
+import directive from "./directive";
+import i18n from './locale';
 import "./mock";
-import directives from "./directives"
-import i18n from './locales'
 
 
 const app = createApp(App);
 app.use(Antd);
 app.use(Pear);
 app.use(Store);
-app.use(Router);
+app.use(Route);
 app.use(i18n)
 
-Object.keys(directives).forEach(directive => {
-  app.directive(directive, directives[directive])
+Object.keys(directive).forEach(d => {
+  app.directive(d, directive[d])
 })
 
 app.mount("#app");

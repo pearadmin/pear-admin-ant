@@ -1,7 +1,7 @@
 import store from "@/store/store";
-import router from '@/router'
+import router from '@/route'
 export default function permission(el, binding, VNode, prevNode) {
-  // 获取当前用户当前页面的按钮权限数组
+  // 获取当前页面权限列表
   const { currentRoute } = router
   const userInfo = store.user.state.userInfo
   const { permissions = [] } = userInfo

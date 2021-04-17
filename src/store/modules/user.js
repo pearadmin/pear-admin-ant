@@ -1,7 +1,5 @@
-import {getUserMenusArray, getUserMenusTree, login, logout} from "@/api/modules/user";
-import {
-  generatorUserMenuForList, generatorUserMenuForTree
-} from "@/router/permission";
+import {getUserMenusArray, getUserMenusTree, login, logout} from "@/api/module/user";
+import {generatorUserMenuForList, generatorUserMenuForTree} from "@/route/permission";
 
 const state = {
   token: '',

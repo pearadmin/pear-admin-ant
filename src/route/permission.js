@@ -1,7 +1,7 @@
-import permissionRoutes from './modules/permission-routes'
+import permissionRoutes from './module/main-routes'
 import NProgress from "nprogress";
 import store from "@/store";
-import router from "@/router/index";
+import router from "@/route/index";
 
 /**
  * 菜单数组转树

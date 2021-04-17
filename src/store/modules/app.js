@@ -1,4 +1,4 @@
-import config from "@/config/pear.config";
+import config from "@/pear.js";
 
 const state = {
   language:

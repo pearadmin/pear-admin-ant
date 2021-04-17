@@ -116,7 +116,7 @@ import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
 import { useRoute } from "vue-router";
 import _path from "path";
-import i18n from "@/locales";
+import i18n from "@/locale";
 import {
   AlignLeftOutlined,
   AlignRightOutlined,
@@ -128,7 +128,7 @@ import {
   BellOutlined,
   LoadingOutlined,
 } from "@ant-design/icons-vue";
-import { loadLocaleMessages } from "@/locales/i18n";
+import { loadLocaleMessages } from "@/locale/i18n";
 export default {
   components: {
     AlignLeftOutlined,

@@ -44,7 +44,7 @@ import { computed, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { useRouter, useRoute } from "vue-router";
-import config from "@/config/pear.config";
+import config from "@/pear";
 export default {
   components: {
     DownOutlined

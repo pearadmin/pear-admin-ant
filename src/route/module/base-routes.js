@@ -1,3 +1,4 @@
+/// 基础路由
 export default [
   {
     path: '/',

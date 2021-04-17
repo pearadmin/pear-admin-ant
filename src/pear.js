@@ -1,6 +1,4 @@
-/**
- * Project default config.
- *
+/*
  * 项目默认配置信息
  *
  * store 初始化时决定使用 localstore 本地 / pear.config.js 默认配置
@@ -19,9 +17,9 @@ export default {
 
   /**
    * 参数 : 默认使用的布局
-   * layout-side
-   * layout-head
-   * layout-comp
+   * layout-side 侧边模式
+   * layout-head 顶部模式
+   * layout-comp 综合模式
    * */
   layout: "layout-side",
 
@@ -103,14 +101,7 @@ export default {
    * 参数: 可选的主题颜色列表
    * color - key
    */
-  colorList: [
-    "#2d8cf0",
-    "rgb(255, 184, 0)",
-    "rgb(255, 87, 34)",
-    "#36b368",
-    "black",
-    "gray"
-  ],
+  colorList: ["#2d8cf0","#36b368","black","gray"],
 
   /**
    * 参数: 路由动画

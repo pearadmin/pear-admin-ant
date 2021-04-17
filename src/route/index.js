@@ -2,10 +2,10 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 // 引入基础路由
 // import routes from './routes.js'
-import routes from './modules/basic-routes'
+import routes from './module/base-routes'
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { permissionController } from "@/router/permission";
+import { permissionController } from "@/route/permission";
 
 const router = createRouter({
   // 使用 hash 模式构建路由（ url中带 # 号的那种)
