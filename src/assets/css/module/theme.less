@@ -2,9 +2,9 @@
 #layout.theme-night {
   #logo {
     height: 60px;
-    border-bottom: 1px solid #101117;
-    background: #191a23;
-    border-right: 1px solid #101117;
+    border-bottom: 1px solid black;
+    background: #141414;
+    border-right: 1px solid black;
   }
   #header {
     .next-menu {
@@ -42,8 +42,12 @@
     padding-right: 10px;
     color: white;
   }
+  .ant-menu-dark .ant-menu-sub,
+  .ant-menu-dark {
+    background: #141414 !important;
+  }
   .ant-layout-sider {
-    background: #191a23 !important;
+    background: #141414 !important;
   }
   .ant-layout-content {
     background: black !important;
@@ -60,29 +64,24 @@
       background: #141414!important;
       color: white !important;
     }
+    .ant-tabs-bar{
+      border: none;
+    }
     .ant-tabs-nav .ant-tabs-tab::before {
       background-color: gray;
     }
     .ant-statistic-title {
       color: white !important;
     }
-    .ant-tabs-tab {
+    .pear-dot-tab .ant-tabs-tab {
       color: white !important;
       background-color: #141414;
-      border-right: 1px solid #141414;
-      border-left: 1px solid #141414;
+      border: none;
+      margin-left: 6px; 
     }
     .pear-card-tab {
       border: black 1px solid;
       background-color: #141414 !important;
-    }
-    .ant-tabs-tab-next {
-      color: white;
-      border-left: 1px solid black;
-    }
-    .ant-tabs-tab-prev {
-      color: white;
-      border-right: 1px solid black;
     }
     .ant-progress-inner {
       background-color: black;
@@ -152,7 +151,6 @@
   line-height: 34px !important;
   text-align: center;
 }
-
 .pear-dot-tab .tab-tool {
   float: right;
   top: 6px;
