@@ -5,11 +5,11 @@
 @layout-body-background: #f0f2f5;
 @btn-primary-bg: #36b368;
 @layout-header-background: #001529;
-
+@import "theme-dark.less";
 // 修复 input 样式
 .ant-input:focus{
     border-color: @primary-color!important;
-    box-shadow: 0 0 0 3px  color(~`colorPalette("@{primary-color}", 0.5)`)!important;
+    // box-shadow: 0 0 0 3px  color(~`colorPalette("@{primary-color}", 0.5)`)!important;
 }
 // 登录标题
 .login-form .title{
@@ -1054,9 +1054,9 @@ form .ant-upload {background: transparent;}
 .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {color: rgba(0, 0, 0, 0.25);}
 .ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next {color: @text-color;border-radius: 4px;}
 .ant-pagination-prev a, .ant-pagination-next a {color: @text-color;}
-.ant-pagination-prev:hover a, .ant-pagination-next:hover a {border-color: color(~`colorPalette("@{primary-color}", 5)`)!important;}
+.ant-pagination-prev:hover a, .ant-pagination-next:hover a {border-color: color(~`colorPalette("@{primary-color}", 5)`);}
 .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {background-color: #fff;border: 1px solid #d9d9d9;border-radius: 4px;}
-.ant-pagination-prev:focus .ant-pagination-item-link, .ant-pagination-next:focus .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link {color: @primary-color!important;border-color: @primary-color;}
+.ant-pagination-prev:focus .ant-pagination-item-link, .ant-pagination-next:focus .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link {color: @primary-color;border-color: @primary-color;}
 .ant-pagination-disabled a, .ant-pagination-disabled:hover a, .ant-pagination-disabled:focus a, .ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link, .ant-pagination-disabled:focus .ant-pagination-item-link {color: rgba(0, 0, 0, 0.25);border-color: #d9d9d9;}
 .ant-pagination-options-quick-jumper input {color: @text-color;background-color: #fff;background-image: none;border: 1px solid #d9d9d9;border-radius: 4px;}
 .ant-pagination-options-quick-jumper input::-moz-placeholder {color: #bfbfbf;}
