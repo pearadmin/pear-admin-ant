@@ -12,8 +12,8 @@ const state = {
     config.layout == null
       ? "layout-side"
       : localStorage.getItem("layout") == null
-      ? config.layout
-      : localStorage.getItem("layout"),
+        ? config.layout
+        : localStorage.getItem("layout"),
 
   /**
    * 系统主题（整体色调）
@@ -25,8 +25,8 @@ const state = {
     config.theme == null
       ? "theme-dark"
       : localStorage.getItem("theme") == null
-      ? config.theme
-      : localStorage.getItem("theme"),
+        ? config.theme
+        : localStorage.getItem("theme"),
 
   /**
    * 主题颜色(主题颜色)
@@ -35,8 +35,8 @@ const state = {
     config.color == null
       ? "theme-green"
       : localStorage.getItem("color") == null
-      ? config.color
-      : localStorage.getItem("color"),
+        ? config.color
+        : localStorage.getItem("color"),
 
   /**
    * 侧边状态
@@ -47,8 +47,8 @@ const state = {
     config.collapsed == null
       ? false
       : localStorage.getItem("collapsed") == null
-      ? config.collapsed
-      : localStorage.getItem("collapsed"),
+        ? config.collapsed
+        : localStorage.getItem("collapsed"),
 
   /**
    * 菜单头部
@@ -59,8 +59,8 @@ const state = {
     config.logo == null
       ? true
       : localStorage.getItem("logo") == null
-      ? config.logo
-      : localStorage.getItem("logo"),
+        ? config.logo
+        : localStorage.getItem("logo"),
 
   /**
    * 是否开启多标签页
@@ -71,16 +71,16 @@ const state = {
     config.tab == null
       ? true
       : localStorage.getItem("tab") == null
-      ? config.tab
-      : localStorage.getItem("tab"),
+        ? config.tab
+        : localStorage.getItem("tab"),
 
   /**
    * 保持状态
    * true -- 是
    * false -- 否 
    */
-   keepAlive: config.keepAlive == null ? true : localStorage.getItem("keepAlive") == null
-  ? config.keepAlive : localStorage.getItem("keepAlive")
+  keepAlive: config.keepAlive == null ? true : localStorage.getItem("keepAlive") == null
+    ? config.keepAlive : localStorage.getItem("keepAlive")
   ,
   /**
    * 多标签页样式
@@ -91,8 +91,8 @@ const state = {
     config.tabType == null
       ? "pear-dot-tab"
       : localStorage.getItem("tabType") == null
-      ? config.tabType
-      : localStorage.getItem("tabType"),
+        ? config.tabType
+        : localStorage.getItem("tabType"),
 
   /**
    * 侧边菜单栏宽度
@@ -114,8 +114,8 @@ const state = {
     config.fixedHeader == null
       ? true
       : localStorage.getItem("fixedHeader") == null
-      ? config.fixedHeader
-      : localStorage.getItem("fixedHeader"),
+        ? config.fixedHeader
+        : localStorage.getItem("fixedHeader"),
 
   /**
    * 固定侧边
@@ -126,8 +126,8 @@ const state = {
     config.fixedSide == null
       ? true
       : localStorage.getItem("fixedSide") == null
-      ? config.fixedSide
-      : localStorage.getItem("fixedSide"),
+        ? config.fixedSide
+        : localStorage.getItem("fixedSide"),
 
   /**
    * 路由动画
@@ -138,8 +138,8 @@ const state = {
     config.routerAnimate == null
       ? ""
       : localStorage.getItem("routerAnimate") == null
-      ? config.routerAnimate
-      : localStorage.getItem("routerAnimate"),
+        ? config.routerAnimate
+        : localStorage.getItem("routerAnimate"),
 
   /**
    * 配色列表
@@ -194,6 +194,8 @@ const mutations = {
   },
   UPDATE_THEME(state, theme) {
     state.theme = theme;
+    let element = document.querySelector('html');
+    theme === 'theme-night' ? element.setAttribute('data-doc-theme', 'dark') : element.removeAttribute('data-doc-theme');
   },
   UPDATE_ROUTER_ANIMATE(state, routerAnimate) {
     state.routerAnimate = routerAnimate;
