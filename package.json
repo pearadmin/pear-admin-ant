@@ -36,14 +36,14 @@
     "@vue/cli-service": "~4.5.8",
     "@vue/compiler-sfc": "^3.0.5",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.3",
+    "compression-webpack-plugin": "^6.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
-    "compression-webpack-plugin": "^6.1.1",
     "less": "^2.7.2",
     "less-loader": "^7.1.0",
     "mockjs2": "^1.0.8",
-    "webpackbar": "^5.0.0-3",
-    "babel-plugin-import": "^1.13.3"
+    "webpackbar": "^5.0.0-3"
   },
   "eslintConfig": {
     "root": true,
