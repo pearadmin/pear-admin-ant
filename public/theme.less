@@ -111,6 +111,8 @@ html {--antd-wave-shadow-color: @primary-color;}
 .ant-select-auto-complete.ant-select .ant-input:focus, .ant-select-auto-complete.ant-select .ant-input:hover {border-color: color(~`colorPalette("@{primary-color}", 5)`);border-right-width: 1px !important;}
 .ant-select-auto-complete.ant-select .ant-input[disabled] {color: rgba(0, 0, 0, 0.25);background-color: #f5f5f5;background-color: transparent;}
 .ant-select-auto-complete.ant-select .ant-input[disabled]:hover {border-color: #d9d9d9;border-right-width: 1px !important;}
+.ant-select-focused:not(.ant-select-disabled).ant-select-single:not(.ant-select-customize-input) .ant-select-selector{border-color: @primary-color;border-right-width: 1px !important;outline: 0;box-shadow: 0 0 0 2px ~"@{primary-color}33";}
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {border-color:  @primary-color!important;border-right-width: 1px !important;}
 .ant-avatar {color: @text-color;color: #fff;background: #ccc;border-radius: 50%;}
 .ant-avatar-image {background: transparent;}
 .ant-avatar-lg {border-radius: 50%;}
@@ -157,7 +159,7 @@ html {--antd-wave-shadow-color: @primary-color;}
 .ant-btn-sm {border-radius: 4px;}
 .ant-btn > a:only-child {color: currentColor;}
 .ant-btn > a:only-child::after {background: transparent;}
-.ant-btn:hover, .ant-btn:focus {color: color(~`colorPalette("@{btn-primary-bg}", 5)`);background-color: #fff;border-color: color(~`colorPalette("@{btn-primary-bg}", 5)`);}
+.ant-btn:hover:not(.ant-btn-primary):not(.ant-btn-danger), .ant-btn:focus:not(.ant-btn-primary):not(.ant-btn-danger) {color: color(~`colorPalette("@{btn-primary-bg}", 5)`)!important;background-color: #fff;border-color: color(~`colorPalette("@{btn-primary-bg}", 5)`)!important;}
 .ant-btn:hover > a:only-child, .ant-btn:focus > a:only-child {color: currentColor;}
 .ant-btn:hover > a:only-child::after, .ant-btn:focus > a:only-child::after {background: transparent;}
 .ant-btn:active, .ant-btn.active {color: color(~`colorPalette("@{btn-primary-bg}", 7)`);background-color: #fff;border-color: color(~`colorPalette("@{btn-primary-bg}", 7)`);}

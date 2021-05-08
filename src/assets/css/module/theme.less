@@ -9,12 +9,14 @@
   #header {
     .next-menu {
       .menu-item:hover {
-        background-color: black !important;
+        background-color: #262626!important;
+        transition: all .5s;
       }
     }
     .prev-menu {
       .menu-item:hover {
-        background-color: black !important;
+        background-color: #262626 !important;
+        transition: all .5s;
       }
     }
     .comp-menu {
@@ -35,7 +37,7 @@
         border-top: 3px solid #2d8cf0 !important;
       }
     }
-    background: #191a23 !important;
+    background: #141414 !important;
     padding-left: 10px;
     padding-right: 10px;
     color: white;
@@ -49,13 +51,13 @@
       background-color: black !important;
     }
     .ant-card {
-      border: solid 1px #191a23 !important;
-      background: #191a23 !important;
+      border: solid 1px #141414 !important;
+      background: #141414 !important;
       color: white !important;
     }
     .tab-tool {
       border: solid 1px black !important;
-      background: #191a23 !important;
+      background: #141414!important;
       color: white !important;
     }
     .ant-tabs-nav .ant-tabs-tab::before {
@@ -66,13 +68,13 @@
     }
     .ant-tabs-tab {
       color: white !important;
-      background-color: #191a23;
-      border-right: 1px solid #191a23;
-      border-left: 1px solid #191a23;
+      background-color: #141414;
+      border-right: 1px solid #141414;
+      border-left: 1px solid #141414;
     }
     .pear-card-tab {
       border: black 1px solid;
-      background-color: #191a23 !important;
+      background-color: #141414 !important;
     }
     .ant-tabs-tab-next {
       color: white;
@@ -94,8 +96,172 @@
     }
   }
   .ant-drawer-content {
-    background-color: #191a23 !important;
+    background-color: #141414 !important;
   }
+  .ant-btn:not(.ant-btn-primary):not(.ant-btn-danger){
+    line-height: 1.5715;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    // box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    user-select: none;
+    touch-action: manipulation;
+    height: 32px;
+    // padding: 0 15px;
+    font-size: 14px;
+    border-radius: 2px;
+    color: rgba(255,255,255,.65);
+    background-color: transparent;
+    border-color: #434343;
+  }
+  .ant-btn.ant-btn-primary:hover,.ant-btn.ant-btn-primary:focus{
+    color:#fff !important;
+  }
+  .ant-btn:hover:not(.ant-btn-primary):not(.ant-btn-danger){
+    color: #165996;
+    background-color: transparent;
+    border-color: #165996;
+  }
+  .ant-table{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(255,255,255,.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: tnum;
+    position: relative;
+    clear: both;
+    background: #141414;
+  }
+  .ant-table-thead>tr>th{
+    color: rgba(255,255,255,.85);
+    font-weight: 500;
+    text-align: left;
+    background: #1d1d1d;
+    border-bottom: 1px solid #303030;
+    transition: background .3s ease;
+  }
+  .ant-table-tbody>tr>td {
+    border-bottom: 1px solid #303030;
+    transition: background .3s;
+  }
+  .ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,.ant-table-tbody>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,  .ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td, .ant-table-thead>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td {
+    background: #262626;
+  }
+  .ant-table-tbody>tr.ant-table-row-selected td {
+    color: inherit;
+    background: #111b26;
+  }
+  .ant-checkbox {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(255,255,255,.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: tnum;
+    position: relative;
+    top: -.09em;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+  }
+  .ant-checkbox-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+  }
+.ant-checkbox:not(.ant-checkbox-checked) .ant-checkbox-inner {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid #434343;
+  border-radius: 2px;
+  border-collapse: separate;
+  transition: all .3s;
+  }
+   .ant-pagination-item-active {
+    font-weight: 500;
+    background: 0 0;
+    // border-color: #177ddc;
+  }
+  .ant-pagination-item a{
+    color: rgba(255,255,255,.65);
+  }
+   .ant-pagination-item {
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    font-family: Arial;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  .ant-pagination-item:not(.ant-pagination-item-active){
+    border: 1px solid #434343;
+  }
+  .ant-pagination-prev a,.ant-pagination-next a {
+    color: rgba(255,255,255,.65);
+    user-select: none;
+}
+  .ant-pagination-disabled:hover a {
+    color: rgba(255,255,255,.3);
+    border-color: #434343;
+    cursor: not-allowed;
+}
+.ant-pagination-prev .ant-pagination-item-link ,.ant-pagination-next .ant-pagination-item-link{
+  display: block;
+  height: 100%;
+  font-size: 12px;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #434343;
+  border-radius: 2px;
+  outline: 0;
+  transition: all .3s;
+}
+.ant-select{
+  color:rgba(255,255,255,.65);
+}
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+    background-color: transparent;
+    border: 1px solid #434343;
+}
+.ant-select-arrow{
+  color: rgba(255,255,255,.65);
+}
 }
 // Tab 点样式
 .pear-dot-tab {
