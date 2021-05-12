@@ -3,10 +3,11 @@
   "version": "1.0.0-RELEASE",
   "private": true,
   "scripts": {
-    "serve-dev": "node generate && vue-cli-service serve --mode development",
-    "serve-pro": "node generate && vue-cli-service serve --mode production",
-    "build-dev": "node generate && vue-cli-service build --mode development",
-    "build-pro": "node generate && vue-cli-service build --mode production",
+    "serve": "vue-cli-service serve --mode development",
+    "serve-dev": "vue-cli-service serve --mode development",
+    "serve-prod": "vue-cli-service serve --mode production",
+    "build-dev": "vue-cli-service build --mode development",
+    "build-prod": "vue-cli-service build --mode production",
     "report": "vue-cli-service build --report"
   },
   "dependencies": {
@@ -14,7 +15,6 @@
     "@antv/data-set": "^0.11.8",
     "@antv/g2": "^4.1.0",
     "@tinymce/tinymce-vue": "^4.0.0",
-    "antd-theme-generator": "^1.2.8",
     "ant-design-vue": "^2.0.1",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",

@@ -1,12 +1,12 @@
 <template>
   <div id="p-table">
+    <!-- 表格工具栏 -->
     <div class="p-table-tool">
-      <!-- 表格工具栏 -->
+      <!-- 自定义工具栏 -->
       <div class="p-table-prev">
         <template :key="index" v-for="(item, index) in toolbar">
           <!-- 更多按钮 -->
           <a-dropdown v-if="item.children && item.children.length > 0">
-            <!-- -->
             <a-button @click="item.event(selectedRowKeys)">
               {{ item.label }}
             </a-button>
@@ -14,27 +14,25 @@
               <a-menu>
                 <!-- 遍历子集 -->
                 <a-menu-item v-for="(child, i) in item.children" :key="i">
-                  <a @click="child.event(selectedRowKeys)"> {{ child.label }} </a>
+                  <a @click="child.event(selectedRowKeys)">
+                    {{ child.label }}
+                  </a>
                 </a-menu-item>
               </a-menu>
             </template>
           </a-dropdown>
-          <a-button
-             v-else
-            :type="index == 0 ? 'primary' : ''"
-            @click="item.event(selectedRowKeys)"
-          >
+          <a-button v-else :type="index == 0 ? 'primary' : 'default'" @click="item.event(selectedRowKeys)">
             {{ item.label }}
           </a-button>
         </template>
       </div>
       <!-- 默认工具栏 -->
       <div class="p-table-next">
+        <!-- 刷新工具栏 -->
         <a-button @click="reload">
-          <template #icon
-            ><LoadingOutlined v-if="loading" /><SyncOutlined v-else
-          /></template>
+          <template #icon><SyncOutlined /></template>
         </a-button>
+        <!-- 过滤工具栏 -->
         <a-dropdown>
           <a-button>
             <template #icon><AppstoreOutlined /></template>
@@ -46,11 +44,8 @@
                 @change="filtration"
               >
                 <a-row>
-                  <a-col
-                    :span="24"
-                    :key="index"
-                    v-for="(filtrationColumn, index) in filtrationColumns"
-                  >
+                  <!-- 遍历字段 -->
+                  <a-col :span="24" :key="index" v-for="(filtrationColumn, index) in filtrationColumns">
                     <a-checkbox :value="filtrationColumn.value">
                       {{ filtrationColumn.label }}
                     </a-checkbox>
@@ -60,26 +55,40 @@
             </a-menu>
           </template>
         </a-dropdown>
+        <!-- 过滤工具栏 -->
+        <a-dropdown>
+          <a-button>
+            <template #icon><ColumnHeightOutlined /></template>
+          </a-button>
+          <template #overlay>
+            <a-menu>
+                <a-menu-item @click="changeSize()">默认尺寸</a-menu-item>
+                <a-menu-item @click="changeSize('middle')">中等尺寸</a-menu-item>
+                <a-menu-item @click="changeSize('small')">最小尺寸</a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
+        <a-button>
+          <template #icon><ExportOutlined /></template>
+        </a-button>
       </div>
     </div>
     <!-- 表格组件 -->
     <a-table
-      :dataSource="datasource"
-      :columns="columns"
-      :pagination="pagination"
-      :loading="loading"
+       rowKey="id"
       @change="fetch"
-      :row-selection="{
-        selectedRowKeys: selectedRowKeys,
-        onChange: onSelectChange,
-      }"
+      :columns="columns"
+      :loading="loading"
+      :pagination="pagination"
+      :dataSource="datasource"
+      :row-selection="rowSelection"
+      :size="size"
     >
-      <!-- 默认插槽 [自定义列替换]-->
-      <slot></slot>
-      <!-- 行操作 -->
-      <template v-slot:action="{ record }">
-        <span>
-          <template :key="index" v-for="(item, index) in operate">
+      <!-- 列转换 -->
+      <template :key="index" v-for="(column,index) in columns" #[column.dataIndex] = "{  record }">
+        <!-- 行操作 -->
+        <span v-if="column.dataIndex == 'operate'">
+          <template :key="i" v-for="(item, i) in operate">
             <!-- 下拉操作 -->
             <a-dropdown v-if="item.children && item.children.length > 0">
               <a> {{ item.label }} </a>
@@ -97,6 +106,45 @@
             <a-divider type="vertical" />
           </template>
         </span>
+
+        <!-- 开关转换 -->
+        <span v-else-if="column.switch">
+            <a-switch @change="column.switch.event($event,record)" :checked="record[column.dataIndex] === column.switch.yes" />
+        </span>
+
+        <!-- 文本转换 -->
+        <span v-else-if="column.conver">
+             <template v-for="(data,index) in column.conver">
+               <span :key="index" v-if="data.value === record[column.dataIndex]">
+                  {{data.label}}
+               </span>
+             </template>
+        </span>
+
+        <!-- 下拉组件 暂未涉及 [待实现]-->
+    
+        <!-- 输入框 暂未涉及 [待实现]-->
+
+        <!-- 头像 -->
+        <span v-else-if="column.avatar">
+            <!-- 空头像 -->
+            <a-avatar v-if="record[column.dataIndex] == null" :size="column.avatar.size" :shape="column.avatar.shape">
+              <template #icon><UserOutlined /></template>
+            </a-avatar>
+            <!-- 非头像 -->
+            <a-avatar v-else :src="record[column.dataIndex]" :size="column.avatar.size" :shape="column.avatar.shape"/>
+        </span>
+
+        <!-- 预览 -->
+        <span v-else-if="column.image">
+            <a-image :width="column.image.width" :src="record[column.dataIndex]" />
+        </span>
+
+        <!-- 原样输出 -->
+        <span v-else-if="record">
+          {{record[column.dataIndex]}}
+        </span>
+
       </template>
     </a-table>
   </div>
@@ -104,25 +152,24 @@
 <script>
 import "./index.less";
 import T from "ant-design-vue/es/table/Table";
-import { watch, defineComponent, onMounted, reactive, toRefs } from "vue";
-import {
-  AppstoreOutlined,
-  LoadingOutlined,
-  SyncOutlined,
-} from "@ant-design/icons-vue";
+import { defineComponent, onMounted, reactive, toRefs, watch } from "vue";
+import { AppstoreOutlined, ExportOutlined, SyncOutlined, UserOutlined, ColumnHeightOutlined } from "@ant-design/icons-vue";
 
 const TProps = T.props;
 export default defineComponent({
   name: "p-table",
   components: {
+    ColumnHeightOutlined,
     AppstoreOutlined,
-    LoadingOutlined,
+    ExportOutlined,
     SyncOutlined,
+    UserOutlined
   },
+  /// 数据来源
   props: Object.assign({}, TProps, {
     /// 扩展参数
     param: {
-      type: Object
+      type: Object,
     },
     /// 数据来源
     fetch: {
@@ -134,39 +181,50 @@ export default defineComponent({
       type: Array,
       required: true,
     },
-    /// 表格工具
+    /// 头工具栏
     toolbar: {
       type: Array,
     },
-    /// 行操作
+    /// 行工具栏
     operate: {
-      type: Array,
+      type: Array || Boolean,
+      default: false
     },
+    /// 分页参数
+    pagination: {
+      type: Object || false,
+      default: false
+    }
+    ,
+    rowSelection: {
+      type: Object
+    }
   }),
   setup(props) {
+
     /// 状态共享
     const state = reactive({
-      pagination: Object.assign({}, props.pagination),
-      datasource: [],
-      loading: true,
-      columns: props.columns,
-      filtrationColumnKeys: [],
-      selectedRowKeys: [],
+      pagination: props.pagination == false ? false: props.pagination, // 分页
+      datasource: [], // 数据源
+      loading: true, // 加载
+      columns: props.columns, // 字段
+      filtrationColumnKeys: [], // 过滤
+      selectedRowKeys: [], // 选中项
+      size: props.size // 表格大小
     });
 
     /// 默认操作
     if (props.operate != false) {
-      state.columns.push({
-        dataIndex: "action",
-        key: "action",
-        title: "操作",
-        slots: { customRender: "action" },
-      });
+      state.columns.push({ dataIndex: "operate", key: "operate", title: "操作", fixed: "right"});
     }
+
+    /// 为所有 column 新增默认 customRender 属性
+    state.columns.forEach((column)=>{
+        column.slots = { customRender: column.dataIndex }
+    })
 
     /// 过滤字段
     const filtrationColumns = [];
-
     props.columns.forEach(function (item) {
       filtrationColumns.push({ label: item.title, value: item.key });
       state.filtrationColumnKeys.push(item.key);
@@ -183,38 +241,43 @@ export default defineComponent({
       state.selectedRowKeys = selectedRowKeys;
     };
 
-    /**
-     * @param fluter 过滤字段
-     * @param param 分页参数
-     * @param sort 排序字段
-     */
-    const fetchData = async (param) => {
+    /// 数据请求
+    const fetchData = async (pagination) => {
+      /// 分页处理
+      if(pagination!=undefined){
+        state.pagination.pageNum = pagination.current;
+      }
       /// 开启加载
       state.loading = true;
       /// 请求数据
-      const { total, data } = await props.fetch(param);
+      const { total, data } = await props.fetch(
+        Object.assign({}, state.pagination, props.param)
+      );
       /// 状态重置
-      state.pagination.pageSize = param.pageSize;
-      state.pagination.current = param.current;
-      state.pagination.total = total;
+      if(state.pagination != false){
+        state.pagination.total = total;
+      } 
       state.datasource = data;
       state.loading = false;
     };
 
     /// 刷新方法
     const reload = function () {
-      fetchData(state.pagination);
+      fetchData();
     };
 
     /// 初始数据
     onMounted(async () => {
-      await fetchData(state.pagination);
+      await fetchData();
     });
 
     /// 监听扩展参数, 触发表格刷新
-    watch(() => props.param,() => {
-        fetchData();
-    },{deep: true});
+    watch(() => props.param,() => { fetchData();},{ deep: true });
+
+    /// 改变按钮尺寸
+    const changeSize = (target) => {
+      state.size = target;
+    }
 
     return {
       /// 数据信息
@@ -222,12 +285,14 @@ export default defineComponent({
       /// 数据加载
       fetch: fetchData,
       /// 刷新方法
-      reload: reload,
+      reload,
       /// 过滤字段
       filtrationColumns,
       filtration,
       /// 选中字段
       onSelectChange,
+      /// 改变大小
+      changeSize
     };
   },
 });
