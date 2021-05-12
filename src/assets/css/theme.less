@@ -1,3 +1,12 @@
+@primary-color: #2d8cf0;
+
+#nprogress .bar {
+  background:@primary-color!important;
+}
+#nprogress .peg {
+  box-shadow:@primary-color!important;
+}
+
 /// 夜间模式
 #layout.theme-night {
   #logo {
@@ -34,7 +43,7 @@
         font-size: 14.5px;
       }
       .is-active {
-        border-top: 3px solid #2d8cf0 !important;
+        border-top: 3px solid @primary-color !important;
       }
     }
     background: #141414 !important;
@@ -97,36 +106,6 @@
   .ant-drawer-content {
     background-color: #141414 !important;
   }
-  .ant-btn:not(.ant-btn-primary):not(.ant-btn-danger){
-    line-height: 1.5715;
-    position: relative;
-    display: inline-block;
-    font-weight: 400;
-    white-space: nowrap;
-    text-align: center;
-    background-image: none;
-    border: 1px solid transparent;
-    // box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
-    cursor: pointer;
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
-    user-select: none;
-    touch-action: manipulation;
-    height: 32px;
-    // padding: 0 15px;
-    font-size: 14px;
-    border-radius: 2px;
-    color: rgba(255,255,255,.65);
-    background-color: transparent;
-    border-color: #434343;
-  }
-  .ant-btn.ant-btn-primary:hover,.ant-btn.ant-btn-primary:focus{
-    color:#fff !important;
-  }
-  .ant-btn:hover:not(.ant-btn-primary):not(.ant-btn-danger){
-    color: #165996;
-    background-color: transparent;
-    border-color: #165996;
-  }
 }
 // Tab 点样式
 .pear-dot-tab {
@@ -156,6 +135,9 @@
   top: 6px;
   right: 6px;
   border: none;
+}
+.pear-dot-tab .ant-tabs-tab-active::before{
+  background-color: @primary-color!important;
 }
 .pear-dot-tab .ant-tabs-bar {
   margin: 0px !important;
@@ -213,6 +195,9 @@
 .pear-card-tab .tab {
   width: calc(~"(100% - 40px)");
   display: inline-block;
+}
+.pear-card-tab .ant-tabs-tab-active::before{
+  background-color: @primary-color!important;
 }
 .pear-card-tab .ant-tabs-nav-container {
   padding-left: 40px;
@@ -356,4 +341,38 @@
 }
 .ant-layout-content {
   flex: 1 !important;
+}
+
+// 动画一
+.fade-right-enter-active {
+  transition: all .60s;
+}
+.fade-right-leave-active{
+  transition: all .60s;
+}
+.fade-right-enter-from {
+  opacity: 0;
+  transform: translateX(-35px);
+}
+.fade-right-leave-to {
+  opacity: 0;
+  transform: translateX(35px);
+  display: none;
+}
+
+// 动画二
+.fade-top-enter-active {
+  transition: all .60s;
+}
+.fade-top-leave-active{
+  transition: all .60s;
+}
+.fade-top-enter-from {
+  opacity: 0;
+  transform: translateY(35px);
+}
+.fade-top-leave-to {
+  opacity: 0;
+  transform: translateY(-35px);
+  display: none;
 }

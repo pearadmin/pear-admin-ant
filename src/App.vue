@@ -12,6 +12,7 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const defaultLang = computed(() => store.getters['app/language'])
+    const color = computed(() => store.getters.color);
 
     const antdLocal = ref(
       computed(() => {
@@ -20,6 +21,13 @@ export default defineComponent({
         return locale
       })
     )
+
+    setTimeout(function(){
+        window.less.modifyVars({
+          "primary-color": color.value,
+        })
+    },100)
+
     return {
       antdLocal
     }
