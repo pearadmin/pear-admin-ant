@@ -60,12 +60,11 @@ export default {
     const onSubmit = async e => {
       e.preventDefault();
       try {
-        const v = await validate();
-        if (v) {
+
           load.value = true;
           await store.dispatch("user/login", param);
           await router.push("/");
-        }
+
       } catch (e) {
         console.log("error", e);
         message.error(e);

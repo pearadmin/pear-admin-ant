@@ -1,7 +1,7 @@
 <template>
   <a-card hoverable class="card-base">
     <div :style="{ color: color }" class="card-base-icon">
-      <MenuIcon></MenuIcon>
+      <component :is="$antIcons[icon]" />
     </div>
     <div class="card-base-title">
       {{ title }}

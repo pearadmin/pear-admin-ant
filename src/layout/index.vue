@@ -124,10 +124,6 @@ export default {
   .ant-menu-inline-collapsed {
     width: auto;
   }
-  .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-    padding: 0 !important;
-    text-align: center;
-  }
   @ant-menu-hieht: 48px;
   .ant-menu-vertical > .ant-menu-item,
   .ant-menu-vertical-left > .ant-menu-item,
@@ -140,10 +136,8 @@ export default {
     height: @ant-menu-hieht !important;
     line-height: @ant-menu-hieht !important;
   }
-
-  .ant-menu-inline-collapsed > .ant-menu-item {
-    padding: 0px !important;
-    text-align: center;
+  .ant-menu-submenu-title>span{
+    font-size: 13.8px!important;
   }
 }
 </style>
@@ -166,15 +160,6 @@ export default {
 .layout_mobile {
   position: fixed !important;
   z-index: 999;
-  .pear-layout-left-sider {
-    right: 0 !important;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-  }
-  .pear-layout-left-sider::-webkit-scrollbar {
-    width: 0 !important;
-  }
-
   &.layout_collapse {
     width: 0 !important;
     min-width: 0 !important;

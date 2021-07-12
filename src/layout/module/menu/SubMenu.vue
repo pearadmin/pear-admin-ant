@@ -3,16 +3,15 @@
     <a-menu-item
       v-if="
         item.children &&
-          item.children.length == 1 &&
-          item.meta.alwaysShow != true
+        item.children.length == 1 &&
+        item.meta.alwaysShow != true
       "
       :key="resolvePath(item.path, true)"
       @click="handleFoldSideBar"
     >
       <router-link :to="item.path + '/' + item.children[0].path">
-        <MenuIcon />
-        <!-- <span>{{ item.meta.title }}</span> -->
-        <span>{{ t(item.meta.i18nTitle) }}</span>
+        <component :is="$antIcons[item.meta.icon]" />
+        <span>{{ t(item.meta.i18n) }}</span>
       </router-link>
     </a-menu-item>
 
@@ -24,10 +23,9 @@
     >
       <template v-slot:title>
         <span>
-          <MenuIcon v-if="level === 0" />
+          <component v-if="level === 0" :is="$antIcons[item.meta.icon]" />
           <span v-else><div class="indent"></div></span>
-          <!-- <span>{{ item.meta.title }}</span> -->
-          <span>{{ t(item.meta.i18nTitle) }}</span>
+          <span>{{ t(item.meta.i18n) }}</span>
         </span>
       </template>
       <!-- 递归 item.children -->
@@ -41,26 +39,24 @@
     </a-sub-menu>
     <!-- if item.chilren is null 渲染 a-menu-item -->
     <a-menu-item
-      @click="foldSide"
+      @click="handleFoldSideBar"
       v-bind="$attrs"
       :key="resolvePath(item.path, true)"
       v-else
     >
       <router-link :to="resolvePath(item.path, true)">
-        <MenuIcon v-if="level === 0" />
+        <component v-if="level === 0" :is="$antIcons[item.meta.icon]" />
         <span v-else><div class="indent"></div></span>
-        <span>{{ t(item.meta.i18nTitle) }}</span>
+        <span>{{ t(item.meta.i18n) }}</span>
       </router-link>
     </a-menu-item>
   </template>
 </template>
-
 <script>
-import { computed } from "vue";
 import path from "path";
+import { computed } from "vue";
 import { useStore } from "vuex";
-import * as Icons from "@ant-design/icons-vue";
-import {useI18n} from "vue-i18n";
+import { useI18n  } from "vue-i18n";
 export default {
   emits: ["click"],
   name: "SubMenu",
@@ -90,21 +86,19 @@ export default {
       // 当处于 comp 模式下拼接相关路由
       return path.resolve(props.basePath, routePath);
     };
-
-    const foldSide = () => {
+    const handleFoldSideBar = () => {
       const isComputedMobile = computed(() => getters.isMobile);
       if (isComputedMobile.value) {
         commit("layout/UPDATE_COLLAPSED", true);
       }
     };
-    const MenuIcon = Icons[(props.item.meta || {}).icon] || {};
 
+    // i18n
     const { t } = useI18n()
 
     return {
-      foldSide,
+      handleFoldSideBar,
       resolvePath,
-      MenuIcon,
       t
     };
   }

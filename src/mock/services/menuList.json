@@ -4,13 +4,13 @@
     "path": "/account",
     "name": "account",
     "type": "dir",
-    "icon": "",
+    "icon": "DashboardOutlined",
     "title": "",
     "sort": 0,
     "link": "",
     "hidden": true,
     "status": true,
-    "i18nTitle": "account"
+    "i18n": "account"
   },
   {
     "parent": "account",
@@ -23,7 +23,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "account-center"
+    "i18n": "account-center"
   },
   {
     "parent": "",
@@ -36,7 +36,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "dashboard"
+    "i18n": "dashboard"
   },
   {
     "parent": "dashboard",
@@ -49,7 +49,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "dashboard-console"
+    "i18n": "dashboard-console"
   },{
     "parent": "dashboard",
     "path": "workspace",
@@ -61,7 +61,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "dashboard-workspace"
+    "i18n": "dashboard-workspace"
   },
   {
     "parent": "",
@@ -74,7 +74,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "form"
+    "i18n": "form"
   },
   {
     "parent": "form",
@@ -87,7 +87,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "base-form"
+    "i18n": "base-form"
   },
   {
     "parent": "form",
@@ -100,7 +100,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "advanced-form"
+    "i18n": "advanced-form"
   },
   {
     "parent": "form",
@@ -113,7 +113,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "step-form"
+    "i18n": "step-form"
   },
   {
     "parent": "",
@@ -126,7 +126,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "list"
+    "i18n": "list"
   },
   {
     "parent": "list",
@@ -139,7 +139,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "base-list"
+    "i18n": "base-list"
   },
   {
     "parent": "list",
@@ -152,7 +152,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "card-list"
+    "i18n": "card-list"
   },
   {
     "parent": "list",
@@ -165,7 +165,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "news-list"
+    "i18n": "news-list"
   },
   {
     "parent": "list",
@@ -178,7 +178,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "table-list"
+    "i18n": "table-list"
   },
   {
     "parent": "",
@@ -191,7 +191,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "result-menu"
+    "i18n": "result-menu"
   },
   {
     "parent": "result-menu",
@@ -204,7 +204,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "result-success"
+    "i18n": "result-success"
   },
   {
     "parent": "result-menu",
@@ -217,7 +217,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "result-failure"
+    "i18n": "result-failure"
   },
   {
     "parent": "result-menu",
@@ -230,7 +230,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "result-warning"
+    "i18n": "result-warning"
   },
   {
     "parent": "result-menu",
@@ -243,7 +243,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "result-info"
+    "i18n": "result-info"
   },
   {
     "parent": "",
@@ -256,7 +256,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "error"
+    "i18n": "error"
   },
   {
     "parent": "error",
@@ -269,7 +269,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "error-403"
+    "i18n": "error-403"
   },
   {
     "parent": "error",
@@ -282,7 +282,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "error-404"
+    "i18n": "error-404"
   },
   {
     "parent": "error",
@@ -295,7 +295,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "error-500"
+    "i18n": "error-500"
   },
   {
     "parent": "",
@@ -308,7 +308,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "permission"
+    "i18n": "permission"
   },
   {
     "parent": "permission",
@@ -321,6 +321,6 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18nTitle": "permission-test"
+    "i18n": "permission-test"
   }
 ]

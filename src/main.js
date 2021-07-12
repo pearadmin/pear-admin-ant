@@ -6,6 +6,7 @@ import { createApp } from "vue";
 import Antd from "ant-design-vue/es";
 import directive from "./directive";
 import i18n from './locale';
+import * as antIcons from '@ant-design/icons-vue';
 
 import "./mock";
 import "./assets/css/index.less";
@@ -17,10 +18,13 @@ app.use(Pear);
 app.use(Store);
 app.use(Route);
 app.use(i18n)
+app.mount("#app");
 
-Object.keys(directive).forEach(d => {
-  app.directive(d, directive[d])
+Object.keys(antIcons).forEach(key => {
+  app.component(key, antIcons[key])
 })
 
-app.mount("#app");
+// 添加到全局
+app.config.globalProperties.$antIcons = antIcons
+
 export default app

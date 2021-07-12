@@ -1,3 +1,11 @@
+@primary-color: #2d8cf0;
+
+#app,
+body,
+html {
+  height: 100%;
+}
+
 #layout {
   height: 100%;
 }
@@ -44,7 +52,8 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  .ant-layout-sider {
+  > .ant-layout-sider {
+    background: #191a23 !important;
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
     z-index: 999;
   }
@@ -59,7 +68,7 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  .ant-layout-sider {
+  > .ant-layout-sider {
     box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05) !important;
     background-color: white !important;
     z-index: 999;
@@ -96,7 +105,8 @@
     }
     background-color: white !important;
   }
-  .ant-layout-sider {
+  > .ant-layout-sider {
+    background: #191a23 !important;
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
     z-index: 999;
   }
@@ -131,20 +141,23 @@
     }
     background-color: white !important;
   }
-  .ant-layout-sider {
+  > .ant-layout-sider {
     box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05) !important;
     z-index: 999;
     background-color: white !important;
   }
 }
-#layout .ant-layout-header {
+
+.ant-layout>.ant-layout-header {
   padding-left: 0px;
   padding-right: 0px;
+  height: 60px;
+  line-height: 60px;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   z-index: 100;
 }
+
 .ant-layout-sider {
-  background: #191a23 !important;
   &.fixed-side {
     height: 100vh;
     position: relative;
@@ -153,15 +166,14 @@
       position: absolute;
       left: 0;
       top: 0;
-      right: -17px;
+      right: 0;
       bottom: 0;
       overflow-x: hidden;
-      overflow-y: scroll;
     }
   }
 }
 .ant-menu-dark,
-.ant-menu-dark .ant-menu-sub {
+.ant-menu-dark {
   background: #191a23 !important;
 }
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
@@ -175,8 +187,12 @@
 .ant-menu-vertical-left .ant-menu-submenu-title,
 .ant-menu-vertical-right .ant-menu-submenu-title,
 .ant-menu-inline .ant-menu-submenu-title {
-  margin-top: 4px !important;
-  margin-bottom: 4px !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub {
+  background-color: #191a23 !important;
 }
 .ant-menu-horizontal > .ant-menu-item,
 .ant-menu-horizontal > .ant-menu-submenu {
@@ -188,7 +204,7 @@
   border-bottom: none;
   top: 0px;
 }
-// 图标 顶部 样式
+// 顶部图标
 #logo {
   text-align: center;
 }
@@ -196,6 +212,7 @@
   margin-top: 11px;
   height: 38px;
 }
+
 #logo .title {
   display: inline-block;
   color: @primary-color !important;
@@ -290,7 +307,7 @@
 #header .next-menu .menu-item:hover {
   background-color: #f7f7f7;
 }
-/** 固定样式 */
+/** 头部固定 */
 .fixedHeader {
   #content {
     height: 100%;
@@ -381,8 +398,4 @@
   text-align: center;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   line-height: 30px;
-}
-.ant-layout-header{
-  height: 60px !important;
-  line-height: 60px !important;
 }

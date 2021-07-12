@@ -1,7 +1,6 @@
 
 <div align="center">
 <br/>
-
   <h1 align="center">
     Pear Admin Ant
   </h1>
