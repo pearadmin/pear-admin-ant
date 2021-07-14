@@ -5,6 +5,7 @@
       <a-card>
         <p-table
           :fetch="fetch"
+          :value='obj'
           :columns="columns"
           :toolbar="toolbar"
           :operate ="operate"

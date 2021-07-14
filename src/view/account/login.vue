@@ -1,27 +1,25 @@
 <template>
   <div id="login">
     <div class="login-form">
-      <a-form :label-col="labelCol" :wrapper-col="wrapperCol">
+      <a-form ref="formRef" :label-col="labelCol" :model="formState" :rules="formRules" :wrapper-col="wrapperCol">
         <a-form-item>
           <img class="logo" src="../../assets/image/logo.png" />
           <div class="head">Pear Admin</div>
           <div class="desc">明 湖 区 最 具 影 响 力 的 设 计 规 范 之 一</div>
         </a-form-item>
-        <a-form-item v-bind="validateInfos.username">
-          <a-input placeholder="账 户 : admin" v-model:value="param.username" />
+        <a-form-item>
+          <a-input placeholder="账 户 : admin" v-model:value="formState.username" />
         </a-form-item>
-        <a-form-item v-bind="validateInfos.password">
+        <a-form-item>
           <a-input
             placeholder="密 码 : admin"
-            v-model:value="param.password"
+            v-model:value="formState.password"
             type="password"
             @keyup.enter="onSubmit"
           />
         </a-form-item>
         <a-form-item>
-          <a-checkbox :checked="true">
-            记住我
-          </a-checkbox>
+          <a-checkbox :checked="true"> 记住我 </a-checkbox>
           <a class="forgot" href=""> 忘记密码 </a>
         </a-form-item>
         <a-form-item :wrapper-col="{ span: 24 }">
@@ -35,7 +33,6 @@
 </template>
 <script>
 import { reactive, ref } from "vue";
-import { useForm } from "@ant-design-vue/use";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { message } from "ant-design-vue";
@@ -43,42 +40,41 @@ export default {
   setup() {
     const router = useRouter();
     const store = useStore();
-    const param = reactive({
+    const formState = reactive({
       username: "admin",
-      password: "admin"
+      password: "admin",
     });
-    const { resetFields, validate, validateInfos } = useForm(
-      param,
-      reactive({
-        username: [{ required: true, message: "请输入账户" }],
-        password: [{ required: true, message: "请输入密码" }]
-      })
-    );
+
+    const formRules = {
+      username: [{ required: true, message: "请输入账户", trigger: "blur" }],
+      password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+    };
+
+    const formRef = ref();
 
     const load = ref(false);
 
-    const onSubmit = async e => {
-      e.preventDefault();
-      try {
-
+    const onSubmit = async (e) => {
+      formRef.value.validate().then(async () => {
           load.value = true;
-          await store.dispatch("user/login", param);
+          await store.dispatch("user/login", formState);
           await router.push("/");
-
-      } catch (e) {
-        console.log("error", e);
-        message.error(e);
-      }
+        })
+        .catch((error) => {
+          console.log("error", e);
+          message.error(e);
+        });
     };
     return {
       labelCol: { span: 6 },
       wrapperCol: { span: 24 },
-      validateInfos,
+      formRules,
+      formState,
       onSubmit,
-      param,
-      load
+      formRef,
+      load,
     };
-  }
+  },
 };
 </script>
 <style lang="less">
