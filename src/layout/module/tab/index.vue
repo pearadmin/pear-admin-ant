@@ -73,8 +73,8 @@ export default {
   setup() {
     const { getters, commit } = useStore();
     const defaultPanes = computed(() => getters.panes);
-    const panes = ref(initPanes);
     const initPanes = [];
+    const panes = ref(initPanes);
     const route = useRoute();
     const router = useRouter();
     const storeKey = computed(() => getters.activeKey);
@@ -92,14 +92,14 @@ export default {
       panes.forEach(pane => {
         const { path, meta, hidden, children = [] } = pane;
         if (children && children.length > 0) {
-          findFixedPane(list, _path.resolve(prefix, path), children);
+          findFixedPane(list, prefix + "/" + path, children);
         } else {
           // if (!hidden && meta && meta.fixed) {
           const currentName = route.name;
           if (!hidden && meta && config.defaultTab === pane.name) {
             list.push({
               title: meta.title,
-              path: _path.resolve(prefix, path),
+              path: prefix + "/" + path,
               closable: !currentName === pane.name
             });
           }

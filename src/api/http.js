@@ -3,11 +3,12 @@ import { useStore } from "vuex";
 import { notification, message as Msg } from "ant-design-vue";
 import store from "../store";
 class Http {
+
   constructor(config) {
     this.config = config || {
       timeout: 6000,
       withCredentials: true,
-      baseURL: import.meta.env.VUE_APP_API_BASE_URL,
+      baseURL: import.meta.env.VITE_API_DOMAIN,
       headers: {
         "Content-Type": "application/json; charset=utf-8"
       }

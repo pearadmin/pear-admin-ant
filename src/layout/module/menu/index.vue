@@ -81,7 +81,6 @@ export default {
     const changeLayout = (model) => {
       if (model === "layout-comp") {
         let topPath = route.matched[0].path;
-        // menu.value = routes.find((r) => r.path === topPath).children;
         menu.value = state.menu.find((r) => r.path === topPath).children;
         rootPath.value = topPath + "/";
       } else {

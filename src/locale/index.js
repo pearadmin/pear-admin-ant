@@ -7,12 +7,9 @@ const i18n = setupI18n({
   legacy: false,
   locale: DEFAULT_LANG,
   fallbackLocale: DEFAULT_LANG,
-  messages: {
-  }
+  messages: {}
 })
 
-loadLocaleMessages(i18n, DEFAULT_LANG).then(() => {
-  console.log('init i18n')
-})
+loadLocaleMessages(i18n, DEFAULT_LANG).then(() => {})
 
 export default i18n

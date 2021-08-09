@@ -53,7 +53,6 @@
   </template>
 </template>
 <script>
-import path from "path";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useI18n  } from "vue-i18n";
@@ -84,8 +83,9 @@ export default {
         return props.basePath;
       }
       // 当处于 comp 模式下拼接相关路由
-      return path.resolve(props.basePath, routePath);
+      return props.basePath + "/" +  routePath;
     };
+
     const handleFoldSideBar = () => {
       const isComputedMobile = computed(() => getters.isMobile);
       if (isComputedMobile.value) {

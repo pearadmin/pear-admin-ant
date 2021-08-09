@@ -53,17 +53,6 @@ const actions = {
       const {code, message, result: userInfo} = response
       if (code === 200) {
         const {menuList, token} = userInfo
-        /**
-         * 若菜单不是单独的接口用以下注释的代码
-         const dynamicRoutes = generatorUserMenuForList(menuList)
-         // 末尾添加未知路由404
-         dynamicRoutes.push({
-         path: '/:pathMatch(.*)*',
-         hidden: true,
-         redirect: '/error/404'
-     })
-         commit('SET_USER_MENU', dynamicRoutes)
-         */
         delete userInfo.menuList
         delete userInfo.token
         commit('SET_USER_TOKEN', token)
@@ -98,6 +87,7 @@ const actions = {
     commit('SET_USER_MENU', dynamicRoutes)
   }
 }
+
 export default {
   namespaced: true,
   state,

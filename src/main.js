@@ -1,10 +1,9 @@
+import { createApp } from "vue";
 import App from "./App.vue";
 import Route from "./route";
 import Store from "./store/index.js";
 import Pear from "./component/index.js";
-import { createApp } from "vue";
 import Antd from "ant-design-vue/es";
-import directive from "./directive";
 import i18n from './locale';
 import * as antIcons from '@ant-design/icons-vue';
 

@@ -13,13 +13,6 @@ export function setI18nLanguage(i18n, locale) {
   } else {
     i18n.global.locale.value = locale
   }
-  /**
-   * NOTE:
-   * If you need to specify the language setting for headers, such as the `fetch` API, set it here.
-   * The following is an example for axios.
-   *
-   * axios.defaults.headers.common['Accept-Language'] = locale
-   */
   document.querySelector('html').setAttribute('lang', locale)
 }
 
@@ -33,6 +26,5 @@ export async function loadLocaleMessages(i18n, locale) {
   i18n.global.setLocaleMessage(locale, messages.default)
   // set local
   setI18nLanguage(i18n, locale)
-
   return nextTick()
 }

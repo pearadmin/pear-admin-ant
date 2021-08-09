@@ -9,10 +9,10 @@ import { isNotProduction } from "@/tools/common";
 const debug = isNotProduction()
 
 export default createStore({
-  state: {
+  modules: {
      app,
      layout,
-    user
+     user
   },
   getters,
   strict: debug,
