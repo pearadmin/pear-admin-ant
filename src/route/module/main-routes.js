@@ -1,5 +1,5 @@
 /// 动态路由
-import Layout from "@/layout";
+import Layout from "@/layout/index.vue";
 
 export default {
   Layout,

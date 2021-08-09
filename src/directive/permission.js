@@ -1,9 +1,9 @@
-import store from "@/store/store";
+import user from "@/store/modules/user.js"
 import router from '@/route'
 export default function permission(el, binding, VNode, prevNode) {
   // 获取当前页面权限列表
   const { currentRoute } = router
-  const userInfo = store.user.state.userInfo
+  const userInfo = user.state.userInfo
   const { permissions = [] } = userInfo
   let currentPageId = ''
   let currentPageActions = []
