@@ -1379,7 +1379,6 @@ li.ant-calendar-time-picker-select-option-disabled:hover {background: transparen
 .ant-table-row-expand-icon:focus, .ant-table-row-expand-icon:hover, .ant-table-row-expand-icon:active {border-color: currentColor;}
 tr.ant-table-expanded-row,
 tr.ant-table-expanded-row:hover {background: #fbfbfb;}
-.ant-table-scroll table .ant-table-fixed-columns-in-body:not([colspan]) {color: transparent;}
 .ant-table-fixed-header > .ant-table-content > .ant-table-scroll > .ant-table-body {background: #fff;}
 .ant-table-fixed-header .ant-table-scroll .ant-table-header::-webkit-scrollbar {border: 1px solid #f0f0f0;border-width: 0 0 1px 0;}
 .ant-table-hide-scrollbar {scrollbar-color: transparent transparent;}
@@ -1398,6 +1397,12 @@ tr.ant-table-expanded-row:hover {background: #fbfbfb;}
 .ant-table-fixed-right .ant-table-thead > tr > th:first-child {border-top-left-radius: 0;}
 .ant-table.ant-table-scroll-position-left .ant-table-fixed-left {box-shadow: none;}
 .ant-table.ant-table-scroll-position-right .ant-table-fixed-right {box-shadow: none;}
+.ant-table-cell-fix-left, .ant-table-cell-fix-right {background: #fff;}
+.ant-table-ping-left:not(.ant-table-has-fix-left) .ant-table-container::before {box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.15);}
+.ant-table-ping-left .ant-table-cell-fix-left-first::after, .ant-table-ping-left .ant-table-cell-fix-left-last::after {box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.15);}
+.ant-table-ping-left .ant-table-cell-fix-left-last::before {background-color: transparent !important;}
+.ant-table-ping-right:not(.ant-table-has-fix-right) .ant-table-container::after {box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.15);}
+.ant-table-ping-right .ant-table-cell-fix-right-first::after, .ant-table-ping-right .ant-table-cell-fix-right-last::after {box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.15);}
 .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {background: #fafafa;border: 1px solid #f0f0f0;border-radius: 2px 2px 0 0;}
 .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active {color: @primary-color;background: #fff;border-color: #f0f0f0;border-bottom: 1px solid #fff;}
 .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active::before {border-top: 2px solid transparent;}

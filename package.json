@@ -3,11 +3,8 @@
   "version": "1.3.5-RELEASE",
   "private": true,
   "scripts": {
-    "serve-dev": "node generate && vue-cli-service serve --mode development",
-    "serve-pro": "node generate && vue-cli-service serve --mode production",
-    "build-dev": "node generate && vue-cli-service build --mode development",
-    "build-pro": "node generate && vue-cli-service build --mode production",
-    "report": "vue-cli-service build --report"
+    "serve-vite": "node generate && vite",
+    "build-vite": "node generate && vite build"
   },
   "dependencies": {
     "@ant-design-vue/use": "^0.0.1-alpha.10",
@@ -32,9 +29,6 @@
   "devDependencies": {
     "@types/node": "^14.14.6",
     "@types/webpack-env": "^1.15.3",
-    "@vue/cli-plugin-babel": "~4.5.8",
-    "@vue/cli-plugin-eslint": "~4.5.8",
-    "@vue/cli-service": "~4.5.8",
     "@vue/compiler-sfc": "^3.1.4",
     "antd-theme-webpack-plugin": "^1.3.9",
     "babel-eslint": "^10.1.0",
@@ -47,6 +41,7 @@
     "mockjs2": "^1.0.8",
     "node-sass": "^6.0.0",
     "sass-loader": "^10.0.2",
+    "vite": "^2.4.4",
     "webpackbar": "^5.0.0-3"
   },
   "eslintConfig": {

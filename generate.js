@@ -16,7 +16,7 @@ generateTheme({
         '@btn-primary-bg',
         '@layout-header-background',
     ],
-    outputFilePath: path.join(__dirname, './public/theme.less'), //生成的color.less文件的位置
+    outputFilePath: path.join(__dirname, './theme.less'), //生成的color.less文件的位置
     customColorRegexArray: [/^color\(.*\)$/],
 })
 .then(res => {

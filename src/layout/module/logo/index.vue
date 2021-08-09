@@ -11,7 +11,7 @@
 <script>
 import { computed } from "vue";
 import { useStore } from "vuex";
-import config from '@/pear.js';
+import config from '../../../pear';
 export default {
   setup() {
     

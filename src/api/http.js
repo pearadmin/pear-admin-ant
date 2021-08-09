@@ -7,7 +7,7 @@ class Http {
     this.config = config || {
       timeout: 6000,
       withCredentials: true,
-      baseURL: process.env.VUE_APP_API_BASE_URL,
+      baseURL: import.meta.env.VUE_APP_API_BASE_URL,
       headers: {
         "Content-Type": "application/json; charset=utf-8"
       }

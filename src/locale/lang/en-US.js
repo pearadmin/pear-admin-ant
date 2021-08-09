@@ -1,11 +1,7 @@
-import { getModule } from '@/tools/common'
 import antLocal from 'ant-design-vue/es/locale/en_US'
-
-const requireENContext = require.context('./en-US/', false, /[\w+].(js)$/)
-
-const enUS = getModule(requireENContext)
+import enUS from './en-US/menu'
 
 export default {
-  ...enUS,
+  enUS,
   antLocal
 }

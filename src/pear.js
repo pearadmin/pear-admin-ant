@@ -101,7 +101,7 @@ export default {
    * 参数: 可选的主题颜色列表
    * color - key
    */
-   colorList: ["#2d8cf0","#36b368","#f6ad55","#f56c6c","#3963bc","#13C2C2"],
+  colorList: ["#2d8cf0","#36b368","#f6ad55","#f56c6c","#3963bc","#13C2C2"],
 
   /**
    * 参数: 路由动画
