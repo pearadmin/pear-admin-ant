@@ -106,7 +106,7 @@ export default {
         }
       });
     };
-    // findFixedPane(initPanes, "", useRouter().options.routes);
+
     findFixedPane(initPanes, "", menu.value);
 
     // 新 增 或 添 加 选 项 卡 操 作

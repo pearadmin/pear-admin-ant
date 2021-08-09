@@ -71,8 +71,8 @@
 
 <script>
 import {defineComponent, reactive, ref, toRefs} from "vue";
-import RepositoryForm from "@/view/form/components/RepositoryForm";
-import TaskForm from "@/view/form/components/TaskForm";
+import RepositoryForm from "@/view/form/components/RepositoryForm.vue";
+import TaskForm from "@/view/form/components/TaskForm.vue";
 import {message, notification} from 'ant-design-vue'
 import {PlusOutlined} from "@ant-design/icons-vue";
 

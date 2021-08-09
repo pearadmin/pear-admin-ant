@@ -23,9 +23,9 @@
 </template>
 <script>
 import {defineComponent, markRaw, reactive, toRefs} from "vue";
-import step1 from "@/view/form/components/step1";
-import step2 from "@/view/form/components/step2";
-import step3 from "@/view/form/components/step3";
+import step1 from "@/view/form/components/step1.vue";
+import step2 from "@/view/form/components/step2.vue";
+import step3 from "@/view/form/components/step3.vue";
 
 export default defineComponent({
   name: 'stepForm',
