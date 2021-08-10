@@ -136,24 +136,7 @@ border-radius: 0;
 
 #menu::-webkit-scrollbar
 {
--webkit-appearance: none;
-width: 3px;
-height: 3px;
-}
-
-#menu::-webkit-scrollbar-thumb
-{
-cursor: pointer;
-border-radius: 5px;
-background: transparent;
-transition: color .2s ease;
-}
-
-#menu::-webkit-scrollbar-thumb:hover
-{
-cursor: pointer;
-border-radius: 5px;
-background: transparent;
-transition: color .2s ease;
+width: 0px;
+height: 0px;
 }
 </style>
