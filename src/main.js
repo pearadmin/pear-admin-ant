@@ -23,7 +23,5 @@ Object.keys(antIcons).forEach(key => {
   app.component(key, antIcons[key])
 })
 
-// 添加到全局
 app.config.globalProperties.$antIcons = antIcons
-
 export default app

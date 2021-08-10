@@ -79,9 +79,7 @@ const state = {
    * true -- 是
    * false -- 否 
    */
-  keepAlive: config.keepAlive == null ? true : localStorage.getItem("keepAlive") == null
-    ? config.keepAlive : localStorage.getItem("keepAlive")
-  ,
+  keepAlive: config.keepAlive == null ? true : localStorage.getItem("keepAlive") == null ? config.keepAlive : localStorage.getItem("keepAlive"),
   /**
    * 多标签页样式
    * pear-card-tab

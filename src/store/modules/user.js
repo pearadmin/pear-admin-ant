@@ -52,7 +52,7 @@ const actions = {
       const response = await login(data)
       const {code, message, result: userInfo} = response
       if (code === 200) {
-        const {menuList, token} = userInfo
+        const {token} = userInfo
         delete userInfo.menuList
         delete userInfo.token
         commit('SET_USER_TOKEN', token)
@@ -67,21 +67,11 @@ const actions = {
   },
   // addUserRouteForArray, addUserRouteForTree 跟据后端返回数据结构来决定走哪个方法。
   async addUserRouteForArray ({ state: { userRoutes }, commit }) {
-    // 如果菜单不是单独的接口
-    // const routes = JSON.parse(JSON.stringify(userRoutes))
-    // addUserRoutes(routes)
-    // return Promise.resolve()
-    // 如果菜单是单独的接口
     const { result: menuList } = await getUserMenusArray()
     const dynamicRoutes = generatorUserMenuForList(menuList)
     commit('SET_USER_MENU', dynamicRoutes)
   },
   async addUserRouteForTree ({ state: { userRoutes }, commit }) {
-    // 如果菜单不是单独的接口
-    // const routes = JSON.parse(JSON.stringify(userRoutes))
-    // addUserRoutes(routes)
-    // return Promise.resolve()
-    // 如果菜单是单独的接口
     const { result: menuList } = await getUserMenusTree()
     const dynamicRoutes = generatorUserMenuForTree(menuList)
     commit('SET_USER_MENU', dynamicRoutes)

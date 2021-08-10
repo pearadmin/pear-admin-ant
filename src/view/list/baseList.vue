@@ -36,22 +36,17 @@
           <template v-slot:loadMore>
             <div
               v-if="showLoadingMore"
-              :style="{
-                textAlign: 'center',
-                marginTop: '12px',
-                height: '32px',
-                lineHeight: '32px',
-              }"
+              class="demo-loadmore"
             >
               <a-spin v-if="loadingMore" />
-              <a-button v-else @click="onLoadMore"> 加载更多 </a-button>
+              <a-button v-else @click="loadMore"> 加载更多 </a-button>
             </div>
           </template>
           <template v-slot:renderItem="{ item }">
             <a-list-item>
               <template v-slot:actions>
-                <a>edit</a>
-                <a>more</a>
+                <a>修改</a>
+                <a>更多</a>
               </template>
               <a-list-item-meta
                 description="Ant Design, a design language for background applications, is refined by Ant UED Team"
@@ -98,7 +93,7 @@ export default {
     const loadMore = function() {
       loadingMore.value = true;
       getData((res) => {
-        data.value = data.value.concat(res.results);
+        data.value = data.value.concat(res.data.results);
         loadingMore.value = false;
         this.$nextTick(() => {
           window.dispatchEvent(new Event("resize"));
@@ -109,6 +104,7 @@ export default {
     getData((res) => {
       loading.value = false;
       data.value = res.data.results;
+      showLoadingMore.value = true;
     })
 
     return {
@@ -124,5 +120,11 @@ export default {
 <style>
 .demo-loadmore-list {
   min-height: 350px;
+}
+.demo-loadmore {
+  text-align: center;
+  margin-top: 12px;
+  height: 32px;
+  line-height: 32px;
 }
 </style>

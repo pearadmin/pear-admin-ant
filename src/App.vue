@@ -22,6 +22,12 @@ export default defineComponent({
       })
     )
 
+    setTimeout(function(){
+        window.less.modifyVars({
+          "primary-color": color.value,
+        })
+    },100)
+
     return {
       antdLocal
     }
