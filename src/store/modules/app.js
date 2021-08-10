@@ -21,7 +21,6 @@ const mutations = {
     state.cancelToken = []
   },
   SET_LANGUAGE (state, payload) {
-    
     state.language = payload
     localStorage.setItem('pear_lang', payload)
   }

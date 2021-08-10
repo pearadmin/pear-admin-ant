@@ -107,8 +107,7 @@ import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
 import { useRoute, useRouter } from "vue-router";
-import _path from "path";
-import i18n from "@/locale";
+import  i18n  from "@/locale/index.js";
 import {
   AlignLeftOutlined,
   AlignRightOutlined,
@@ -120,7 +119,7 @@ import {
   BellOutlined,
   LoadingOutlined,
 } from "@ant-design/icons-vue";
-import { loadLocaleMessages } from "@/locale/i18n";
+import { loadLocaleMessages } from "@/locale/index.js";
 export default {
   components: {
     AlignLeftOutlined,
@@ -193,7 +192,7 @@ export default {
         return redirect;
       }
       while (children && children[0]) {
-        path = _path.resolve(path, children[0].path);
+        path = path + "/" + children[0].path;
         children = children[0].children;
       }
       return path;

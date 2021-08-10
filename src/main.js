@@ -4,7 +4,7 @@ import Route from "./route";
 import Store from "./store/index.js";
 import Pear from "./component/index.js";
 import Antd from "ant-design-vue/es";
-import i18n from './locale';
+import i18n from './locale/index.js';
 import * as antIcons from '@ant-design/icons-vue';
 
 import "./mock";
