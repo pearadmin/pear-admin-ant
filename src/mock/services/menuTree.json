@@ -89,8 +89,8 @@
       },
       {
         "parent": "form",
-        "path": "advancedForm",
-        "name": "advanced-form",
+        "path": "moreForm",
+        "name": "more-form",
         "type": "menu",
         "icon": "DatabaseOutlined",
         "title": "高级表单",

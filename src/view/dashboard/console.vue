@@ -15,7 +15,6 @@
               style="margin-top: 16px"
               :percent="30"
               size="small"
-              :stroke-color="{ '0%': color,'100%': color}"
             />
             <a-divider />
             <div class="card-left">访问量</div>
@@ -36,7 +35,6 @@
               size="small"
               status="active"
               :show-info="false"
-              :stroke-color="{ '0%': color,'100%': color}"
             />
             <a-divider />
             <div class="card-left">销售量</div>
@@ -56,7 +54,6 @@
               style="margin-top: 16px"
               :percent="30"
               size="small"
-              :stroke-color="{ '0%': color,'100%': color}"
             />
             <a-divider />
             <div class="card-left">转化率</div>
@@ -77,7 +74,6 @@
               size="small"
               status="active"
               :show-info="false"
-              :stroke-color="{ '0%': color,'100%': color}"
             />
             <a-divider />
             <div class="card-left">用户量</div>
@@ -294,7 +290,6 @@ export default {
     const chartRef = ref(null);
 
     const store = useStore()
-    const color = computed(() => store.getters.color);
 
     onMounted(() => {
       const datass = [
@@ -329,7 +324,7 @@ export default {
         .interval()
         .position("year*sales")
         .color("year*sales", function(year, sales) {
-          return color.value;
+          return "#1890ff";
         });
 
       chart.interaction("active-region");
@@ -395,8 +390,7 @@ export default {
     return {
       data,
       columns,
-      datas,
-      color
+      datas
     };
   }
 };
