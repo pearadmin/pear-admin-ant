@@ -75,49 +75,50 @@
   </div>
 </template>
 <script>
-import reqwest from "reqwest";
+import axios from "axios";
+import { ref } from '@vue/reactivity';
 
-const fakeDataUrl =
-  "https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo";
+const fakeDataUrl ="https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo";
 
 export default {
-  data() {
-    return {
-      loading: true,
-      loadingMore: false,
-      showLoadingMore: true,
-      data: [],
-    };
-  },
-  mounted() {
-    this.getData((res) => {
-      this.loading = false;
-      this.data = res.results;
-    });
-  },
-  methods: {
-    getData(callback) {
-      reqwest({
-        url: fakeDataUrl,
-        type: "json",
-        method: "get",
-        contentType: "application/json",
-        success: (res) => {
-          callback(res);
-        },
-      });
-    },
-    onLoadMore() {
-      this.loadingMore = true;
-      this.getData((res) => {
-        this.data = this.data.concat(res.results);
-        this.loadingMore = false;
+
+  setup() {
+
+    const data = ref([]);
+    const loading = ref(true);
+    const loadingMore = ref(false);
+    const showLoadingMore = ref(false);
+
+    const getData = function(callback) {
+      axios.get(fakeDataUrl).then((reponse) => {
+        callback(reponse);
+      })
+    }
+
+    const loadMore = function() {
+      loadingMore.value = true;
+      getData((res) => {
+        data.value = data.value.concat(res.results);
+        loadingMore.value = false;
         this.$nextTick(() => {
           window.dispatchEvent(new Event("resize"));
         });
       });
-    },
-  },
+    }
+
+    getData((res) => {
+      loading.value = false;
+      data.value = res.data.results;
+    })
+
+    return {
+      loading,
+      loadingMore,
+      showLoadingMore,
+      data,
+      loadMore,
+    }
+  }
 };
 </script>
 <style>

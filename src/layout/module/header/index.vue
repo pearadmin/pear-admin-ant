@@ -107,7 +107,8 @@ import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
 import { useRoute, useRouter } from "vue-router";
-import  i18n  from "@/locale/index.js";
+import { resolve } from "@/tools/common.js";
+import i18n from "@/locale/index.js";
 import {
   AlignLeftOutlined,
   AlignRightOutlined,
@@ -192,7 +193,7 @@ export default {
         return redirect;
       }
       while (children && children[0]) {
-        path = path + "/" + children[0].path;
+        path = resolve(path, children[0].path);
         children = children[0].children;
       }
       return path;

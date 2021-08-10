@@ -43,6 +43,7 @@ import _path from "path";
 import { computed, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
+import { resolve } from "@/tools/common.js";
 import { useRouter, useRoute } from "vue-router";
 import config from "@/pear.js";
 export default {
@@ -92,14 +93,14 @@ export default {
       panes.forEach(pane => {
         const { path, meta, hidden, children = [] } = pane;
         if (children && children.length > 0) {
-          findFixedPane(list, prefix + "/" + path, children);
+          findFixedPane(list, resolve( prefix, path ), children);
         } else {
           // if (!hidden && meta && meta.fixed) {
           const currentName = route.name;
           if (!hidden && meta && config.defaultTab === pane.name) {
             list.push({
               title: meta.title,
-              path: prefix + "/" + path,
+              path: resolve( prefix, path ),
               closable: !currentName === pane.name
             });
           }

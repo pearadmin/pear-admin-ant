@@ -43,3 +43,17 @@ export const isTimeout = (number, callback) => {
     }
   }, {})
 }
+
+/**
+ * 路径兼容拼接
+ * 
+ * @param 根路径
+ * @param 子路径 
+ */
+export const resolve = (root, path) => {
+  if(path.startsWith('/')) {
+    return root + path;
+  } else {
+    return root + "/" + path;
+  }
+}

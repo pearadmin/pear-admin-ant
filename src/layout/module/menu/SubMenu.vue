@@ -56,6 +56,7 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useI18n  } from "vue-i18n";
+import { resolve } from "@/tools/common.js";
 export default {
   emits: ["click"],
   name: "SubMenu",
@@ -83,7 +84,7 @@ export default {
         return props.basePath;
       }
       // 当处于 comp 模式下拼接相关路由
-      return props.basePath + "/" +  routePath;
+      return resolve(props.basePath , routePath);
     };
 
     const handleFoldSideBar = () => {
@@ -93,7 +94,6 @@ export default {
       }
     };
 
-    // i18n
     const { t } = useI18n()
 
     return {
