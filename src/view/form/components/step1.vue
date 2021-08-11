@@ -8,7 +8,7 @@
     <a-form-item label="付款账户" :labelCol="labelCol" :wrapperCol="wrapperCol">
       <a-select
         placeholder="pearadmin@com"
-        v-model:value="paymentUser"
+        v-model:value="formState.paymentUser"
         allowClear
       >
         <a-select-option value="1">pearadmin.com</a-select-option>
