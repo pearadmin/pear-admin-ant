@@ -5,6 +5,7 @@ import Store from "./store/index.js";
 import Pear from "./component/index.js";
 import Antd from "ant-design-vue/es";
 import i18n from './locale/index.js';
+import directives from "./directive/index.js"
 import * as antIcons from '@ant-design/icons-vue';
 
 import "./mock";
@@ -18,6 +19,11 @@ app.use(Store);
 app.use(Route);
 app.use(i18n)
 app.mount("#app");
+
+
+Object.keys(directives).forEach(directive => {
+  app.directive(directive, directives[directive])
+})
 
 Object.keys(antIcons).forEach(key => {
   app.component(key, antIcons[key])
