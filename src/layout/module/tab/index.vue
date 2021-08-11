@@ -24,14 +24,14 @@
       </a-button>
       <template v-slot:overlay>
         <a-menu>
-          <a-menu-item>
-            <a @click="closeAll()">关 闭 所 有</a>
+          <a-menu-item @click="closeAll()">
+            关 闭 所 有
           </a-menu-item>
-          <a-menu-item>
-            <a @click="closeOther()">关 闭 其 他</a>
+          <a-menu-item @click="closeOther()">
+            关 闭 其 他
           </a-menu-item>
-          <a-menu-item>
-            <a @click="closeCurrent()">关 闭 当 前</a>
+          <a-menu-item @click="closeCurrent()">
+            关 闭 当 前
           </a-menu-item>
         </a-menu>
       </template>
@@ -116,7 +116,6 @@ export default {
       if (!title) {
         return;
       }
-
       let isTop = false;
       const poprRoute = route.matched[0];
       if (poprRoute.children.length == 1 && poprRoute.alwaysShow != true) {
@@ -124,7 +123,6 @@ export default {
       }
       const path = route.path;
       commit("layout/addTab", { title, path, isTop });
-
       const { fullPath } = route;
       const startIndex = fullPath.indexOf("/");
       const endIndex = fullPath.lastIndexOf("/");
