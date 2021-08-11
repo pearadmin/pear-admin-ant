@@ -11,7 +11,7 @@
       <a-tab-pane
         v-for="pane in panes"
         :key="pane.path"
-        :tab="pane.title"
+        :tab="convertTitle(pane.i18n)"
         :closable="pane.closable"
       >
       </a-tab-pane>
@@ -40,6 +40,7 @@
 </template>
 <script>
 import _path from "path";
+import { useI18n } from "vue-i18n";
 import { computed, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
@@ -108,11 +109,18 @@ export default {
       });
     };
 
+    const { t } = useI18n();
+
+    const convertTitle = function(i18nTitle) {
+      return t(i18nTitle)
+    }
+
     findFixedPane(initPanes, "", menu.value);
 
     // 新 增 或 添 加 选 项 卡 操 作
     const dynamicMenu = () => {
       const title = route.meta.title || "";
+      const i18n = route.meta.i18n || "";
       if (!title) {
         return;
       }
@@ -122,7 +130,7 @@ export default {
         isTop = true;
       }
       const path = route.path;
-      commit("layout/addTab", { title, path, isTop });
+      commit("layout/addTab", { title, path, isTop, i18n });
       const { fullPath } = route;
       const startIndex = fullPath.indexOf("/");
       const endIndex = fullPath.lastIndexOf("/");
@@ -165,8 +173,9 @@ export default {
     return {
       placement: ref("bottomRight"),
       panes,
-      activeKey,
       tabType,
+      activeKey,
+      convertTitle,
       selectTab: key => commit("layout/selectTab", key),
       removeTab: key => commit("layout/removeTab", key),
       closeAllTab: () => commit("layout/closeAllTab"),

@@ -67,7 +67,6 @@ export default {
       changeLayout(layout.value);
       const isComputedMobile = computed(() => getters.isMobile);
       const collapsed = computed(() => getters.collapsed);
-      // isComputedMobile.value
       if ((layout.value !== "layout-head" && !collapsed.value) || isComputedMobile.value) {
         commit("layout/updateOpenKey", { openKeys });
       } else {
@@ -98,23 +97,20 @@ export default {
     };
 
     watch(layout, (n) => changeLayout(n));
-    watch(
-      computed(() => route.fullPath),
-      dynamicRoute
-    );
+    watch(computed(() => route.fullPath),dynamicRoute);
     watch(activeKey, (n) => (selectKey.value = [n]));
     watch(storeOpenKey, (n) => (openKey.value = n), { deep: true });
     dynamicRoute(route);
 
     return {
-      handleFoldSideBar,
-      selectKey,
+      menu,
       openKey,
+      rootPath,
+      selectKey,
       menuModel,
       menuTheme,
       openChange,
-      menu,
-      rootPath,
+      handleFoldSideBar,
     };
   },
 };
