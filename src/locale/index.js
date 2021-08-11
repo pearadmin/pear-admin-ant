@@ -2,9 +2,7 @@ import config from "@/pear";
 import { nextTick } from 'vue'
 import { createI18n } from 'vue-i18n'
 
-const DEFAULT_LANG = localStorage.getItem("pear_lang")
-  ? localStorage.getItem("pear_lang")
-  : config.defaultLanguage;
+const DEFAULT_LANG = localStorage.getItem("pear_lang") ? localStorage.getItem("pear_lang") : config.defaultLanguage;
 
 const i18n = setupI18n({
   globalInjection: true,
@@ -12,10 +10,6 @@ const i18n = setupI18n({
   locale: DEFAULT_LANG,
   fallbackLocale: DEFAULT_LANG,
   messages: {}
-});
-
-loadLocaleMessages(i18n, DEFAULT_LANG).then(() => {
-  console.log("init i18n");
 });
 
 export function setupI18n(options = { locale: 'en' }) {
@@ -43,5 +37,9 @@ export async function loadLocaleMessages(i18n, locale) {
   // next tick
   return nextTick()
 }
+
+loadLocaleMessages(i18n, DEFAULT_LANG).then(() => {
+  console.log("init i18n");
+});
 
 export default i18n;

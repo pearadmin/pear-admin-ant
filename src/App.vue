@@ -17,16 +17,9 @@ export default defineComponent({
     const antdLocal = ref(
       computed(() => {
         const { getLocaleMessage } = useI18n({ useScope: 'global' })
-        const locale = getLocaleMessage(defaultLang.value).antdLocal
-        return locale
+        return  getLocaleMessage(defaultLang.value).antdLocal
       })
     )
-
-    setTimeout(function(){
-        window.less.modifyVars({
-          "primary-color": color.value,
-        })
-    },100)
 
     return {
       antdLocal

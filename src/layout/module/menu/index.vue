@@ -68,10 +68,7 @@ export default {
       const isComputedMobile = computed(() => getters.isMobile);
       const collapsed = computed(() => getters.collapsed);
       // isComputedMobile.value
-      if (
-        (layout.value !== "layout-head" && !collapsed.value) ||
-        isComputedMobile.value
-      ) {
+      if ((layout.value !== "layout-head" && !collapsed.value) || isComputedMobile.value) {
         commit("layout/updateOpenKey", { openKeys });
       } else {
         commit("layout/clearOpenKey");

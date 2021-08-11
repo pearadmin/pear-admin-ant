@@ -49,7 +49,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18n": "dashboard-console"
+    "i18n": "console"
   },{
     "parent": "dashboard",
     "path": "workspace",
@@ -61,7 +61,7 @@
     "link": "",
     "hidden": false,
     "status": true,
-    "i18n": "dashboard-workspace"
+    "i18n": "workspace"
   },
   {
     "parent": "",

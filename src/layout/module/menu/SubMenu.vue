@@ -11,7 +11,7 @@
     >
       <router-link :to="item.path + '/' + item.children[0].path">
         <component :is="$antIcons[item.meta.icon]" />
-        <span>{{ t(item.meta.i18n) }}</span>
+        <span>{{ item.meta.title }}</span>
       </router-link>
     </a-menu-item>
 
@@ -25,7 +25,7 @@
         <span>
           <component v-if="level === 0" :is="$antIcons[item.meta.icon]" />
           <span v-else><div class="indent"></div></span>
-          <span>{{ t(item.meta.i18n) }}</span>
+          <span>{{ item.meta.title }}</span>
         </span>
       </template>
       <!-- 递归 item.children -->
@@ -47,7 +47,7 @@
       <router-link :to="resolvePath(item.path, true)">
         <component v-if="level === 0" :is="$antIcons[item.meta.icon]" />
         <span v-else><div class="indent"></div></span>
-        <span>{{ t(item.meta.i18n) }}</span>
+        <span>{{ item.meta.title }}</span>
       </router-link>
     </a-menu-item>
   </template>
