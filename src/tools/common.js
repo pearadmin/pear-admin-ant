@@ -35,11 +35,11 @@ export const isTimeout = (number, callback) => {
  * @param context 
  * @return void
  */
- export const getModule = context => {
-  return context.keys().reduce((modules, key) => {
+ export const mergeModule = context => {
+  return Object.keys(context).reduce((modules, key) => {
     return {
       ...modules,
-      ...context(key).default
+      ...context[key].default
     }
   }, {})
 }

@@ -6,7 +6,7 @@ export default {
   "workspace": "dashboard-workspace",
   "form": "form",
   "base-form": "base-form",
-  "advanced-form": "advanced-form",
+  "more-form": "advanced-form",
   "step-form": "step-form",
   "list": "list",
   "base-list": "base-list",

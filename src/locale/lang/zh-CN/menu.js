@@ -6,7 +6,7 @@ export default {
   "workspace": "工作台",
   "form": "表单页面",
   "base-form": "基础表单",
-  "advanced-form": "高级表单",
+  "more-form": "高级表单",
   "step-form": "分步表单",
   "list": "列表页面",
   "base-list": "基础列表",
