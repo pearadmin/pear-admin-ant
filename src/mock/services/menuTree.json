@@ -22,18 +22,6 @@
         "link": "",
         "hidden": false,
         "status": true
-      },
-      {
-        "parent": "dashboard",
-        "path": "workspace",
-        "name": "dashboard-workspace",
-        "type": "menu",
-        "icon": "DashboardOutlined",
-        "title": "工作台",
-        "sort": 0,
-        "link": "",
-        "hidden": false,
-        "status": true
       }
     ]
   },
@@ -56,6 +44,18 @@
         "type": "menu",
         "icon": "DashboardOutlined",
         "title": "分析页",
+        "sort": 0,
+        "link": "",
+        "hidden": false,
+        "status": true
+      },
+      {
+        "parent": "dashboard",
+        "path": "workspace",
+        "name": "dashboard-workspace",
+        "type": "menu",
+        "icon": "DashboardOutlined",
+        "title": "工作台",
         "sort": 0,
         "link": "",
         "hidden": false,

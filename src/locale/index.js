@@ -5,11 +5,11 @@ import { createI18n } from 'vue-i18n/index'
 const DEFAULT_LANG = localStorage.getItem("pear_lang") ? localStorage.getItem("pear_lang") : config.defaultLanguage;
 
 const i18n = setupI18n({
-  globalInjection: true,
   legacy: false,
   locale: DEFAULT_LANG,
+  messages: {},
   fallbackLocale: DEFAULT_LANG,
-  messages: {}
+  globalInjection: true,
 });
 
 export function setupI18n(options = { locale: 'en' }) {
