@@ -40,7 +40,7 @@
   },
   {
     "parent": "dashboard",
-    "path": "console",
+    "path": "/dashboard/console",
     "name": "dashboard-console",
     "type": "menu",
     "icon": "DashboardOutlined",
@@ -52,7 +52,7 @@
     "i18n": "console"
   },{
     "parent": "dashboard",
-    "path": "workspace",
+    "path": "/dashboard/workspace",
     "name": "dashboard-workspace",
     "type": "menu",
     "icon": "DashboardOutlined",

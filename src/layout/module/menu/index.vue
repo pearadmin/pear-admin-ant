@@ -1,117 +1,65 @@
 <template>
   <div id="menu">
-      <a-menu
-        v-model:openKeys="openKey"
-        v-model:selectedKeys="selectKey"
-        :mode="menuModel"
-        :theme="menuTheme"
-        @openChange="openChange"
-      >
-        <sub-menu
-          v-for="route in menu"
-          :key="rootPath + route.path"
-          :item="route"
-          :base-path="rootPath + route.path"
-          :level="0"
-          @click="handleFoldSideBar"
-        />
-      </a-menu>
+    <a-menu
+      :mode="menuModel"
+      :theme="menuTheme"
+      :openKeys="openKeys"
+      v-model:selectedKeys="selectedKeys"
+      @select="onSelect"
+      @openChange="onOpenChange"
+    >
+      <template v-for="menu in menuData" :key="menu.path">
+        <sub-menu v-if="!menu.hidden" :item="menu"></sub-menu>
+      </template>
+    </a-menu>
   </div>
 </template>
 <script>
 import SubMenu from "./SubMenu.vue";
+import { computed, reactive, toRefs } from "vue";
 import { useStore } from "vuex";
-import { useRoute } from "vue-router";
-import { computed, watch, ref, reactive } from "vue";
-
+import { useRouter } from 'vue-router';
 export default {
   components: {
     SubMenu
   },
   setup() {
-    const { getters, commit } = useStore();
-    const route = useRoute();
-    const layout = computed(() => getters.layout);
+    const { getters } = useStore();
+    const router = useRouter();
+
     const menuModel = computed(() =>
       getters.layout == "layout-head" ? "horizontal" : "inline"
     );
     const menuTheme = computed(() =>
-      getters.theme === "theme-dark" || getters.theme === "theme-night" ? "dark" : "light"
+      getters.theme === "theme-dark" ? "dark" : "light"
     );
-    const storeOpenKey = computed(() => getters.openKey);
-    const activeKey = computed(() => {
-      const propRoute = route.matched[0];
-      if (propRoute.children.length == 1 && propRoute.meta.alwaysShow != true) {
-        return propRoute.path;
-      }
-      return getters.activeKey;
-    });
-
-    const openKey = ref([...storeOpenKey.value]);
-    const selectKey = ref([activeKey.value]);
-    const rootPath = ref("");
+    const menuData = computed(() => getters.menu);
 
     const state = reactive({
-      menu: computed(() => getters.menu),
+      rootSubmenuKeys: ["sub1", "sub2", "sub4"],
+      openKeys: ["sub1"],
+      selectedKeys: [],
     });
 
-    const menu = ref(state.menu);
+    const onSelect = ({ key }) => {
+      alert(key);
 
-    const dynamicRoute = () => {
-      let { matched } = route;
-      let needOpenKeys = matched
-        .slice(0, matched.length - 1)
-        .map((m) => m.path);
-      let openKeys = [...storeOpenKey.value];
-      needOpenKeys.forEach((nk) => !openKeys.includes(nk) && openKeys.push(nk));
-      changeLayout(layout.value);
-      const isComputedMobile = computed(() => getters.isMobile);
-      const collapsed = computed(() => getters.collapsed);
-      if ((layout.value !== "layout-head" && !collapsed.value) || isComputedMobile.value) {
-        commit("layout/updateOpenKey", { openKeys });
+      router.push(key);
+    }
+
+    const onOpenChange = (openKeys) => {
+      const latestOpenKey = openKeys.find(
+        (key) => state.openKeys.indexOf(key) === -1
+      );
+
+      if (state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+        state.openKeys = openKeys;
       } else {
-        commit("layout/clearOpenKey");
+        state.openKeys = latestOpenKey ? [latestOpenKey] : [];
       }
     };
 
-    const changeLayout = (model) => {
-      if (model === "layout-comp") {
-        let topPath = route.matched[0].path;
-        menu.value = state.menu.find((r) => r.path === topPath).children;
-        rootPath.value = topPath + "/";
-      } else {
-        menu.value = state.menu;
-        rootPath.value = "";
-      }
-    };
-
-    const openChange = function (openKeys) {
-      commit("layout/updateOpenKey", { openKeys });
-    };
-    
-    const handleFoldSideBar = () => {
-      const isComputedMobile = computed(() => getters.isMobile);
-      if (isComputedMobile.value) {
-        commit("layout/UPDATE_COLLAPSED", true);
-      }
-    };
-
-    watch(layout, (n) => changeLayout(n));
-    watch(computed(() => route.fullPath),dynamicRoute);
-    watch(activeKey, (n) => (selectKey.value = [n]));
-    watch(storeOpenKey, (n) => (openKey.value = n), { deep: true });
-    dynamicRoute(route);
-
-    return {
-      menu,
-      openKey,
-      rootPath,
-      selectKey,
-      menuModel,
-      menuTheme,
-      openChange,
-      handleFoldSideBar,
-    };
+    return { ...toRefs(state), onOpenChange, onSelect, menuModel, menuTheme, menuData };
   },
 };
 </script>
@@ -121,15 +69,13 @@ export default {
   height: calc(100% - 60px);
 }
 
-#menu::-webkit-scrollbar-track
-{
-background: transparent;
-border-radius: 0;
+#menu::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0;
 }
 
-#menu::-webkit-scrollbar
-{
-width: 0px;
-height: 0px;
+#menu::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 </style>
