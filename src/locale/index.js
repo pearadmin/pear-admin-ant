@@ -1,6 +1,6 @@
 import config from "@/pear";
 import { nextTick } from 'vue'
-import { createI18n } from 'vue-i18n'
+import { createI18n } from 'vue-i18n/index'
 
 const DEFAULT_LANG = localStorage.getItem("pear_lang") ? localStorage.getItem("pear_lang") : config.defaultLanguage;
 

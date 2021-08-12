@@ -40,7 +40,7 @@
 </template>
 <script>
 import _path from "path";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "vue-i18n/index";
 import { computed, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
