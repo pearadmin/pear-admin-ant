@@ -1,5 +1,6 @@
 <template>
   <template v-if="!item.hidden">
+    <!-- if item.children is null 渲染 a-menu-item -->
     <a-menu-item
       v-if="
         item.children &&
