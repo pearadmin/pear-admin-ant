@@ -3,6 +3,7 @@
     <a-menu
       :mode="menuModel"
       :theme="menuTheme"
+      v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       @select="onSelect"
     >
@@ -39,9 +40,9 @@ export default {
       router.push(key);
     }
     
-    const { selectedKeys } = useMenu();
+    const { selectedKeys, openKeys } = useMenu();
 
-    return { onSelect, selectedKeys,  menuModel, menuTheme, menuData };
+    return { onSelect, selectedKeys,  menuModel, menuTheme, menuData, openKeys };
   },
 };
 </script>

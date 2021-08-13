@@ -119,7 +119,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-//移动端侧边栏遮罩层
+
 .layout_mobile_mask {
   position: fixed;
   top: 0;

@@ -27,7 +27,6 @@ export function useTab() {
     function close(path) {
         const index = list.value.findIndex((item) => item.path == path);
         list.value = list.value.filter((item) => item.path !== path);
-
         if(route.path === path && list.value.length) {
             if(index >= 1) {
                 to({ path: list.value[index - 1].path })
