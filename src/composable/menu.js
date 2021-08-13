@@ -14,8 +14,6 @@ export function useMenu() {
     watch(() => route.path, (path) => {
         selectedKeys.value = [path];
         openKeys.value = findParent(menu.value, path);
-        
-        console.log("打开菜单:" + JSON.stringify(openKeys.value));
     }, { immediate: true })
 
     return {
