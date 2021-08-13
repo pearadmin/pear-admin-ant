@@ -5,7 +5,7 @@
       v-model:activeKey="active"
       type="editable-card"
       @edit="onEdit"
-      @change="callback"
+      @change="onChange"
       class="tab"
     >
       <a-tab-pane
@@ -58,6 +58,10 @@ export default {
         }
     }
 
+    const onChange = function(path) {
+        to({ path });
+    }
+
     return {
         list,
         active,
@@ -67,7 +71,8 @@ export default {
         closeOther,
         closeCurrent,
 
-        onEdit
+        onEdit,
+        onChange,
     };
   }
 };

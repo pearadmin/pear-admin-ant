@@ -36,8 +36,8 @@ export default {
     const menuData = computed(() => getters.menu);
 
     const state = reactive({
-      rootSubmenuKeys: ["sub1", "sub2", "sub4"],
-      openKeys: ["sub1"],
+      rootSubmenuKeys: [],
+      openKeys: [],
       selectedKeys: [],
     });
 
