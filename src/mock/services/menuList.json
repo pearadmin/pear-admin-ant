@@ -78,7 +78,7 @@
   },
   {
     "parent": "form",
-    "path": "baseForm",
+    "path": "/form/baseForm",
     "name": "base-form",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -91,7 +91,7 @@
   },
   {
     "parent": "form",
-    "path": "moreForm",
+    "path": "/form/moreForm",
     "name": "more-form",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -104,7 +104,7 @@
   },
   {
     "parent": "form",
-    "path": "stepForm",
+    "path": "/form/stepForm",
     "name": "step-form",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -130,7 +130,7 @@
   },
   {
     "parent": "list",
-    "path": "baseList",
+    "path": "/list/baseList",
     "name": "base-list",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -143,7 +143,7 @@
   },
   {
     "parent": "list",
-    "path": "cardList",
+    "path": "/list/cardList",
     "name": "card-list",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -156,7 +156,7 @@
   },
   {
     "parent": "list",
-    "path": "newsList",
+    "path": "/list/newsList",
     "name": "news-list",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -169,7 +169,7 @@
   },
   {
     "parent": "list",
-    "path": "tableList",
+    "path": "/list/tableList",
     "name": "table-list",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -195,7 +195,7 @@
   },
   {
     "parent": "result-menu",
-    "path": "success",
+    "path": "/result/success",
     "name": "result-success",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -208,7 +208,7 @@
   },
   {
     "parent": "result-menu",
-    "path": "failure",
+    "path": "/result/failure",
     "name": "result-failure",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -221,7 +221,7 @@
   },
   {
     "parent": "result-menu",
-    "path": "warning",
+    "path": "/result/warning",
     "name": "result-warning",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -234,7 +234,7 @@
   },
   {
     "parent": "result-menu",
-    "path": "info",
+    "path": "/result/info",
     "name": "result-info",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -260,7 +260,7 @@
   },
   {
     "parent": "error",
-    "path": "403",
+    "path": "/error/403",
     "name": "error-403",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -273,7 +273,7 @@
   },
   {
     "parent": "error",
-    "path": "404",
+    "path": "/error/404",
     "name": "error-404",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -286,7 +286,7 @@
   },
   {
     "parent": "error",
-    "path": "500",
+    "path": "/error/500",
     "name": "error-500",
     "type": "menu",
     "icon": "DatabaseOutlined",
@@ -312,7 +312,7 @@
   },
   {
     "parent": "permission",
-    "path": "permission-test",
+    "path": "/permission/permission-test",
     "name": "permission-test",
     "type": "menu",
     "icon": "DatabaseOutlined",
