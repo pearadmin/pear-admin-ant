@@ -6,7 +6,6 @@
       :openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       @select="onSelect"
-      @openChange="onOpenChange"
     >
       <template v-for="menu in menuData" :key="menu.path">
         <sub-menu v-if="!menu.hidden" :item="menu"></sub-menu>
@@ -16,9 +15,10 @@
 </template>
 <script>
 import SubMenu from "./SubMenu.vue";
-import { computed, reactive, toRefs } from "vue";
+import { computed, reactive, toRefs, watch } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from 'vue-router';
+import { useMenu } from '@/composable/menu';
 export default {
   components: {
     SubMenu
@@ -35,28 +35,13 @@ export default {
     );
     const menuData = computed(() => getters.menu);
 
-    const state = reactive({
-      rootSubmenuKeys: [],
-      openKeys: [],
-      selectedKeys: [],
-    });
-
     const onSelect = ({ key }) => {
       router.push(key);
     }
+    
+    const { selectedKeys } = useMenu();
 
-    const onOpenChange = (openKeys) => {
-      const latestOpenKey = openKeys.find(
-        (key) => state.openKeys.indexOf(key) === -1
-      );
-      if (state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-        state.openKeys = openKeys;
-      } else {
-        state.openKeys = latestOpenKey ? [latestOpenKey] : [];
-      }
-    };
-
-    return { ...toRefs(state), onOpenChange, onSelect, menuModel, menuTheme, menuData };
+    return { onSelect, selectedKeys, menuModel, menuTheme, menuData };
   },
 };
 </script>

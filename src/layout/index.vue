@@ -118,29 +118,6 @@ export default {
   }
 };
 </script>
-<style lang="less">
-#layout {
-  height: 100%;
-  .ant-menu-inline-collapsed {
-    width: auto;
-  }
-  @ant-menu-hieht: 48px;
-  .ant-menu-vertical > .ant-menu-item,
-  .ant-menu-vertical-left > .ant-menu-item,
-  .ant-menu-vertical-right > .ant-menu-item,
-  .ant-menu-inline > .ant-menu-item,
-  .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title,
-  .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title,
-  .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title,
-  .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-    height: @ant-menu-hieht !important;
-    line-height: @ant-menu-hieht !important;
-  }
-  .ant-menu-submenu-title>span{
-    font-size: 13.8px!important;
-  }
-}
-</style>
 <style lang="less" scoped>
 //移动端侧边栏遮罩层
 .layout_mobile_mask {

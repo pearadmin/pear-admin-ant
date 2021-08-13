@@ -2,6 +2,7 @@ import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 export function useTab() {
+    
     const route = useRoute();
     const router = useRouter();
     const active = ref();

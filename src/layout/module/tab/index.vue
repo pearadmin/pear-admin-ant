@@ -12,11 +12,11 @@
         v-for="pane in list"
         :key="pane.path"
         :tab="pane.title"
-        :closable="pane.closable"
+        :closable="list.length > 1"
       >
       </a-tab-pane>
     </a-tabs>
-    <a-dropdown class="tab-tool" :placement="placement">
+    <a-dropdown class="tab-tool">
       <a-button>
         <template v-slot:icon>
           <DownOutlined />
