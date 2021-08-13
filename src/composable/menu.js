@@ -5,10 +5,10 @@ export function useMenu() {
 
     const route = useRoute();
     const selectedKeys = ref([]);
-    
-    watch(()=> route.path, (path) => {
+
+    watch(() => route.path, (path) => {
         selectedKeys.value = [path];
-    }, { immediate : true })
+    }, { immediate: true })
 
     return {
         selectedKeys

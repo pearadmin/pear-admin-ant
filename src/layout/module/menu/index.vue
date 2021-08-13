@@ -23,7 +23,7 @@ export default {
     SubMenu
   },
   setup() {
-    
+
     const { getters } = useStore();
     const router = useRouter();
 
@@ -41,7 +41,7 @@ export default {
     
     const { selectedKeys } = useMenu();
 
-    return { onSelect, selectedKeys, menuModel, menuTheme, menuData };
+    return { onSelect, selectedKeys,  menuModel, menuTheme, menuData };
   },
 };
 </script>

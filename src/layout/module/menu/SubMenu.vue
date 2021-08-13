@@ -1,13 +1,13 @@
 <template>
     <a-menu-item :key="item.path" v-if="!hasChildren(item)">
       <template #icon>
-        <SettingOutlined />
+        <p-icon :type="item.meta.icon" />
       </template>
       {{ item.meta.title }}
     </a-menu-item>
     <a-sub-menu :key="item.path" v-else>
       <template #icon>
-        <SettingOutlined />
+        <p-icon :type="item.meta.icon" />
       </template>
       <template #title>
         {{ item.meta.title }}
