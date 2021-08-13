@@ -2,7 +2,7 @@ import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 export function useTab() {
-    
+
     const route = useRoute();
     const router = useRouter();
     const active = ref();
@@ -10,9 +10,8 @@ export function useTab() {
 
     watch(()=> route.path, (path) => {
         const title = route.meta.title;
-        const closable = true;
-        add({ title, path, closable })
-    })
+        add({ title, path })
+    }, { immediate : true })
 
     function add(tab) {
         !list.value.find((item)=> item.path === tab.path) && list.value.push(tab);

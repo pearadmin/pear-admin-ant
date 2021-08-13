@@ -8,7 +8,7 @@ export function useMenu() {
     
     watch(()=> route.path, (path) => {
         selectedKeys.value = [path];
-    })
+    }, { immediate : true })
 
     return {
         selectedKeys

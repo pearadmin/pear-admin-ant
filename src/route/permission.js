@@ -103,16 +103,15 @@ export const setUserRouteComponent = routes => {
  * @param path
  * @returns {boolean}
  */
-export const findRouteForUserRoutes = (routes, path) => {
+export const findRouteForUserRoutes = (routes, currentPath) => {
   let hasRoute = false
-  const routeArr = path.split('/')
-  const routePath = routeArr[routeArr.length - 1]
+
   for (let i = 0; i < routes.length; i++) {
     const { path, children = [] } = routes[i]
-    if (path === routePath) {
+    if (path === currentPath) {
       hasRoute = true
     } else if (children.length > 0) {
-      hasRoute = findRouteForUserRoutes(children, routePath)
+      hasRoute = findRouteForUserRoutes(children, currentPath)
     }
     if (hasRoute) {
       break
@@ -152,11 +151,7 @@ export const permissionController = async (to, from, next) => {
       // 用户权限菜单保存在vuex中。vuex是不允许在mutations外部改变state中的属性。所以这里简单的深拷贝一份，用于改变component属性的值
       const userRoutes = JSON.parse(JSON.stringify(store.getters.menu))
       // 如果url被改变
-
-      console.log("拥有:"+userRoutes);
-      console.log("当前:"+to.fullPath);
-
-      const hasRoute = findRouteForUserRoutes(userRoutes, to.fullPath)
+      const hasRoute = findRouteForUserRoutes(userRoutes, to.fullPath);
 
       if (hasRoute) {
         // 为解决刷新页面后页面不显示将用户的权限菜单缓存于LocalStorage。而存放于storage中必然要将数组字符串化，那么对应的() => import('@/views/xx/xx')

@@ -23,6 +23,7 @@ export default {
     SubMenu
   },
   setup() {
+    
     const { getters } = useStore();
     const router = useRouter();
 

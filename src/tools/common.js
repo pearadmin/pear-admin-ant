@@ -15,7 +15,6 @@ export const isNotProduction = () => {
  * 
  * @param number
  * @param callback
- * @returns void
  */
 export const isTimeout = (number, callback) => {
   setTimeout(() => {

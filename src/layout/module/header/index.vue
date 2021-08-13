@@ -33,8 +33,7 @@
         <router-link
           :to="toPath(route)"
           class="menu-item"
-          :class="[active === route.path ? 'is-active' : '']"
-        >
+          :class="[active === route.path ? 'is-active' : '']">
           <span>{{ route.meta.title }}</span>
         </router-link>
       </template>

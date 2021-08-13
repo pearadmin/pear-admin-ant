@@ -2,7 +2,7 @@
   <div id="logo">
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <div v-if="!collapsed">
-       <span class="title">{{title}}</span>
+       <span class="title">{{ title }}</span>
     </div>
     <!-- 根据侧边收缩状态决定隐显内容 -->
     <span v-else><img class="image" :src="image" /></span>
