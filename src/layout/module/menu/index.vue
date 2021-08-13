@@ -42,8 +42,6 @@ export default {
     });
 
     const onSelect = ({ key }) => {
-      alert(key);
-
       router.push(key);
     }
 
@@ -51,7 +49,6 @@ export default {
       const latestOpenKey = openKeys.find(
         (key) => state.openKeys.indexOf(key) === -1
       );
-
       if (state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
         state.openKeys = openKeys;
       } else {

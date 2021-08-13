@@ -28,6 +28,7 @@ export default {
     }
   },
   setup(props) {
+    
     const MenuIcon = Icons[props.icon] || {};
 
     return {
