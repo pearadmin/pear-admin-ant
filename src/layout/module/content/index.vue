@@ -9,7 +9,7 @@
         <component v-else :is="Component"></component>
       </transition>
     </router-view>
-    <div class="spinLoading" v-else>
+    <div class="content-loading" v-else>
       <a-spin size="large"/>
     </div>
   </div>
@@ -32,7 +32,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.spinLoading {
+.content-loading {
   width: 100%;
   min-height: 60vh;
   padding-top: 30vh;

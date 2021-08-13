@@ -3,7 +3,6 @@
     <a-menu
       :mode="menuModel"
       :theme="menuTheme"
-      :openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       @select="onSelect"
     >
@@ -15,7 +14,7 @@
 </template>
 <script>
 import SubMenu from "./SubMenu.vue";
-import { computed, reactive, toRefs, watch } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from 'vue-router';
 import { useMenu } from '@/composable/menu';
