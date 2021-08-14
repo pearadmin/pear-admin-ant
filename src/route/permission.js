@@ -1,8 +1,8 @@
+import store from "@/store"
+import NProgress from "nprogress"
+import router from "@/route/index"
 import permissionRoutes from './module/main-routes'
-import NProgress from "nprogress";
-import store from "@/store";
-import router from "@/route/index";
-import { toTree, hasRoute } from "@/tools/menu";
+import { toTree, hasRoute } from "@/tools/menu"
 
 /**
  * 根据 菜单树 数据 生成 路由树
@@ -11,8 +11,9 @@ import { toTree, hasRoute } from "@/tools/menu";
  */
 export const generatorUserMenuForTree = (menuList) => {
   const userRoutes = menuList.map(menu => {
-    const { parent, icon, name, children = [], path, hidden = false, title, i18n } = menu
-    const currentMenu = {path, name, hidden, parent,
+    const { id, parent, icon, name, children = [], path, hidden = false, title, i18n } = menu
+    const currentMenu = {
+      id, path, name, hidden, parent,
       meta: { title, i18n, icon},
       children: children.length === 0 ? [] : generatorUserMenuForTree(children)
     }
@@ -41,7 +42,7 @@ export const generatorUserMenuForList = menuList => {
  */
 export const setUserRouteComponent = routes => {
   routes.forEach(r => {
-    r.component = !r.parent ? permissionRoutes.Layout : permissionRoutes[r.name]
+    r.component = r.parent === "0" ? permissionRoutes.Layout : permissionRoutes[r.name]
     if (r.children && r.children.length > 0) {
       setUserRouteComponent(r.children)
     }
@@ -85,6 +86,7 @@ export const permissionController = async (to, from, next) => {
         })
         next(to.fullPath)
       } else {
+        // 404
         next('/error/404')
       }
     } else {

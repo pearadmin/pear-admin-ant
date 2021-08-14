@@ -11,11 +11,11 @@ export const toTree = list => {
     const map = {}
     const tree = []
     for (let i = 0; i < list.length; i++) {
-        map[list[i].name] = i;
+        map[list[i].id] = i;
     }
     for (let i = 0; i < list.length; i++) {
         node = list[i];
-        if (node.parent) {
+        if (node.parent != "0") {
             const children = list[map[node.parent]].children || []
             list[map[node.parent]].children = [...children, node]
         } else {

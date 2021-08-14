@@ -16,8 +16,8 @@ export default function permission(el, binding, VNode, prevNode) {
     }
   }
   const { arg } = binding
-  if (currentPageId) { // 如果当前页面有配置权限
-    if (!currentPageActions.includes(arg)) { // 如果当前用户在这个菜单下没有该按钮权限
+  if (currentPageId) {
+    if (!currentPageActions.includes(arg)) {
       el.style.display = 'none'
     }
   }

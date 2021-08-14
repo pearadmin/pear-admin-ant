@@ -3,9 +3,10 @@
     <a-menu
       :mode="menuModel"
       :theme="menuTheme"
-      v-model:openKeys="openKeys"
+      :openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       @select="onSelect"
+      @openChange="openChange"
     >
       <template v-for="menu in menuData" :key="menu.path">
         <sub-menu v-if="!menu.hidden" :item="menu"></sub-menu>
@@ -40,9 +41,9 @@ export default {
       router.push(key);
     }
     
-    const { selectedKeys, openKeys } = useMenu();
+    const { selectedKeys, openKeys, openChange } = useMenu();
 
-    return { onSelect, selectedKeys,  menuModel, menuTheme, menuData, openKeys };
+    return { onSelect, openChange, selectedKeys,  menuModel, menuTheme, menuData, openKeys };
   },
 };
 </script>

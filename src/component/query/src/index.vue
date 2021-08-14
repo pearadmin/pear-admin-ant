@@ -60,8 +60,7 @@ export default defineComponent({
     }
 
     generateFormState(props.searchParam);
-
-    const {validate, resetFields} = useForm(formState, formRules)
+    const {validate, resetFields} = useForm(formState, formRules);
     
     /// 是否存在隐藏表单
     props.searchParam.forEach(element => {
@@ -69,12 +68,12 @@ export default defineComponent({
            return more.value = true;
         }
     });
-
+    
     /// 更多操作
     const hiddenHandle = function() {
         hidden.value = !hidden.value;
     }
-
+    
     /// 表单查询
     const search = async function(){
       var o = await validate();
@@ -92,7 +91,6 @@ export default defineComponent({
         hidden: hidden,
         hiddenHandle: hiddenHandle,
 
-        /// EMIT
         search: search,
         reset: reset,
 

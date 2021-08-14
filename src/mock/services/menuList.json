@@ -1,6 +1,7 @@
 [
   {
-    "parent": "",
+    "id": "1",
+    "parent": "0",
     "path": "/account",
     "name": "account",
     "type": "dir",
@@ -13,7 +14,8 @@
     "i18n": "account"
   },
   {
-    "parent": "account",
+    "id": "2",
+    "parent": "1",
     "path": "center",
     "name": "account-center",
     "type": "menu",
@@ -26,7 +28,8 @@
     "i18n": "account-center"
   },
   {
-    "parent": "",
+    "id": "3",
+    "parent": "0",
     "path": "/dashboard",
     "name": "dashboard",
     "type": "dir",
@@ -39,7 +42,8 @@
     "i18n": "dashboard"
   },
   {
-    "parent": "dashboard",
+    "id": "4",
+    "parent": "3",
     "path": "/dashboard/console",
     "name": "dashboard-console",
     "type": "menu",
@@ -51,7 +55,8 @@
     "status": true,
     "i18n": "console"
   },{
-    "parent": "dashboard",
+    "id": "5",
+    "parent": "3",
     "path": "/dashboard/workspace",
     "name": "dashboard-workspace",
     "type": "menu",
@@ -64,7 +69,8 @@
     "i18n": "workspace"
   },
   {
-    "parent": "",
+    "id": "6",
+    "parent": "0",
     "path": "/form",
     "name": "form",
     "type": "dir",
@@ -77,7 +83,8 @@
     "i18n": "form"
   },
   {
-    "parent": "form",
+    "id": "7",
+    "parent": "6",
     "path": "/form/baseForm",
     "name": "base-form",
     "type": "menu",
@@ -90,7 +97,8 @@
     "i18n": "base-form"
   },
   {
-    "parent": "form",
+    "id": "8",
+    "parent": "6",
     "path": "/form/moreForm",
     "name": "more-form",
     "type": "menu",
@@ -103,7 +111,8 @@
     "i18n": "more-form"
   },
   {
-    "parent": "form",
+    "id": "9",
+    "parent": "6",
     "path": "/form/stepForm",
     "name": "step-form",
     "type": "menu",
@@ -116,7 +125,8 @@
     "i18n": "step-form"
   },
   {
-    "parent": "",
+    "id": "10",
+    "parent": "0",
     "path": "/list",
     "name": "list",
     "type": "dir",
@@ -129,7 +139,8 @@
     "i18n": "list"
   },
   {
-    "parent": "list",
+    "id": "11",
+    "parent": "10",
     "path": "/list/baseList",
     "name": "base-list",
     "type": "menu",
@@ -142,7 +153,8 @@
     "i18n": "base-list"
   },
   {
-    "parent": "list",
+    "id": "12",
+    "parent": "10",
     "path": "/list/cardList",
     "name": "card-list",
     "type": "menu",
@@ -155,7 +167,8 @@
     "i18n": "card-list"
   },
   {
-    "parent": "list",
+    "id": "13",
+    "parent": "10",
     "path": "/list/newsList",
     "name": "news-list",
     "type": "menu",
@@ -168,7 +181,8 @@
     "i18n": "news-list"
   },
   {
-    "parent": "list",
+    "id": "14",
+    "parent": "10",
     "path": "/list/tableList",
     "name": "table-list",
     "type": "menu",
@@ -181,7 +195,8 @@
     "i18n": "table-list"
   },
   {
-    "parent": "",
+    "id": "15",
+    "parent": "0",
     "path": "/result",
     "name": "result-menu",
     "type": "dir",
@@ -194,7 +209,8 @@
     "i18n": "result-menu"
   },
   {
-    "parent": "result-menu",
+    "id": "16",
+    "parent": "15",
     "path": "/result/success",
     "name": "result-success",
     "type": "menu",
@@ -207,7 +223,8 @@
     "i18n": "result-success"
   },
   {
-    "parent": "result-menu",
+    "id": "18",
+    "parent": "15",
     "path": "/result/failure",
     "name": "result-failure",
     "type": "menu",
@@ -220,7 +237,8 @@
     "i18n": "result-failure"
   },
   {
-    "parent": "result-menu",
+    "id": "19",
+    "parent": "15",
     "path": "/result/warning",
     "name": "result-warning",
     "type": "menu",
@@ -233,7 +251,8 @@
     "i18n": "result-warning"
   },
   {
-    "parent": "result-menu",
+    "id": "20",
+    "parent": "15",
     "path": "/result/info",
     "name": "result-info",
     "type": "menu",
@@ -246,7 +265,8 @@
     "i18n": "result-info"
   },
   {
-    "parent": "",
+    "id": "21",
+    "parent": "0",
     "path": "/error",
     "name": "error",
     "type": "dir",
@@ -259,7 +279,8 @@
     "i18n": "error"
   },
   {
-    "parent": "error",
+    "id": "22",
+    "parent": "21",
     "path": "/error/403",
     "name": "error-403",
     "type": "menu",
@@ -272,7 +293,8 @@
     "i18n": "error-403"
   },
   {
-    "parent": "error",
+    "id": "23",
+    "parent": "21",
     "path": "/error/404",
     "name": "error-404",
     "type": "menu",
@@ -285,7 +307,8 @@
     "i18n": "error-404"
   },
   {
-    "parent": "error",
+    "id": "24",
+    "parent": "21",
     "path": "/error/500",
     "name": "error-500",
     "type": "menu",
@@ -298,7 +321,8 @@
     "i18n": "error-500"
   },
   {
-    "parent": "",
+    "id": "25",
+    "parent": "0",
     "path": "/permission",
     "name": "permission",
     "type": "menu",
@@ -311,7 +335,8 @@
     "i18n": "permission"
   },
   {
-    "parent": "permission",
+    "id": "26",
+    "parent": "25",
     "path": "/permission/permission-test",
     "name": "permission-test",
     "type": "menu",

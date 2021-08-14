@@ -3,18 +3,16 @@ import { onUnmounted } from "vue";
 
 /**
  * 开发环境
- * 
- * @return boolean
  */
 export const isNotProduction = () => {
   return import.meta.env.NODE_ENV !== 'production'
 }
 
 /**
- * 超时处理回调
+ * 定时时间
  * 
- * @param timeout
- * @param callback
+ * @param timeout   超时事件
+ * @param callback  回调事件
  */
 export const isTimeout = (timeout, callback) => {
   setTimeout(() => {
@@ -28,13 +26,19 @@ export const isTimeout = (timeout, callback) => {
   });
 }
 
-export const findParent = (arr, id) => {
+/**
+ * 根据 当前路径 查询 所有父级 (包括当前)
+ * 
+ * @param arr 菜单列表
+ * @param id 指定路由
+ */
+ export const findParentAll = (arr, id) => {
   var temp = []
   var forFn = function (list, path) {
     for (var i = 0; i < list.length; i++) {
       var item = list[i]
       if (item.path === path) {
-        temp.push(findPathByName(arr,item.parent))
+        temp.push(findPathById(arr, item.id))
         forFn(list, item.parent);
         break
       } else {
@@ -48,11 +52,43 @@ export const findParent = (arr, id) => {
   return temp
 }
 
-export const findPathByName = (arr, id) => {
-  var forFn = function (list, name) {
+/**
+ * 根据 当前路径 查询 所有父级 
+ * 
+ * @param arr 菜单列表
+ * @param id  当前路由
+ */
+export const findParent = (arr, id) => {
+  var temp = []
+  var forFn = function (list, path) {
     for (var i = 0; i < list.length; i++) {
       var item = list[i]
-      if (item.name === name) {
+      if (item.path === path) {
+        temp.push(findPathById(arr, item.parent))
+        forFn(list, item.parent);
+        break
+      } else {
+        if (item.children) {
+          forFn(item.children, path)
+        }
+      }
+    }
+  }
+  forFn(arr, id)
+  return temp
+}
+
+/**
+ * 根据 当前路径 查询 菜单编号
+ * 
+ * @param arr 菜单列表
+ * @param id  当前路由
+ */
+export const findPathById = (arr, key) => {
+  var forFn = function (list, id) {
+    for (var i = 0; i < list.length; i++) {
+      var item = list[i]
+      if (item.id === id) {
         return item.path;
       } else {
         if (item.children) {
@@ -61,5 +97,5 @@ export const findPathByName = (arr, id) => {
       }
     }
   }
-  return forFn(arr, id)
+  return forFn(arr, key);
 }

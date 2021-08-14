@@ -119,7 +119,6 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-
 .layout_mobile_mask {
   position: fixed;
   top: 0;
