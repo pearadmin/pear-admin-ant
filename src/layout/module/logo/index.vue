@@ -1,11 +1,13 @@
 <template>
   <div id="logo">
-    <!-- 根据侧边收缩状态决定隐显内容 -->
-    <div v-if="!collapsed">
+    <!-- 图片 -->
+    <span v-if="collapsed">
+      <img class="image" :src="image" />
+    </span>
+    <!-- 标题 -->
+    <div v-else>
        <span class="title">{{ title }}</span>
     </div>
-    <!-- 根据侧边收缩状态决定隐显内容 -->
-    <span v-else><img class="image" :src="image" /></span>
   </div>
 </template>
 <script>

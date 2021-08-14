@@ -24,11 +24,11 @@
       </a-button>
       <template v-slot:overlay>
         <a-menu>
-          <a-menu-item>
-            <a @click="closeOther()">关 闭 其 他</a>
+          <a-menu-item @click="closeOther()">
+            关 闭 其 他
           </a-menu-item>
-          <a-menu-item>
-            <a @click="closeCurrent()">关 闭 当 前</a>
+          <a-menu-item @click="closeCurrent()">
+            关 闭 当 前
           </a-menu-item>
         </a-menu>
       </template>

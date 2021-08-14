@@ -71,7 +71,7 @@
       <a-dropdown class="locale-item">
         <GlobalOutlined />
         <template #overlay>
-          <a-menu @click="toggleLang" :selectedKeys="selectedKeys">
+          <a-menu @click="setLanguage" :selectedKeys="selectedKeys">
             <a-menu-item key="zh-CN"> 简体中文 </a-menu-item>
             <a-menu-item key="en-US"> English </a-menu-item>
           </a-menu>
@@ -105,8 +105,7 @@ import { computed, watch, ref, unref } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
-import { useRoute, useRouter } from "vue-router";
-import { resolve } from "@/tools/module.js";
+import { useRoute } from "vue-router";
 import i18n from "@/locale/index.js";
 import {
   AlignLeftOutlined,
@@ -187,12 +186,9 @@ export default {
     );
     
     const toPath = (route) => {
-      let { redirect, children, path } = route;
-      if (redirect) {
-        return redirect;
-      }
+      let { children, path } = route;
       while (children && children[0]) {
-        path = resolve(path, children[0].path);
+        path = children[0].path;
         children = children[0].children;
       }
       return path;
@@ -214,7 +210,8 @@ export default {
     const store = useStore();
     const defaultLang = computed(() => store.state.app.language);
     const selectedKeys = ref([unref(defaultLang)]);
-    const toggleLang = async ({ key }) => {
+    
+    const setLanguage = async ({ key }) => {
       selectedKeys.value = [key];
       await loadLocaleMessages(i18n, key);
       await store.dispatch("app/setLanguage", key);
@@ -236,7 +233,7 @@ export default {
       active,
       toPath,
       logout,
-      toggleLang,
+      setLanguage,
       selectedKeys,
     };
   },
