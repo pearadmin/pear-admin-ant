@@ -2,35 +2,7 @@ import permissionRoutes from './module/main-routes'
 import NProgress from "nprogress";
 import store from "@/store";
 import router from "@/route/index";
-
-/**
- * 菜单数组转树
- * @param list
- * @returns {[]}
- */
-export const listToTree = list => {
-  list.sort((a, b) => {
-    return a.sort - b.sort
-  })
-  const map = {}
-  let node
-  const tree = []
-
-  for (let i = 0; i < list.length; i++) {
-    map[list[i].name] = i;
-  }
-
-  for (let i = 0; i < list.length; i++) {
-    node = list[i];
-    if (node.parent) {
-      const children = list[map[node.parent]].children || []
-      list[map[node.parent]].children = [...children, node]
-    } else {
-      tree.push(node)
-    }
-  }
-  return tree
-}
+import { toTree, hasRoute } from "@/tools/menu";
 
 /**
  * 跟据后端返回的权限路由 树 生成vue-router所需要的路由树
@@ -73,7 +45,7 @@ export const generatorUserMenuForTree = (menuList) => {
  */
 export const generatorUserMenuForList = menuList => {
   // 如果后端返回的是纯数组的菜单（即：没有转换成菜单树结构的，要先转化成树结构）
-  const tree = listToTree(menuList)
+  const tree = toTree(menuList)
   const routes = generatorUserMenuForTree(tree)
   // 最后添加404页面
   routes.push({
@@ -95,29 +67,6 @@ export const setUserRouteComponent = routes => {
       setUserRouteComponent(r.children)
     }
   })
-}
-
-/**
- * 用户权限路由中是否包含当前访问路由的路径，如有则可以添加
- * @param routes
- * @param path
- * @returns {boolean}
- */
-export const findRouteForUserRoutes = (routes, currentPath) => {
-  let hasRoute = false
-
-  for (let i = 0; i < routes.length; i++) {
-    const { path, children = [] } = routes[i]
-    if (path === currentPath) {
-      hasRoute = true
-    } else if (children.length > 0) {
-      hasRoute = findRouteForUserRoutes(children, currentPath)
-    }
-    if (hasRoute) {
-      break
-    }
-  }
-  return hasRoute
 }
 
 const setDocumentTitle = title => {
@@ -150,10 +99,8 @@ export const permissionController = async (to, from, next) => {
       await store.dispatch('user/addUserRouteForArray')
       // 用户权限菜单保存在vuex中。vuex是不允许在mutations外部改变state中的属性。所以这里简单的深拷贝一份，用于改变component属性的值
       const userRoutes = JSON.parse(JSON.stringify(store.getters.menu))
-      // 如果url被改变
-      const hasRoute = findRouteForUserRoutes(userRoutes, to.fullPath);
-
-      if (hasRoute) {
+    
+      if (hasRoute(userRoutes, to.fullPath)) {
         // 为解决刷新页面后页面不显示将用户的权限菜单缓存于LocalStorage。而存放于storage中必然要将数组字符串化，那么对应的() => import('@/views/xx/xx')
         // 异步加载会失效，所以在使用真正添加路由时再生成component的值
         setUserRouteComponent(userRoutes)

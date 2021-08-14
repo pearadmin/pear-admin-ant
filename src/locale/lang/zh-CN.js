@@ -1,9 +1,9 @@
-import { mergeModule } from '@/tools/common'
+import { module } from '@/tools/module'
 import antLocal from "ant-design-vue/es/locale/zh_CN";
 
 const modulesFiles = import.meta.globEager("./zh-CN/*.js")
 
-const zhCN = mergeModule(modulesFiles)
+const zhCN = module(modulesFiles)
 
 export default {
   ...zhCN,

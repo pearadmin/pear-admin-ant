@@ -106,7 +106,7 @@ import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
 import { useRoute, useRouter } from "vue-router";
-import { resolve } from "@/tools/common.js";
+import { resolve } from "@/tools/module.js";
 import i18n from "@/locale/index.js";
 import {
   AlignLeftOutlined,

@@ -1,9 +1,9 @@
-import { mergeModule } from '@/tools/common'
+import { module } from '@/tools/module'
 import antLocal from "ant-design-vue/es/locale/en_US";
 
 const modulesFiles = import.meta.globEager("./en-US/*.js")
 
-const enUS = mergeModule(modulesFiles)
+const enUS = module(modulesFiles)
 
 export default {
   ...enUS,
