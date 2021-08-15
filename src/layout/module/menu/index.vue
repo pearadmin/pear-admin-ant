@@ -26,7 +26,7 @@ export default {
     SubMenu
   },
   setup() {
-
+    const layout = computed(() => getters.layout )
     const { getters } = useStore();
     const router = useRouter();
     const route = useRoute();
@@ -44,7 +44,9 @@ export default {
     }
 
     watch(route, () => {
-        menus.value = getters.menu.find((r) => r.path === route.matched[0].path).children;
+        if(layout.value == "layout-comp"){
+            menus.value = getters.menu.find((r) => r.path === route.matched[0].path).children;
+        }
     })
     
     const { selectedKeys, openKeys, openChange, menus } = useMenu();
