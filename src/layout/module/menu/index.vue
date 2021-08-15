@@ -16,9 +16,9 @@
 </template>
 <script>
 import SubMenu from "./SubMenu.vue";
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { useStore } from "vuex";
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useMenu } from '@/composable/menu';
 
 export default {
@@ -29,6 +29,7 @@ export default {
 
     const { getters } = useStore();
     const router = useRouter();
+    const route = useRoute();
 
     const menuModel = computed(() =>
       getters.layout == "layout-head" ? "horizontal" : "inline"
@@ -41,6 +42,10 @@ export default {
     const onSelect = ({ key }) => {
       router.push(key);
     }
+
+    watch(route, () => {
+        menus.value = getters.menu.find((r) => r.path === route.matched[0].path).children;
+    })
     
     const { selectedKeys, openKeys, openChange, menus } = useMenu();
 

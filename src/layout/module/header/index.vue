@@ -30,12 +30,9 @@
     <!-- 实现综合布局方式 -->
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
-        <router-link
-          :to="toPath(route)"
-           class="menu-item"
-          :class="[active === route.path ? 'is-active' : '']">
+        <div @click="changeMenu(route)" class="menu-item" :class="[active === route.path ? 'is-active' : '']">
           <span>{{ route.meta.title }}</span>
-        </router-link>
+        </div>
       </template>
     </div>
 
@@ -94,7 +91,6 @@
         </template>
       </a-dropdown>
       <div v-if="!isMobile" class="menu-item" @click="setting()">
-        <!-- 主题设置隐显键 -->
         <MoreOutlined />
       </div>
     </div>
@@ -105,7 +101,7 @@ import { computed, watch, ref, unref } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import i18n from "@/locale/index.js";
 import {
   AlignLeftOutlined,
@@ -174,6 +170,7 @@ export default {
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const $route = useRoute();
+    const router = useRouter();
     const active = ref($route.matched[0].path);
     const isMobile = computed(() => getters.isMobile);
     const routerActive = computed(() => getters.routerActive);
@@ -181,15 +178,6 @@ export default {
     watch(computed(() => $route.fullPath), () => {
         active.value = $route.matched[0].path;
     });
-    
-    const toPath = (route) => {
-      let { children, path } = route;
-      while (children && children[0]) {
-        path = children[0].path;
-        children = children[0].children;
-      }
-      return path;
-    };
     
     const routes = computed(() => getters.menu).value.filter((r) => !r.hidden);
 
@@ -199,6 +187,16 @@ export default {
         commit("layout/UPDATE_ROUTER_ACTIVE");
       }, 500);
     };
+
+    const changeMenu = (targetRoute) => {
+        let { children, path } = targetRoute;
+        while (children && children[0]) {
+          path = children[0].path;
+          children = children[0].children;
+        }
+        router.push(path);
+        menus.value = getters.menu.find((r) => r.path === $route.matched[0].path).children;
+    }
 
     const logout = async (e) => {
       await dispatch("user/logout");
@@ -228,8 +226,8 @@ export default {
       refresh,
       routes,
       active,
-      toPath,
       logout,
+      changeMenu,
       setLanguage,
       selectedKeys,
     };
