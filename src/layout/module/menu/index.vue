@@ -36,7 +36,7 @@ export default {
     );
 
     const menuTheme = computed(() =>
-      getters.theme === "theme-dark" ? "dark" : "light"
+       getters.theme === "theme-dark" || getters.theme === "theme-night" ? "dark" : "light"
     );
 
     const onSelect = ({ key }) => {
