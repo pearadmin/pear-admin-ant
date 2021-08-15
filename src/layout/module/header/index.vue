@@ -32,7 +32,7 @@
       <template :key="index" v-for="(route, index) in routes">
         <router-link
           :to="toPath(route)"
-          class="menu-item"
+           class="menu-item"
           :class="[active === route.path ? 'is-active' : '']">
           <span>{{ route.meta.title }}</span>
         </router-link>
@@ -178,12 +178,9 @@ export default {
     const isMobile = computed(() => getters.isMobile);
     const routerActive = computed(() => getters.routerActive);
 
-    watch(
-      computed(() => $route.fullPath),
-      () => {
+    watch(computed(() => $route.fullPath), () => {
         active.value = $route.matched[0].path;
-      }
-    );
+    });
     
     const toPath = (route) => {
       let { children, path } = route;
