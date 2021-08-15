@@ -111,22 +111,11 @@ export default {
   routerAnimate: "fade-top",
 
   /**
-   * 参数: 通栏 (待实现)
-   * true
-   * false
-   */
-  passbar: true,
-
-  /**
-   * 参数：默认的tab栏
-   */
-  defaultTab: "console",
-
-  /**
    * 参数：国际化默认语言
    * 
    * zh-CN 中文
    * en-US 英文
    */
   defaultLanguage: 'zh-CN'
+  
 };
