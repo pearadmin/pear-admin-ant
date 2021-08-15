@@ -11,7 +11,7 @@
       <a-tab-pane
         v-for="pane in list"
         :key="pane.path"
-        :tab="pane.title"
+        :tab="i18nTitle(pane.i18n)"
         :closable="list.length > 1"
       >
       </a-tab-pane>
@@ -36,21 +36,21 @@
   </div>
 </template>
 <script>
-import { computed, reactive, ref, watch } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 import { DownOutlined } from "@ant-design/icons-vue";
 import { useTab } from "@/composable/tab";
+import { useI18n } from "vue-i18n";
 
 export default {
   components: {
     DownOutlined
   },
   setup() {
-
-    const { getters } = useStore();
     
+    const { t } = useI18n();
+    const { getters } = useStore();
     const tabType = computed(() => getters.tabType);
-
     const { to , list , active, close, closeOther, closeCurrent } = useTab();
 
     const onEdit = function(path, action) {
@@ -61,6 +61,10 @@ export default {
 
     const onChange = function(path) {
         to({ path });
+    }
+    
+    const i18nTitle = function(content){
+      return t(content);
     }
 
     return {
@@ -74,6 +78,8 @@ export default {
 
         onEdit,
         onChange,
+
+        i18nTitle,
     };
   }
 };

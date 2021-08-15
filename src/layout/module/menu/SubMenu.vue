@@ -3,14 +3,14 @@
       <template #icon>
         <p-icon :type="item.meta.icon" />
       </template>
-      {{ item.meta.title }}
+      {{ t(item.meta.i18n) }}
     </a-menu-item>
     <a-sub-menu :key="item.path" v-else>
       <template #icon>
         <p-icon :type="item.meta.icon" />
       </template>
       <template #title>
-        {{ item.meta.title }}
+        {{ t(item.meta.i18n) }}
       </template>
       <template v-for="child in item.children" :key="child.path">
         <sub-menu v-if="!child.hidden" :item="child"> </sub-menu>
@@ -18,6 +18,7 @@
     </a-sub-menu>
 </template>
 <script>
+import { useI18n  } from "vue-i18n";
 export default {
   name: "SubMenu",
   props: {
@@ -31,7 +32,10 @@ export default {
       return item.children != undefined;
     };
 
+    const { t } = useI18n();
+
     return {
+      t,
       hasChildren,
     };
   },

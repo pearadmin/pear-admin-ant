@@ -10,7 +10,8 @@ export function useTab() {
 
     watch(()=> route.path, (path) => {
         const title = route.meta.title;
-        add({ title, path })
+        const i18n = route.meta.i18n;
+        add({ title, path, i18n })
     }, { immediate : true })
 
     function add(tab) {
@@ -43,7 +44,8 @@ export function useTab() {
 
     function closeOther () {
         const title = route.meta.title;
-        list.value = [{ title , path: active.value }]
+        const i18n = route.meta.i18n;
+        list.value = [{ title , path: active.value, i18n }]
     }
 
     return {
