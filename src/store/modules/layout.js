@@ -156,8 +156,6 @@ const state = {
   muiltOpen: true,
   // 路由刷新辅助变量
   routerActive: true,
-  // 浏览器全屏
-  fullscreen: false,
   // 路由列表
   routes: [],
   // 是否是移动端
@@ -211,10 +209,6 @@ const mutations = {
   },
   updateTab(state) {
     state.tab = !state.tab;
-  },
-  // 修改全屏打开
-  updateFullscreen(state) {
-    state.fullscreen = !state.fullscreen;
   },
   UPDATE_ROUTER_ACTIVE(state) {
     state.routerActive = !state.routerActive;

@@ -8,7 +8,6 @@ const getters = {
   tab: state => state.layout.tab,
   tabType: state => state.layout.tabType,
   routerActive: state => state.layout.routerActive,
-  fullscreen: state => state.layout.fullscreen,
   sideWitch: state => state.layout.sideWitch,
   collapsedWidth: state => state.layout.collapsedWidth,
   fixedHeader: state => state.layout.fixedHeader,

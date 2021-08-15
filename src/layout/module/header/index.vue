@@ -2,7 +2,7 @@
   <!-- 框架顶部菜单区域 -->
   <div id="header" :class="[isMobile && 'mobile_header']">
     <template v-if="layout !== 'layout-head'">
-      <!-- 左侧菜单功能项 -->
+      <!-- 左侧菜单 -->
       <div class="prev-menu">
         <!-- 左侧缩进功能键 -->
         <div class="menu-item" @click="trigger()">
@@ -27,7 +27,7 @@
       </div>
     </template>
 
-    <!-- 实现综合布局方式 -->
+    <!-- 综合菜单 -->
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
         <div @click="changeMenu(route)" class="menu-item" :class="[active === route.path ? 'is-active' : '']">
@@ -35,8 +35,7 @@
         </div>
       </template>
     </div>
-
-    <!-- 右侧菜单功能项 基本公用 -->
+    <!-- 右侧菜单 -->
     <div class="next-menu">
       <div class="menu-item" v-if="!isFull" @click="fullScreen(1)">
         <ExpandOutlined />
