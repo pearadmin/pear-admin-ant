@@ -38,10 +38,10 @@
 
     <!-- 右侧菜单功能项 基本公用 -->
     <div class="next-menu">
-      <div class="menu-item" v-if="!fullscreen" @click="full(1)">
+      <div class="menu-item" v-if="!isFull" @click="fullScreen(1)">
         <ExpandOutlined />
       </div>
-      <div class="menu-item" v-else @click="full(2)">
+      <div class="menu-item" v-else @click="fullScreen(2)">
         <CompressOutlined />
       </div>
       <a-dropdown class="notice-item">
@@ -101,6 +101,7 @@ import { computed, watch, ref, unref } from "vue";
 import { useStore } from "vuex";
 import Menu from "../menu/index.vue";
 import Logo from "../logo/index.vue";
+import { useFullScreen } from "@/composable/common";
 import { useRoute, useRouter } from "vue-router";
 import i18n from "@/locale/index.js";
 import {
@@ -129,48 +130,15 @@ export default {
     BellOutlined,
     LoadingOutlined,
   },
-
-  methods: {
-    full: function (num) {
-      num = num || 1;
-      num = num * 1;
-      var docElm = document.documentElement;
-      switch (num) {
-        case 1:
-          if (docElm.requestFullscreen) {
-            docElm.requestFullscreen();
-          } else if (docElm.mozRequestFullScreen) {
-            docElm.mozRequestFullScreen();
-          } else if (docElm.webkitRequestFullScreen) {
-            docElm.webkitRequestFullScreen();
-          } else if (docElm.msRequestFullscreen) {
-            docElm.msRequestFullscreen();
-          }
-          break;
-        case 2:
-          if (document.exitFullscreen) {
-            document.exitFullscreen();
-          } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-          } else if (document.webkitCancelFullScreen) {
-            document.webkitCancelFullScreen();
-          } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-          }
-          break;
-      }
-      this.updateFullscreen();
-    },
-  },
   setup() {
     const { getters, commit, dispatch } = useStore();
     const layout = computed(() => getters.layout);
     const collapsed = computed(() => getters.collapsed);
-    const fullscreen = computed(() => getters.fullscreen);
     const menuModel = computed(() => getters.menuModel);
     const theme = computed(() => getters.theme);
     const $route = useRoute();
     const router = useRouter();
+    const { isFull, fullScreen } = useFullScreen();
     const active = ref($route.matched[0].path);
     const isMobile = computed(() => getters.isMobile);
     const routerActive = computed(() => getters.routerActive);
@@ -216,10 +184,10 @@ export default {
       isMobile,
       layout,
       collapsed,
-      fullscreen,
+      fullScreen,
+      isFull,
       trigger: () => commit("layout/TOGGLE_SIDEBAR"),
       setting: () => commit("layout/TOGGLE_SETTING"),
-      updateFullscreen: () => commit("layout/updateFullscreen"),
       menuModel,
       routerActive,
       theme,
