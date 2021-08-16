@@ -422,26 +422,26 @@ export default {
     const tabType = { key: computed(() => getters.tabType).value };
 
     const updateLayout = function (layout) {
-      commit("layout/UPDATE_LAYOUT", layout);
+      commit("app/UPDATE_LAYOUT", layout);
     };
     const updateTheme = function (theme) {
-      commit("layout/UPDATE_THEME", theme);
+      commit("app/UPDATE_THEME", theme);
     };
     const updateRouterAnimate = function (animate) {
-      commit("layout/UPDATE_ROUTER_ANIMATE", animate.key);
+      commit("app/UPDATE_ROUTER_ANIMATE", animate.key);
     };
     const toggleKeepAlive = function(){
-      commit("layout/TOGGLE_KEEP_ALIVE");
+      commit("app/TOGGLE_KEEP_ALIVE");
     };
    const updateColor = function (color) {
       window.less.modifyVars({
           "primary-color": color,
           "btn-primary-bg": color,
       })
-      commit("layout/UPDATE_COLOR", color);
+      commit("app/UPDATE_COLOR", color);
     };
     const handleChange = function (value) {
-      commit("layout/UPDATE_TAB_TYPE", value.key);
+      commit("app/UPDATE_TAB_TYPE", value.key);
     };
     return {
       tabType,
@@ -461,16 +461,16 @@ export default {
       layout,
       keepAlive,
       theme,
-      onChangeVisible: () => commit("layout/TOGGLE_SETTING"),
-      onChangeLogo: () => commit("layout/TOGGLE_LOGO"),
-      onChangeTab: () => commit("layout/updateTab"),
-      onChangeTheme: () => commit("layout/TOGGLE_THEME"),
-      onChangeFixedSide: () => commit("layout/TOGGLE_FIXEDSIDE"),
-      onChangeFixedHeader: () => commit("layout/TOGGLE_FIXEDHEADER"),
-      onChangeLayout: () => commit("layout/TOGGLE_LAYOUT"),
+      onChangeVisible: () => commit("app/TOGGLE_SETTING"),
+      onChangeLogo: () => commit("app/TOGGLE_LOGO"),
+      onChangeTab: () => commit("app/updateTab"),
+      onChangeTheme: () => commit("app/TOGGLE_THEME"),
+      onChangeFixedSide: () => commit("app/TOGGLE_FIXEDSIDE"),
+      onChangeFixedHeader: () => commit("app/TOGGLE_FIXEDHEADER"),
+      onChangeLayout: () => commit("app/TOGGLE_LAYOUT"),
       afterVisibleChange: () => {},
       changeLanguage: (e) => {
-        commit("layout/setLanguage", e.target.value);
+        commit("app/setLanguage", e.target.value);
       },
       color,
     };

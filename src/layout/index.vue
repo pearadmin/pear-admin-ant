@@ -79,20 +79,20 @@ export default {
     const closeSideBar = () => {
       const isComputedMobile = computed(() => getters.isMobile);
       if (isComputedMobile.value) {
-        commit("layout/TOGGLE_SIDEBAR", true);
+        commit("app/TOGGLE_SIDEBAR", true);
       }
     };
     const handleFoldSideBar = () => {
       const isComputedMobile = computed(() => getters.isMobile);
       const isCollapsed = computed(() => getters.collapsed);
       if (isComputedMobile.value && !isCollapsed.value) {
-        commit("layout/TOGGLE_SIDEBAR");
+        commit("app/TOGGLE_SIDEBAR");
       }
     };
     const handleLayouts = () => {
       const domWidth = document.body.getBoundingClientRect().width;
       const isLayoutMobile = domWidth !== 0 && domWidth - 1 < 992;
-      commit("layout/UPDATE_ISMOBILE", isLayoutMobile);
+      commit("app/UPDATE_ISMOBILE", isLayoutMobile);
       if (isLayoutMobile) {
         setTimeout(() => {
           handleFoldSideBar();
