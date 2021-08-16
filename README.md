@@ -22,6 +22,13 @@
       <a href="#">
         <img src="https://img.shields.io/badge/Ant Design Vue-2.0.9-green.svg" alt="Ant Design Vue Version">
     </a>
+    <br/>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Node-16.0.0-red.svg" alt="Node Version">
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Vite-2.0.0-red.svg" alt="Vite Version">
+    </a>
 </p>
 <div align="center">
   <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://images.gitee.com/uploads/images/2021/0322/013718_9c359d6a_4835367.png" />
