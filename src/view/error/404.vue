@@ -18,7 +18,7 @@
 <script>
 import { isTimeout } from "@/tools/common";
 import { ref } from "vue";
-import router from "@/route";
+import router from "@/router";
 export default {
   setup() {
     const overTime = ref(10);

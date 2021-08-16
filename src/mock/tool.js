@@ -6,7 +6,8 @@ const baseResponse = {
 }
 
 /**
- * 随机token
+ * 随机生成
+ * 
  * @returns {string}
  */
 export const generatorToken = () => {
@@ -16,6 +17,11 @@ export const generatorToken = () => {
   return token.substr(token.lastIndexOf("/") + 1);
 }
 
+/**
+ * 请求响应
+ * 
+ * @returns {string}
+ */
 export const generatorResponse = (data = null, message = 'request success', code = 200) => {
   const response = Object.assign({}, baseResponse, {
     result: data,
@@ -35,8 +41,8 @@ export const getRolePermission = (isAdmin = false) => {
   return [
     {
       role: isAdmin ? 'admin' : 'other_user',
-      pageId: 'permissionTest', // route path
+      pageId: 'permissionTest',
       actions: isAdmin ? ['add', 'upd', 'del'] : ['add', 'upd']
-    }, // todo: add other permission
+    },
   ]
 }

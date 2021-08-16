@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import Route from "./route";
+import Router from "./router";
 import Store from "./store/index.js";
 import Pear from "./component/index.js";
 import Antd from "ant-design-vue/es";
@@ -16,7 +16,7 @@ const app = createApp(App);
 app.use(Antd);
 app.use(Pear);
 app.use(Store);
-app.use(Route);
+app.use(Router);
 app.use(i18n)
 app.mount("#app");
 

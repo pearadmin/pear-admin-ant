@@ -1,22 +1,21 @@
-import { isNotProduction } from "@/tools/common";
 import Mock from "mockjs2"
 import {generatorResponse, generatorToken, getRequestBody, getRolePermission} from "@/mock/tool";
-import menuList from './services/menuList.json'
-import menuTree from './services/menuTree.json'
+import menuList from './service/menuList.json'
+import menuTree from './service/menuTree.json'
 
-// const useMock = isNotProduction()
-
-const useMock = true // 后端暂无接口使，一直使用mock(保证线上预览能正常使用)
+const useMock = true
 
 if (useMock) {
   
+  /**
+   * 登录接口 
+   */
   const login = request => {
     const { username, password } = getRequestBody(request)
     const admin = {
       username: 'admin',
       password: 'admin'
     }
-    // 如果是admin登陆 密码必须为admin, 否则随意
     if ((username === admin.username && password === admin.password) || username !== admin.username) {
       localStorage.setItem('user_role', username)
       const userInfo = {
@@ -25,7 +24,6 @@ if (useMock) {
         'password': password,
         'token': generatorToken(),
         'avatar': 'https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png',
-        'menuList': menuList,
         'permissions': getRolePermission(username === admin.username)
       }
       return generatorResponse(userInfo)
@@ -34,6 +32,9 @@ if (useMock) {
     }
   }
   
+  /**
+   * 菜单接口
+   */
   const getUserMenusArray = request => {
     const filters = ['form']
     const userName = localStorage.getItem('user_role')
@@ -41,6 +42,9 @@ if (useMock) {
     return generatorResponse(menus)
   }
   
+  /**
+   * 菜单接口 
+   */
   const getUserMenusTree = request => {
     const filters = ['list', 'form']
     const userName = localStorage.getItem('user_role')
@@ -48,6 +52,9 @@ if (useMock) {
     return generatorResponse(menus)
   }
   
+  /**
+   * 注销接口 
+   */
   const logout = request => {
     return generatorResponse({
       status: 0

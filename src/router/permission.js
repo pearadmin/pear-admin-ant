@@ -1,6 +1,6 @@
 import store from "@/store"
 import NProgress from "nprogress"
-import router from "@/route/index"
+import router from "@/router/index"
 import permissionRoutes from './module/main-routes'
 import { toTree, hasRoute } from "@/tools/menu"
 

@@ -1,4 +1,4 @@
-import permission from "./permission";
+import permission from "./module/permission";
 
 export default {
   permission

@@ -2,7 +2,7 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 import routes from './module/base-routes'
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { permissionController } from "@/route/permission";
+import { permissionController } from "@/router/permission";
 
 const router = createRouter({
   history: createWebHashHistory(),
