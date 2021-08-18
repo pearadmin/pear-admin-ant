@@ -4,8 +4,8 @@
       hide-add
       v-model:activeKey="active"
       type="editable-card"
-      @edit="onEdit"
       @change="onChange"
+      @edit="onEdit"
       class="tab"
     >
       <a-tab-pane

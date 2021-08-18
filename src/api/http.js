@@ -21,7 +21,7 @@ class Http {
      */
     instance.interceptors.request.use(
       config => {
-        const token = localStorage.getItem("pear_admin_ant_token");
+        const token = localStorage.getItem("PEAR_TOKEN");
         if (token) {
           config.headers["Access-Token"] = token;
         }

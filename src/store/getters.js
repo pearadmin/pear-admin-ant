@@ -21,14 +21,14 @@ const getters = {
   token: state =>
     state.user.token
       ? state.user.token
-      : localStorage.getItem("pear_admin_ant_token")
-      ? localStorage.getItem("pear_admin_ant_token")
+      : localStorage.getItem("PEAR_TOKEN")
+      ? localStorage.getItem("PEAR_TOKEN")
       : "",
   menu: state =>
     state.user.userRoutes.length !== 0
       ? state.user.userRoutes
-      : localStorage.getItem("user_routes")
-      ? JSON.parse(localStorage.getItem("user_routes"))
+      : localStorage.getItem("USER_ROUTES")
+      ? JSON.parse(localStorage.getItem("USER_ROUTES"))
       : ""
 };
 export default getters;

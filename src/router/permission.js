@@ -9,13 +9,13 @@ import { toTree, hasRoute } from "@/tools/menu"
  * 
  * @param menuList
  */
-export const generatorUserMenuForTree = (menuList) => {
+export const createRouteByTree = (menuList) => {
   const userRoutes = menuList.map(menu => {
     const { id, parent, icon, name, children = [], path, hidden = false, title, i18n } = menu
     const currentMenu = {
       id, path, name, hidden, parent,
       meta: { title, i18n, icon},
-      children: children.length === 0 ? [] : generatorUserMenuForTree(children)
+      children: children.length === 0 ? [] : createRouteByTree(children)
     }
     if (children.length <= 0) {
       delete currentMenu.children
@@ -30,9 +30,9 @@ export const generatorUserMenuForTree = (menuList) => {
  * 
  * @param menuList
  */
-export const generatorUserMenuForList = menuList => {
+export const createRouteByList = menuList => {
   const tree = toTree(menuList)
-  return generatorUserMenuForTree(tree)
+  return createRouteByTree(tree)
 }
 
 /**
@@ -70,12 +70,14 @@ export const permissionController = async (to, from, next) => {
   setDocumentTitle(meta.title)
   await store.dispatch('app/execCancelToken')
   // 检 测 登 录
-  if (!to.fullPath.includes('login') && !localStorage.getItem('pear_admin_ant_token')) {
+  if (!to.fullPath.includes('login') && !localStorage.getItem('PEAR_TOKEN')) {
     next({path: '/login'})
   } else {
     // 基本路由 是否包括 前往路由
     if (!router.getRoutes().map(it => it.path).includes(to.fullPath)) {
+      
       await store.dispatch('user/addUserRouteForArray')
+
       const userRoutes = JSON.parse(JSON.stringify(store.getters.menu))
       // 动态路由 是否包括 前往路由
       if (hasRoute(userRoutes, to.fullPath)) {

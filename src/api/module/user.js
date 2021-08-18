@@ -3,8 +3,8 @@ import http from '../http'
 const Api = {
   login: '/login',
   logout: '/logout',
-  getUserMenusArray: '/getUserMenusArray',
-  getUserMenusTree: '/getUserMenusTree',
+  menuList: '/getUserMenusArray',
+  menuTree: '/getUserMenusTree',
 }
 
 export const login = data => {
@@ -23,17 +23,17 @@ export const logout = data => {
   })
 }
 
-export const getUserMenusArray = data => {
+export const menuList = data => {
   return http.request({
-    url: Api.getUserMenusArray,
+    url: Api.menuList,
     data: data,
     method: 'post'
   })
 }
 
-export const getUserMenusTree = data => {
+export const menuTree = data => {
   return http.request({
-    url: Api.getUserMenusTree,
+    url: Api.menuTree,
     data: data,
     method: 'post'
   })

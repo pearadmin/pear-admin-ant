@@ -1,9 +1,9 @@
 <template>
-  <a-card hoverable class="card-base">
-    <div :style="{ color: color }" class="card-base-icon">
+  <a-card hoverable class="quick">
+    <div :style="{ color: color }" class="quick-icon">
       <component :is="$antIcons[icon]" />
     </div>
-    <div class="card-base-title">
+    <div class="quick-title">
       {{ title }}
     </div>
   </a-card>
@@ -12,7 +12,7 @@
 import "./index.less";
 import * as Icons from "@ant-design/icons-vue";
 export default {
-  name: "card-base",
+  name: "quick",
   props: {
     icon: {
       type: String,

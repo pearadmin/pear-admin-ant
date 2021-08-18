@@ -88,10 +88,9 @@
               </div>
             </a-card-grid>
             <a-card-grid class="card" :hoverable="false">
-              <a-avatar
-                src="https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200"
+              <a-avatar src="https://www.runoob.com/wp-content/uploads/2016/02/react.png"
               ></a-avatar>
-              <span class="card-title">Pear Admin</span>
+              <span class="card-title">React</span>
               <div class="card-describe">
                 没有锚的船当然也可以航行，只是紧张充满你的一生。
               </div>
@@ -135,52 +134,52 @@
           <a-card title="快捷">
             <a-row :gutter="[10,10]">
               <a-col :span="8">
-                <card-base
+                <quick
                   color="rgb(255, 214, 102)"
                   icon="NotificationFilled"
                   title="消息"
                 >
-                </card-base>
+                </quick>
               </a-col>
               <a-col :span="8">
-                <card-base
+                <quick
                   color="rgb(179, 127, 235)"
                   icon="MailFilled"
                   title="邮件"
                 >
-                </card-base>
+                </quick>
               </a-col>
               <a-col :span="8">
-                <card-base
+                <quick
                   color="rgb(255, 156, 110)"
                   icon="CustomerServiceFilled"
                   title="访问"
                 >
-                </card-base>
+                </quick>
               </a-col>
               <a-col :span="8">
-                <card-base
+                <quick
                   color="rgb(105, 192, 255)"
                   icon="BuildFilled"
                   title="用户"
                 >
-                </card-base>
+                </quick>
               </a-col>
               <a-col :span="8">
-                <card-base
+                <quick
                   color="rgb(255, 133, 192)"
                   icon="TrophyFilled"
                   title="排名"
                 >
-                </card-base>
+                </quick>
               </a-col>
               <a-col :span="8">
-                <card-base
+                <quick
                   color="rgb(149, 222, 100)"
                   icon="CloudFilled"
                   title="首页"
                 >
-                </card-base>
+                </quick>
               </a-col>
             </a-row>
           </a-card>

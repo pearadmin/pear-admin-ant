@@ -1,5 +1,5 @@
-import {getUserMenusArray, getUserMenusTree, login, logout} from "@/api/module/user";
-import {generatorUserMenuForList, generatorUserMenuForTree} from "@/router/permission";
+import {menuList, menuTree, login, logout} from "@/api/module/user";
+import { createRouteByList, createRouteByTree} from "@/router/permission";
 
 const state = {
   token: '',
@@ -11,10 +11,10 @@ const mutations = {
   SET_USER_TOKEN(state, token) {
     if (token) {
       state.token = token;
-      localStorage.setItem('pear_admin_ant_token', token);
+      localStorage.setItem('PEAR_TOKEN', token);
     } else {
       state.token = '';
-      localStorage.removeItem('pear_admin_ant_token')
+      localStorage.removeItem('PEAR_TOKEN')
     }
   },
   SET_USER_INFO(state, userInfo) {
@@ -24,11 +24,11 @@ const mutations = {
   SET_USER_MENU(state, menuList) {
     if (menuList && menuList.length === 0) {
       state.userRoutes = []
-      localStorage.removeItem('user_routes')
+      localStorage.removeItem('USER_ROUTES')
     } else {
       const finalMenu = menuList
       state.userRoutes = finalMenu
-      localStorage.setItem('user_routes', JSON.stringify(finalMenu))
+      localStorage.setItem('USER_ROUTES', JSON.stringify(finalMenu))
     }
   }
 }
@@ -65,13 +65,13 @@ const actions = {
     }
   },
   async addUserRouteForArray ({ state: { userRoutes }, commit }) {
-    const { result: menuList } = await getUserMenusArray()
-    const dynamicRoutes = generatorUserMenuForList(menuList)
+    const { result: data } = await menuList()
+    const dynamicRoutes = createRouteByList(data)
     commit('SET_USER_MENU', dynamicRoutes)
   },
   async addUserRouteForTree ({ state: { userRoutes }, commit }) {
-    const { result: menuList } = await getUserMenusTree()
-    const dynamicRoutes = generatorUserMenuForTree(menuList)
+    const { result: data } = await menuTree()
+    const dynamicRoutes = createRouteByTree(data)
     commit('SET_USER_MENU', dynamicRoutes)
   }
 }

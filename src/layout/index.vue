@@ -106,6 +106,7 @@ export default {
       closeSideBar,
       isMobile,
       collapsed,
+      collapsedWidth,
       fixedHeader,
       fixedSide,
       sideWitch,
@@ -113,7 +114,6 @@ export default {
       theme,
       logo,
       tab,
-      collapsedWidth
     };
   }
 };
