@@ -77,8 +77,8 @@
 </template>
 
 <script>
-import {defineComponent, reactive} from "vue";
-import {useForm} from "@ant-design-vue/use";
+import { defineComponent, reactive } from "vue";
+import { useForm } from "@ant-design-vue/use";
 
 export default defineComponent({
   name: 'RepositoryForm',

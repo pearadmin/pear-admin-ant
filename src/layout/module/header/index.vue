@@ -80,7 +80,7 @@
         <template #overlay>
           <a-menu class="avatar-dropdown">
             <a-menu-item key="0">
-              <a-menu-item> 个人中心 </a-menu-item>
+              <a-menu-item @click="go"> 个人中心 </a-menu-item>
             </a-menu-item>
             <a-menu-divider />
             <a-menu-item key="3">
@@ -169,6 +169,10 @@ export default {
       await dispatch("user/logout");
     };
 
+    const go = async (e) => {
+      router.push("/account/center")
+    }
+
     const store = useStore();
     const defaultLang = computed(() => store.state.app.language);
     const selectedKeys = ref([unref(defaultLang)]);
@@ -197,6 +201,7 @@ export default {
       changeMenu,
       setLanguage,
       selectedKeys,
+      go,
     };
   },
 };
