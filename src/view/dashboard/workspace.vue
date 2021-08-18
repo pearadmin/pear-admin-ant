@@ -230,13 +230,6 @@ export default {
       {
         avatar:
           "https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200",
-        title: "落小梅",
-        info:
-          "只向你撒了一回谎。我说：“人惯是薄凉的，昨日才说衷心爱你，怕是今日，明日便是不肯再爱了”。你看，我总是这般，唯恐爱使我的心成了破洞窟窿，便要紧紧裹住自己的尾巴先做逃。枉你说爱我的胆量和真心。",
-      },
-      {
-        avatar:
-          "https://portrait.gitee.com/uploads/avatars/user/2813/8441097_shaynas_1610801433.png!avatar200",
         title: "马克思",
         info: "没有锚的船当然也可以航行，只是紧张充满你的一生。",
       },

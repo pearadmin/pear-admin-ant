@@ -43,7 +43,7 @@
       <div class="menu-item" v-else @click="fullScreen(2)">
         <CompressOutlined />
       </div>
-      <a-dropdown class="notice-item">
+      <a-dropdown class="notice-item" placement="bottomCenter">
         <BellOutlined />
         <template #overlay>
           <a-menu class="notice-dropdown">
@@ -64,7 +64,7 @@
           </a-menu>
         </template>
       </a-dropdown>
-      <a-dropdown class="locale-item">
+      <a-dropdown class="locale-item" placement="bottomCenter">
         <GlobalOutlined />
         <template #overlay>
           <a-menu @click="setLanguage" :selectedKeys="selectedKeys">
@@ -73,7 +73,7 @@
           </a-menu>
         </template>
       </a-dropdown>
-      <a-dropdown class="avatar-item">
+      <a-dropdown class="avatar-item" placement="bottomCenter">
         <a-avatar
           src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
         ></a-avatar>
