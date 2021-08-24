@@ -96,12 +96,12 @@ npm install
 
 // 运行项目
 
-npm run serve-dev
+npm run serve-vite
 
 
 // 构建项目
 
-npm run build-dev
+npm run build-vite
 
 ```
 
