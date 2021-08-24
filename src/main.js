@@ -15,9 +15,9 @@ import "ant-design-vue/dist/antd.less";
 const app = createApp(App);
 app.use(Antd);
 app.use(Pear);
+app.use(i18n);
 app.use(Store);
 app.use(Router);
-app.use(i18n)
 app.mount("#app");
 
 

@@ -39,7 +39,9 @@ export function useTab() {
 
     function closeCurrent () {
         const currentPath = route.path;
-        close(currentPath);
+        if(list.value.length > 1) {
+            close(currentPath);
+        }
     }
 
     function closeOther () {
