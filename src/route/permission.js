@@ -1,6 +1,6 @@
 import store from "@/store"
 import NProgress from "nprogress"
-import router from "@/router/index"
+import router from "@/route/index"
 import permissionRoutes from './module/main-routes'
 import { toTree, hasRoute } from "@/tools/menu"
 
@@ -70,7 +70,7 @@ export const permissionController = async (to, from, next) => {
   setDocumentTitle(meta.title)
   await store.dispatch('app/execCancelToken')
   // 检 测 登 录
-  if (!to.fullPath.includes('login') && !localStorage.getItem('PEAR_TOKEN')) {
+  if (!to.fullPath.includes('login') && !localStorage.getItem('USER_TOKEN')) {
     next({path: '/login'})
   } else {
     // 基本路由 是否包括 前往路由

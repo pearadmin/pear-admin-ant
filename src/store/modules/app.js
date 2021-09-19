@@ -1,4 +1,4 @@
-import config from "@/pear.js";
+import config from "../../configure/pear.config.js";
 
 const state = {
 

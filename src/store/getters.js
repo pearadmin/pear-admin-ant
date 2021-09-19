@@ -18,17 +18,8 @@ const getters = {
   language: state => state.app.language,
   isMobile: state => state.app.isMobile,
   keepAlive: state=> state.app.keepAlive,
-  token: state =>
-    state.user.token
-      ? state.user.token
-      : localStorage.getItem("PEAR_TOKEN")
-      ? localStorage.getItem("PEAR_TOKEN")
-      : "",
-  menu: state =>
-    state.user.userRoutes.length !== 0
-      ? state.user.userRoutes
-      : localStorage.getItem("USER_ROUTES")
-      ? JSON.parse(localStorage.getItem("USER_ROUTES"))
-      : ""
+  menu: state => state.user.userRoutes,
+  power: state => state.user.userPowers,
+  userInfo: state => state.user.userInfo,
 };
 export default getters;

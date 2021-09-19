@@ -1,5 +1,4 @@
 <template>
-  <!-- 框架顶部菜单区域 -->
   <div id="header" :class="[isMobile && 'mobile_header']">
     <template v-if="layout !== 'layout-head'">
       <!-- 左侧菜单 -->

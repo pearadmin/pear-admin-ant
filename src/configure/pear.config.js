@@ -8,7 +8,7 @@ export default {
   /**
    * 参数 : 网站图标
    */
-  image: "https://gitee.com/pear-admin/Pear-Admin-Layui/raw/master/admin/images/logo.png",
+  image: "http://layui.pearadmin.com/admin/images/logo.png",
 
   /**
    * 参数 : 网站名称

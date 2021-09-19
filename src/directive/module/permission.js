@@ -1,5 +1,5 @@
 import user from "@/store/modules/user.js"
-import router from '@/router/index'
+import router from '@/route/index'
 
 export default function permission(el, binding, VNode, prevNode) {
   const { currentRoute } = router

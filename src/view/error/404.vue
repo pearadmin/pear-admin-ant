@@ -18,12 +18,12 @@
 <script>
 import { isTimeout } from "@/tools/common";
 import { ref } from "vue";
-import router from "@/router";
+import route from "@/route/index";
 export default {
   setup() {
     const overTime = ref(10);
      isTimeout(overTime,function(){
-      router.push("/");
+      route.push("/");
     })
     return { overTime };
   }

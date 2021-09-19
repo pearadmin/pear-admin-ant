@@ -1,25 +1,27 @@
 import {menuList, menuTree, login, logout} from "@/api/module/user";
-import { createRouteByList, createRouteByTree} from "@/router/permission";
+import { createRouteByList, createRouteByTree} from "@/route/permission";
+import { message } from "ant-design-vue";
 
 const state = {
-  token: '',
-  userInfo: localStorage.getItem('user_info') ? JSON.parse(localStorage.getItem('user_info')) : null,
-  userRoutes: []
+  token: localStorage.getItem("USER_TOKEN") ? localStorage.getItem("token") : "",
+  userInfo: localStorage.getItem('USER_INFO') ? localStorage.getItem('USER_INFO') : null,
+  userRoutes: localStorage.getItem("USER_ROUTES") ? localStorage.getItem("USER_ROUTES") : [],
+  userPowers: localStorage.getItem("USER_POWERS") ? localStorage.getItem("USER_POWERS") : []
 }
 
 const mutations = {
   SET_USER_TOKEN(state, token) {
     if (token) {
       state.token = token;
-      localStorage.setItem('PEAR_TOKEN', token);
+      localStorage.setItem('USER_TOKEN', token);
     } else {
       state.token = '';
-      localStorage.removeItem('PEAR_TOKEN')
+      localStorage.removeItem('USER_TOKEN')
     }
   },
   SET_USER_INFO(state, userInfo) {
     state.userInfo = userInfo
-    localStorage.setItem('user_info', JSON.stringify(userInfo))
+    localStorage.setItem('USER_INFO', JSON.stringify(userInfo))
   },
   SET_USER_MENU(state, menuList) {
     if (menuList && menuList.length === 0) {
@@ -42,8 +44,11 @@ const actions = {
   },
   async logout({commit}) {
     await logout()
-    commit('SET_USER_MENU');
-    commit('SET_USER_TOKEN');
+    message.success("注销成功", 0.5).then(function(){
+      commit('SET_USER_TOKEN');
+      commit('SET_USER_MENU');
+      window.location.reload();
+    });
     return Promise.resolve();
   },
   async login({commit}, data) {
@@ -78,7 +83,7 @@ const actions = {
 
 export default {
   namespaced: true,
-  state,
   mutations,
-  actions
+  actions,
+  state
 }

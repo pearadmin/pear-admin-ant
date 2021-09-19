@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import Router from "./router";
+import Router from "./route";
 import Store from "./store/index.js";
 import Pear from "./component/index.js";
 import Antd from "ant-design-vue/es";

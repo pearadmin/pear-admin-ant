@@ -21,7 +21,7 @@ class Http {
      */
     instance.interceptors.request.use(
       config => {
-        const token = localStorage.getItem("PEAR_TOKEN");
+        const token = localStorage.getItem("USER_TOKEN");
         if (token) {
           config.headers["Access-Token"] = token;
         }
@@ -35,7 +35,7 @@ class Http {
         return Promise.reject(error);
       }
     );
-
+    /** 响应拦截 */
     instance.interceptors.response.use(
       response => {
         return response.data;
