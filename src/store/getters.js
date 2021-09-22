@@ -21,5 +21,6 @@ const getters = {
   menu: state => state.user.userRoutes,
   power: state => state.user.userPowers,
   userInfo: state => state.user.userInfo,
+  token: state => state.user.token
 };
 export default getters;

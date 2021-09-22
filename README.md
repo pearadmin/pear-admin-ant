@@ -93,15 +93,21 @@ Github 开源地址: [前往下载](https://github.com/PearAdmin/Pear-Admin-Ant)
 
 npm install
 
+// 开发预览
 
-// 运行项目
+npm run serve
 
-npm run serve-vite
+// 开发打包
 
+npm run build
 
-// 构建项目
+// 生产打包
 
-npm run build-vite
+npm run build-prod
+
+// 项目分析
+
+npm run analyzer
 
 ```
 

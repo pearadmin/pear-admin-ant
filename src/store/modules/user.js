@@ -3,10 +3,10 @@ import { createRouteByList, createRouteByTree} from "@/route/permission";
 import { message } from "ant-design-vue";
 
 const state = {
-  token: localStorage.getItem("USER_TOKEN") ? localStorage.getItem("token") : "",
-  userInfo: localStorage.getItem('USER_INFO') ? localStorage.getItem('USER_INFO') : null,
-  userRoutes: localStorage.getItem("USER_ROUTES") ? localStorage.getItem("USER_ROUTES") : [],
-  userPowers: localStorage.getItem("USER_POWERS") ? localStorage.getItem("USER_POWERS") : []
+  token: localStorage.getItem("USER_TOKEN") != null ? localStorage.getItem("USER_TOKEN") : "",
+  userInfo: localStorage.getItem('USER_INFO') != null ? localStorage.getItem('USER_INFO') : null,
+  userRoutes: localStorage.getItem("USER_ROUTES") != null ? localStorage.getItem("USER_ROUTES") : [],
+  userPowers: localStorage.getItem("USER_POWERS") != null ? localStorage.getItem("USER_POWERS") : []
 }
 
 const mutations = {
@@ -21,7 +21,7 @@ const mutations = {
   },
   SET_USER_INFO(state, userInfo) {
     state.userInfo = userInfo
-    localStorage.setItem('USER_INFO', JSON.stringify(userInfo))
+    localStorage.setItem('USER_INFO', userInfo)
   },
   SET_USER_MENU(state, menuList) {
     if (menuList && menuList.length === 0) {
@@ -56,7 +56,7 @@ const actions = {
       const response = await login(data)
       const {code, message, result: userInfo} = response
       if (code === 200) {
-        const {token} = userInfo
+        const { token } = userInfo
         delete userInfo.menuList
         delete userInfo.token
         commit('SET_USER_TOKEN', token)

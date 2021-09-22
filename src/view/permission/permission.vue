@@ -8,7 +8,7 @@
       <a-row :gutter="[10,10]">
         <a-col :span="24">
           <a-card>
-            <h3>[ {{ useInfo?.permissions[0]?.role }} ]</h3>
+            <h3>[ {{ useInfo.username }} ]</h3>
           </a-card>
         </a-col>
         <a-col :span="24">

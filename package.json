@@ -3,8 +3,11 @@
   "version": "2.0.1-Release",
   "private": true,
   "scripts": {
-    "serve-vite": "vite",
-    "build-vite": "vite build"
+    "//": "开发预览",
+    "serve": "vite",
+    "build": "vite build",
+    "build-prod": "vite build --mode production",
+    "analyzer": "set vis=true && vite build"
   },
   "dependencies": {
     "@ant-design-vue/use": "^0.0.1-alpha.10",
@@ -17,6 +20,7 @@
     "lodash.get": "^4.4.2",
     "moment": "^2.27.0",
     "nprogress": "^0.2.0",
+    "rollup-plugin-visualizer": "^5.5.2",
     "vue": "^3.2.12",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.10",
@@ -33,6 +37,7 @@
     "less-loader": "^7.1.0",
     "mockjs2": "^1.0.8",
     "node-sass": "^6.0.0",
+    "rollup-plugin-analyzer": "^4.0.0",
     "sass-loader": "^10.0.2",
     "vite": "^2.5.8"
   },
