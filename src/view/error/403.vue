@@ -17,14 +17,15 @@
 </template>
 
 <script>
-import { isTimeout } from "@/tools/common";
 import { ref } from "vue";
-import route from "@/route/index";
+import { isTimeout } from "@/tools/common";
+import { useRouter } from 'vue-router';
 export default {
   setup() {
+    const router = useRouter();
     const overTime = ref(10);
      isTimeout(overTime,function(){
-      route.push("/");
+      router.push("/");
     })
     return { overTime };
   }
