@@ -17,9 +17,8 @@
   </div>
 </template>
 <script>
-import { ref } from '@vue/reactivity';
 import icons from './index.js'
-import { watch } from '@vue/runtime-core';
+import { watch, ref } from 'vue';
 
 export default {
     name: 'p-icon-picker',

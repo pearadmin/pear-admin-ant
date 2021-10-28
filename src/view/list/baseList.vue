@@ -71,7 +71,7 @@
 </template>
 <script>
 import axios from "axios";
-import { ref } from '@vue/reactivity';
+import { ref } from 'vue';
 
 const fakeDataUrl ="https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo";
 
