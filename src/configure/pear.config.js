@@ -4,7 +4,7 @@
  * Store 初始化时决定使用 localstore 本地 / pear.js 默认配置
  */
 export default {
-  
+
   /**
    * 参数 : 网站图标
    */
@@ -95,7 +95,7 @@ export default {
    * 参数: 主题颜色
    * color - list
    */
-  color: {key:1, scopeName: "theme-blue", color:'#2d8cf0'},
+  color: { scopeName: "theme-blue", color: '#2d8cf0' },
 
   /**
    * 参数: 可选的主题颜色列表
@@ -104,11 +104,11 @@ export default {
    * color - color 
    */
   colorList: [
-    {key:1,scopeName:"theme-blue",color:'#2d8cf0'},
-    {key:2,scopeName:"theme-green",color:'#36b368'},
-    {key:3,scopeName:"theme-yellow",color:'#f6ad55'},
-    {key:4,scopeName:"theme-red",color:'#f56c6c'},
-    {key:5,scopeName:"theme-purple",color:'#3963bc'}],
+    { scopeName: "theme-blue", color: '#2d8cf0' },
+    { scopeName: "theme-green", color: '#36b368' },
+    { scopeName: "theme-yellow", color: '#f6ad55' },
+    { scopeName: "theme-red", color: '#f56c6c' },
+    { scopeName: "theme-purple", color: '#3963bc' }],
 
   /**
    * 参数: 路由动画
@@ -124,5 +124,5 @@ export default {
    * en-US 英文
    */
   defaultLanguage: 'zh-CN'
-  
+
 };

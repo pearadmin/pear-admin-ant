@@ -82,7 +82,7 @@ const state = {
    * true
    * false
    */
-  fixedSide:  getStorage('fixedSide') != null ? getStorage('fixedSide') : config.fixedHeader,
+  fixedSide: getStorage('fixedSide') != null ? getStorage('fixedSide') : config.fixedHeader,
 
   /**
    * 路由动画
@@ -93,6 +93,9 @@ const state = {
 
   /**
    * 配色列表
+   * key 
+   * color 
+   * scopeName 
    */
   colorList: config.colorList,
 
@@ -101,20 +104,44 @@ const state = {
    * true
    * false
    */
-  setting: {
-    opened: false
-  },
-  // 手风琴配置
+  setting: { opened: false },
+
+  /**
+   * 菜单手风琴
+   * true
+   * false 
+   */
   muiltOpen: true,
-  // 路由刷新辅助变量
+
+  /**
+   * 路由刷新辅助变量
+   * true
+   * false
+   */
   routerActive: true,
+  
   // 路由列表
   routes: [],
-  // 是否是移动端
+
+  /**
+   * 移动端配置
+   * true
+   * false
+   */
   isMobile: false,
-  // 国际化
+
+  /**
+   * 国际化配置
+   * zh-CN 中文
+   * en-US 英文
+   */
   language: getStorage('language') != null ? getStorage('language') : config.defaultLanguage,
 
+  /**
+   * 请求辅助变量 
+   * true
+   * false
+   */
   cancelToken: []
 }
 
@@ -130,7 +157,7 @@ const mutations = {
   },
   SET_LANGUAGE(state, payload) {
     state.language = payload
-    localStorage.setItem('pear_lang', payload)
+    setStorage('language', payload)
   },
   TOGGLE_FIXEDSIDE(state) {
     state.fixedSide = !state.fixedSide;
@@ -146,6 +173,7 @@ const mutations = {
   },
   UPDATE_TAB_TYPE(state, tabType) {
     state.tabType = tabType;
+    setStorage('tabType', tabType);
   },
   UPDATE_THEME(state, theme) {
     state.theme = theme;
