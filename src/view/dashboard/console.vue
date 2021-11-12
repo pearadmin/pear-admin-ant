@@ -11,9 +11,9 @@
               speed="300"
             />
             <a-progress
-              show-info="false"
+              :show-info="false"
               style="margin-top: 16px"
-              percent="30"
+              :percent="30"
               size="small"
             />
             <a-divider />
@@ -31,10 +31,10 @@
             />
             <a-progress
               style="margin-top: 16px"
-              percent="50"
+              :percent="50"
               size="small"
               status="active"
-              show-info="false"
+              :show-info="false"
             />
             <a-divider />
             <div class="card-left">销售量</div>
@@ -50,9 +50,9 @@
               speed="300"
             />
             <a-progress
-              show-info="false"
+              :show-info="false"
               style="margin-top: 16px"
-              percent="30"
+              :percent="30"
               size="small"
             />
             <a-divider />
@@ -70,10 +70,10 @@
             />
             <a-progress
               style="margin-top: 16px"
-              percent="50"
+              :percent="50"
               size="small"
               status="active"
-              show-info="false"
+              :show-info="false"
             />
             <a-divider />
             <div class="card-left">用户量</div>
