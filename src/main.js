@@ -12,6 +12,7 @@ import "./mock";
 import "./assets/css/index.less";
 import "ant-design-vue/dist/antd.less";
 
+
 const app = createApp(App);
 app.use(Antd);
 app.use(Pear);

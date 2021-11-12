@@ -25,7 +25,7 @@ export default {
 
   /**
    * 参数 : 默认的主题
-   * theme-dark
+   * theme-default
    * theme-light
    * theme-night
    * */
@@ -95,13 +95,20 @@ export default {
    * 参数: 主题颜色
    * color - list
    */
-  color: "#36b368",
+  color: {key:1, scopeName: "theme-blue", color:'#2d8cf0'},
 
   /**
    * 参数: 可选的主题颜色列表
    * color - key
+   * color - scopeName 
+   * color - color 
    */
-  colorList: ["#2d8cf0","#36b368","#f6ad55","#f56c6c","#3963bc","#13C2C2"],
+  colorList: [
+    {key:1,scopeName:"theme-blue",color:'#2d8cf0'},
+    {key:2,scopeName:"theme-green",color:'#36b368'},
+    {key:3,scopeName:"theme-yellow",color:'#f6ad55'},
+    {key:4,scopeName:"theme-red",color:'#f56c6c'},
+    {key:5,scopeName:"theme-purple",color:'#3963bc'}],
 
   /**
    * 参数: 路由动画

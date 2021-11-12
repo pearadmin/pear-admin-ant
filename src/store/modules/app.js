@@ -1,19 +1,15 @@
 import config from "../../configure/pear.config.js";
+import { getStorage, setStorage, delStorage } from "../../tools/storage.js";
 
 const state = {
 
   /**
- * 布局方式（整体界面的排版方式）
- * layout-side -- 侧边布局
- * layout-head -- 顶部菜单
- * layout-comp -- 联动布局
- * */
-  layout:
-    config.layout == null
-      ? "layout-side"
-      : localStorage.getItem("layout") == null
-        ? config.layout
-        : localStorage.getItem("layout"),
+    * 布局方式（整体界面的排版方式）
+    * layout-side -- 侧边布局
+    * layout-head -- 顶部菜单
+    * layout-comp -- 联动布局
+    * */
+  layout: getStorage('layout') != null ? getStorage('layout') : config.layout,
 
   /**
    * 系统主题（整体色调）
@@ -21,82 +17,53 @@ const state = {
    * dark -- 暗色主题
    * night -- 夜间主题
    */
-  theme:
-    config.theme == null
-      ? "theme-dark"
-      : localStorage.getItem("theme") == null
-        ? config.theme
-        : localStorage.getItem("theme"),
+  theme: getStorage('theme') != null ? getStorage.getStorage('theme') : config.theme,
 
   /**
    * 主题颜色(主题颜色)
    */
-  color:
-    config.color == null
-      ? "theme-green"
-      : localStorage.getItem("color") == null
-        ? config.color
-        : localStorage.getItem("color"),
+  color: getStorage('color') != null ? getStorage('color') : config.color,
 
   /**
    * 侧边状态
    * true  --  隐藏
    * false --  展开
    * */
-  collapsed:
-    config.collapsed == null
-      ? false
-      : localStorage.getItem("collapsed") == null
-        ? config.collapsed
-        : localStorage.getItem("collapsed"),
+  collapsed: getStorage('collapsed') != null ? getStorage('collapsed') : config.collapsed,
 
   /**
    * 菜单头部
    * true  --  隐藏
    * false --  展开
    * */
-  logo:
-    config.logo == null
-      ? true
-      : localStorage.getItem("logo") == null
-        ? config.logo
-        : localStorage.getItem("logo"),
+  logo: getStorage('logo') != null ? getStorage('logo') : config.logo,
 
   /**
    * 是否开启多标签页
    * true  --  隐藏
    * false --  展开
    * */
-  tab:
-    config.tab == null
-      ? true
-      : localStorage.getItem("tab") == null
-        ? config.tab
-        : localStorage.getItem("tab"),
+  tab: getStorage('tab') != null ? getStorage('tab') : config.tab,
 
   /**
    * 保持状态
    * true -- 是
    * false -- 否 
    */
-  keepAlive: config.keepAlive == null ? true : localStorage.getItem("keepAlive") == null ? config.keepAlive : localStorage.getItem("keepAlive"),
+  keepAlive: getStorage('keepAlive') != null ? getStorage('keepAlive') : config.keepAlive,
   /**
    * 多标签页样式
    * pear-card-tab
    * pear-dot-tab
    */
-  tabType:
-    config.tabType == null
-      ? "pear-dot-tab"
-      : localStorage.getItem("tabType") == null
-        ? config.tabType
-        : localStorage.getItem("tabType"),
+  tabType: getStorage('tabType') != null ? getStorage('tabType') : config.tabType,
 
   /**
    * 侧边菜单栏宽度
    * 单位:px
    * */
   sideWitch: config.sideWidth == null ? 220 : config.sideWidth,
+
   /**
    * 侧边菜单栏宽度(折叠)
    * 单位:px
@@ -108,36 +75,21 @@ const state = {
    * true
    * false
    */
-  fixedHeader:
-    config.fixedHeader == null
-      ? true
-      : localStorage.getItem("fixedHeader") == null
-        ? config.fixedHeader
-        : localStorage.getItem("fixedHeader"),
+  fixedHeader: getStorage('fixedHeader') != null ? getStorage('fixedHeader') : config.fixedHeader,
 
   /**
    * 固定侧边
    * true
    * false
    */
-  fixedSide:
-    config.fixedSide == null
-      ? true
-      : localStorage.getItem("fixedSide") == null
-        ? config.fixedSide
-        : localStorage.getItem("fixedSide"),
+  fixedSide:  getStorage('fixedSide') != null ? getStorage('fixedSide') : config.fixedHeader,
 
   /**
    * 路由动画
    * fadeRight
    * fadeTop
    */
-  routerAnimate:
-    config.routerAnimate == null
-      ? ""
-      : localStorage.getItem("routerAnimate") == null
-        ? config.routerAnimate
-        : localStorage.getItem("routerAnimate"),
+  routerAnimate: getStorage('routerAnimate') != null ? getStorage('routerAnimate') : config.routerAnimate,
 
   /**
    * 配色列表
@@ -161,12 +113,8 @@ const state = {
   // 是否是移动端
   isMobile: false,
   // 国际化
-  language:
-    config.defaultLanguage == null
-      ? "zh-CN"
-      : localStorage.getItem("pear_lang") == null
-        ? config.defaultLanguage
-        : localStorage.getItem("pear_lang"),
+  language: getStorage('language') != null ? getStorage('language') : config.defaultLanguage,
+
   cancelToken: []
 }
 
@@ -201,14 +149,13 @@ const mutations = {
   },
   UPDATE_THEME(state, theme) {
     state.theme = theme;
-    let element = document.querySelector('html');
-    theme === 'theme-night' ? element.setAttribute('data-doc-theme', 'dark') : element.removeAttribute('data-doc-theme');
   },
   UPDATE_ROUTER_ANIMATE(state, routerAnimate) {
     state.routerAnimate = routerAnimate;
   },
   UPDATE_COLOR(state, color) {
     state.color = color;
+    setStorage('color', color);
   },
   UPDATE_ROUTES(state, routes) {
     state.routes = routes;

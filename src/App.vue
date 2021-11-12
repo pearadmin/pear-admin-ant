@@ -7,9 +7,11 @@
 import {computed, defineComponent, ref} from "vue";
 import {useStore} from "vuex";
 import {useI18n} from 'vue-i18n/index';
+import { toggleTheme } from "@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js";
 export default defineComponent({
   name: 'App',
   setup() {
+
     const store = useStore()
     const defaultLang = computed(() => store.getters['app/language'])
     const color = computed(() => store.getters.color);
@@ -20,6 +22,10 @@ export default defineComponent({
         return  getLocaleMessage(defaultLang.value).antdLocal
       })
     )
+
+    toggleTheme({
+      scopeName: color.value.scopeName,
+    });
 
     return {
       antdLocal

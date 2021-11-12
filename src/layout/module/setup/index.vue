@@ -334,8 +334,8 @@
             class="select-color-item"
             :key="index"
             @click="updateColor(colorItem)"
-            :style="{ 'background-color': colorItem }"
-            ><CheckOutlined v-if="color === colorItem"
+            :style="{ 'background-color': colorItem.color }"
+            ><CheckOutlined v-if="color.scopeName === colorItem.scopeName"
           /></span>
         </div>
       </div>
@@ -399,6 +399,7 @@
   </a-drawer>
 </template>
 <script>
+import { toggleTheme } from "@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js";
 import { CheckOutlined } from "@ant-design/icons-vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
@@ -420,7 +421,7 @@ export default {
     const colorList = computed(() => getters.colorList);
     const routerAnimate = { key: computed(() => getters.routerAnimate) };
     const tabType = { key: computed(() => getters.tabType).value };
-
+    
     const updateLayout = function (layout) {
       commit("app/UPDATE_LAYOUT", layout);
     };
@@ -434,15 +435,13 @@ export default {
       commit("app/TOGGLE_KEEP_ALIVE");
     };
    const updateColor = function (color) {
-      window.less.modifyVars({
-          "primary-color": color,
-          "btn-primary-bg": color,
-      })
+      toggleTheme({ scopeName: color.scopeName });
       commit("app/UPDATE_COLOR", color);
     };
     const handleChange = function (value) {
       commit("app/UPDATE_TAB_TYPE", value.key);
     };
+    
     return {
       tabType,
       toggleKeepAlive,
@@ -461,6 +460,7 @@ export default {
       layout,
       keepAlive,
       theme,
+      color,
       onChangeVisible: () => commit("app/TOGGLE_SETTING"),
       onChangeLogo: () => commit("app/TOGGLE_LOGO"),
       onChangeTab: () => commit("app/updateTab"),
@@ -469,10 +469,7 @@ export default {
       onChangeFixedHeader: () => commit("app/TOGGLE_FIXEDHEADER"),
       onChangeLayout: () => commit("app/TOGGLE_LAYOUT"),
       afterVisibleChange: () => {},
-      changeLanguage: (e) => {
-        commit("app/setLanguage", e.target.value);
-      },
-      color,
+      changeLanguage: (e) =>  commit("app/setLanguage", e.target.value),
     };
   },
 };
