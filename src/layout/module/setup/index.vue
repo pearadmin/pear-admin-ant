@@ -10,169 +10,19 @@
   >
     <div>
       <div class="pearone-color">
-        <div class="color-title">整体风格</div>
+        <div class="color-title">菜单风格</div>
         <div class="color-content">
           <ul>
-            <li
+            <p-demo
               @click="updateTheme('theme-dark')"
               :class="[theme === 'theme-dark' ? 'layui-this' : '']"
-            >
-              <a
-                href="javascript:;"
-                style="border-radius: 4px"
-                class="clearfix full-opacity-hover"
-                ><div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 12px;
-                      background: #2e3549;
-                      border-top-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 12px;
-                      background: white;
-                      border-top-right-radius: 4px;
-                    "
-                  ></span>
-                </div>
-                <div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 34px;
-                      background: #2e3549;
-                      border-bottom-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 34px;
-                      background: #f4f5f7;
-                      border-bottom-right-radius: 4px;
-                    "
-                  ></span></div
-              ></a>
-            </li>
-            <li
+              :color="['#2e3549', 'white', '#2e3549', '#f4f5f7']"
+            ></p-demo>
+            <p-demo
               @click="updateTheme('theme-light')"
               :class="[theme === 'theme-light' ? 'layui-this' : '']"
-            >
-              <a
-                href="javascript:;"
-                class="clearfix full-opacity-hover"
-                style="border-radius: 4px"
-                ><div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 12px;
-                      border-top-left-radius: 4px;
-                      background: white;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 12px;
-                      border-top-right-radius: 4px;
-                      background: white;
-                    "
-                  ></span>
-                </div>
-                <div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 34px;
-                      border-bottom-left-radius: 4px;
-                      background: white;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 34px;
-                      background: #f4f5f7;
-                      border-bottom-right-radius: 4px;
-                    "
-                  ></span></div
-              ></a>
-            </li>
-            <li
-              @click="updateTheme('theme-night')"
-              :class="[theme === 'theme-night' ? 'layui-this' : '']"
-            >
-              <a
-                href="javascript:;"
-                data-skin="skin-blue"
-                style="border-radius: 4px"
-                class="clearfix full-opacity-hover"
-                ><div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 12px;
-                      background: #2e3549;
-                      border-top-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 12px;
-                      background: #2e3549;
-                      border-top-right-radius: 4px;
-                    "
-                  ></span>
-                </div>
-                <div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 34px;
-                      background: #2e3549;
-                      border-bottom-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 34px;
-                      background: #2e3549;
-                      border-bottom-right-radius: 4px;
-                    "
-                  ></span></div
-              ></a>
-            </li>
+              :color="['white', 'white', 'white', '#f4f5f7']"
+            ></p-demo>
           </ul>
         </div>
       </div>
@@ -180,149 +30,21 @@
         <div class="color-title">布局方式</div>
         <div class="color-content">
           <ul>
-            <li
+            <p-demo
               @click="updateLayout('layout-side')"
               :class="[layout === 'layout-side' ? 'layui-this' : '']"
-            >
-              <a
-                href="javascript:;"
-                data-skin="skin-blue"
-                style="border-radius: 4px"
-                class="clearfix full-opacity-hover"
-                ><div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 12px;
-                      background: #2e3549;
-                      border-top-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 12px;
-                      background: white;
-                      border-top-right-radius: 4px;
-                    "
-                  ></span>
-                </div>
-                <div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 34px;
-                      background: #2e3549;
-                      border-bottom-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 34px;
-                      background: #f4f5f7;
-                      border-bottom-right-radius: 4px;
-                    "
-                  ></span></div
-              ></a>
-            </li>
-            <li
+              :color="['#2e3549', 'white', '#2e3549', '#f4f5f7']"
+            ></p-demo>
+            <p-demo
               @click="updateLayout('layout-head')"
               :class="[layout === 'layout-head' ? 'layui-this' : '']"
-            >
-              <a
-                href="javascript:;"
-                style="border-radius: 4px"
-                class="clearfix full-opacity-hover"
-                ><div>
-                  <span
-                    style="
-                      display: block;
-                      width: 100%;
-                      float: left;
-                      height: 12px;
-                      background: #2e3549;
-                      border-top-left-radius: 4px;
-                      border-top-right-radius: 4px;
-                    "
-                  ></span>
-                </div>
-                <div>
-                  <span
-                    style="
-                      display: block;
-                      width: 100%;
-                      float: left;
-                      height: 34px;
-                      background: #f4f5f7;
-                      border-bottom-left-radius: 4px;
-                      border-bottom-right-radius: 4px;
-                    "
-                  ></span></div
-              ></a>
-            </li>
-            <li
+              :color="['#2e3549', '#2e3549', '#f4f5f7', '#f4f5f7']"
+            ></p-demo>
+            <p-demo
               @click="updateLayout('layout-comp')"
               :class="[layout === 'layout-comp' ? 'layui-this' : '']"
-            >
-              <a
-                href="javascript:;"
-                data-skin="skin-blue"
-                style="border-radius: 4px"
-                class="clearfix full-opacity-hover"
-                ><div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 12px;
-                      background: #2e3549;
-                      border-top-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 12px;
-                      background: #2e3549;
-                      border-top-right-radius: 4px;
-                    "
-                  ></span>
-                </div>
-                <div>
-                  <span
-                    style="
-                      display: block;
-                      width: 20%;
-                      float: left;
-                      height: 34px;
-                      background: #2e3549;
-                      border-bottom-left-radius: 4px;
-                    "
-                  ></span
-                  ><span
-                    style="
-                      display: block;
-                      width: 80%;
-                      float: left;
-                      height: 34px;
-                      background: #f4f5f7;
-                      border-bottom-right-radius: 4px;
-                    "
-                  ></span></div
-              ></a>
-            </li>
+              :color="['#2e3549', '#2e3549', '#2e3549', '#f4f5f7']"
+            ></p-demo>
           </ul>
         </div>
       </div>
@@ -421,7 +143,7 @@ export default {
     const colorList = computed(() => getters.colorList);
     const routerAnimate = { key: computed(() => getters.routerAnimate) };
     const tabType = { key: computed(() => getters.tabType).value };
-    
+
     const updateLayout = function (layout) {
       commit("app/UPDATE_LAYOUT", layout);
     };
@@ -431,17 +153,17 @@ export default {
     const updateRouterAnimate = function (animate) {
       commit("app/UPDATE_ROUTER_ANIMATE", animate.key);
     };
-    const toggleKeepAlive = function(){
+    const toggleKeepAlive = function () {
       commit("app/TOGGLE_KEEP_ALIVE");
     };
-   const updateColor = function (color) {
+    const updateColor = function (color) {
       toggleTheme({ scopeName: color.scopeName });
       commit("app/UPDATE_COLOR", color);
     };
     const handleChange = function (value) {
       commit("app/UPDATE_TAB_TYPE", value.key);
     };
-    
+
     return {
       tabType,
       toggleKeepAlive,
@@ -469,7 +191,7 @@ export default {
       onChangeFixedHeader: () => commit("app/TOGGLE_FIXEDHEADER"),
       onChangeLayout: () => commit("app/TOGGLE_LAYOUT"),
       afterVisibleChange: () => {},
-      changeLanguage: (e) =>  commit("app/setLanguage", e.target.value),
+      changeLanguage: (e) => commit("app/setLanguage", e.target.value),
     };
   },
 };
@@ -479,7 +201,7 @@ export default {
   float: right;
   margin-right: 15px;
 }
-.ant-drawer-body{
-  padding: 10px!important;
+.ant-drawer-body {
+  padding: 10px !important;
 }
 </style>
