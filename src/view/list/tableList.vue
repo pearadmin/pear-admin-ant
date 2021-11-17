@@ -12,6 +12,9 @@
           :pagination="pagination"
         >
         <!-- 继承至 a-table 的默认插槽 -->
+        <template #name="{ record }">
+          {{record.name}}
+        </template>
         </p-table>
       </a-card>
     </page-layout>
@@ -57,7 +60,7 @@ export default {
 
     /// 字段
     const columns = [
-      {title: "姓名", dataIndex: "name", key: "name"},
+      {title: "姓名", dataIndex: "name", key: "name",slots: { customRender: 'name' }},
       {title: "性别", dataIndex: "sex", key: "sex"},
       {title: "年龄", dataIndex: "age", key: "age"},
       {title: "地址", dataIndex: "address", key: "address"}

@@ -82,9 +82,15 @@
           </a-button>
           <template #overlay>
             <a-menu :selectedKeys="[size]">
-              <a-menu-item @click="changeSize('default')" key="default">默认尺寸</a-menu-item>
-              <a-menu-item @click="changeSize('middle')" key="middle">中等尺寸</a-menu-item>
-              <a-menu-item @click="changeSize('small')" key="small">最小尺寸</a-menu-item>
+              <a-menu-item @click="changeSize('default')" key="default"
+                >默认尺寸</a-menu-item
+              >
+              <a-menu-item @click="changeSize('middle')" key="middle"
+                >中等尺寸</a-menu-item
+              >
+              <a-menu-item @click="changeSize('small')" key="small"
+                >最小尺寸</a-menu-item
+              >
             </a-menu>
           </template>
         </a-dropdown>
@@ -168,7 +174,7 @@
           >
             <template #icon><UserOutlined /></template>
           </a-avatar>
-          
+
           <!-- 非头像 -->
           <a-avatar
             v-else
@@ -190,15 +196,19 @@
         <span v-else-if="record">
           {{ record[column.dataIndex] }}
         </span>
-
       </template>
+
+      <template v-for="name in slotsData" #[name]="{ record }">
+        <slot :name="name" :record="record"></slot>
+      </template>
+
     </a-table>
   </div>
 </template>
 <script>
 import "./index.less";
 import T from "ant-design-vue/es/table/Table";
-import { defineComponent, onMounted, reactive, toRefs, watch } from "vue";
+import { defineComponent, onMounted, reactive, toRefs, watch, ref } from "vue";
 import {
   AppstoreOutlined,
   ExportOutlined,
@@ -252,6 +262,15 @@ export default defineComponent({
     },
   }),
   setup(props) {
+
+    const slotsData = ref([]);
+
+    props.columns.map((value) => {
+      if (value.slots) {
+        slotsData.value.push(value.slots.customRender);
+      }
+    });
+
     /// 状态共享
     const state = reactive({
       pagination: props.pagination == false ? false : props.pagination, // 分页
@@ -367,6 +386,8 @@ export default defineComponent({
       changeSize,
       /// 打印
       print,
+
+      slotsData,
     };
   },
 });

@@ -37,9 +37,7 @@
     "less": "^3.5.0",
     "less-loader": "^7.1.0",
     "mockjs2": "^1.0.8",
-    "node-sass": "^6.0.0",
     "rollup-plugin-analyzer": "^4.0.0",
-    "sass-loader": "^10.0.2",
     "vite": "^2.5.8"
   },
   "eslintConfig": {
