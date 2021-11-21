@@ -43,7 +43,7 @@
         </template>
       </div>
       <!-- 默认工具栏 -->
-      <div class="p-table-next">
+      <div class="p-table-next" v-if="defaultToolbar">
         <!-- 刷新工具栏 -->
         <a-button @click="reload">
           <template #icon><SyncOutlined /></template>
@@ -251,6 +251,10 @@ export default defineComponent({
     /// 头工具栏
     toolbar: {
       type: Array,
+    },
+    defaultToolbar: {
+      type: Boolean,
+      default: true
     },
     /// 行工具栏
     operate: {
