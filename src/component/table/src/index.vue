@@ -192,6 +192,11 @@
           />
         </span>
 
+        <!-- 使用format -->
+        <span v-else-if="column.format">
+          {{column.format(record)}}
+        </span>
+
         <!-- 原样输出 -->
         <span v-else-if="record">
           {{ record[column.dataIndex] }}
