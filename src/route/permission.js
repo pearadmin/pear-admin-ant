@@ -74,13 +74,13 @@ export const permissionController = async (to, from, next) => {
     next({path: '/login'})
   } else {
     // 基本路由 是否包括 前往路由
-    if (!router.getRoutes().map(it => it.path).includes(to.fullPath)) {
+    if (!router.getRoutes().map(it => it.path).includes(to.path)) {
       
       await store.dispatch('user/addUserRouteForArray')
 
       const userRoutes = JSON.parse(JSON.stringify(store.getters.menu))
       // 动态路由 是否包括 前往路由
-      if (hasRoute(userRoutes, to.fullPath)) {
+      if (hasRoute(userRoutes, to.path)) {
         // 设置 路由 布局
         setUserRouteComponent(userRoutes)
         userRoutes.forEach(r => {
