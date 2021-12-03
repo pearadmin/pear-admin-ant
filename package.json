@@ -14,7 +14,7 @@
     "@antv/g2": "^4.1.20",
     "@vitejs/plugin-vue": "^1.6.2",
     "ant-design-vue": "^2.2.8",
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "lodash.get": "^4.4.2",
     "moment": "^2.27.0",
