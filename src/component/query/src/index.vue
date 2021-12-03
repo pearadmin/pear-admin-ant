@@ -12,12 +12,16 @@
         </a-input>
         <!-- 选择框 -->
         <a-select v-if="param.type == 'select'" v-model:value="formState[param.key]" style="width: 160px" class="p-query-select">
-            <a-select-option :key="index" v-for="(option,index) in param.options" :value="option.value">{{option.text}}</a-select-option>
+          <a-select-option :key="index" v-for="(option,index) in param.options" :value="option.value">{{option.text}}</a-select-option>
         </a-select>
         <!-- 日期选择 -->
         <a-time-picker v-if="param.type == 'timePicker'" v-model:value="formState[param.key]" />
         <a-date-picker v-if="param.type == 'datePicker'" v-model:value="formState[param.key]" />
         <a-week-picker v-if="param.type == 'weekPicker'" v-model:value="formState[param.key]" />
+        <!-- 内容插槽 -->
+        <template v-if="param.type == 'custom'">
+          <slot :name="param.customRender" :data="formState"></slot>
+        </template>
       </a-form-item>
       <!-- 按钮组 -->
       <a-button type="primary" class="p-query-button" @click="search"> 查询 </a-button>
@@ -42,11 +46,11 @@ export default defineComponent({
     },
     labelCol: {
       type: Object,
-      default: function() { return { span: 8 }} 
+      default: function() { return { span: 10 }} 
     },
     wrapperCol: {
       type: Object,
-      default: function() { return { span: 16 }} 
+      default: function() { return { span: 14 }} 
     }
   },
   components: {

@@ -380,22 +380,22 @@ export default defineComponent({
     };
 
     return {
-      /// 数据信息
+      // 数据信息
       ...toRefs(state),
-      /// 数据加载
+      // 数据加载
       fetch: fetchData,
-      /// 刷新方法
+      // 刷新方法
       reload,
-      /// 过滤字段
+      // 过滤字段
       filtrationColumns,
       filtration,
-      /// 选中字段
+      // 选中字段
       onSelectChange,
-      /// 改变大小
+      // 改变大小
       changeSize,
-      /// 打印
+      // 打印
       print,
-
+      // 插槽信息
       slotsData,
     };
   },

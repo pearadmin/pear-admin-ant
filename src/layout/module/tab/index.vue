@@ -71,14 +71,11 @@ export default {
         list,
         active,
         tabType,
-
         close,
         closeOther,
         closeCurrent,
-
         onEdit,
         onChange,
-
         i18nTitle,
     };
   }

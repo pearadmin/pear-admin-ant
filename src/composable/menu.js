@@ -1,5 +1,5 @@
 import { computed, ref, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { findParent, findParentAll } from '@/tools/common';
 
@@ -7,7 +7,6 @@ export function useMenu() {
 
     const { getters } = useStore();
     const route = useRoute();
-    const router = useRouter();
     const selectedKeys = ref([]);
     const menuStore = computed(() => getters.menu);
     const openKeys = ref([]);

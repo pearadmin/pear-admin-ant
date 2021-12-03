@@ -13,11 +13,7 @@
       :trigger="null"
       :collapsedWidth="collapsedWidth"
       collapsible
-      :class="[
-        fixedSide ? 'fixed-side' : '',
-        isMobile && 'layout_mobile',
-        collapsed && 'layout_collapse'
-      ]"
+      :class="classes"
     >
       <div class="pear-layout-left-sider">
         <!-- 顶部图标 -->
@@ -62,9 +58,9 @@ export default {
     Header,
     Logo,
     Tab,
-    Setup
+    Setup,
   },
-  setup() {
+  setup(props) {
     const { getters, commit } = useStore();
     const layout = computed(() => getters.layout);
     const collapsed = computed(() => getters.collapsed);
@@ -99,6 +95,15 @@ export default {
         }, 1000);
       }
     };
+
+    const classes = computed(() => {
+      return [
+        props.fixedSide ? "fixed-side" : "",
+        props.collapsed && "layout_collapse",
+        props.isMobile && "layout_mobile",
+      ];
+    });
+
     handleLayouts();
     window.addEventListener("resize", handleLayouts);
 
@@ -110,12 +115,13 @@ export default {
       fixedHeader,
       fixedSide,
       sideWitch,
+      classes,
       layout,
       theme,
       logo,
       tab,
     };
-  }
+  },
 };
 </script>
 <style lang="less" scoped>
