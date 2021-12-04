@@ -137,12 +137,12 @@ export default {
 }
 
 .pear-tab-2 .ant-tabs-tab {
-  height: 40px!important;
+  height: 40px !important;
   background: #fff !important;
   border-radius: 0px !important;
   color: #808695 !important;
   border: none !important;
-  border-right: 1px solid whitesmoke!important;;
+  border-right: 1px solid whitesmoke !important;
   .tab-dot {
     width: 8px;
     height: 8px;

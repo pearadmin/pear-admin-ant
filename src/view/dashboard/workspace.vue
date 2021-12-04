@@ -19,11 +19,7 @@
             <a-statistic title="项目" :value="240"> </a-statistic>
           </a-col>
           <a-col :span="8">
-            <a-statistic title="排名" :value="93">
-              <template #suffix>
-                <span> / 100</span>
-              </template>
-            </a-statistic>
+            <a-statistic title="排名" :value="93"></a-statistic>
           </a-col>
           <a-col :span="8">
             <a-statistic title="团队" :value="28"> </a-statistic>

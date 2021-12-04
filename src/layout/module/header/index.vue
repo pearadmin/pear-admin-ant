@@ -29,7 +29,11 @@
     <!-- 综合菜单 -->
     <div v-if="layout == 'layout-comp'" class="comp-menu">
       <template :key="index" v-for="(route, index) in routes">
-        <div @click="changeMenu(route)" class="menu-item" :class="[active === route.path ? 'is-active' : '']">
+        <div
+          @click="changeMenu(route)"
+          class="menu-item"
+          :class="[active === route.path ? 'is-active' : '']"
+        >
           <span>{{ route.meta.title }}</span>
         </div>
       </template>
@@ -46,7 +50,7 @@
         <BellOutlined />
         <template #overlay>
           <a-menu class="notice-dropdown">
-            <a-tabs>
+            <a-tabs centered="true">
               <a-tab-pane key="1" tab="通知">
                 <a-empty description="暂无通知" />
               </a-tab-pane>
@@ -141,10 +145,13 @@ export default {
     const isMobile = computed(() => getters.isMobile);
     const routerActive = computed(() => getters.routerActive);
 
-    watch(computed(() => $route.fullPath), () => {
+    watch(
+      computed(() => $route.fullPath),
+      () => {
         active.value = $route.matched[0].path;
-    });
-    
+      }
+    );
+
     const routes = computed(() => getters.menu).value.filter((r) => !r.hidden);
 
     const refresh = async () => {
@@ -155,27 +162,29 @@ export default {
     };
 
     const changeMenu = (targetRoute) => {
-        let { children, path } = targetRoute;
-        while (children && children[0]) {
-          path = children[0].path;
-          children = children[0].children;
-        }
-        router.push(path);
-        menus.value = getters.menu.find((r) => r.path === $route.matched[0].path).children;
-    }
+      let { children, path } = targetRoute;
+      while (children && children[0]) {
+        path = children[0].path;
+        children = children[0].children;
+      }
+      router.push(path);
+      menus.value = getters.menu.find(
+        (r) => r.path === $route.matched[0].path
+      ).children;
+    };
 
     const logout = async (e) => {
       await dispatch("user/logout");
     };
 
     const go = async (e) => {
-      router.push("/account/center")
-    }
+      router.push("/account/center");
+    };
 
     const store = useStore();
     const defaultLang = computed(() => store.state.app.language);
     const selectedKeys = ref([unref(defaultLang)]);
-    
+
     const setLanguage = async ({ key }) => {
       selectedKeys.value = [key];
       await loadLocaleMessages(i18n, key);

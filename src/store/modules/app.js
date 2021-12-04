@@ -17,7 +17,7 @@ const state = {
    * dark -- 暗色主题
    * night -- 夜间主题
    */
-  theme: getStorage('theme') != null ? getStorage.getStorage('theme') : config.theme,
+  theme: getStorage('theme') != null ? getStorage('theme') : config.theme,
 
   /**
    * 主题颜色(主题颜色)
@@ -170,6 +170,7 @@ const mutations = {
   },
   UPDATE_LAYOUT(state, layout) {
     state.layout = layout;
+    setStorage('layout', layout)
   },
   UPDATE_TAB_TYPE(state, tabType) {
     state.tabType = tabType;
@@ -177,9 +178,11 @@ const mutations = {
   },
   UPDATE_THEME(state, theme) {
     state.theme = theme;
+    setStorage('theme', theme);
   },
   UPDATE_ROUTER_ANIMATE(state, routerAnimate) {
     state.routerAnimate = routerAnimate;
+    setStorage('routerAnimate',routerAnimate)
   },
   UPDATE_COLOR(state, color) {
     state.color = color;
@@ -202,9 +205,11 @@ const mutations = {
   },
   TOGGLE_LOGO(state) {
     state.logo = !state.logo;
+    setStorage('logo', state.logo)
   },
-  updateTab(state) {
+  UPDATE_TAB(state) {
     state.tab = !state.tab;
+    setStorage('tab', state.tab)
   },
   UPDATE_ROUTER_ACTIVE(state) {
     state.routerActive = !state.routerActive;
@@ -214,6 +219,7 @@ const mutations = {
   },
   TOGGLE_KEEP_ALIVE(state) {
     state.keepAlive = !state.keepAlive;
+    setStorage('keepAlive', state.keepAlive)
   }
 }
 

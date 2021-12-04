@@ -43,7 +43,7 @@
             <p-demo
               @click="updateLayout('layout-comp')"
               :class="[layout === 'layout-comp' ? 'layui-this' : '']"
-              :color="['#2e3549', '#2e3549', '#2e3549', '#f4f5f7']"
+              :color="['#2e3549', '#2e3549', 'white', '#f4f5f7']"
             ></p-demo>
           </ul>
         </div>
@@ -138,7 +138,7 @@ export default {
     const layout = computed(() => getters.layout);
     const color = computed(() => getters.color);
     const colorList = computed(() => getters.colorList);
-    const routerAnimate =  computed(() => getters.routerAnimate);
+    const routerAnimate = computed(() => getters.routerAnimate);
     const tabType = computed(() => getters.tabType);
 
     const updateLayout = function (layout) {
@@ -163,8 +163,8 @@ export default {
 
     return {
       tabType,
-      toggleKeepAlive,
       routerAnimate,
+      toggleKeepAlive,
       updateRouterAnimate,
       handleChange,
       updateLayout,
@@ -180,14 +180,14 @@ export default {
       keepAlive,
       theme,
       color,
+      afterVisibleChange: () => {},
       onChangeVisible: () => commit("app/TOGGLE_SETTING"),
       onChangeLogo: () => commit("app/TOGGLE_LOGO"),
-      onChangeTab: () => commit("app/updateTab"),
+      onChangeTab: () => commit("app/UPDATE_TAB"),
       onChangeTheme: () => commit("app/TOGGLE_THEME"),
       onChangeFixedSide: () => commit("app/TOGGLE_FIXEDSIDE"),
       onChangeFixedHeader: () => commit("app/TOGGLE_FIXEDHEADER"),
       onChangeLayout: () => commit("app/TOGGLE_LAYOUT"),
-      afterVisibleChange: () => {},
       changeLanguage: (e) => commit("app/setLanguage", e.target.value),
     };
   },

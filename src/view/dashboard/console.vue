@@ -279,7 +279,7 @@
 <script>
 import { Chart } from "@antv/g2";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons-vue";
-import { onMounted, ref, onUnmounted, computed } from "vue";
+import { onMounted, ref, onUnmounted } from "vue";
 import { useStore } from 'vuex';
 export default {
   components: {
@@ -287,6 +287,7 @@ export default {
     ArrowDownOutlined
   },
   setup() {
+
     const chartRef = ref(null);
 
     onMounted(() => {
