@@ -289,8 +289,6 @@ export default {
   setup() {
     const chartRef = ref(null);
 
-    const store = useStore()
-
     onMounted(() => {
       const datass = [
         { year: "1951 年", sales: 38 },

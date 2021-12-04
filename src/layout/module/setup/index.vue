@@ -4,7 +4,7 @@
     :closable="false"
     :visible="visible"
     width="340"
-    :after-visible-change="afterVisibleChange"
+    @after-visible-change="afterVisibleChange"
     @close="onChangeVisible()"
     :class="[color]"
   >
@@ -95,9 +95,9 @@
             style="width: 100px"
             @change="handleChange"
           >
-            <a-select-option value="pear-dot-tab"> 样式一 </a-select-option>
-            <a-select-option value="pear-card-tab"> 样式二 </a-select-option>
-            <a-select-option value="pear-label-tab"> 样式三 </a-select-option>
+            <a-select-option value="pear-tab-1"> 样式一 </a-select-option>
+            <a-select-option value="pear-tab-2"> 样式二 </a-select-option>
+            <a-select-option value="pear-tab-3"> 样式三 </a-select-option>
           </a-select>
           <div class="setting-title-right">卡片样式</div>
           <br />
