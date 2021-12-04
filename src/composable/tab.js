@@ -50,12 +50,19 @@ export function useTab() {
         list.value = [{ title , path: active.value, i18n }]
     }
 
+    function closeAll () {
+        const title = route.meta.title;
+        const i18n = route.meta.i18n;
+        list.value = [{ title , path: active.value, i18n }]
+    }
+
     return {
         active,
         list,
         add,
         to,
         close,
+        closeAll,
         closeOther,
         closeCurrent,
     }

@@ -39,7 +39,7 @@ export async function loadLocaleMessages(i18n, locale) {
 }
 
 loadLocaleMessages(i18n, DEFAULT_LANG).then(() => {
-  console.log("init i18n");
+  // to do
 });
 
 export default i18n;

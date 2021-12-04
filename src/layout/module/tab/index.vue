@@ -14,12 +14,12 @@
         :closable="list.length > 1"
       >
         <template #tab>
-            <span class="tab-dot"></span>
-            {{ i18nTitle(pane.i18n) }}
+          <span class="tab-dot"></span>
+          {{ i18nTitle(pane.i18n) }}
         </template>
       </a-tab-pane>
       <template #rightExtra>
-        <a-dropdown>
+        <a-dropdown class="tab-tool">
           <a-button>
             <template v-slot:icon>
               <DownOutlined />
@@ -29,6 +29,7 @@
             <a-menu>
               <a-menu-item @click="closeOther()"> 关 闭 其 他 </a-menu-item>
               <a-menu-item @click="closeCurrent()"> 关 闭 当 前 </a-menu-item>
+              <a-menu-item @click="closeAll()"> 关 闭 全 部 </a-menu-item>
             </a-menu>
           </template>
         </a-dropdown>
@@ -51,7 +52,8 @@ export default {
     const { t } = useI18n();
     const { getters } = useStore();
     const tabType = computed(() => getters.tabType);
-    const { to, list, active, close, closeOther, closeCurrent } = useTab();
+    const { to, list, active, close, closeOther, closeCurrent, closeAll } =
+      useTab();
 
     const onEdit = function (path, action) {
       if (action === "remove") {
@@ -72,6 +74,7 @@ export default {
       active,
       tabType,
       close,
+      closeAll,
       closeOther,
       closeCurrent,
       onEdit,
@@ -86,61 +89,78 @@ export default {
 .pear-tab-1,
 .pear-tab-2,
 .pear-tab-3 {
-  height: 46px;
+  height: 44px;
+  .ant-tabs-nav {
+    height: 44px;
+  }
+  .tab-tool {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
 }
 
-.pear-tab-1 .ant-tabs-tab{
+.pear-tab-1 .ant-tabs-tab {
   height: 34px;
-  margin: 6px 0px 0px 6px !important;
-  background: #fff!important;
-  border-radius: 3px!important;
+  margin: 5px 0px 0px 5px !important;
+  background: #fff !important;
+  border-radius: 3px !important;
+  color: #808695 !important;
+  .tab-dot {
+    width: 8px;
+    height: 8px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+    top: -1px;
+  }
   &.ant-tabs-tab-active {
     .tab-dot {
-      width: 8px;
-      height: 8px;
-      background: turquoise;
-      border-radius: 8px;
-      display: inline-block;
-      margin-right: 5px;
+      background: @primary-color;
+    }
+    .ant-tabs-tab-btn {
+      color: #808695 !important;
     }
     border-bottom: none;
   }
 }
 
-.pear-tab-2 .ant-tabs-tab{
-  height: 34px;
-  margin: 6px 0px 0px 6px !important;
-  background: #fff!important;
-  border-radius: 3px!important;
+.pear-tab-2 .ant-tabs {
+  border-top: white solid 1px !important;
+}
+
+.pear-tab-2 .ant-tabs-nav {
+  background: white;
+  border-bottom: 1px solid whitesmoke;
+  border-top: 1px solid whitesmoke;
+}
+
+.pear-tab-2 .ant-tabs-tab {
+  height: 40px!important;
+  background: #fff !important;
+  border-radius: 0px !important;
+  color: #808695 !important;
+  border: none !important;
+  border-right: 1px solid whitesmoke!important;;
+  .tab-dot {
+    width: 8px;
+    height: 8px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+    top: -1px;
+  }
   &.ant-tabs-tab-active {
     .tab-dot {
-      width: 8px;
-      height: 8px;
-      background: turquoise;
-      border-radius: 8px;
-      display: inline-block;
-      margin-right: 5px;
+      background: @primary-color;
+    }
+    .ant-tabs-tab-btn {
+      color: #808695 !important;
     }
     border-bottom: none;
   }
 }
-
-.pear-tab-3 .ant-tabs-tab{
-  height: 34px;
-  margin: 6px 0px 0px 6px !important;
-  background: #fff!important;
-  border-radius: 3px!important;
-  &.ant-tabs-tab-active {
-    .tab-dot {
-      width: 8px;
-      height: 8px;
-      background: turquoise;
-      border-radius: 8px;
-      display: inline-block;
-      margin-right: 5px;
-    }
-    border-bottom: none;
-  }
-}
-
 </style>

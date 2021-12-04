@@ -90,21 +90,18 @@
           <br />
           <br />
           <a-select
-            label-in-value
-            v-model:value="tabType"
+            :value="tabType"
             style="width: 100px"
             @change="handleChange"
           >
             <a-select-option value="pear-tab-1"> 样式一 </a-select-option>
             <a-select-option value="pear-tab-2"> 样式二 </a-select-option>
-            <a-select-option value="pear-tab-3"> 样式三 </a-select-option>
           </a-select>
           <div class="setting-title-right">卡片样式</div>
           <br />
           <br />
           <a-select
-            label-in-value
-            v-model:value="routerAnimate"
+            :value="routerAnimate"
             style="width: 100px"
             @change="updateRouterAnimate"
           >
@@ -141,8 +138,8 @@ export default {
     const layout = computed(() => getters.layout);
     const color = computed(() => getters.color);
     const colorList = computed(() => getters.colorList);
-    const routerAnimate = { key: computed(() => getters.routerAnimate) };
-    const tabType = { key: computed(() => getters.tabType).value };
+    const routerAnimate =  computed(() => getters.routerAnimate);
+    const tabType = computed(() => getters.tabType);
 
     const updateLayout = function (layout) {
       commit("app/UPDATE_LAYOUT", layout);
@@ -151,7 +148,7 @@ export default {
       commit("app/UPDATE_THEME", theme);
     };
     const updateRouterAnimate = function (animate) {
-      commit("app/UPDATE_ROUTER_ANIMATE", animate.key);
+      commit("app/UPDATE_ROUTER_ANIMATE", animate);
     };
     const toggleKeepAlive = function () {
       commit("app/TOGGLE_KEEP_ALIVE");
@@ -161,7 +158,7 @@ export default {
       commit("app/UPDATE_COLOR", color);
     };
     const handleChange = function (value) {
-      commit("app/UPDATE_TAB_TYPE", value.key);
+      commit("app/UPDATE_TAB_TYPE", value);
     };
 
     return {
