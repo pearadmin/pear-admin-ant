@@ -1,7 +1,7 @@
 <template>
   <div class="icon-picker">
     <a-dropdown>
-      <a-input v-model:value="selected" readonly>
+      <a-input v-model:value="selected" :name="name" readonly>
         <template #addonAfter>
           <p-icon :type="selected"></p-icon>
         </template>
@@ -24,6 +24,10 @@ export default {
     name: 'p-icon-picker',
     props: {
       value: {
+        type: String,
+        require: false
+      },
+      name: {
         type: String,
         require: false
       }
