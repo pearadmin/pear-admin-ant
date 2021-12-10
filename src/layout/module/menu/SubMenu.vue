@@ -5,6 +5,12 @@
       </template>
       {{ t(item.meta.i18n) }}
     </a-menu-item>
+    <a-menu-item :key="item.children[0].path" v-if="item.children && item.children.length === 1">
+      <template #icon>
+        <p-icon :type="item.children[0].meta.icon" />
+      </template>
+      {{ t(item.children[0].meta.i18n) }}
+    </a-menu-item>
     <a-sub-menu :key="item.path" v-else>
       <template #icon>
         <p-icon :type="item.meta.icon" />
