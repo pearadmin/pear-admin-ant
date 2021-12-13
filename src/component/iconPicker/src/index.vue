@@ -32,6 +32,7 @@ export default {
       require: false
     }
   },
+  emits: ['update:modelValue'],
   setup(props, context) {
     const selected = ref(props.modelValue ? props.modelValue : icons[0]);
 
